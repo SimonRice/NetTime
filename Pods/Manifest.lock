@@ -1,0 +1,13 @@
+PODS:
+  - RxSwift (2.2.0)
+  - SwiftDate (3.0.6)
+
+DEPENDENCIES:
+  - RxSwift (~> 2.2)
+  - SwiftDate (~> 3.0)
+
+SPEC CHECKSUMS:
+  RxSwift: b8a749f2204c6c7a5c29b306a9c3bc11d5b87c5b
+  SwiftDate: 520c0e7de224c881fe4213caeca72d482ed3d45f
+
+COCOAPODS: 0.39.0
