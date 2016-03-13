@@ -6,26 +6,42 @@
 //  Copyright © 2016 Simon Rice. All rights reserved.
 //
 
-import WatchKit
+import ClockKit
+import RxSwift
 import Foundation
-
+import WatchKit
 
 class InterfaceController: WKInterfaceController {
+    @IBOutlet var beatsLabel: WKInterfaceLabel!
+    private var subscription: Disposable!
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        
-        // Configure interface objects here.
     }
 
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+
+        let complicationServer = CLKComplicationServer.sharedInstance()
+        for complication in complicationServer.activeComplications {
+            complicationServer.reloadTimelineForComplication(complication)
+        }
+
+        self.subscription = Observable<Int>.interval(0.01, scheduler: MainScheduler.instance)
+            .subscribe { _ in
+                if let label = self.beatsLabel {
+                    label.setText(String(format: "@%06.2f \n Beats", NSDate().beats))
+                }
+        }
     }
 
     override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
         super.didDeactivate()
-    }
+        self.subscription.dispose()
 
+        let complicationServer = CLKComplicationServer.sharedInstance()
+        for complication in complicationServer.activeComplications {
+            complicationServer.reloadTimelineForComplication(complication)
+        }
+    }
 }

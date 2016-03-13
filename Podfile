@@ -7,6 +7,8 @@ target 'NetTime' do
 end
 
 target 'NetTimeWatch Extension' do
+  platform :watchos, '2.0'
+  
   pod 'RxSwift', '~> 2.2'
   pod 'SwiftDate', '~> 3.0'
 end

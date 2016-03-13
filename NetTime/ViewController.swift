@@ -11,12 +11,13 @@ import SwiftDate
 import UIKit
 
 class ViewController: UIViewController {
-
     @IBOutlet weak var beatsLabel: UILabel!
+    private var subscription: Disposable!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let subscription = Observable<Int>.interval(0.01, scheduler: MainScheduler.instance)
+        self.subscription = Observable<Int>.interval(0.01, scheduler: MainScheduler.instance)
             .subscribe { _ in
                 if let label = self.beatsLabel {
                     label.text = String(format: "@%06.2f", NSDate().beats)
@@ -26,9 +27,7 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.subscription.dispose()
     }
-
-
 }
 

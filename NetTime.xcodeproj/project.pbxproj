@@ -28,6 +28,8 @@
 		F4DBE8D81C95562F009B8FBC /* NetTimeWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F4DBE8B61C95562F009B8FBC /* NetTimeWatch.app */; };
 		F4DBE8E11C955640009B8FBC /* NSDate+Beats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8B21C9549C9009B8FBC /* NSDate+Beats.swift */; };
 		F4DBE8E21C955641009B8FBC /* NSDate+Beats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8B21C9549C9009B8FBC /* NSDate+Beats.swift */; };
+		F4DBE8E41C958613009B8FBC /* Int+Beats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8E31C958613009B8FBC /* Int+Beats.swift */; };
+		F4DBE8E51C958617009B8FBC /* Int+Beats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8E31C958613009B8FBC /* Int+Beats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,7 @@
 		F4DBE8D11C95562F009B8FBC /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		F4DBE8D31C95562F009B8FBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4DBE8D51C95562F009B8FBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4DBE8E31C958613009B8FBC /* Int+Beats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int+Beats.swift"; path = "NetTime/Int+Beats.swift"; sourceTree = "<group>"; };
 		F6F86821B37DD0920CE28281 /* Pods-NetTimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetTimeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetTimeTests/Pods-NetTimeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				F4DBE8B21C9549C9009B8FBC /* NSDate+Beats.swift */,
+				F4DBE8E31C958613009B8FBC /* Int+Beats.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -554,6 +558,7 @@
 				F4DBE8941C9547EA009B8FBC /* ViewController.swift in Sources */,
 				F4DBE8921C9547EA009B8FBC /* AppDelegate.swift in Sources */,
 				F4DBE8B31C9549C9009B8FBC /* NSDate+Beats.swift in Sources */,
+				F4DBE8E41C958613009B8FBC /* Int+Beats.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +580,7 @@
 				F4DBE8D21C95562F009B8FBC /* ComplicationController.swift in Sources */,
 				F4DBE8CA1C95562F009B8FBC /* InterfaceController.swift in Sources */,
 				F4DBE8D01C95562F009B8FBC /* GlanceController.swift in Sources */,
+				F4DBE8E51C958617009B8FBC /* Int+Beats.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

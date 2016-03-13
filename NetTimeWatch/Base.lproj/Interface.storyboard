@@ -10,8 +10,17 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="NetTimeWatch" customModuleProvider="target">
                     <items>
-                        <group width="1" alignment="left" id="XGF-we-jbE"/>
+                        <group width="1" height="1" alignment="center" verticalAlignment="center" id="XGF-we-jbE">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="@403.21" textAlignment="center" numberOfLines="2" minimumScaleFactor="0.5" id="2jY-nh-FQH">
+                                    <fontDescription key="font" type="system" pointSize="32"/>
+                                </label>
+                            </items>
+                        </group>
                     </items>
+                    <connections>
+                        <outlet property="beatsLabel" destination="2jY-nh-FQH" id="QZM-tv-0AM"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="235" y="347"/>
@@ -21,16 +30,23 @@
             <objects>
                 <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController" customModule="NetTimeWatch" customModuleProvider="target">
                     <items>
-                        <group alignment="left" id="t8f-Gd-c4y"/>
+                        <group alignment="left" id="t8f-Gd-c4y">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="Net Time Now" id="kYL-zp-Q9C"/>
+                            </items>
+                        </group>
                         <group alignment="left" id="uCw-4Q-Ouw">
                             <items>
-                                <label alignment="center" verticalAlignment="center" text="Label" id="EPL-8Q-pJG">
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                <label alignment="center" verticalAlignment="center" text="@403" id="EPL-8Q-pJG">
+                                    <fontDescription key="font" type="system" pointSize="48"/>
                                 </label>
                             </items>
                         </group>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                    <connections>
+                        <outlet property="beatsLabel" destination="EPL-8Q-pJG" id="fZd-1m-uJV"/>
+                    </connections>
                 </glanceController>
             </objects>
             <point key="canvasLocation" x="235" y="672"/>
