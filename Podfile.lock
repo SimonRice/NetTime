@@ -1,19 +1,25 @@
 PODS:
   - Crashlytics (3.7.0):
     - Fabric (~> 1.6.3)
+  - Eureka (1.4.1)
   - Fabric (1.6.7)
+  - FontAwesome.swift (0.7.1)
   - RxSwift (2.2.0)
   - SwiftDate (3.0.6)
 
 DEPENDENCIES:
   - Crashlytics (~> 3.7)
+  - Eureka (~> 1.4)
   - Fabric (~> 1.6)
+  - FontAwesome.swift (~> 0.7)
   - RxSwift (~> 2.2)
   - SwiftDate (~> 3.0)
 
 SPEC CHECKSUMS:
   Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
+  Eureka: 2f1921d3162491921d2fef3b516bc4ef93a05122
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  FontAwesome.swift: 21ec9db57af8b92d4b4d6ca8208b9ae07031e828
   RxSwift: b8a749f2204c6c7a5c29b306a9c3bc11d5b87c5b
   SwiftDate: 520c0e7de224c881fe4213caeca72d482ed3d45f
 

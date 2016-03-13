@@ -136,7 +136,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Update Scheduling
     
     func getNextRequestedUpdateDateWithHandler(handler: (NSDate?) -> Void) {
-        handler(NSDate(timeIntervalSinceNow: 60))
+        handler(NSDate(timeIntervalSinceNow: 3600))
     }
     
     // MARK: - Placeholder Templates

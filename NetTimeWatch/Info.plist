@@ -31,5 +31,9 @@
 	<string>com.simonrice.NetTime</string>
 	<key>WKWatchKitApp</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Digital-7</string>
+	</array>
 </dict>
 </plist>

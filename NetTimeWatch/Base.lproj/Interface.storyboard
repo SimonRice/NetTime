@@ -4,16 +4,25 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="digital-7.ttf">
+            <string>Digital-7</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="NetTimeWatch" customModuleProvider="target">
                     <items>
-                        <group width="1" height="1" alignment="center" verticalAlignment="center" id="XGF-we-jbE">
+                        <group width="1" height="1" alignment="center" verticalAlignment="center" layout="vertical" id="XGF-we-jbE">
                             <items>
-                                <label alignment="center" verticalAlignment="center" text="@403.21" textAlignment="center" numberOfLines="2" minimumScaleFactor="0.5" id="2jY-nh-FQH">
-                                    <fontDescription key="font" type="system" pointSize="32"/>
+                                <label width="1" alignment="center" verticalAlignment="center" text="@403.21" textAlignment="center" minimumScaleFactor="0.5" id="2jY-nh-FQH">
+                                    <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" name="Digital-7" family="Digital-7" pointSize="40"/>
+                                </label>
+                                <label width="1" alignment="center" verticalAlignment="center" text="beats" textAlignment="center" id="IRB-bi-c3p">
+                                    <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </label>
                             </items>
                         </group>
@@ -35,10 +44,14 @@
                                 <label alignment="center" verticalAlignment="center" text="Net Time Now" id="kYL-zp-Q9C"/>
                             </items>
                         </group>
-                        <group alignment="left" id="uCw-4Q-Ouw">
+                        <group alignment="left" layout="vertical" id="uCw-4Q-Ouw">
                             <items>
-                                <label alignment="center" verticalAlignment="center" text="@403" id="EPL-8Q-pJG">
+                                <label width="1" alignment="center" verticalAlignment="center" text="@403" textAlignment="center" id="EPL-8Q-pJG">
+                                    <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" type="system" pointSize="48"/>
+                                </label>
+                                <label width="1" alignment="center" verticalAlignment="center" text="beats" textAlignment="center" id="o9p-A0-95o">
+                                    <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </label>
                             </items>
                         </group>

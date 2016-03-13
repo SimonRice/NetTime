@@ -11,8 +11,12 @@
 		20F0FD47D3F4D3B76AA0E753 /* Pods_NetTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB6B8BA97DA2A5E4586B1DB /* Pods_NetTime.framework */; };
 		41659B4E1C484B752EE4E7EF /* Pods_NetTimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FAEE2A83092324E86A5278 /* Pods_NetTimeTests.framework */; };
 		61709CD7899E330F4C190D78 /* Pods_TodayExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1338121F541CA52BAD96F6FF /* Pods_TodayExtension.framework */; };
+		F425CAE01C95FCE3000430F8 /* digital-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4DBE9061C95EB59009B8FBC /* digital-7.ttf */; };
+		F425CAE11C95FCE4000430F8 /* digital-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4DBE9061C95EB59009B8FBC /* digital-7.ttf */; };
+		F425CAE31C95FE9A000430F8 /* FontAwesomeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */; };
+		F4842F251C9609AA00AB1F38 /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4842F241C9609AA00AB1F38 /* CalculateViewController.swift */; };
 		F4DBE8921C9547EA009B8FBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8911C9547EA009B8FBC /* AppDelegate.swift */; };
-		F4DBE8941C9547EA009B8FBC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8931C9547EA009B8FBC /* ViewController.swift */; };
+		F4DBE8941C9547EA009B8FBC /* NowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8931C9547EA009B8FBC /* NowViewController.swift */; };
 		F4DBE8971C9547EA009B8FBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DBE8951C9547EA009B8FBC /* Main.storyboard */; };
 		F4DBE8991C9547EA009B8FBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DBE8981C9547EA009B8FBC /* Assets.xcassets */; };
 		F4DBE89C1C9547EA009B8FBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DBE89A1C9547EA009B8FBC /* LaunchScreen.storyboard */; };
@@ -36,6 +40,7 @@
 		F4DBE8F21C95BC58009B8FBC /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DBE8F01C95BC58009B8FBC /* MainInterface.storyboard */; };
 		F4DBE8F61C95BC58009B8FBC /* TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F4DBE8EA1C95BC58009B8FBC /* TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F4DBE8FB1C95D280009B8FBC /* NSDate+Beats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8B21C9549C9009B8FBC /* NSDate+Beats.swift */; };
+		F4DBE9071C95EB59009B8FBC /* digital-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4DBE9061C95EB59009B8FBC /* digital-7.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,9 +122,11 @@
 		98BFD209EB423280B3B0CA9E /* Pods-NetTimeWatch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetTimeWatch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetTimeWatch Extension/Pods-NetTimeWatch Extension.release.xcconfig"; sourceTree = "<group>"; };
 		BA1E100912FA26E850CF3F64 /* Pods_NetTimeWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetTimeWatch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB6B8BA97DA2A5E4586B1DB /* Pods_NetTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeTabBarItem.swift; sourceTree = "<group>"; };
+		F4842F241C9609AA00AB1F38 /* CalculateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
 		F4DBE88E1C9547EA009B8FBC /* NetTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DBE8911C9547EA009B8FBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F4DBE8931C9547EA009B8FBC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F4DBE8931C9547EA009B8FBC /* NowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowViewController.swift; sourceTree = "<group>"; };
 		F4DBE8961C9547EA009B8FBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F4DBE8981C9547EA009B8FBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4DBE89B1C9547EA009B8FBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -145,6 +152,8 @@
 		F4DBE8EE1C95BC58009B8FBC /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		F4DBE8F11C95BC58009B8FBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		F4DBE8F31C95BC58009B8FBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4DBE9011C95D886009B8FBC /* NetTime-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetTime-Bridging-Header.h"; sourceTree = "<group>"; };
+		F4DBE9061C95EB59009B8FBC /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "digital-7.ttf"; path = "Assets/Fonts/digital-7.ttf"; sourceTree = "<group>"; };
 		F6F86821B37DD0920CE28281 /* Pods-NetTimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetTimeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetTimeTests/Pods-NetTimeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -243,11 +252,14 @@
 			isa = PBXGroup;
 			children = (
 				F4DBE8911C9547EA009B8FBC /* AppDelegate.swift */,
-				F4DBE8931C9547EA009B8FBC /* ViewController.swift */,
+				F4842F241C9609AA00AB1F38 /* CalculateViewController.swift */,
+				F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */,
+				F4DBE8931C9547EA009B8FBC /* NowViewController.swift */,
 				F4DBE8951C9547EA009B8FBC /* Main.storyboard */,
 				F4DBE8981C9547EA009B8FBC /* Assets.xcassets */,
 				F4DBE89A1C9547EA009B8FBC /* LaunchScreen.storyboard */,
 				F4DBE89D1C9547EA009B8FBC /* Info.plist */,
+				F4DBE9011C95D886009B8FBC /* NetTime-Bridging-Header.h */,
 			);
 			path = NetTime;
 			sourceTree = "<group>";
@@ -266,6 +278,7 @@
 			children = (
 				F4DBE8B21C9549C9009B8FBC /* NSDate+Beats.swift */,
 				F4DBE8E31C958613009B8FBC /* Int+Beats.swift */,
+				F4DBE9061C95EB59009B8FBC /* digital-7.ttf */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -318,6 +331,7 @@
 				2C3721DBE7382BB2A4C2CC64 /* Copy Pods Resources */,
 				F4DBE8E01C95562F009B8FBC /* Embed Watch Content */,
 				F4DBE8FA1C95BC58009B8FBC /* Embed App Extensions */,
+				F4DBE8FD1C95D633009B8FBC /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -466,6 +480,7 @@
 				F4DBE89C1C9547EA009B8FBC /* LaunchScreen.storyboard in Resources */,
 				F4DBE8991C9547EA009B8FBC /* Assets.xcassets in Resources */,
 				F4DBE8971C9547EA009B8FBC /* Main.storyboard in Resources */,
+				F4DBE9071C95EB59009B8FBC /* digital-7.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +496,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4DBE8BC1C95562F009B8FBC /* Assets.xcassets in Resources */,
+				F425CAE01C95FCE3000430F8 /* digital-7.ttf in Resources */,
 				F4DBE8BA1C95562F009B8FBC /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4DBE8D41C95562F009B8FBC /* Assets.xcassets in Resources */,
+				F425CAE11C95FCE4000430F8 /* digital-7.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +701,20 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		F4DBE8FD1C95D633009B8FBC /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Crashlytics;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 5f4aee798952d318e32c1d9e93ec424d70f634fe f9e249e1267d0c951408a34232552886b4e1fb9df2072dc7dc90ae36e3386514";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -691,10 +722,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4DBE8941C9547EA009B8FBC /* ViewController.swift in Sources */,
+				F4DBE8941C9547EA009B8FBC /* NowViewController.swift in Sources */,
+				F425CAE31C95FE9A000430F8 /* FontAwesomeTabBarItem.swift in Sources */,
 				F4DBE8921C9547EA009B8FBC /* AppDelegate.swift in Sources */,
 				F4DBE8B31C9549C9009B8FBC /* NSDate+Beats.swift in Sources */,
 				F4DBE8E41C958613009B8FBC /* Int+Beats.swift in Sources */,
+				F4842F251C9609AA00AB1F38 /* CalculateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,7 +840,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -829,6 +862,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "$(sigh_com.simonrice.NetTime_development)";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -878,11 +912,14 @@
 			baseConfigurationReference = 00B21E3F2493C3211356115F /* Pods-NetTime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = NetTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NetTime/NetTime-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -891,11 +928,13 @@
 			baseConfigurationReference = 63184C54D1FFC7047281C01D /* Pods-NetTime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = NetTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NetTime/NetTime-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -934,6 +973,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "$(sigh_com.simonrice.NetTime.watchkitapp.watchkitextension_development)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -966,6 +1006,7 @@
 				INFOPLIST_FILE = NetTimeWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "$(sigh_com.simonrice.NetTime.watchkitapp_development)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -997,6 +1038,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "$(sigh_com.simonrice.NetTime.TodayExtension_development)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
