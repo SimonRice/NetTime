@@ -7,7 +7,6 @@
 //
 
 import RxSwift
-import SwiftDate
 import UIKit
 
 class ViewController: UIViewController {
@@ -16,7 +15,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         self.subscription = Observable<Int>.interval(0.01, scheduler: MainScheduler.instance)
             .subscribe { _ in
                 if let label = self.beatsLabel {

@@ -1,0 +1,6 @@
+framework module RxSwift {
+  umbrella header "Pods-TodayExtension-RxSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

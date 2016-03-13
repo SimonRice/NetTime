@@ -27,9 +27,10 @@ platform :ios do
 
   desc 'Set up development environment'
   lane :setup do
-    match(type: 'development', app_identifier: 'com.simonrice.NetTime')
-    match(type: 'development', app_identifier: 'com.simonrice.NetTime.watchkitapp')
-    match(type: 'development', app_identifier: 'com.simonrice.NetTime.watchkitapp.watchkitextension')
+    match(force_for_new_devices: true, type: 'development', app_identifier: 'com.simonrice.NetTime')
+    match(force_for_new_devices: true, type: 'development', app_identifier: 'com.simonrice.NetTime.watchkitapp')
+    match(force_for_new_devices: true, type: 'development', app_identifier: 'com.simonrice.NetTime.TodayExtension')
+    match(force_for_new_devices: true, type: 'development', app_identifier: 'com.simonrice.NetTime.watchkitapp.watchkitextension')
   end
 
   desc "Runs all the tests"

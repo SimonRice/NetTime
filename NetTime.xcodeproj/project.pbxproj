@@ -10,6 +10,7 @@
 		1754EF45931159C31DCD79C0 /* Pods_NetTimeWatch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1E100912FA26E850CF3F64 /* Pods_NetTimeWatch_Extension.framework */; };
 		20F0FD47D3F4D3B76AA0E753 /* Pods_NetTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB6B8BA97DA2A5E4586B1DB /* Pods_NetTime.framework */; };
 		41659B4E1C484B752EE4E7EF /* Pods_NetTimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FAEE2A83092324E86A5278 /* Pods_NetTimeTests.framework */; };
+		61709CD7899E330F4C190D78 /* Pods_TodayExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1338121F541CA52BAD96F6FF /* Pods_TodayExtension.framework */; };
 		F4DBE8921C9547EA009B8FBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8911C9547EA009B8FBC /* AppDelegate.swift */; };
 		F4DBE8941C9547EA009B8FBC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8931C9547EA009B8FBC /* ViewController.swift */; };
 		F4DBE8971C9547EA009B8FBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DBE8951C9547EA009B8FBC /* Main.storyboard */; };
@@ -30,6 +31,11 @@
 		F4DBE8E21C955641009B8FBC /* NSDate+Beats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8B21C9549C9009B8FBC /* NSDate+Beats.swift */; };
 		F4DBE8E41C958613009B8FBC /* Int+Beats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8E31C958613009B8FBC /* Int+Beats.swift */; };
 		F4DBE8E51C958617009B8FBC /* Int+Beats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8E31C958613009B8FBC /* Int+Beats.swift */; };
+		F4DBE8EC1C95BC58009B8FBC /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4DBE8EB1C95BC58009B8FBC /* NotificationCenter.framework */; };
+		F4DBE8EF1C95BC58009B8FBC /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8EE1C95BC58009B8FBC /* TodayViewController.swift */; };
+		F4DBE8F21C95BC58009B8FBC /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DBE8F01C95BC58009B8FBC /* MainInterface.storyboard */; };
+		F4DBE8F61C95BC58009B8FBC /* TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F4DBE8EA1C95BC58009B8FBC /* TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F4DBE8FB1C95D280009B8FBC /* NSDate+Beats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8B21C9549C9009B8FBC /* NSDate+Beats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = F4DBE8B51C95562F009B8FBC;
 			remoteInfo = NetTimeWatch;
+		};
+		F4DBE8F41C95BC58009B8FBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4DBE8861C9547EA009B8FBC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4DBE8E91C95BC58009B8FBC;
+			remoteInfo = TodayExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -79,11 +92,25 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F4DBE8FA1C95BC58009B8FBC /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F4DBE8F61C95BC58009B8FBC /* TodayExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00B21E3F2493C3211356115F /* Pods-NetTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetTime/Pods-NetTime.debug.xcconfig"; sourceTree = "<group>"; };
 		0A12EF285058AA4FCCD48930 /* Pods-NetTimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetTimeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetTimeTests/Pods-NetTimeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1338121F541CA52BAD96F6FF /* Pods_TodayExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		19D1E18DB9362B0FBDAC09B8 /* Pods-TodayExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayExtension/Pods-TodayExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		1DD5264C4F8222C450742FB6 /* Pods-TodayExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayExtension/Pods-TodayExtension.release.xcconfig"; sourceTree = "<group>"; };
 		24B983F892AF3C92A6DCC93C /* Pods-NetTimeWatch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetTimeWatch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetTimeWatch Extension/Pods-NetTimeWatch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		58FAEE2A83092324E86A5278 /* Pods_NetTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetTimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63184C54D1FFC7047281C01D /* Pods-NetTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetTime/Pods-NetTime.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +140,11 @@
 		F4DBE8D31C95562F009B8FBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4DBE8D51C95562F009B8FBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4DBE8E31C958613009B8FBC /* Int+Beats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int+Beats.swift"; path = "NetTime/Int+Beats.swift"; sourceTree = "<group>"; };
+		F4DBE8EA1C95BC58009B8FBC /* TodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4DBE8EB1C95BC58009B8FBC /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		F4DBE8EE1C95BC58009B8FBC /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		F4DBE8F11C95BC58009B8FBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		F4DBE8F31C95BC58009B8FBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6F86821B37DD0920CE28281 /* Pods-NetTimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetTimeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetTimeTests/Pods-NetTimeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +173,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F4DBE8E71C95BC58009B8FBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4DBE8EC1C95BC58009B8FBC /* NotificationCenter.framework in Frameworks */,
+				61709CD7899E330F4C190D78 /* Pods_TodayExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -153,6 +194,8 @@
 				F6F86821B37DD0920CE28281 /* Pods-NetTimeTests.release.xcconfig */,
 				24B983F892AF3C92A6DCC93C /* Pods-NetTimeWatch Extension.debug.xcconfig */,
 				98BFD209EB423280B3B0CA9E /* Pods-NetTimeWatch Extension.release.xcconfig */,
+				19D1E18DB9362B0FBDAC09B8 /* Pods-TodayExtension.debug.xcconfig */,
+				1DD5264C4F8222C450742FB6 /* Pods-TodayExtension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -163,6 +206,8 @@
 				CEB6B8BA97DA2A5E4586B1DB /* Pods_NetTime.framework */,
 				58FAEE2A83092324E86A5278 /* Pods_NetTimeTests.framework */,
 				BA1E100912FA26E850CF3F64 /* Pods_NetTimeWatch_Extension.framework */,
+				F4DBE8EB1C95BC58009B8FBC /* NotificationCenter.framework */,
+				1338121F541CA52BAD96F6FF /* Pods_TodayExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -175,6 +220,7 @@
 				F4DBE8A51C9547EA009B8FBC /* NetTimeTests */,
 				F4DBE8B71C95562F009B8FBC /* NetTimeWatch */,
 				F4DBE8C61C95562F009B8FBC /* NetTimeWatch Extension */,
+				F4DBE8ED1C95BC58009B8FBC /* TodayExtension */,
 				F4DBE88F1C9547EA009B8FBC /* Products */,
 				6DBD7250B629A70703AE8E22 /* Pods */,
 				E6C04CBD0CC4D170AD23B759 /* Frameworks */,
@@ -188,6 +234,7 @@
 				F4DBE8A21C9547EA009B8FBC /* NetTimeTests.xctest */,
 				F4DBE8B61C95562F009B8FBC /* NetTimeWatch.app */,
 				F4DBE8C21C95562F009B8FBC /* NetTimeWatch Extension.appex */,
+				F4DBE8EA1C95BC58009B8FBC /* TodayExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,6 +293,16 @@
 			path = "NetTimeWatch Extension";
 			sourceTree = "<group>";
 		};
+		F4DBE8ED1C95BC58009B8FBC /* TodayExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F4DBE8EE1C95BC58009B8FBC /* TodayViewController.swift */,
+				F4DBE8F01C95BC58009B8FBC /* MainInterface.storyboard */,
+				F4DBE8F31C95BC58009B8FBC /* Info.plist */,
+			);
+			path = TodayExtension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -260,11 +317,13 @@
 				59152D17C4723AACA0E4106E /* Embed Pods Frameworks */,
 				2C3721DBE7382BB2A4C2CC64 /* Copy Pods Resources */,
 				F4DBE8E01C95562F009B8FBC /* Embed Watch Content */,
+				F4DBE8FA1C95BC58009B8FBC /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				F4DBE8D71C95562F009B8FBC /* PBXTargetDependency */,
+				F4DBE8F51C95BC58009B8FBC /* PBXTargetDependency */,
 			);
 			name = NetTime;
 			productName = NetTime;
@@ -329,6 +388,26 @@
 			productReference = F4DBE8C21C95562F009B8FBC /* NetTimeWatch Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
+		F4DBE8E91C95BC58009B8FBC /* TodayExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4DBE8F91C95BC58009B8FBC /* Build configuration list for PBXNativeTarget "TodayExtension" */;
+			buildPhases = (
+				C02A659F1613E3427AF3A593 /* Check Pods Manifest.lock */,
+				F4DBE8E61C95BC58009B8FBC /* Sources */,
+				F4DBE8E71C95BC58009B8FBC /* Frameworks */,
+				F4DBE8E81C95BC58009B8FBC /* Resources */,
+				73A758F677253924D499C3C7 /* Embed Pods Frameworks */,
+				5A8B4E17FD07DFD23EFF039B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TodayExtension;
+			productName = TodayExtension;
+			productReference = F4DBE8EA1C95BC58009B8FBC /* TodayExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -352,6 +431,9 @@
 					F4DBE8C11C95562F009B8FBC = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
+					F4DBE8E91C95BC58009B8FBC = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
 				};
 			};
 			buildConfigurationList = F4DBE8891C9547EA009B8FBC /* Build configuration list for PBXProject "NetTime" */;
@@ -371,6 +453,7 @@
 				F4DBE8A11C9547EA009B8FBC /* NetTimeTests */,
 				F4DBE8B51C95562F009B8FBC /* NetTimeWatch */,
 				F4DBE8C11C95562F009B8FBC /* NetTimeWatch Extension */,
+				F4DBE8E91C95BC58009B8FBC /* TodayExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -407,6 +490,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4DBE8D41C95562F009B8FBC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4DBE8E81C95BC58009B8FBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4DBE8F21C95BC58009B8FBC /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +564,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetTime/Pods-NetTime-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5A8B4E17FD07DFD23EFF039B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayExtension/Pods-TodayExtension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73A758F677253924D499C3C7 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayExtension/Pods-TodayExtension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7A03D5A9766123D01A60B579 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -533,6 +654,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetTimeTests/Pods-NetTimeTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C02A659F1613E3427AF3A593 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		E90BD9E837385F244ED30034 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -584,6 +720,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F4DBE8E61C95BC58009B8FBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4DBE8FB1C95D280009B8FBC /* NSDate+Beats.swift in Sources */,
+				F4DBE8EF1C95BC58009B8FBC /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -601,6 +746,11 @@
 			isa = PBXTargetDependency;
 			target = F4DBE8B51C95562F009B8FBC /* NetTimeWatch */;
 			targetProxy = F4DBE8D61C95562F009B8FBC /* PBXContainerItemProxy */;
+		};
+		F4DBE8F51C95BC58009B8FBC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4DBE8E91C95BC58009B8FBC /* TodayExtension */;
+			targetProxy = F4DBE8F41C95BC58009B8FBC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -627,6 +777,14 @@
 				F4DBE8B91C95562F009B8FBC /* Base */,
 			);
 			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		F4DBE8F01C95BC58009B8FBC /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4DBE8F11C95BC58009B8FBC /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -720,6 +878,7 @@
 			baseConfigurationReference = 00B21E3F2493C3211356115F /* Pods-NetTime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = NetTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime;
@@ -732,6 +891,7 @@
 			baseConfigurationReference = 63184C54D1FFC7047281C01D /* Pods-NetTime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = NetTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime;
@@ -829,6 +989,30 @@
 			};
 			name = Release;
 		};
+		F4DBE8F71C95BC58009B8FBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19D1E18DB9362B0FBDAC09B8 /* Pods-TodayExtension.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = TodayExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime.TodayExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F4DBE8F81C95BC58009B8FBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DD5264C4F8222C450742FB6 /* Pods-TodayExtension.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = TodayExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime.TodayExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -873,6 +1057,15 @@
 			buildConfigurations = (
 				F4DBE8DE1C95562F009B8FBC /* Debug */,
 				F4DBE8DF1C95562F009B8FBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4DBE8F91C95BC58009B8FBC /* Build configuration list for PBXNativeTarget "TodayExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4DBE8F71C95BC58009B8FBC /* Debug */,
+				F4DBE8F81C95BC58009B8FBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
