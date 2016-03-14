@@ -44,7 +44,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Digital-7</string>
+		<string>Digital-7Mono</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

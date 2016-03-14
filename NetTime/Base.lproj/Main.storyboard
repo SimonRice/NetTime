@@ -5,8 +5,8 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="digital-7.ttf">
-            <string>Digital-7</string>
+        <mutableArray key="digital-7 (mono).ttf">
+            <string>Digital-7Mono</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -24,7 +24,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@403.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xhb-vV-NKU">
                                 <rect key="frame" x="8" y="242" width="584" height="117"/>
-                                <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="128"/>
+                                <fontDescription key="fontDescription" name="Digital-7Mono" family="Digital-7" pointSize="128"/>
                                 <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>

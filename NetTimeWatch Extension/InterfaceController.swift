@@ -27,10 +27,10 @@ class InterfaceController: WKInterfaceController {
             complicationServer.reloadTimelineForComplication(complication)
         }
 
-        self.subscription = Observable<Int>.interval(0.01, scheduler: MainScheduler.instance)
+        self.subscription = Observable<Int>.interval(0.1, scheduler: MainScheduler.instance)
             .subscribe { _ in
                 if let label = self.beatsLabel {
-                    label.setText(String(format: "@%06.2f \n Beats", NSDate().beats))
+                    label.setText(String(format: "@%05.1f \n Beats", NSDate().beats))
                 }
         }
     }

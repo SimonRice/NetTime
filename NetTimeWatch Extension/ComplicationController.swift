@@ -64,11 +64,11 @@ extension CLKComplication {
 class ComplicationController: NSObject, CLKComplicationDataSource {
 
     private var earliestDate: NSDate {
-        return NSDate() - 50.beats
+        return NSDate() - 100.beats
     }
 
     private var latestDate: NSDate {
-        return NSDate() + 50.beats
+        return NSDate() + 100.beats
     }
 
     private func getTimelineEntriesForComplication(complication: CLKComplication, fromDate: NSDate, toDate: NSDate, limit: Int) -> [CLKComplicationTimelineEntry] {

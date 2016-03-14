@@ -5,8 +5,8 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="digital-7.ttf">
-            <string>Digital-7</string>
+        <mutableArray key="digital-7 (mono).ttf">
+            <string>Digital-7Mono</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -17,9 +17,9 @@
                     <items>
                         <group width="1" height="1" alignment="center" verticalAlignment="center" layout="vertical" id="XGF-we-jbE">
                             <items>
-                                <label width="1" alignment="center" verticalAlignment="center" text="@403.21" textAlignment="center" minimumScaleFactor="0.5" id="2jY-nh-FQH">
+                                <label width="1" alignment="center" verticalAlignment="center" text="@403.2" textAlignment="center" minimumScaleFactor="0.5" id="2jY-nh-FQH">
                                     <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" name="Digital-7" family="Digital-7" pointSize="40"/>
+                                    <fontDescription key="font" name="Digital-7Mono" family="Digital-7" pointSize="40"/>
                                 </label>
                                 <label width="1" alignment="center" verticalAlignment="center" text="beats" textAlignment="center" id="IRB-bi-c3p">
                                     <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
