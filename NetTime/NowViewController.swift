@@ -28,4 +28,3 @@ class NowViewController: UIViewController {
         self.subscription.dispose()
     }
 }
-

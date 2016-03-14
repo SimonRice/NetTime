@@ -16,16 +16,18 @@ class CalculateViewController: FormViewController {
         }
     }
 
-    private var timezoneName: TimeZoneName = TimeZoneName(rawValue: NSTimeZone.localTimeZone().name)! {
-        didSet {
-            self.setBeatsRow()
-        }
+    private var timezoneName: TimeZoneName = TimeZoneName(
+        rawValue: NSTimeZone.localTimeZone().name)! {
+            didSet {
+                self.setBeatsRow()
+            }
     }
 
     private func setBeatsRow() {
         if let beatsRow = self.form.rowByTag("beats") as? LabelRow {
             let region = Region(timeZoneName: self.timezoneName)
-            let date = NSDate().startOf(.Day, inRegion: region) + self.date.hour.hours + self.date.minute.minutes
+            let date = NSDate().startOf(.Day, inRegion: region)
+                + self.date.hour.hours + self.date.minute.minutes
             beatsRow.title = self.formatBeats(date.beats)
             beatsRow.cell.textLabel!.textAlignment = .Center
             beatsRow.updateCell()
@@ -62,9 +64,9 @@ class CalculateViewController: FormViewController {
         }
 
         form +++= LabelRow("beats") {
-                if let label = $0.cell.textLabel {
-                    label.font = UIFont.boldSystemFontOfSize(label.font.pointSize)
-                }
+            if let label = $0.cell.textLabel {
+                label.font = UIFont.boldSystemFontOfSize(label.font.pointSize)
+            }
         }
 
         self.setBeatsRow()

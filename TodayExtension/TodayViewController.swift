@@ -23,16 +23,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 }
         }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         self.subscription.dispose()
     }
-    
+
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
         completionHandler(NCUpdateResult.NewData)
     }
 
+    // swiftlint:disable:next line_length
     func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
         return UIEdgeInsetsZero
     }
