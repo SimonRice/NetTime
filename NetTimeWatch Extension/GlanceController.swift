@@ -6,15 +6,20 @@
 //  Copyright © 2016 Simon Rice. All rights reserved.
 //
 
-import WatchKit
+import ClockKit
 import Foundation
-
+import WatchKit
 
 class GlanceController: WKInterfaceController {
     @IBOutlet var beatsLabel: WKInterfaceLabel!
 
     override func willActivate() {
         super.willActivate()
+
+        let complicationServer = CLKComplicationServer.sharedInstance()
+        for complication in complicationServer.activeComplications {
+            complicationServer.reloadTimelineForComplication(complication)
+        }
 
         if let label = self.beatsLabel {
             label.setText(String(format: "@%03d \n Beats", Int(NSDate().beats)))

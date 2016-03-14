@@ -69,11 +69,11 @@ extension CLKComplication {
 class ComplicationController: NSObject, CLKComplicationDataSource {
 
     private var earliestDate: NSDate {
-        return NSDate() - 100.beats
+        return NSDate() - 60.beats
     }
 
     private var latestDate: NSDate {
-        return NSDate() + 100.beats
+        return NSDate() + 60.beats
     }
 
     // swiftlint:disable:next line_length
@@ -138,7 +138,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         // Call the handler with the timeline entries prior to the given date
 
         let entries = self.getTimelineEntriesForComplication(complication,
-            fromDate: self.earliestDate, toDate: date, limit: limit)
+            fromDate: self.earliestDate, toDate: date - 1.seconds, limit: limit)
         handler(entries)
     }
 
@@ -154,7 +154,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Update Scheduling
 
     func getNextRequestedUpdateDateWithHandler(handler: (NSDate?) -> Void) {
-        handler(NSDate(timeIntervalSinceNow: 3600))
+        handler(NSDate(timeIntervalSinceNow: 2700))
     }
 
     // MARK: - Placeholder Templates
