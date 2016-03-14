@@ -38,9 +38,9 @@
 		F4DBE8F21C95BC58009B8FBC /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DBE8F01C95BC58009B8FBC /* MainInterface.storyboard */; };
 		F4DBE8F61C95BC58009B8FBC /* TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F4DBE8EA1C95BC58009B8FBC /* TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F4DBE8FB1C95D280009B8FBC /* NSDate+Beats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8B21C9549C9009B8FBC /* NSDate+Beats.swift */; };
-		F4F51BFF1C97327F003B2853 /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4F51BFE1C97327F003B2853 /* digital-7 (mono).ttf */; };
-		F4F51C001C97327F003B2853 /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4F51BFE1C97327F003B2853 /* digital-7 (mono).ttf */; };
-		F4F51C011C97327F003B2853 /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4F51BFE1C97327F003B2853 /* digital-7 (mono).ttf */; };
+		F4F51C031C97508F003B2853 /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4F51C021C97508F003B2853 /* digital-7 (mono).ttf */; };
+		F4F51C041C97508F003B2853 /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4F51C021C97508F003B2853 /* digital-7 (mono).ttf */; };
+		F4F51C051C97508F003B2853 /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4F51C021C97508F003B2853 /* digital-7 (mono).ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,7 +153,7 @@
 		F4DBE8F11C95BC58009B8FBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		F4DBE8F31C95BC58009B8FBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4DBE9011C95D886009B8FBC /* NetTime-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetTime-Bridging-Header.h"; sourceTree = "<group>"; };
-		F4F51BFE1C97327F003B2853 /* digital-7 (mono).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7 (mono).ttf"; sourceTree = "<group>"; };
+		F4F51C021C97508F003B2853 /* digital-7 (mono).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "digital-7 (mono).ttf"; path = "Assets/Fonts/digital-7 (mono).ttf"; sourceTree = "<group>"; };
 		F6F86821B37DD0920CE28281 /* Pods-NetTimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetTimeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetTimeTests/Pods-NetTimeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -278,7 +278,7 @@
 			children = (
 				F4DBE8B21C9549C9009B8FBC /* NSDate+Beats.swift */,
 				F4DBE8E31C958613009B8FBC /* Int+Beats.swift */,
-				F4F51BFE1C97327F003B2853 /* digital-7 (mono).ttf */,
+				F4F51C021C97508F003B2853 /* digital-7 (mono).ttf */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -477,7 +477,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4F51BFF1C97327F003B2853 /* digital-7 (mono).ttf in Resources */,
+				F4F51C031C97508F003B2853 /* digital-7 (mono).ttf in Resources */,
 				F4DBE89C1C9547EA009B8FBC /* LaunchScreen.storyboard in Resources */,
 				F4DBE8991C9547EA009B8FBC /* Assets.xcassets in Resources */,
 				F4DBE8971C9547EA009B8FBC /* Main.storyboard in Resources */,
@@ -495,7 +495,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4F51C001C97327F003B2853 /* digital-7 (mono).ttf in Resources */,
+				F4F51C041C97508F003B2853 /* digital-7 (mono).ttf in Resources */,
 				F4DBE8BC1C95562F009B8FBC /* Assets.xcassets in Resources */,
 				F4DBE8BA1C95562F009B8FBC /* Interface.storyboard in Resources */,
 			);
@@ -505,7 +505,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4F51C011C97327F003B2853 /* digital-7 (mono).ttf in Resources */,
+				F4F51C051C97508F003B2853 /* digital-7 (mono).ttf in Resources */,
 				F4DBE8D41C95562F009B8FBC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
