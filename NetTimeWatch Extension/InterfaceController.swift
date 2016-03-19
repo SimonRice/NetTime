@@ -19,13 +19,15 @@ class InterfaceController: WKInterfaceController {
         super.awakeWithContext(context)
     }
 
+    private func refreshComplications() {
+        let complicationServer = CLKComplicationServer.sharedInstance()
+        complicationServer.activeComplications
+            .forEach({ complicationServer.reloadTimelineForComplication($0) })
+    }
+
     override func willActivate() {
         super.willActivate()
-
-        let complicationServer = CLKComplicationServer.sharedInstance()
-        for complication in complicationServer.activeComplications {
-            complicationServer.reloadTimelineForComplication(complication)
-        }
+        self.refreshComplications()
 
         self.subscription = Observable<Int>.interval(0.1, scheduler: MainScheduler.instance)
             .subscribe { _ in
@@ -38,10 +40,6 @@ class InterfaceController: WKInterfaceController {
     override func didDeactivate() {
         super.didDeactivate()
         self.subscription.dispose()
-
-        let complicationServer = CLKComplicationServer.sharedInstance()
-        for complication in complicationServer.activeComplications {
-            complicationServer.reloadTimelineForComplication(complication)
-        }
+        self.refreshComplications()
     }
 }

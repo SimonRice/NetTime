@@ -69,33 +69,31 @@ extension CLKComplication {
 class ComplicationController: NSObject, CLKComplicationDataSource {
 
     private var earliestDate: NSDate {
-        return NSDate() - 60.beats
+        return NSDate() - 100.beats
     }
 
     private var latestDate: NSDate {
-        return NSDate() + 60.beats
+        return NSDate() + 100.beats
     }
 
     // swiftlint:disable:next line_length
     private func getTimelineEntriesForComplication(complication: CLKComplication, fromDate: NSDate, toDate: NSDate, limit: Int) -> [CLKComplicationTimelineEntry] {
 
-        let fromDateSeconds = fromDate.timeIntervalSinceReferenceDate
-        let toDateSeconds = toDate.timeIntervalSinceReferenceDate
-        let step = (toDateSeconds - fromDateSeconds) / Double(limit)
+        let startBeats = fromDate.nearestBeat + 1
+        var endBeats = toDate.nearestBeat
+        if endBeats < startBeats {
+            endBeats += 1000
+        }
+
+        let bmtz = Region(timeZoneName: TimeZoneName(rawValue: "Europe/Zurich"))
+        let midnight = fromDate.startOf(.Day, inRegion: bmtz)
         var entries: [CLKComplicationTimelineEntry] = []
-        var seconds = fromDateSeconds
+        let comp = complication
 
-        while seconds < toDateSeconds {
-            let comp = complication
-
-            // swiftlint:disable:next line_length
-            if let entry = comp.timelineEntryForDate(NSDate(timeIntervalSinceReferenceDate: seconds))
-                where entries.count < 100 {
-
-                    entries += [entry]
+        for beat in startBeats...endBeats where entries.count < limit {
+            if let entry = comp.timelineEntryForDate(midnight + beat.beats) {
+                entries += [entry]
             }
-
-            seconds += step
         }
 
         return entries
@@ -154,7 +152,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Update Scheduling
 
     func getNextRequestedUpdateDateWithHandler(handler: (NSDate?) -> Void) {
-        handler(NSDate(timeIntervalSinceNow: 2700))
+        handler(NSDate() + 2.hours)
     }
 
     // MARK: - Placeholder Templates

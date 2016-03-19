@@ -11,7 +11,9 @@ import Foundation
 extension Int {
     var beats: NSDateComponents {
         let dateComponents = NSDateComponents()
-        dateComponents.second = Int(Float(self) * 86.4) // Approximated
+        let totalBeats: Float = Float(self) * 86.4
+        dateComponents.second = Int(floor(totalBeats))
+        dateComponents.nanosecond = Int((totalBeats - floor(totalBeats)) * 10.0) * 100 * 1000 * 1000
         return dateComponents
     }
 }

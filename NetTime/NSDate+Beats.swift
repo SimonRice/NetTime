@@ -18,4 +18,8 @@ extension NSDate {
         let seconds = bmtDate.absoluteTime.timeIntervalSinceDate(midnight.absoluteTime)
         return Float((seconds / 86400.0) * 1000.0)
     }
+
+    var nearestBeat: Int {
+        return Int(floor(self.beats))
+    }
 }
