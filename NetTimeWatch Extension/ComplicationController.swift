@@ -198,4 +198,10 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
 
         handler(template)
     }
+
+    func requestedUpdateDidBegin() {
+        let complicationServer = CLKComplicationServer.sharedInstance()
+        complicationServer.activeComplications
+            .forEach({ complicationServer.reloadTimelineForComplication($0) })
+    }
 }

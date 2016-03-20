@@ -435,6 +435,7 @@
 				TargetAttributes = {
 					F4DBE88D1C9547EA009B8FBC = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = DDY5VAFADG;
 					};
 					F4DBE8A11C9547EA009B8FBC = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -442,12 +443,15 @@
 					};
 					F4DBE8B51C95562F009B8FBC = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = DDY5VAFADG;
 					};
 					F4DBE8C11C95562F009B8FBC = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = DDY5VAFADG;
 					};
 					F4DBE8E91C95BC58009B8FBC = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = DDY5VAFADG;
 					};
 				};
 			};
@@ -928,6 +932,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = NetTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -944,6 +949,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = NetTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -984,6 +990,7 @@
 			baseConfigurationReference = 24B983F892AF3C92A6DCC93C /* Pods-NetTimeWatch Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "NetTimeWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime.watchkitapp.watchkitextension;
@@ -1001,6 +1008,7 @@
 			baseConfigurationReference = 98BFD209EB423280B3B0CA9E /* Pods-NetTimeWatch Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "NetTimeWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime.watchkitapp.watchkitextension;
@@ -1016,6 +1024,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = NetTimeWatch_Extension;
 				INFOPLIST_FILE = NetTimeWatch/Info.plist;
@@ -1033,6 +1042,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = NetTimeWatch_Extension;
 				INFOPLIST_FILE = NetTimeWatch/Info.plist;
@@ -1049,6 +1059,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 19D1E18DB9362B0FBDAC09B8 /* Pods-TodayExtension.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime.TodayExtension;
@@ -1062,6 +1073,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1DD5264C4F8222C450742FB6 /* Pods-TodayExtension.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime.TodayExtension;
