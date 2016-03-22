@@ -6,7 +6,7 @@ target 'NetTime' do
   pod 'Fabric', '~> 1.6'
   pod 'Eureka', '~> 1.5'
   pod 'FontAwesome.swift', '~> 0.7'
-  pod 'RxSwift', '~> 2.2'
+  pod 'RxSwift', '~> 2.3'
   pod 'SwiftDate', '~> 3.0'
 end
 

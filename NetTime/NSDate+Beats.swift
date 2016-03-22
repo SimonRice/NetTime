@@ -11,11 +11,10 @@ import SwiftDate
 
 extension NSDate {
     var beats: Float {
-        let bmtz = Region(timeZoneName: TimeZoneName(rawValue: "Europe/Zurich"))
-        let bmtDate = DateInRegion(absoluteTime: self, region: bmtz)
-        let midnight = bmtDate.startOf(.Day)
+        let gmtRegion = Region(timeZoneName: TimeZoneName.Gmt)
+        let midnight = self.startOf(.Day, inRegion: gmtRegion) - 60.minutes
 
-        let seconds = bmtDate.absoluteTime.timeIntervalSinceDate(midnight.absoluteTime)
+        let seconds = self.timeIntervalSinceDate(midnight)
         return Float((seconds / 86400.0) * 1000.0)
     }
 
