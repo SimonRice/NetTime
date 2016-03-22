@@ -13,6 +13,8 @@
 		61709CD7899E330F4C190D78 /* Pods_TodayExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1338121F541CA52BAD96F6FF /* Pods_TodayExtension.framework */; };
 		F425CAE31C95FE9A000430F8 /* FontAwesomeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */; };
 		F429584C1CA11B6C003D9CAD /* CLKComplicationServer+Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F429584B1CA11B6C003D9CAD /* CLKComplicationServer+Reload.swift */; };
+		F46AEE5D1CA174F9005E6728 /* NetTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46AEE5C1CA174F9005E6728 /* NetTimeUITests.swift */; };
+		F46AEE651CA176D9005E6728 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46AEE641CA176D9005E6728 /* SnapshotHelper.swift */; };
 		F4842F251C9609AA00AB1F38 /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4842F241C9609AA00AB1F38 /* CalculateViewController.swift */; };
 		F4DBE8921C9547EA009B8FBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8911C9547EA009B8FBC /* AppDelegate.swift */; };
 		F4DBE8941C9547EA009B8FBC /* NowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8931C9547EA009B8FBC /* NowViewController.swift */; };
@@ -45,6 +47,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F46AEE5F1CA174F9005E6728 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4DBE8861C9547EA009B8FBC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4DBE88D1C9547EA009B8FBC;
+			remoteInfo = NetTime;
+		};
 		F4DBE8A31C9547EA009B8FBC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F4DBE8861C9547EA009B8FBC /* Project object */;
@@ -125,6 +134,10 @@
 		CEB6B8BA97DA2A5E4586B1DB /* Pods_NetTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeTabBarItem.swift; sourceTree = "<group>"; };
 		F429584B1CA11B6C003D9CAD /* CLKComplicationServer+Reload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLKComplicationServer+Reload.swift"; sourceTree = "<group>"; };
+		F46AEE5A1CA174F9005E6728 /* NetTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F46AEE5C1CA174F9005E6728 /* NetTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetTimeUITests.swift; sourceTree = "<group>"; };
+		F46AEE5E1CA174F9005E6728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F46AEE641CA176D9005E6728 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		F4842F241C9609AA00AB1F38 /* CalculateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
 		F4DBE88E1C9547EA009B8FBC /* NetTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DBE8911C9547EA009B8FBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +173,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F46AEE571CA174F9005E6728 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4DBE88B1C9547EA009B8FBC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -223,12 +243,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F46AEE5B1CA174F9005E6728 /* NetTimeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F46AEE5C1CA174F9005E6728 /* NetTimeUITests.swift */,
+				F46AEE641CA176D9005E6728 /* SnapshotHelper.swift */,
+				F46AEE5E1CA174F9005E6728 /* Info.plist */,
+			);
+			path = NetTimeUITests;
+			sourceTree = "<group>";
+		};
 		F4DBE8851C9547EA009B8FBC = {
 			isa = PBXGroup;
 			children = (
 				F4DBE8B11C9549B3009B8FBC /* Shared */,
 				F4DBE8901C9547EA009B8FBC /* NetTime */,
 				F4DBE8A51C9547EA009B8FBC /* NetTimeTests */,
+				F46AEE5B1CA174F9005E6728 /* NetTimeUITests */,
 				F4DBE8B71C95562F009B8FBC /* NetTimeWatch */,
 				F4DBE8C61C95562F009B8FBC /* NetTimeWatch Extension */,
 				F4DBE8ED1C95BC58009B8FBC /* TodayExtension */,
@@ -246,6 +277,7 @@
 				F4DBE8B61C95562F009B8FBC /* NetTimeWatch.app */,
 				F4DBE8C21C95562F009B8FBC /* NetTimeWatch Extension.appex */,
 				F4DBE8EA1C95BC58009B8FBC /* TodayExtension.appex */,
+				F46AEE5A1CA174F9005E6728 /* NetTimeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -322,6 +354,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F46AEE591CA174F9005E6728 /* NetTimeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F46AEE631CA174F9005E6728 /* Build configuration list for PBXNativeTarget "NetTimeUITests" */;
+			buildPhases = (
+				F46AEE561CA174F9005E6728 /* Sources */,
+				F46AEE571CA174F9005E6728 /* Frameworks */,
+				F46AEE581CA174F9005E6728 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F46AEE601CA174F9005E6728 /* PBXTargetDependency */,
+			);
+			name = NetTimeUITests;
+			productName = NetTimeUITests;
+			productReference = F46AEE5A1CA174F9005E6728 /* NetTimeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		F4DBE88D1C9547EA009B8FBC /* NetTime */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4DBE8AB1C9547EA009B8FBC /* Build configuration list for PBXNativeTarget "NetTime" */;
@@ -432,10 +482,14 @@
 		F4DBE8861C9547EA009B8FBC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Simon Rice";
 				TargetAttributes = {
+					F46AEE591CA174F9005E6728 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = F4DBE88D1C9547EA009B8FBC;
+					};
 					F4DBE88D1C9547EA009B8FBC = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = DDY5VAFADG;
@@ -476,11 +530,19 @@
 				F4DBE8B51C95562F009B8FBC /* NetTimeWatch */,
 				F4DBE8C11C95562F009B8FBC /* NetTimeWatch Extension */,
 				F4DBE8E91C95BC58009B8FBC /* TodayExtension */,
+				F46AEE591CA174F9005E6728 /* NetTimeUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F46AEE581CA174F9005E6728 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4DBE88C1C9547EA009B8FBC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -740,6 +802,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F46AEE561CA174F9005E6728 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F46AEE5D1CA174F9005E6728 /* NetTimeUITests.swift in Sources */,
+				F46AEE651CA176D9005E6728 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4DBE88A1C9547EA009B8FBC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -788,6 +859,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F46AEE601CA174F9005E6728 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4DBE88D1C9547EA009B8FBC /* NetTime */;
+			targetProxy = F46AEE5F1CA174F9005E6728 /* PBXContainerItemProxy */;
+		};
 		F4DBE8A41C9547EA009B8FBC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F4DBE88D1C9547EA009B8FBC /* NetTime */;
@@ -846,6 +922,33 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F46AEE611CA174F9005E6728 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = NetTimeUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTimeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = NetTime;
+			};
+			name = Debug;
+		};
+		F46AEE621CA174F9005E6728 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = NetTimeUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTimeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = NetTime;
+			};
+			name = Release;
+		};
 		F4DBE8A91C9547EA009B8FBC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1089,6 +1192,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F46AEE631CA174F9005E6728 /* Build configuration list for PBXNativeTarget "NetTimeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F46AEE611CA174F9005E6728 /* Debug */,
+				F46AEE621CA174F9005E6728 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		F4DBE8891C9547EA009B8FBC /* Build configuration list for PBXProject "NetTime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

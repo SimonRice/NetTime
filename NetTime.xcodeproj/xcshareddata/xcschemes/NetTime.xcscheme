@@ -38,6 +38,16 @@
                ReferencedContainer = "container:NetTime.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F46AEE591CA174F9005E6728"
+               BuildableName = "NetTimeUITests.xctest"
+               BlueprintName = "NetTimeUITests"
+               ReferencedContainer = "container:NetTime.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

@@ -4,7 +4,10 @@ PODS:
   - Eureka (1.5.0)
   - Fabric (1.6.7)
   - FontAwesome.swift (0.7.1)
+  - Nimble (3.2.0)
+  - Quick (0.9.1)
   - RxSwift (2.3.0)
+  - SimulatorStatusMagic (1.7)
   - SwiftDate (3.0.6)
 
 DEPENDENCIES:
@@ -12,8 +15,10 @@ DEPENDENCIES:
   - Eureka (~> 1.5)
   - Fabric (~> 1.6)
   - FontAwesome.swift (~> 0.7)
-  - RxSwift (~> 2.2)
+  - Nimble (~> 3.2)
+  - Quick (~> 0.9)
   - RxSwift (~> 2.3)
+  - SimulatorStatusMagic (~> 1.7)
   - SwiftDate (~> 3.0)
 
 SPEC CHECKSUMS:
@@ -21,7 +26,10 @@ SPEC CHECKSUMS:
   Eureka: 2fb37bb50569c62ee3284689d5b7aca694b040e0
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   FontAwesome.swift: 21ec9db57af8b92d4b4d6ca8208b9ae07031e828
+  Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
+  Quick: a5221fc21788b6aeda934805e68b061839bc3165
   RxSwift: 0df59cc5edf28a31dbf83b049220b4b8e76b07c8
+  SimulatorStatusMagic: 46c90a12f73abeda6d7c16876e1e0998b6ca5f4f
   SwiftDate: 520c0e7de224c881fe4213caeca72d482ed3d45f
 
 COCOAPODS: 0.39.0
