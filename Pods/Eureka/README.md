@@ -5,7 +5,7 @@
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
 <a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift2-compatible-4BC51D.svg?style=flat" alt="Swift 2 compatible" /></a>
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible" /></a>
-<a href="https://cocoapods.org/pods/Eureka"><img src="https://img.shields.io/badge/pod-1.3.1-blue.svg" alt="CocoaPods compatible" /></a>
+<a href="https://cocoapods.org/pods/Eureka"><img src="https://img.shields.io/badge/pod-1.5.0-blue.svg" alt="CocoaPods compatible" /></a>
 <a href="https://raw.githubusercontent.com/xmartlabs/Eureka/master/LICENSE"><img src="http://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License: MIT" /></a>
 <a href="https://codebeat.co/projects/github-com-xmartlabs-eureka"><img alt="codebeat badge" src="https://codebeat.co/badges/16f29afb-f072-4633-9497-333c6eb71263" /></a>
 </p>
@@ -18,6 +18,7 @@ This is the re-creation of [XLForm] in Swift 2.
 * [Examples]
 * [Usage]
   + [How to create a Form]
+  + [How to get the form values]
   + [Operators]
   + [Rows]
   + [Customization]
@@ -44,7 +45,7 @@ Both `Form` and `Section` classes conform to `MutableCollectionType` and `RangeR
 ## Requirements
 
 * iOS 8.0+
-* Xcode 7.0+
+* Xcode 7.3+
 
 
 ## Getting involved
@@ -99,6 +100,17 @@ And this is the product:
 As you may have noticed `CustomCellsController` extends from `FormViewController` which has a `form` property that can be used to declare the form as the example shows.
 `WeekDayRow` and `TextFloatLabelRow` are non-standard rows included in the example project, but the standard rows usage is analog. You can create a form by just setting up the `form` property without extending from `FormViewController` but typically it is more convenient to create a custom view controller that extends from it.
 
+### How to get the form values
+
+We can get all form values by invoking the following `Form` function:
+
+```swift
+public func values(includeHidden includeHidden: Bool = false) -> [String: Any?]
+```
+
+Passing `true` as `includeHidden` parameter value will also include the hidden rows values in the dictionary.
+
+As you may have noticed the result dictionary key is the row tag value and the value is the row value. Only rows with a tag value will be added to the dictionary.
 
 ### Operators
 
@@ -158,7 +170,7 @@ This is a list of the rows that are provided by default:
 	This rows have a textfield on the right side of the cell. The difference between each one of them consists in a different capitalization, autocorrection and keyboard type configuration.
 	+ **TextRow**
 	+ **NameRow**
-	+ **UrlRow**
+	+ **URLRow**
 	+ **IntRow**
 	+ **PhoneRow**
 	+ **PasswordRow**
@@ -246,6 +258,8 @@ public protocol FormatterProtocol {
 	+ **SwitchRow**
 	+ **TextAreaRow**
   + **PostalAddressRow**
+  + **SliderRow**
+  + **StepperRow**
 
 There are also some custom rows in the examples project.
 
@@ -320,7 +334,7 @@ Now it would look like this:
 The UITableView accepts two ways of setting the headers and footers for its sections, one is by using `tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?` where you have to return a view and the other is `tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?` where you return a String. Eureka works the same way, you can set a String or a view as header or footer for a `Section`.
 
 The easiest way of setting a header or a footer is by setting them as a String. This can be done using the following Section initializers:
-```
+```swift
 init(_ header: String, @noescape _ initializer: Section -> () = { _ in })
 init(header: String, footer: String, @noescape _ initializer: Section -> () = { _ in })
 init(footer: String, @noescape _ initializer: Section -> () = { _ in })
@@ -330,9 +344,9 @@ Using this you can instantiate a Section like `Section("Title")` or `Section(hea
 
 You can also set the header or footer using a custom view. This is best done by setting the `header` or `footer` variable of the section. This variables must conform the `HeaderFooterViewRepresentable` protocol. This can be done by using the `HeaderFooterView` class. An example follows:
 
-```
+```swift
 Section() { section in
-	var header = HeaderFooterView<MyHeaderNibFile>(.NibFile(name: "MyHeaderNibFile", bundle: nil))        
+	var header = HeaderFooterView<MyHeaderNibFile>(.NibFile(name: "MyHeaderNibFile", bundle: nil))
 	header.onSetupView = { view, _, _ in
     	 // customize header
 	 }
@@ -344,7 +358,7 @@ Section() { section in
 
 The `HeaderFooterView` is a `StringLiteralConvertible` and requires a String or a `HeaderFooterProvider` that will generate the view to show. There are 3 ways a HeaderFooterProvider can create a view: from a nibfile (like in the example), from a class (it will just instantiate that class) or from a block (you can pass a block to the HeaderFooterProvider that returns the view).
 
-```
+```swift
 public enum HeaderFooterProvider<ViewType: UIView> {
 	case Class
 	case Callback(()->ViewType)
@@ -432,7 +446,7 @@ When instancing a SelectableSection you have to pass the type of row you will us
 
 This sections can be created, as it is done in the Examples project, like this:
 
-```
+```swift
 let oceans = ["Arctic", "Atlantic", "Indian", "Pacific", "Southern"]
 
 form +++= SelectableSection<ImageCheckRow<String>, String>("And which of the following oceans have you taken a bath in?", selectionType: .MultipleSelection)
@@ -451,7 +465,7 @@ for option in oceans {
 
 ##### What kind of rows can be used?
 To create such a Section you have to create a row that conforms the `SelectableRowType` protocol.
-```
+```swift
 public protocol SelectableRowType : RowType {
     var selectableValue : Value? { get set }
 }
@@ -561,7 +575,7 @@ public override func customDidSelect() {
 To create a custom Presenter row you must create a class that conforms the `PresenterRowType` protocol. It is highly recommended to subclass `SelectorRow` as it does conform to that protocol and adds other useful functionality.
 
 The PresenterRowType protocol is defined as followes:
-```
+```swift
 public protocol PresenterRowType: TypedRowType {
     typealias ProviderType : UIViewController, TypedRowControllerType
     var presentationMode: PresentationMode<ProviderType>? { get set }
@@ -573,7 +587,7 @@ The onPresentCallback will be called when the row is about to present another vi
 
 The `presentationMode` is what defines how the controller is presented and which controller is presented. This presentation can be using a Segue identifier, a segue class, presenting a controller modally or pushing to a specific view controller. For example a CustomPushRow can be defined like this:
 
-```
+```swift
 public final class CustomPushRow<T: Equatable> : SelectorRow<T, SelectorViewController<T>>, RowType {
 
     public required init(tag: String?) {
@@ -607,7 +621,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'Eureka', '~> 1.3'
+pod 'Eureka', '~> 1.5'
 ```
 
 Then run the following command:
@@ -623,7 +637,7 @@ $ pod install
 Specify Eureka into your project's `Cartfile`:
 
 ```ogdl
-github "xmartlabs/Eureka" ~> 1.0
+github "xmartlabs/Eureka" ~> 1.5
 ```
 
 #### Manually as Embedded Framework
@@ -692,18 +706,6 @@ let labelRow2: BaseRow? = form.rowByTag("labelRowTag")
 ```swift
 let section: Section?  = form.sectionByTag("sectionTag")
 ```
-
-#### How to get the form values
-
-We can get all form values by invoking the following `Form` function:
-
-```swift
-public func values(includeHidden includeHidden: Bool = false) -> [String: Any?]
-```
-
-Passing `true` as `includeHidden` parameter value will also include the hidden rows values in the dictionary.
-
-As you may have noticed the result dictionary key is the row tag value and the value is the row value. Only rows with a tag value will be added to the dictionary.
 
 #### How to set the form values using a dictionary
 
@@ -806,6 +808,7 @@ It's up to you to decide if you want to use Eureka custom operators or not.
 [Requirements]: #requirements
 
 [How to create a Form]: #how-to-create-a-form
+[How to get the form values]: #how-to-get-the-form-values
 [Examples]: #examples
 [Usage]: #usage
 [Operators]: #operators

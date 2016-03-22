@@ -10,7 +10,8 @@ import ClockKit
 
 extension CLKComplicationServer {
     func reloadActiveComplications() {
-        self.activeComplications
-            .forEach({ self.reloadTimelineForComplication($0) })
+        if let activeComplications = self.activeComplications {
+            activeComplications.forEach({ self.reloadTimelineForComplication($0) })
+        }
     }
 }

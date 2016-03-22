@@ -26,7 +26,7 @@ extension CLKComplication {
 
         case .ModularLarge:
             let modularTemplate = CLKComplicationTemplateModularLargeTallBody()
-            modularTemplate.headerTextProvider = CLKSimpleTextProvider(text: "Beats")
+            modularTemplate.headerTextProvider = CLKSimpleTextProvider(text: ".beats")
             modularTemplate.bodyTextProvider = CLKSimpleTextProvider(
                 text: String(format: "@%03d", Int(beats)))
             modularTemplate.tintColor = UIColor(red: 0.0, green: 1.0, blue: 0.5, alpha: 1.0)
@@ -44,7 +44,7 @@ extension CLKComplication {
         case .UtilitarianLarge:
             let modularTemplate = CLKComplicationTemplateUtilitarianLargeFlat()
             modularTemplate.textProvider = CLKSimpleTextProvider(
-                text: String(format: "@%03d Beats", Int(beats)))
+                text: String(format: "@%03d .beats", Int(beats)))
             template = modularTemplate
 
         case .UtilitarianSmall:
@@ -152,7 +152,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Update Scheduling
 
     func getNextRequestedUpdateDateWithHandler(handler: (NSDate?) -> Void) {
-        handler(NSDate() + 2.hours)
+        handler(NSDate() + 60.minutes)
     }
 
     // MARK: - Placeholder Templates
@@ -172,7 +172,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
 
         case .ModularLarge:
             let modularTemplate = CLKComplicationTemplateModularLargeTallBody()
-            modularTemplate.headerTextProvider = CLKSimpleTextProvider(text: "Beats")
+            modularTemplate.headerTextProvider = CLKSimpleTextProvider(text: ".beats")
             modularTemplate.bodyTextProvider = CLKSimpleTextProvider(text: "@---")
             modularTemplate.tintColor = UIColor(red: 0.0, green: 1.0, blue: 0.5, alpha: 1.0)
             template = modularTemplate
@@ -186,7 +186,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
 
         case .UtilitarianLarge:
             let modularTemplate = CLKComplicationTemplateUtilitarianLargeFlat()
-            modularTemplate.textProvider = CLKSimpleTextProvider(text: "@--- Beats")
+            modularTemplate.textProvider = CLKSimpleTextProvider(text: "@--- .beats")
             template = modularTemplate
 
         case .CircularSmall:

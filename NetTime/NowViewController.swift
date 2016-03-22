@@ -25,6 +25,9 @@ class NowViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        self.subscription.dispose()
+
+        if let subscription = self.subscription {
+            subscription.dispose()
+        }
     }
 }

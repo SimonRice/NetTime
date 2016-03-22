@@ -35,7 +35,7 @@ class CalculateViewController: FormViewController {
     }
 
     private func formatBeats(beats: Float) -> String {
-        return String(format: "@%03d beats", Int(beats))
+        return String(format: "@%03d .beats", Int(beats))
     }
 
     override func viewDidLoad() {

@@ -4,7 +4,7 @@ use_frameworks!
 target 'NetTime' do
   pod 'Crashlytics', '~> 3.7'
   pod 'Fabric', '~> 1.6'
-  pod 'Eureka', '~> 1.4'
+  pod 'Eureka', '~> 1.5'
   pod 'FontAwesome.swift', '~> 0.7'
   pod 'RxSwift', '~> 2.2'
   pod 'SwiftDate', '~> 3.0'

@@ -27,17 +27,25 @@ class InterfaceController: WKInterfaceController {
         super.willActivate()
         self.refreshComplications()
 
+//        // Test Mode only
+//        if let label = self.beatsLabel {
+//            label.setText("@423 \n .beats")
+//        }
+
         self.subscription = Observable<Int>.interval(0.1, scheduler: MainScheduler.instance)
             .subscribe { _ in
                 if let label = self.beatsLabel {
-                    label.setText(String(format: "@%05.1f \n Beats", NSDate().beats))
+                    label.setText(String(format: "@%05.1f \n .beats", NSDate().beats))
                 }
         }
     }
 
     override func didDeactivate() {
         super.didDeactivate()
-        self.subscription.dispose()
+        if let subscription = self.subscription {
+            subscription.dispose()
+        }
+
         self.refreshComplications()
     }
 }

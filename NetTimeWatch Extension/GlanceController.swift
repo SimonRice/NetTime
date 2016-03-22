@@ -19,7 +19,8 @@ class GlanceController: WKInterfaceController {
         CLKComplicationServer.sharedInstance().reloadActiveComplications()
 
         if let label = self.beatsLabel {
-            label.setText(String(format: "@%03d \n Beats", Int(NSDate().beats)))
+//            label.setText("@423 \n .beats") // Test Mode
+            label.setText(String(format: "@%03d \n .beats", Int(NSDate().beats)))
         }
     }
 }
