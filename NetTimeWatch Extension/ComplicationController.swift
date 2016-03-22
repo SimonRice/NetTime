@@ -173,7 +173,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         case .ModularLarge:
             let modularTemplate = CLKComplicationTemplateModularLargeTallBody()
             modularTemplate.headerTextProvider = CLKSimpleTextProvider(text: "Beats")
-            modularTemplate.bodyTextProvider = CLKSimpleTextProvider(text: "@")
+            modularTemplate.bodyTextProvider = CLKSimpleTextProvider(text: "@---")
             modularTemplate.tintColor = UIColor(red: 0.0, green: 1.0, blue: 0.5, alpha: 1.0)
             template = modularTemplate
 
@@ -200,8 +200,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
 
     func requestedUpdateDidBegin() {
-        let complicationServer = CLKComplicationServer.sharedInstance()
-        complicationServer.activeComplications
-            .forEach({ complicationServer.reloadTimelineForComplication($0) })
+        CLKComplicationServer.sharedInstance().reloadActiveComplications()
     }
 }

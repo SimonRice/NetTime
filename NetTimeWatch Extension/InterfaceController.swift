@@ -20,9 +20,7 @@ class InterfaceController: WKInterfaceController {
     }
 
     private func refreshComplications() {
-        let complicationServer = CLKComplicationServer.sharedInstance()
-        complicationServer.activeComplications
-            .forEach({ complicationServer.reloadTimelineForComplication($0) })
+        CLKComplicationServer.sharedInstance().reloadActiveComplications()
     }
 
     override func willActivate() {

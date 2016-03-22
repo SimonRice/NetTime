@@ -12,6 +12,7 @@
 		41659B4E1C484B752EE4E7EF /* Pods_NetTimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FAEE2A83092324E86A5278 /* Pods_NetTimeTests.framework */; };
 		61709CD7899E330F4C190D78 /* Pods_TodayExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1338121F541CA52BAD96F6FF /* Pods_TodayExtension.framework */; };
 		F425CAE31C95FE9A000430F8 /* FontAwesomeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */; };
+		F429584C1CA11B6C003D9CAD /* CLKComplicationServer+Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F429584B1CA11B6C003D9CAD /* CLKComplicationServer+Reload.swift */; };
 		F4842F251C9609AA00AB1F38 /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4842F241C9609AA00AB1F38 /* CalculateViewController.swift */; };
 		F4DBE8921C9547EA009B8FBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8911C9547EA009B8FBC /* AppDelegate.swift */; };
 		F4DBE8941C9547EA009B8FBC /* NowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8931C9547EA009B8FBC /* NowViewController.swift */; };
@@ -123,6 +124,7 @@
 		BA1E100912FA26E850CF3F64 /* Pods_NetTimeWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetTimeWatch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB6B8BA97DA2A5E4586B1DB /* Pods_NetTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeTabBarItem.swift; sourceTree = "<group>"; };
+		F429584B1CA11B6C003D9CAD /* CLKComplicationServer+Reload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLKComplicationServer+Reload.swift"; sourceTree = "<group>"; };
 		F4842F241C9609AA00AB1F38 /* CalculateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
 		F4DBE88E1C9547EA009B8FBC /* NetTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DBE8911C9547EA009B8FBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -296,10 +298,11 @@
 		F4DBE8C61C95562F009B8FBC /* NetTimeWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				F4DBE8C91C95562F009B8FBC /* InterfaceController.swift */,
+				F429584B1CA11B6C003D9CAD /* CLKComplicationServer+Reload.swift */,
+				F4DBE8D11C95562F009B8FBC /* ComplicationController.swift */,
 				F4DBE8CB1C95562F009B8FBC /* ExtensionDelegate.swift */,
 				F4DBE8CF1C95562F009B8FBC /* GlanceController.swift */,
-				F4DBE8D11C95562F009B8FBC /* ComplicationController.swift */,
+				F4DBE8C91C95562F009B8FBC /* InterfaceController.swift */,
 				F4DBE8D31C95562F009B8FBC /* Assets.xcassets */,
 				F4DBE8D51C95562F009B8FBC /* Info.plist */,
 			);
@@ -767,6 +770,7 @@
 				F4DBE8E11C955640009B8FBC /* NSDate+Beats.swift in Sources */,
 				F4DBE8D21C95562F009B8FBC /* ComplicationController.swift in Sources */,
 				F4DBE8CA1C95562F009B8FBC /* InterfaceController.swift in Sources */,
+				F429584C1CA11B6C003D9CAD /* CLKComplicationServer+Reload.swift in Sources */,
 				F4DBE8D01C95562F009B8FBC /* GlanceController.swift in Sources */,
 				F4DBE8E51C958617009B8FBC /* Int+Beats.swift in Sources */,
 			);

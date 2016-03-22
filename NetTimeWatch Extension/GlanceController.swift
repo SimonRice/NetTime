@@ -16,9 +16,7 @@ class GlanceController: WKInterfaceController {
     override func willActivate() {
         super.willActivate()
 
-        let complicationServer = CLKComplicationServer.sharedInstance()
-        complicationServer.activeComplications
-            .forEach({ complicationServer.reloadTimelineForComplication($0) })
+        CLKComplicationServer.sharedInstance().reloadActiveComplications()
 
         if let label = self.beatsLabel {
             label.setText(String(format: "@%03d \n Beats", Int(NSDate().beats)))
