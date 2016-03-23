@@ -9,7 +9,6 @@
 import XCTest
 
 class NetTimeUITests: XCTestCase {
-        
     override func setUp() {
         super.setUp()
 
@@ -17,10 +16,8 @@ class NetTimeUITests: XCTestCase {
         continueAfterFailure = false
         setupSnapshot(app)
         app.launch()
-
-        
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }
