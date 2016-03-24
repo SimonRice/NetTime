@@ -15,7 +15,7 @@ extension NSDate {
         let midnight = self.startOf(.Day, inRegion: gmtRegion) - 60.minutes
 
         let seconds = self.timeIntervalSinceDate(midnight)
-        return Float((seconds / 86400.0) * 1000.0)
+        return fmod(Float((seconds / 86400.0) * 1000.0), 1000.0)
     }
 
     var nearestBeat: Int {

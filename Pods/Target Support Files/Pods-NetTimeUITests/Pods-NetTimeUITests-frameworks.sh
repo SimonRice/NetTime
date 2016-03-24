@@ -85,11 +85,9 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-NetTimeUITests/Nimble.framework"
-  install_framework "Pods-NetTimeUITests/Quick.framework"
   install_framework "Pods-NetTimeUITests/SimulatorStatusMagic.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-NetTimeUITests/Nimble.framework"
-  install_framework "Pods-NetTimeUITests/Quick.framework"
   install_framework "Pods-NetTimeUITests/SimulatorStatusMagic.framework"
 fi
