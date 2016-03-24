@@ -16,11 +16,6 @@ Set up development environment
 fastlane ios test
 ```
 Runs all the tests
-### ios temp
-```
-fastlane ios temp
-```
-
 ### ios beta
 ```
 fastlane ios beta
@@ -33,6 +28,11 @@ This will also make sure the profile is up to date
 fastlane ios appstore
 ```
 Deploy a new version to the App Store
+### ios refresh_dsyms
+```
+fastlane ios refresh_dsyms
+```
+
 
 ----
 

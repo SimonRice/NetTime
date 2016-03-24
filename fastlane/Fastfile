@@ -36,15 +36,17 @@ platform :ios do
   desc 'This will also make sure the profile is up to date'
   lane :beta do
     production_provisioning
-    gym
+    verify_xcode
+    gym(scheme: 'NetTime')
     pilot
   end
 
   desc 'Deploy a new version to the App Store'
   lane :appstore do
     production_provisioning
+    verify_xcode
     snapshot
-    gym
+    gym(scheme: 'NetTime')
     deliver(force: true)
   end
 

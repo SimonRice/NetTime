@@ -20,6 +20,7 @@ xcuserdata/
 ## Other
 *.moved-aside
 *.xcuserstate
+*.DSYM.zip
 .DS_Store
 
 ## Obj-C/Swift specific
