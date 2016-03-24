@@ -1,4 +1,5 @@
 PODS:
+  - Appz (1.5.0)
   - Crashlytics (3.7.0):
     - Fabric (~> 1.6.3)
   - Eureka (1.5.0)
@@ -9,8 +10,10 @@ PODS:
   - RxSwift (2.3.1)
   - SimulatorStatusMagic (1.7)
   - SwiftDate (3.0.8)
+  - SwiftyMarkdown (0.2.2)
 
 DEPENDENCIES:
+  - Appz (from `https://github.com/simonrice/Appz.git`)
   - Crashlytics (~> 3.7)
   - Eureka (~> 1.5)
   - Fabric (~> 1.6)
@@ -20,17 +23,24 @@ DEPENDENCIES:
   - RxSwift (~> 2.3)
   - SimulatorStatusMagic (from `https://github.com/openium/SimulatorStatusMagic.git`)
   - SwiftDate (~> 3.0)
+  - SwiftyMarkdown (~> 0.2)
 
 EXTERNAL SOURCES:
+  Appz:
+    :git: https://github.com/simonrice/Appz.git
   SimulatorStatusMagic:
     :git: https://github.com/openium/SimulatorStatusMagic.git
 
 CHECKOUT OPTIONS:
+  Appz:
+    :commit: 37f79f76a946bbf504bb6b8ee2afffc6e7c2b91e
+    :git: https://github.com/simonrice/Appz.git
   SimulatorStatusMagic:
     :commit: 195924d044c6007adf93a1b7dcfb022ecf2378e0
     :git: https://github.com/openium/SimulatorStatusMagic.git
 
 SPEC CHECKSUMS:
+  Appz: d517c7cfb0ee193698edab4410fd1a073c1464a0
   Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
   Eureka: 2fb37bb50569c62ee3284689d5b7aca694b040e0
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
@@ -40,5 +50,6 @@ SPEC CHECKSUMS:
   RxSwift: 829b2843e9eddc77a02cb3f5117f0d55f8f646f1
   SimulatorStatusMagic: d3898ffd0846d07df8ff6e16fd5db9fc2c643d02
   SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
+  SwiftyMarkdown: 1105465889f0c1aadaa2517477812f53afaacdea
 
 COCOAPODS: 0.39.0

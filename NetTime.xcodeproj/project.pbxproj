@@ -16,6 +16,10 @@
 		F46AEE5D1CA174F9005E6728 /* NetTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46AEE5C1CA174F9005E6728 /* NetTimeUITests.swift */; };
 		F46AEE651CA176D9005E6728 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46AEE641CA176D9005E6728 /* SnapshotHelper.swift */; };
 		F4842F251C9609AA00AB1F38 /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4842F241C9609AA00AB1F38 /* CalculateViewController.swift */; };
+		F4D611861CA4195700C6C955 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D611851CA4195700C6C955 /* AboutViewController.swift */; };
+		F4D6118C1CA42D8400C6C955 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D6118B1CA42D8400C6C955 /* CreditsViewController.swift */; };
+		F4D611951CA431E100C6C955 /* Acknowledgements.md in Sources */ = {isa = PBXBuildFile; fileRef = F4D611941CA431E100C6C955 /* Acknowledgements.md */; };
+		F4D611961CA4328700C6C955 /* Acknowledgements.md in Resources */ = {isa = PBXBuildFile; fileRef = F4D611941CA431E100C6C955 /* Acknowledgements.md */; };
 		F4DBE8921C9547EA009B8FBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8911C9547EA009B8FBC /* AppDelegate.swift */; };
 		F4DBE8941C9547EA009B8FBC /* NowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8931C9547EA009B8FBC /* NowViewController.swift */; };
 		F4DBE8971C9547EA009B8FBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DBE8951C9547EA009B8FBC /* Main.storyboard */; };
@@ -143,6 +147,9 @@
 		F46AEE5E1CA174F9005E6728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F46AEE641CA176D9005E6728 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		F4842F241C9609AA00AB1F38 /* CalculateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
+		F4D611851CA4195700C6C955 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		F4D6118B1CA42D8400C6C955 /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
+		F4D611941CA431E100C6C955 /* Acknowledgements.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = Acknowledgements.md; path = Resources/Acknowledgements.md; sourceTree = "<group>"; };
 		F4DBE88E1C9547EA009B8FBC /* NetTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DBE8911C9547EA009B8FBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4DBE8931C9547EA009B8FBC /* NowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowViewController.swift; sourceTree = "<group>"; };
@@ -293,8 +300,11 @@
 		F4DBE8901C9547EA009B8FBC /* NetTime */ = {
 			isa = PBXGroup;
 			children = (
+				F4D611941CA431E100C6C955 /* Acknowledgements.md */,
+				F4D611851CA4195700C6C955 /* AboutViewController.swift */,
 				F4DBE8911C9547EA009B8FBC /* AppDelegate.swift */,
 				F4842F241C9609AA00AB1F38 /* CalculateViewController.swift */,
+				F4D6118B1CA42D8400C6C955 /* CreditsViewController.swift */,
 				F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */,
 				F4DBE8931C9547EA009B8FBC /* NowViewController.swift */,
 				F4DBE8951C9547EA009B8FBC /* Main.storyboard */,
@@ -557,6 +567,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4D611961CA4328700C6C955 /* Acknowledgements.md in Resources */,
 				F4F51C031C97508F003B2853 /* digital-7 (mono).ttf in Resources */,
 				F4DBE89C1C9547EA009B8FBC /* LaunchScreen.storyboard in Resources */,
 				F4DBE8991C9547EA009B8FBC /* Assets.xcassets in Resources */,
@@ -858,6 +869,9 @@
 				F4DBE8941C9547EA009B8FBC /* NowViewController.swift in Sources */,
 				F425CAE31C95FE9A000430F8 /* FontAwesomeTabBarItem.swift in Sources */,
 				F4DBE8921C9547EA009B8FBC /* AppDelegate.swift in Sources */,
+				F4D611951CA431E100C6C955 /* Acknowledgements.md in Sources */,
+				F4D6118C1CA42D8400C6C955 /* CreditsViewController.swift in Sources */,
+				F4D611861CA4195700C6C955 /* AboutViewController.swift in Sources */,
 				F4DBE8B31C9549C9009B8FBC /* NSDate+Beats.swift in Sources */,
 				F4DBE8E41C958613009B8FBC /* Int+Beats.swift in Sources */,
 				F4842F251C9609AA00AB1F38 /* CalculateViewController.swift in Sources */,

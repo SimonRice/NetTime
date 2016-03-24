@@ -50,7 +50,7 @@ extension CLKComplication {
         case .UtilitarianSmall:
             let modularTemplate = CLKComplicationTemplateUtilitarianSmallRingText()
             modularTemplate.textProvider = CLKSimpleTextProvider(
-                text: String(format: "@%03d", Int(beats)))
+                text: String(format: "%03d", Int(beats)))
             modularTemplate.ringStyle = .Closed
             modularTemplate.fillFraction = beats / 1000.0
             template = modularTemplate
@@ -179,7 +179,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
 
         case .UtilitarianSmall:
             let modularTemplate = CLKComplicationTemplateUtilitarianSmallRingText()
-            modularTemplate.textProvider = CLKSimpleTextProvider(text: "@---")
+            modularTemplate.textProvider = CLKSimpleTextProvider(text: "@")
             modularTemplate.ringStyle = .Closed
             modularTemplate.fillFraction = 0.7
             template = modularTemplate

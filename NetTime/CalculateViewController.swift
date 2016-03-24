@@ -54,7 +54,7 @@ class CalculateViewController: FormViewController {
             tableView.tintColor = UIColor(red: 0.0, green: 0.6, blue: 0.3, alpha: 1.0)
         }
 
-        form +++ Section()
+        self.form +++ Section()
             <<< DateTimeInlineRow() {
                 $0.title = "Time"
                 $0.value = self.date
@@ -73,7 +73,7 @@ class CalculateViewController: FormViewController {
                     }
         }
 
-        form +++= LabelRow("beats") {
+        self.form +++= LabelRow("beats") {
             if let label = $0.cell.textLabel {
                 label.font = UIFont.boldSystemFontOfSize(label.font.pointSize)
             }

@@ -48,6 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="305" y="411"/>
         </scene>
         <!--Calculate-->
         <scene sceneID="Ea6-9v-D7g">
@@ -70,6 +71,27 @@
             </objects>
             <point key="canvasLocation" x="305" y="1164"/>
         </scene>
+        <!--About-->
+        <scene sceneID="Bhm-Ca-c6D">
+            <objects>
+                <navigationController id="Kxa-ql-ul5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="About" id="GBb-M5-eSl" customClass="FontAwesomeTabBarItem" customModule="NetTime" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="info-circle"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Cob-dN-W2l">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="UKt-Aj-c2Q" kind="relationship" relationship="rootViewController" id="Krs-NV-L00"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ECx-Hf-yKL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="1995"/>
+        </scene>
         <!--Calculate-->
         <scene sceneID="I6l-o6-SL4">
             <objects>
@@ -90,6 +112,64 @@
             </objects>
             <point key="canvasLocation" x="1119" y="1164"/>
         </scene>
+        <!--About-->
+        <scene sceneID="1XD-bb-EJD">
+            <objects>
+                <viewController id="UKt-Aj-c2Q" customClass="AboutViewController" customModule="NetTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="377-qB-70A"/>
+                        <viewControllerLayoutGuide type="bottom" id="y9s-xD-prh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J6w-r4-C0N">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="About" id="hA0-4h-fKB"/>
+                    <connections>
+                        <segue destination="XKo-Rb-6Cr" kind="show" identifier="showCredits" id="e0w-qV-OCW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yOL-iv-qtc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1119" y="1995"/>
+        </scene>
+        <!--Credits-->
+        <scene sceneID="0JT-cF-cTa">
+            <objects>
+                <viewController id="XKo-Rb-6Cr" customClass="CreditsViewController" customModule="NetTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qPC-7a-9aK"/>
+                        <viewControllerLayoutGuide type="bottom" id="lCc-jc-u3A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KMZ-4z-QUb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6b-rS-2x0">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lCc-jc-u3A" firstAttribute="top" secondItem="J6b-rS-2x0" secondAttribute="bottom" id="Lh3-AG-NYl"/>
+                            <constraint firstItem="J6b-rS-2x0" firstAttribute="leading" secondItem="KMZ-4z-QUb" secondAttribute="leading" id="Moq-j2-qqr"/>
+                            <constraint firstAttribute="trailing" secondItem="J6b-rS-2x0" secondAttribute="trailing" id="ca7-bW-MKS"/>
+                            <constraint firstItem="J6b-rS-2x0" firstAttribute="top" secondItem="qPC-7a-9aK" secondAttribute="bottom" id="mXg-UL-MzL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Credits" id="QDd-Qk-DLT"/>
+                    <connections>
+                        <outlet property="textView" destination="J6b-rS-2x0" id="fzb-RA-LGB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hbT-Fj-wCj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1942" y="1995"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="t7B-rq-mSQ">
             <objects>
@@ -108,6 +188,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="WPo-VL-v8h"/>
                         <segue destination="g5M-Ja-mir" kind="relationship" relationship="viewControllers" id="7xg-3x-CwI"/>
+                        <segue destination="Kxa-ql-ul5" kind="relationship" relationship="viewControllers" id="Bps-WM-Vah"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycN-fY-1qJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -115,5 +196,5 @@
             <point key="canvasLocation" x="-572" y="1164"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="0.87058823529999996" green="0.94901960780000005" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.0" green="0.75294117650000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>
