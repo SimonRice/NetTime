@@ -7,7 +7,6 @@ target 'NetTime' do
   pod 'Eureka', '~> 1.5'
   pod 'FontAwesome.swift', '~> 0.7'
   pod 'RxSwift', '~> 2.3'
-  pod 'SimulatorStatusMagic', '~> 1.7', configurations: ['Debug']
   pod 'SwiftDate', '~> 3.0'
 end
 
@@ -22,6 +21,12 @@ target 'NetTimeTests' do
   pod 'Nimble', '~> 3.2'
   pod 'Quick', '~> 0.9'
   pod 'SwiftDate', '~> 3.0'
+end
+
+target 'NetTimeUITests' do
+  pod 'Nimble', '~> 3.2'
+  pod 'Quick', '~> 0.9'
+  pod 'SimulatorStatusMagic', '~> 1.7', configurations: ['Debug']
 end
 
 target 'TodayExtension' do

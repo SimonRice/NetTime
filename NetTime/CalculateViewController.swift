@@ -26,7 +26,9 @@ class CalculateViewController: FormViewController {
     private func setBeatsRow() {
         if let beatsRow = self.form.rowByTag("beats") as? LabelRow {
             let region = Region(timeZoneName: self.timezoneName)
-            let date = self.date.inRegion(region).absoluteTime
+            let midnight = self.date.startOf(.Day, inRegion: region)
+            let localMidnight = self.date.startOf(.Day, inRegion: Region())
+            let date = midnight + Int(self.date.timeIntervalSinceDate(localMidnight)).seconds
             beatsRow.title = self.formatBeats(date.beats)
             beatsRow.cell.textLabel!.textAlignment = .Center
             beatsRow.updateCell()
@@ -39,6 +41,13 @@ class CalculateViewController: FormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if NSProcessInfo.processInfo().arguments.contains("TEST_MODE") {
+            self.date = DateInRegion(year: 2016, month: 1, day: 1,
+                                     hour: 10, minute: 09).absoluteTime
+
+            self.timezoneName = TimeZoneName.EuropeZurich
+        }
 
         if let tableView = self.tableView {
             tableView.backgroundColor = UIColor(red: 0.85, green: 0.95, blue: 0.9, alpha: 1.0)
