@@ -26,8 +26,7 @@ class CalculateViewController: FormViewController {
     private func setBeatsRow() {
         if let beatsRow = self.form.rowByTag("beats") as? LabelRow {
             let region = Region(timeZoneName: self.timezoneName)
-            let date = NSDate().startOf(.Day, inRegion: region)
-                + self.date.hour.hours + self.date.minute.minutes
+            let date = self.date.inRegion(region).absoluteTime
             beatsRow.title = self.formatBeats(date.beats)
             beatsRow.cell.textLabel!.textAlignment = .Center
             beatsRow.updateCell()
@@ -41,12 +40,14 @@ class CalculateViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView!.backgroundColor = UIColor(red: 0.85, green: 0.95, blue: 0.9, alpha: 1.0)
-        self.tableView!.tintColor = UIColor(red: 0.0, green: 0.6, blue: 0.3, alpha: 1.0)
+        if let tableView = self.tableView {
+            tableView.backgroundColor = UIColor(red: 0.85, green: 0.95, blue: 0.9, alpha: 1.0)
+            tableView.tintColor = UIColor(red: 0.0, green: 0.6, blue: 0.3, alpha: 1.0)
+        }
 
         form +++ Section()
-            <<< TimeInlineRow() {
-                $0.title = "Time of Day"
+            <<< DateTimeInlineRow() {
+                $0.title = "Time"
                 $0.value = self.date
                 }.onChange { [weak self] row in
                     if let strongSelf = self, date = row.value {
