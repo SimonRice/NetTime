@@ -35,6 +35,7 @@ platform :ios do
   desc 'Submit a new Beta Build to Apple TestFlight'
   desc 'This will also make sure the profile is up to date'
   lane :beta do
+    clean_build_artifacts
     production_provisioning
     verify_xcode
     gym(scheme: 'NetTime')
@@ -43,6 +44,7 @@ platform :ios do
 
   desc 'Deploy a new version to the App Store'
   lane :appstore do
+    clean_build_artifacts
     production_provisioning
     verify_xcode
     snapshot
