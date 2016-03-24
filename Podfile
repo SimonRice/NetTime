@@ -26,7 +26,7 @@ end
 target 'NetTimeUITests' do
   pod 'Nimble', '~> 3.2'
   pod 'Quick', '~> 0.9'
-  pod 'SimulatorStatusMagic', '~> 1.7', configurations: ['Debug']
+  pod 'SimulatorStatusMagic', git: 'https://github.com/openium/SimulatorStatusMagic.git'
 end
 
 target 'TodayExtension' do

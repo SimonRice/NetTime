@@ -6,9 +6,9 @@ PODS:
   - FontAwesome.swift (0.7.1)
   - Nimble (3.2.0)
   - Quick (0.9.1)
-  - RxSwift (2.3.0)
+  - RxSwift (2.3.1)
   - SimulatorStatusMagic (1.7)
-  - SwiftDate (3.0.6)
+  - SwiftDate (3.0.8)
 
 DEPENDENCIES:
   - Crashlytics (~> 3.7)
@@ -18,8 +18,17 @@ DEPENDENCIES:
   - Nimble (~> 3.2)
   - Quick (~> 0.9)
   - RxSwift (~> 2.3)
-  - SimulatorStatusMagic (~> 1.7)
+  - SimulatorStatusMagic (from `https://github.com/openium/SimulatorStatusMagic.git`)
   - SwiftDate (~> 3.0)
+
+EXTERNAL SOURCES:
+  SimulatorStatusMagic:
+    :git: https://github.com/openium/SimulatorStatusMagic.git
+
+CHECKOUT OPTIONS:
+  SimulatorStatusMagic:
+    :commit: 195924d044c6007adf93a1b7dcfb022ecf2378e0
+    :git: https://github.com/openium/SimulatorStatusMagic.git
 
 SPEC CHECKSUMS:
   Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
@@ -28,8 +37,8 @@ SPEC CHECKSUMS:
   FontAwesome.swift: 21ec9db57af8b92d4b4d6ca8208b9ae07031e828
   Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
   Quick: a5221fc21788b6aeda934805e68b061839bc3165
-  RxSwift: 0df59cc5edf28a31dbf83b049220b4b8e76b07c8
-  SimulatorStatusMagic: 46c90a12f73abeda6d7c16876e1e0998b6ca5f4f
-  SwiftDate: 520c0e7de224c881fe4213caeca72d482ed3d45f
+  RxSwift: 829b2843e9eddc77a02cb3f5117f0d55f8f646f1
+  SimulatorStatusMagic: d3898ffd0846d07df8ff6e16fd5db9fc2c643d02
+  SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
 
 COCOAPODS: 0.39.0
