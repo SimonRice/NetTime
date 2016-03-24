@@ -46,7 +46,7 @@ platform :ios do
     production_provisioning
     verify_xcode
     snapshot
-    gym(scheme: 'NetTime')
+    gym(scheme: 'NetTime', use_legacy_build_api: true)
     deliver(force: true)
   end
 
