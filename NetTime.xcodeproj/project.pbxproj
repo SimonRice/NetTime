@@ -19,7 +19,7 @@
 		F4D611861CA4195700C6C955 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D611851CA4195700C6C955 /* AboutViewController.swift */; };
 		F4D6118C1CA42D8400C6C955 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D6118B1CA42D8400C6C955 /* CreditsViewController.swift */; };
 		F4D611951CA431E100C6C955 /* Acknowledgements.md in Sources */ = {isa = PBXBuildFile; fileRef = F4D611941CA431E100C6C955 /* Acknowledgements.md */; };
-		F4D611961CA4328700C6C955 /* Acknowledgements.md in Resources */ = {isa = PBXBuildFile; fileRef = F4D611941CA431E100C6C955 /* Acknowledgements.md */; };
+		F4D611971CA44BCC00C6C955 /* Acknowledgements.md in Resources */ = {isa = PBXBuildFile; fileRef = F4D611941CA431E100C6C955 /* Acknowledgements.md */; };
 		F4DBE8921C9547EA009B8FBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8911C9547EA009B8FBC /* AppDelegate.swift */; };
 		F4DBE8941C9547EA009B8FBC /* NowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8931C9547EA009B8FBC /* NowViewController.swift */; };
 		F4DBE8971C9547EA009B8FBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DBE8951C9547EA009B8FBC /* Main.storyboard */; };
@@ -567,7 +567,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4D611961CA4328700C6C955 /* Acknowledgements.md in Resources */,
+				F4D611971CA44BCC00C6C955 /* Acknowledgements.md in Resources */,
 				F4F51C031C97508F003B2853 /* digital-7 (mono).ttf in Resources */,
 				F4DBE89C1C9547EA009B8FBC /* LaunchScreen.storyboard in Resources */,
 				F4DBE8991C9547EA009B8FBC /* Assets.xcassets in Resources */,
