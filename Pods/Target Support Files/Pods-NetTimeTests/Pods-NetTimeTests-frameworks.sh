@@ -84,11 +84,13 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-NetTimeTests/RxSwift.framework"
   install_framework "Pods-NetTimeTests/SwiftDate.framework"
   install_framework "Pods-NetTimeTests/Nimble.framework"
   install_framework "Pods-NetTimeTests/Quick.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-NetTimeTests/RxSwift.framework"
   install_framework "Pods-NetTimeTests/SwiftDate.framework"
   install_framework "Pods-NetTimeTests/Nimble.framework"
   install_framework "Pods-NetTimeTests/Quick.framework"

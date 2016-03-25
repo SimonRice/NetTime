@@ -1,4 +1,4 @@
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 
 FOUNDATION_EXPORT double Pods_NetTimeWatch_ExtensionVersionNumber;

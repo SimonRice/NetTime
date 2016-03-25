@@ -44,10 +44,10 @@ platform :ios do
 
   desc 'Deploy a new version to the App Store'
   lane :appstore do
-    clean_build_artifacts
-    production_provisioning
-    verify_xcode
-    snapshot
+    # clean_build_artifacts
+    # production_provisioning
+    # verify_xcode
+    # snapshot
     gym(scheme: 'NetTime', use_legacy_build_api: true)
     deliver(force: true)
   end
