@@ -14,6 +14,7 @@ import SwiftDate
 @testable import NetTime
 
 class BeatsSpec: QuickSpec {
+    // swiftlint:disable:next function_body_length
     override func spec() {
         describe("11AM in London on January 1st 2015") {
             it("should be @500 .beats") {

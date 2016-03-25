@@ -487,7 +487,6 @@
 				F4DBE8E81C95BC58009B8FBC /* Resources */,
 				5A8B4E17FD07DFD23EFF039B /* Copy Pods Resources */,
 				B9A98B6A167BB4CF70525033 /* Embed Pods Frameworks */,
-				F4D611981CA464EE00C6C955 /* Clear Unwanted Stuff */,
 			);
 			buildRules = (
 			);
@@ -822,20 +821,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
-		};
-		F4D611981CA464EE00C6C955 /* Clear Unwanted Stuff */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Clear Unwanted Stuff";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nif [[ -d \"Frameworks\" ]]; then\nrm -fr Frameworks\nfi\n";
 		};
 		F4DBE8FD1C95D633009B8FBC /* Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1245,7 +1230,7 @@
 			baseConfigurationReference = 465C02D405F9896102F7AEA8 /* Pods-TodayExtension.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime.TodayExtension;
@@ -1260,7 +1245,7 @@
 			baseConfigurationReference = 049F7C426B2501AE2328502C /* Pods-TodayExtension.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime.TodayExtension;

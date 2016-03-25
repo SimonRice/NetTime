@@ -6,4 +6,4 @@ NetTime shows the current number of beats on your iOS device and (optionally) no
 
 If you own an Apple Watch, you can see current number of beats on your wrist.  You can even show the current number of beats on your watch face, and see the time in beats up to 100 beats in the future or past.
 
-All feedback and suggestions are more than welcomed!
+All feedback and suggestions are more than welcome!
