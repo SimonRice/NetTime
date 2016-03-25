@@ -1,5 +1,5 @@
 framework module SwiftDate {
-  umbrella header "SwiftDate-umbrella.h"
+  umbrella header "Pods-NetTime-SwiftDate-umbrella.h"
 
   export *
   module * { export * }

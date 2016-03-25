@@ -32,6 +32,7 @@ target 'NetTimeUITests' do
 end
 
 target 'NetTimeWatch Extension' do
+  platform :watchos, '2.0'
   common_pods
 end
 
