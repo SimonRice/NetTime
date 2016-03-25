@@ -35,7 +35,8 @@ class InterfaceController: WKInterfaceController {
         self.subscription = Observable<Int>.interval(0.1, scheduler: MainScheduler.instance)
             .subscribe { _ in
                 if let label = self.beatsLabel {
-                    label.setText(String(format: "@%05.1f \n .beats", NSDate().beats))
+                    label.setText(String(format: "@%05.1f \n .beats",
+                        floor(NSDate().beats * 10) / 10.0))
                 }
         }
     }

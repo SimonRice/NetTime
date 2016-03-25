@@ -511,6 +511,7 @@
 				F4DBE8BE1C95562F009B8FBC /* Sources */,
 				F4DBE8BF1C95562F009B8FBC /* Frameworks */,
 				F4DBE8C01C95562F009B8FBC /* Resources */,
+				F4C606291CA5D49F004B4C09 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -678,6 +679,22 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftDate.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyAcknowledgements.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		F4C606291CA5D49F004B4C09 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftDate.framework",
 			);
 			name = Carthage;
 			outputPaths = (
