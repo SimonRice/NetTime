@@ -1,0 +1,8 @@
+github "malcommac/SwiftDate" ~> 3.0
+github "mathiasnagler/SwiftyAcknowledgements"
+github "ReactiveX/RxSwift" ~> 2.3
+github "Quick/Nimble" ~> 3.2
+github "Quick/Quick" ~> 0.9
+github "SimonRice/SimulatorStatusMagic" "master"
+github "thii/FontAwesome.swift" "0.7.0"
+github "xmartlabs/Eureka" ~> 1.5

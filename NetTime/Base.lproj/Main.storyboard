@@ -127,7 +127,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="About" id="hA0-4h-fKB"/>
                     <connections>
-                        <segue destination="XKo-Rb-6Cr" kind="show" identifier="showCredits" id="e0w-qV-OCW"/>
+                        <segue destination="WtD-s2-3t3" kind="show" identifier="showCredits" id="AwI-xa-twp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOL-iv-qtc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -135,40 +135,31 @@
             <point key="canvasLocation" x="1119" y="1995"/>
         </scene>
         <!--Credits-->
-        <scene sceneID="0JT-cF-cTa">
+        <scene sceneID="jqr-mM-kcP">
             <objects>
-                <viewController id="XKo-Rb-6Cr" customClass="CreditsViewController" customModule="NetTime" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qPC-7a-9aK"/>
-                        <viewControllerLayoutGuide type="bottom" id="lCc-jc-u3A"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="KMZ-4z-QUb">
+                <tableViewController id="WtD-s2-3t3" customClass="CreditsViewController" customModule="NetTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="1dm-76-Hwk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6b-rS-2x0">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <attributedString key="attributedText"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="lCc-jc-u3A" firstAttribute="top" secondItem="J6b-rS-2x0" secondAttribute="bottom" id="Lh3-AG-NYl"/>
-                            <constraint firstItem="J6b-rS-2x0" firstAttribute="leading" secondItem="KMZ-4z-QUb" secondAttribute="leading" id="Moq-j2-qqr"/>
-                            <constraint firstAttribute="trailing" secondItem="J6b-rS-2x0" secondAttribute="trailing" id="ca7-bW-MKS"/>
-                            <constraint firstItem="J6b-rS-2x0" firstAttribute="top" secondItem="qPC-7a-9aK" secondAttribute="bottom" id="mXg-UL-MzL"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Credits" id="QDd-Qk-DLT"/>
+                        <color key="backgroundColor" red="0.87058823529999996" green="0.94901960780000005" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="WtD-s2-3t3" id="FgZ-Mh-b9z"/>
+                            <outlet property="delegate" destination="WtD-s2-3t3" id="Nfk-Am-Szi"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Credits" id="7BT-Cj-jR3"/>
                     <connections>
-                        <outlet property="textView" destination="J6b-rS-2x0" id="fzb-RA-LGB"/>
+                        <outlet property="backgroundView" destination="xlW-Hv-C82" id="xik-lU-c8c"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hbT-Fj-wCj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xkJ-M6-5CV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="xlW-Hv-C82">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.87058823529999996" green="0.94901960780000005" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="1942" y="1995"/>
+            <point key="canvasLocation" x="1909" y="1995"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="t7B-rq-mSQ">

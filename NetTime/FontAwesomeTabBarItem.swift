@@ -6,7 +6,7 @@
 //  Copyright © 2016 Simon Rice. All rights reserved.
 //
 
-import FontAwesome_swift
+import FontAwesome
 import UIKit
 
 class FontAwesomeTabBarItem: UITabBarItem {

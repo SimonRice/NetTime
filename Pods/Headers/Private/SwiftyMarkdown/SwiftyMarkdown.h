@@ -1,1 +1,0 @@
-../../../SwiftyMarkdown/SwiftyMarkdown/SwiftyMarkdown.h

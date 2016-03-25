@@ -2,4 +2,6 @@ opt_in_rules: # some rules are only opt-in
   - empty_count
 excluded:
   - fastlane
+  - Carthage
+  - NetTime/Scripts
   - Pods

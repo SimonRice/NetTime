@@ -6,33 +6,14 @@
 //  Copyright © 2016 Simon Rice. All rights reserved.
 //
 
-import SwiftyMarkdown
-import UIKit
+import SwiftyAcknowledgements
 
-class CreditsViewController: UIViewController {
-    @IBOutlet weak var textView: UITextView!
-    private var firstLayout: Bool = true
+class CreditsViewController: AcknowledgementsTableViewController {
+
+    @IBOutlet var backgroundView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let bundle = NSBundle.mainBundle()
-        if let textView = self.textView,
-            url = bundle.URLForResource("Acknowledgements", withExtension: "md"),
-            md = SwiftyMarkdown(url: url) {
-
-            textView.attributedText = md.attributedString()
-            textView.textContainerInset = UIEdgeInsetsZero
-            textView.scrollIndicatorInsets = UIEdgeInsetsZero
-        }
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        if let textView = self.textView where firstLayout {
-            textView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-            self.firstLayout = false
-        }
+        self.tableView.backgroundColor = self.backgroundView.backgroundColor
     }
 }

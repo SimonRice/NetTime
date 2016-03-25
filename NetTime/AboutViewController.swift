@@ -6,9 +6,8 @@
 //  Copyright © 2016 Simon Rice. All rights reserved.
 //
 
-import Appz
 import Eureka
-import FontAwesome_swift
+import FontAwesome
 import UIKit
 
 class AboutViewController: FormViewController {
@@ -53,8 +52,14 @@ class AboutViewController: FormViewController {
                         size: CGSize(width: 30, height: 30))
                 )
                 $0.onCellSelection({ (_, _) in
-                    UIApplication.sharedApplication()
-                        .open(Applications.Twitter(), action: .UserHandle("@_simonrice"))
+                    let app = UIApplication.sharedApplication()
+                    let twitterURL = NSURL(string: "twitter:///user?screen_name=_SimonRice")!
+                    if app.canOpenURL(twitterURL) {
+                        app.openURL(twitterURL)
+                    } else {
+                        let altURL = NSURL(string: "https://www.twitter.com/_SimonRice")!
+                        app.openURL(altURL)
+                    }
                 })
         }
     }
