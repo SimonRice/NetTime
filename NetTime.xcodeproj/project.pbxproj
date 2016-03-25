@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1754EF45931159C31DCD79C0 /* Pods_NetTimeWatch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1E100912FA26E850CF3F64 /* Pods_NetTimeWatch_Extension.framework */; };
 		20F0FD47D3F4D3B76AA0E753 /* Pods_NetTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB6B8BA97DA2A5E4586B1DB /* Pods_NetTime.framework */; };
-		379DA08E07502A7DF17C93CA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BEDF4143AB7DFE57A235FD /* Pods.framework */; };
 		41659B4E1C484B752EE4E7EF /* Pods_NetTimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FAEE2A83092324E86A5278 /* Pods_NetTimeTests.framework */; };
 		61709CD7899E330F4C190D78 /* Pods_TodayExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1338121F541CA52BAD96F6FF /* Pods_TodayExtension.framework */; };
 		F425CAE31C95FE9A000430F8 /* FontAwesomeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */; };
@@ -17,6 +16,7 @@
 		F46AEE5D1CA174F9005E6728 /* NetTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46AEE5C1CA174F9005E6728 /* NetTimeUITests.swift */; };
 		F46AEE651CA176D9005E6728 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46AEE641CA176D9005E6728 /* SnapshotHelper.swift */; };
 		F4842F251C9609AA00AB1F38 /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4842F241C9609AA00AB1F38 /* CalculateViewController.swift */; };
+		F4CEBA641CA59543004B39F1 /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4F51C021C97508F003B2853 /* digital-7 (mono).ttf */; };
 		F4D611861CA4195700C6C955 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D611851CA4195700C6C955 /* AboutViewController.swift */; };
 		F4D6118C1CA42D8400C6C955 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D6118B1CA42D8400C6C955 /* CreditsViewController.swift */; };
 		F4D611951CA431E100C6C955 /* Acknowledgements.md in Sources */ = {isa = PBXBuildFile; fileRef = F4D611941CA431E100C6C955 /* Acknowledgements.md */; };
@@ -47,8 +47,6 @@
 		F4DBE8F61C95BC58009B8FBC /* TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F4DBE8EA1C95BC58009B8FBC /* TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F4DBE8FB1C95D280009B8FBC /* NSDate+Beats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8B21C9549C9009B8FBC /* NSDate+Beats.swift */; };
 		F4F51C031C97508F003B2853 /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4F51C021C97508F003B2853 /* digital-7 (mono).ttf */; };
-		F4F51C041C97508F003B2853 /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4F51C021C97508F003B2853 /* digital-7 (mono).ttf */; };
-		F4F51C051C97508F003B2853 /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4F51C021C97508F003B2853 /* digital-7 (mono).ttf */; };
 		FB50E7F90AB0984F4F05E8A9 /* Pods_NetTimeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D58292A4349DAE8F52DD4B05 /* Pods_NetTimeUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -149,8 +147,6 @@
 		F46AEE5E1CA174F9005E6728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F46AEE641CA176D9005E6728 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		F4842F241C9609AA00AB1F38 /* CalculateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
-		F490B25E1CA591F400C969F7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		F490B25F1CA591F400C969F7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F4D611851CA4195700C6C955 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		F4D6118B1CA42D8400C6C955 /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		F4D611941CA431E100C6C955 /* Acknowledgements.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = Acknowledgements.md; path = Resources/Acknowledgements.md; sourceTree = "<group>"; };
@@ -201,7 +197,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				20F0FD47D3F4D3B76AA0E753 /* Pods_NetTime.framework in Frameworks */,
-				379DA08E07502A7DF17C93CA /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,8 +231,6 @@
 		6DBD7250B629A70703AE8E22 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F490B25E1CA591F400C969F7 /* Pods.debug.xcconfig */,
-				F490B25F1CA591F400C969F7 /* Pods.release.xcconfig */,
 				00B21E3F2493C3211356115F /* Pods-NetTime.debug.xcconfig */,
 				63184C54D1FFC7047281C01D /* Pods-NetTime.release.xcconfig */,
 				0A12EF285058AA4FCCD48930 /* Pods-NetTimeTests.debug.xcconfig */,
@@ -409,8 +402,8 @@
 				F4DBE88B1C9547EA009B8FBC /* Frameworks */,
 				F4F51C061C97514D003B2853 /* SwiftLint */,
 				F4DBE88C1C9547EA009B8FBC /* Resources */,
-				59152D17C4723AACA0E4106E /* Embed Pods Frameworks */,
 				2C3721DBE7382BB2A4C2CC64 /* Copy Pods Resources */,
+				A3AE143E8FC522452FFD3B4E /* Embed Pods Frameworks */,
 				F4DBE8E01C95562F009B8FBC /* Embed Watch Content */,
 				F4DBE8FA1C95BC58009B8FBC /* Embed App Extensions */,
 				F4DBE8FD1C95D633009B8FBC /* Crashlytics */,
@@ -595,7 +588,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4F51C041C97508F003B2853 /* digital-7 (mono).ttf in Resources */,
+				F4CEBA641CA59543004B39F1 /* digital-7 (mono).ttf in Resources */,
 				F4DBE8BC1C95562F009B8FBC /* Assets.xcassets in Resources */,
 				F4DBE8BA1C95562F009B8FBC /* Interface.storyboard in Resources */,
 			);
@@ -605,7 +598,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4F51C051C97508F003B2853 /* digital-7 (mono).ttf in Resources */,
 				F4DBE8D41C95562F009B8FBC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -696,21 +688,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetTimeUITests/Pods-NetTimeUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		59152D17C4723AACA0E4106E /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5A8B4E17FD07DFD23EFF039B /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -769,6 +746,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetTimeWatch Extension/Pods-NetTimeWatch Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3AE143E8FC522452FFD3B4E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetTime/Pods-NetTime-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A5B34C6CAC059C5D7243FEC4 /* Embed Pods Frameworks */ = {
