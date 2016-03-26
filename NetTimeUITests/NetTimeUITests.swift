@@ -7,7 +7,7 @@
 //
 
 import Nimble
-import SimulatorStatusMagiciOS
+//import SimulatorStatusMagiciOS
 import XCTest
 
 class NetTimeUITests: XCTestCase {
@@ -15,17 +15,17 @@ class NetTimeUITests: XCTestCase {
         super.setUp()
 
         self.continueAfterFailure = false
-        SDStatusBarManager.sharedInstance().enableOverrides()
+//        SDStatusBarManager.sharedInstance().enableOverrides()
 
         let app = XCUIApplication()
-//        setupSnapshot(app)
+        setupSnapshot(app)
         app.launchArguments = ["TEST_MODE"]
         app.launch()
     }
 
     override func tearDown() {
         super.tearDown()
-        SDStatusBarManager.sharedInstance().disableOverrides()
+//        SDStatusBarManager.sharedInstance().disableOverrides()
     }
 
     func testValues() {
@@ -49,22 +49,22 @@ class NetTimeUITests: XCTestCase {
 
 
     func testTakeSnapshots() {
-//        let app = XCUIApplication()
-//        let tabBarsQuery = app.tabBars
-//        tabBarsQuery.buttons["Now"].tap()
-//        snapshot("01_Now")
-//
-//        tabBarsQuery.buttons["Calculate"].tap()
-//
-//        let tablesQuery = app.tables
-//        tablesQuery.staticTexts["Europe/Zurich"].tap()
-//        tablesQuery.pickerWheels["Europe/Zurich"].adjustToPickerWheelValue("Europe/London")
-//
-//        tablesQuery.staticTexts["1/1/16, 10:09 AM"].tap()
-//        tablesQuery.pickerWheels["10 o'clock"].adjustToPickerWheelValue("9")
-//        tablesQuery.pickerWheels["09 minutes"].adjustToPickerWheelValue("41")
-//        tablesQuery.staticTexts["1/1/16, 9:41 AM"].tap()
-//
-//        snapshot("02_Calculate")
+        let app = XCUIApplication()
+        let tabBarsQuery = app.tabBars
+        tabBarsQuery.buttons["Now"].tap()
+        snapshot("01_Now")
+
+        tabBarsQuery.buttons["Calculate"].tap()
+
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["Europe/Zurich"].tap()
+        tablesQuery.pickerWheels["Europe/Zurich"].adjustToPickerWheelValue("Europe/London")
+
+        tablesQuery.staticTexts["1/1/16, 10:09 AM"].tap()
+        tablesQuery.pickerWheels["10 o'clock"].adjustToPickerWheelValue("9")
+        tablesQuery.pickerWheels["09 minutes"].adjustToPickerWheelValue("41")
+        tablesQuery.staticTexts["1/1/16, 9:41 AM"].tap()
+
+        snapshot("02_Calculate")
     }
 }

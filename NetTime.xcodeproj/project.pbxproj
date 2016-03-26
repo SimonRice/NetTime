@@ -28,12 +28,9 @@
 		F4C606171CA5BFEF004B4C09 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606161CA5BFEF004B4C09 /* Crashlytics.framework */; };
 		F4C6061A1CA5C555004B4C09 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4C606191CA5C555004B4C09 /* Acknowledgements.plist */; };
 		F4C6061B1CA5C5CA004B4C09 /* SwiftyAcknowledgements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606031CA5BDFB004B4C09 /* SwiftyAcknowledgements.framework */; };
-		F4C6061F1CA5CD0B004B4C09 /* SimulatorStatusMagiciOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C6061D1CA5CCFE004B4C09 /* SimulatorStatusMagiciOS.framework */; };
 		F4C606231CA5CF85004B4C09 /* Nimble.framework in Carthage */ = {isa = PBXBuildFile; fileRef = F4C605FF1CA5BDFB004B4C09 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F4C606241CA5CF85004B4C09 /* Quick.framework in Carthage */ = {isa = PBXBuildFile; fileRef = F4C606001CA5BDFB004B4C09 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F4C606261CA5CFAD004B4C09 /* Nimble.framework in Carthage */ = {isa = PBXBuildFile; fileRef = F4C605FF1CA5BDFB004B4C09 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F4C606271CA5CFAD004B4C09 /* Quick.framework in Carthage */ = {isa = PBXBuildFile; fileRef = F4C606001CA5BDFB004B4C09 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F4C606281CA5CFAD004B4C09 /* SimulatorStatusMagiciOS.framework in Carthage */ = {isa = PBXBuildFile; fileRef = F4C6061D1CA5CCFE004B4C09 /* SimulatorStatusMagiciOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F4CEBA641CA59543004B39F1 /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4F51C021C97508F003B2853 /* digital-7 (mono).ttf */; };
 		F4D611861CA4195700C6C955 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D611851CA4195700C6C955 /* AboutViewController.swift */; };
 		F4D6118C1CA42D8400C6C955 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D6118B1CA42D8400C6C955 /* CreditsViewController.swift */; };
@@ -123,8 +120,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				F4C606261CA5CFAD004B4C09 /* Nimble.framework in Carthage */,
-				F4C606271CA5CFAD004B4C09 /* Quick.framework in Carthage */,
-				F4C606281CA5CFAD004B4C09 /* SimulatorStatusMagiciOS.framework in Carthage */,
 			);
 			name = Carthage;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,7 +219,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4C6061F1CA5CD0B004B4C09 /* SimulatorStatusMagiciOS.framework in Frameworks */,
 				F4C606071CA5BE09004B4C09 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,7 +505,7 @@
 				F4DBE8BE1C95562F009B8FBC /* Sources */,
 				F4DBE8BF1C95562F009B8FBC /* Frameworks */,
 				F4DBE8C01C95562F009B8FBC /* Resources */,
-				F4C606291CA5D49F004B4C09 /* Carthage */,
+				F4C6062B1CA5DEB3004B4C09 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -687,14 +681,14 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
-		F4C606291CA5D49F004B4C09 /* Carthage */ = {
+		F4C6062B1CA5DEB3004B4C09 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftDate.framework",
+				"$(SRCROOT)/Carthage/Build/watchOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/watchOS/SwiftDate.framework",
 			);
 			name = Carthage;
 			outputPaths = (
