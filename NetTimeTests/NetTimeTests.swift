@@ -60,17 +60,6 @@ class BeatsSpec: QuickSpec {
             }
         }
 
-        describe("9:41AM in California on June 13th 2016") {
-            it("should be @736 .beats") {
-                let region = Region(timeZoneName: TimeZoneName.AmericaLosAngeles)
-                let currentDate = DateInRegion(year: 2016, month: 6,
-                                               day: 13, hour: 9, minute: 41,
-                                               region: region).absoluteTime
-
-                expect(Int(currentDate.beats)).to(equal(736))
-            }
-        }
-
         describe("4:01PM in California on June 13th 2016") {
             it("should be @000 .beats") {
                 let region = Region(timeZoneName: TimeZoneName.AmericaLosAngeles)

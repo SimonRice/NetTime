@@ -1,2 +1,2 @@
-scheme 'NetTimeTests'
+scheme 'NetTime'
 clean true
