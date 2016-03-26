@@ -7,7 +7,7 @@
 //
 
 import Nimble
-//import SimulatorStatusMagiciOS
+import SimulatorStatusMagiciOS
 import XCTest
 
 class NetTimeUITests: XCTestCase {
@@ -15,7 +15,7 @@ class NetTimeUITests: XCTestCase {
         super.setUp()
 
         self.continueAfterFailure = false
-//        SDStatusBarManager.sharedInstance().enableOverrides()
+        SDStatusBarManager.sharedInstance().enableOverrides()
 
         let app = XCUIApplication()
         setupSnapshot(app)
@@ -25,7 +25,7 @@ class NetTimeUITests: XCTestCase {
 
     override func tearDown() {
         super.tearDown()
-//        SDStatusBarManager.sharedInstance().disableOverrides()
+        SDStatusBarManager.sharedInstance().disableOverrides()
     }
 
     func testValues() {

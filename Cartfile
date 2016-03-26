@@ -3,6 +3,6 @@ github "mathiasnagler/SwiftyAcknowledgements"
 github "ReactiveX/RxSwift" ~> 2.3
 github "Quick/Nimble" ~> 3.2
 github "Quick/Quick" ~> 0.9
-github "SimonRice/SimulatorStatusMagic" "master"
+github "shinydevelopment/SimulatorStatusMagic" "30d98b5"
 github "thii/FontAwesome.swift" "0.7.0"
 github "xmartlabs/Eureka" ~> 1.5

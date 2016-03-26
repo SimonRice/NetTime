@@ -32,6 +32,8 @@
 		5516357719E3FF3D001F636D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5516357519E3FF3D001F636D /* Main.storyboard */; };
 		5516357919E3FF3D001F636D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5516357819E3FF3D001F636D /* Images.xcassets */; };
 		5516357C19E3FF3D001F636D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5516357A19E3FF3D001F636D /* LaunchScreen.xib */; };
+		552D9BAA1CA69D39002B6644 /* SDStatusBarOverriderPost9_3.m in Sources */ = {isa = PBXBuildFile; fileRef = 552D9BA91CA69D39002B6644 /* SDStatusBarOverriderPost9_3.m */; };
+		5589CEE91CA69E57004E5908 /* SDStatusBarOverriderPost9_3.m in Sources */ = {isa = PBXBuildFile; fileRef = 552D9BA91CA69D39002B6644 /* SDStatusBarOverriderPost9_3.m */; };
 		72ECF72A1BAAC33A0071D401 /* SimulatorStatusMagiciOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 72ECF7291BAAC33A0071D401 /* SimulatorStatusMagiciOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		72ECF73D1BAAC33A0071D401 /* SimulatorStatusMagiciOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 72ECF7251BAAC33A0071D401 /* SimulatorStatusMagiciOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		72ECF7441BAAC34E0071D401 /* SDStatusBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DDACF30A19E83F06004FCB30 /* SDStatusBarManager.m */; };
@@ -91,6 +93,8 @@
 		5516357619E3FF3D001F636D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5516357819E3FF3D001F636D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5516357B19E3FF3D001F636D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		552D9BA81CA69D39002B6644 /* SDStatusBarOverriderPost9_3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDStatusBarOverriderPost9_3.h; sourceTree = "<group>"; };
+		552D9BA91CA69D39002B6644 /* SDStatusBarOverriderPost9_3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDStatusBarOverriderPost9_3.m; sourceTree = "<group>"; };
 		72ECF7251BAAC33A0071D401 /* SimulatorStatusMagiciOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimulatorStatusMagiciOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72ECF7281BAAC33A0071D401 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72ECF7291BAAC33A0071D401 /* SimulatorStatusMagiciOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimulatorStatusMagiciOS.h; sourceTree = "<group>"; };
@@ -199,6 +203,8 @@
 				44A44BDD1AD7316A003E04A5 /* SDStatusBarOverriderPost8_3.m */,
 				448EAEA81B3B326100A09FBC /* SDStatusBarOverriderPost9_0.h */,
 				448EAEA91B3B326100A09FBC /* SDStatusBarOverriderPost9_0.m */,
+				552D9BA81CA69D39002B6644 /* SDStatusBarOverriderPost9_3.h */,
+				552D9BA91CA69D39002B6644 /* SDStatusBarOverriderPost9_3.m */,
 			);
 			path = SDStatusBarManager;
 			sourceTree = SOURCE_ROOT;
@@ -344,6 +350,7 @@
 				5516357419E3FF3D001F636D /* ViewController.m in Sources */,
 				44A44BE21AD735E2003E04A5 /* SDStatusBarOverriderPre8_3.m in Sources */,
 				5516357119E3FF3D001F636D /* AppDelegate.m in Sources */,
+				552D9BAA1CA69D39002B6644 /* SDStatusBarOverriderPost9_3.m in Sources */,
 				448EAEAA1B3B326100A09FBC /* SDStatusBarOverriderPost9_0.m in Sources */,
 				DDACF30B19E83F06004FCB30 /* SDStatusBarManager.m in Sources */,
 				5516356E19E3FF3D001F636D /* main.m in Sources */,
@@ -357,6 +364,7 @@
 			files = (
 				72ECF7441BAAC34E0071D401 /* SDStatusBarManager.m in Sources */,
 				72ECF7451BAAC34E0071D401 /* SDStatusBarOverriderPre8_3.m in Sources */,
+				5589CEE91CA69E57004E5908 /* SDStatusBarOverriderPost9_3.m in Sources */,
 				72ECF7461BAAC34E0071D401 /* SDStatusBarOverriderPost8_3.m in Sources */,
 				72ECF7471BAAC34E0071D401 /* SDStatusBarOverriderPost9_0.m in Sources */,
 			);
@@ -596,6 +604,7 @@
 				72ECF7401BAAC33A0071D401 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		72ECF7561BAAC49C0071D401 /* Build configuration list for PBXAggregateTarget "SimulatorStatusMagicUniversalFramework" */ = {
 			isa = XCConfigurationList;
@@ -604,6 +613,7 @@
 				72ECF7581BAAC49C0071D401 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

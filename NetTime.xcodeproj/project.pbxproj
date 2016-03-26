@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F425CAE31C95FE9A000430F8 /* FontAwesomeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */; };
 		F429584C1CA11B6C003D9CAD /* CLKComplicationServer+Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F429584B1CA11B6C003D9CAD /* CLKComplicationServer+Reload.swift */; };
+		F42979021CA6A3E1000A9470 /* SimulatorStatusMagiciOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C6061D1CA5CCFE004B4C09 /* SimulatorStatusMagiciOS.framework */; };
+		F42979031CA6A3EB000A9470 /* SimulatorStatusMagiciOS.framework in Carthage */ = {isa = PBXBuildFile; fileRef = F4C6061D1CA5CCFE004B4C09 /* SimulatorStatusMagiciOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F46AEE5D1CA174F9005E6728 /* NetTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46AEE5C1CA174F9005E6728 /* NetTimeUITests.swift */; };
 		F46AEE651CA176D9005E6728 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46AEE641CA176D9005E6728 /* SnapshotHelper.swift */; };
 		F4842F251C9609AA00AB1F38 /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4842F241C9609AA00AB1F38 /* CalculateViewController.swift */; };
@@ -119,6 +121,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				F42979031CA6A3EB000A9470 /* SimulatorStatusMagiciOS.framework in Carthage */,
 				F4C606261CA5CFAD004B4C09 /* Nimble.framework in Carthage */,
 			);
 			name = Carthage;
@@ -220,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4C606071CA5BE09004B4C09 /* Nimble.framework in Frameworks */,
+				F42979021CA6A3E1000A9470 /* SimulatorStatusMagiciOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
