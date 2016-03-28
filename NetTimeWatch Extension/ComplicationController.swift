@@ -79,19 +79,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // swiftlint:disable:next line_length
     private func getTimelineEntriesForComplication(complication: CLKComplication, fromDate: NSDate, toDate: NSDate, limit: Int) -> [CLKComplicationTimelineEntry] {
 
-        let startBeats = fromDate.nearestBeat + 1
-        var endBeats = toDate.nearestBeat
-        if endBeats < startBeats {
-            endBeats += 1000
-        }
-
-        let gmtRegion = Region(timeZoneName: TimeZoneName.Gmt)
-        let midnight = fromDate.startOf(.Day, inRegion: gmtRegion) - 60.minutes
         var entries: [CLKComplicationTimelineEntry] = []
         let comp = complication
 
-        for beat in startBeats...endBeats where entries.count < limit {
-            if let entry = comp.timelineEntryForDate(midnight + beat.beats) {
+        for i in 1...100 where entries.count < limit && fromDate + i.beats <= toDate {
+            if let entry = comp.timelineEntryForDate(fromDate + i.beats) {
                 entries += [entry]
             }
         }
