@@ -85,8 +85,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             endBeats += 1000
         }
 
-        let bmtz = Region(timeZoneName: TimeZoneName(rawValue: "Europe/Zurich"))
-        let midnight = fromDate.startOf(.Day, inRegion: bmtz)
+        let gmtRegion = Region(timeZoneName: TimeZoneName.Gmt)
+        let midnight = fromDate.startOf(.Day, inRegion: gmtRegion) - 60.minutes
         var entries: [CLKComplicationTimelineEntry] = []
         let comp = complication
 
