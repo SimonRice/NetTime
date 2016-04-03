@@ -3,22 +3,21 @@ fastlane_version '1.66.0'
 default_platform :ios
 
 platform :ios do
-  before_all do
-    build_no = number_of_commits
-    carthage(platform: "iOS")
-    carthage(platform: "watchOS")
-    increment_build_number(build_number: build_no)
-  end
-
   desc 'Set up development environment'
   lane :setup do
+    carthage(platform: "iOS")
+    carthage(platform: "watchOS")
     match(force_for_new_devices: true, type: 'development', app_identifier: 'com.simonrice.NetTime')
     match(force_for_new_devices: true, type: 'development', app_identifier: 'com.simonrice.NetTime.watchkitapp')
     match(force_for_new_devices: true, type: 'development', app_identifier: 'com.simonrice.NetTime.TodayExtension')
     match(force_for_new_devices: true, type: 'development', app_identifier: 'com.simonrice.NetTime.watchkitapp.watchkitextension')
   end
 
-  private_lane :production_provisioning do
+  private_lane :production_setup do
+    build_no = number_of_commits
+    carthage(platform: "iOS")
+    carthage(platform: "watchOS")
+    increment_build_number(build_number: build_no)
     match(type: 'appstore', app_identifier: 'com.simonrice.NetTime')
     match(type: 'appstore', app_identifier: 'com.simonrice.NetTime.watchkitapp')
     match(type: 'appstore', app_identifier: 'com.simonrice.NetTime.TodayExtension')
@@ -34,8 +33,9 @@ platform :ios do
   desc 'This will also make sure the profile is up to date'
   lane :beta do
     clean_build_artifacts
-    production_provisioning
+    production_setup
     verify_xcode
+    test
     gym(scheme: 'NetTime')
     pilot
   end
@@ -43,14 +43,16 @@ platform :ios do
   desc 'Deploy a new version to the App Store'
   lane :appstore do
     clean_build_artifacts
-    production_provisioning
+    production_setup
     verify_xcode
+    test
     snapshot
     gym(scheme: 'NetTime')
     deliver(force: true)
   end
 
   lane :refresh_dsyms do
+    build_no = get_build_number
     download_dsyms
     upload_symbols_to_crashlytics
     clean_build_artifacts
