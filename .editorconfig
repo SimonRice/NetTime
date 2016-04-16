@@ -1,0 +1,8 @@
+[*]
+indent_style = space
+
+[*{.swift,.h,.m}]
+indent_size = 4
+
+[{Podfile,Fastfile,Matchfile}]
+indent_size = 2
