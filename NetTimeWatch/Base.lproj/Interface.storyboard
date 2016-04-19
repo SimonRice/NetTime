@@ -17,7 +17,7 @@
                     <items>
                         <group width="1" height="1" alignment="center" verticalAlignment="center" layout="vertical" id="XGF-we-jbE">
                             <items>
-                                <label width="1" alignment="center" verticalAlignment="center" text="@403.2" textAlignment="center" minimumScaleFactor="0.5" id="2jY-nh-FQH">
+                                <label width="1" alignment="center" verticalAlignment="center" text="@---.-" textAlignment="center" minimumScaleFactor="0.5" id="2jY-nh-FQH">
                                     <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" name="Digital-7Mono" family="Digital-7" pointSize="70"/>
                                 </label>
@@ -46,7 +46,7 @@
                         </group>
                         <group alignment="left" layout="vertical" id="uCw-4Q-Ouw">
                             <items>
-                                <label width="1" alignment="center" verticalAlignment="center" text="@403" textAlignment="center" minimumScaleFactor="0.5" id="EPL-8Q-pJG">
+                                <label width="1" alignment="center" verticalAlignment="center" text="@---" textAlignment="center" minimumScaleFactor="0.5" id="EPL-8Q-pJG">
                                     <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" type="system" pointSize="48"/>
                                 </label>
