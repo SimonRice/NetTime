@@ -1,8 +1,10 @@
+github "ArtSabintsev/Siren" ~> 0.7
+github "gapl/PushReview" ~> 0.2
 github "malcommac/SwiftDate" ~> 3.0
-github "mathiasnagler/SwiftyAcknowledgements"
+github "mathiasnagler/SwiftyAcknowledgements" ~> 0.2
 github "ReactiveX/RxSwift" ~> 2.3
-github "Quick/Nimble" "master"
-github "Quick/Quick" "master"
-github "shinydevelopment/SimulatorStatusMagic" "30d98b5"
+github "Quick/Nimble" ~> 4.0
+github "Quick/Quick" ~> 0.9
+github "shinydevelopment/SimulatorStatusMagic" ~> 1.8
 github "thii/FontAwesome.swift" "0.7.0"
 github "xmartlabs/Eureka" ~> 1.5

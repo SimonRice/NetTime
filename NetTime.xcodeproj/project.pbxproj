@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F418CF0C1CD52F5C00455149 /* Siren.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F418CF0B1CD52F5C00455149 /* Siren.framework */; };
+		F418CF0E1CD532CD00455149 /* PushReview.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F418CF0D1CD532CD00455149 /* PushReview.framework */; };
 		F425CAE31C95FE9A000430F8 /* FontAwesomeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */; };
 		F429584C1CA11B6C003D9CAD /* CLKComplicationServer+Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F429584B1CA11B6C003D9CAD /* CLKComplicationServer+Reload.swift */; };
 		F42979021CA6A3E1000A9470 /* SimulatorStatusMagiciOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C6061D1CA5CCFE004B4C09 /* SimulatorStatusMagiciOS.framework */; };
@@ -163,6 +165,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F418CF0B1CD52F5C00455149 /* Siren.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Siren.framework; path = Carthage/Build/iOS/Siren.framework; sourceTree = "<group>"; };
+		F418CF0D1CD532CD00455149 /* PushReview.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushReview.framework; path = Carthage/Build/iOS/PushReview.framework; sourceTree = "<group>"; };
 		F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeTabBarItem.swift; sourceTree = "<group>"; };
 		F429584B1CA11B6C003D9CAD /* CLKComplicationServer+Reload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLKComplicationServer+Reload.swift"; sourceTree = "<group>"; };
 		F46AEE5A1CA174F9005E6728 /* NetTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,6 +239,8 @@
 				F4C606051CA5BE01004B4C09 /* FontAwesome.framework in Frameworks */,
 				F4C6060A1CA5BE11004B4C09 /* SwiftDate.framework in Frameworks */,
 				F4C606091CA5BE0E004B4C09 /* RxSwift.framework in Frameworks */,
+				F418CF0E1CD532CD00455149 /* PushReview.framework in Frameworks */,
+				F418CF0C1CD52F5C00455149 /* Siren.framework in Frameworks */,
 				F4C606151CA5BF54004B4C09 /* Fabric.framework in Frameworks */,
 				F4C606171CA5BFEF004B4C09 /* Crashlytics.framework in Frameworks */,
 				F4C6061B1CA5C5CA004B4C09 /* SwiftyAcknowledgements.framework in Frameworks */,
@@ -301,9 +307,11 @@
 				F4C605FD1CA5BDFB004B4C09 /* Eureka.framework */,
 				F4C605FE1CA5BDFB004B4C09 /* FontAwesome.framework */,
 				F4C605FF1CA5BDFB004B4C09 /* Nimble.framework */,
+				F418CF0D1CD532CD00455149 /* PushReview.framework */,
 				F4C606001CA5BDFB004B4C09 /* Quick.framework */,
 				F4C606011CA5BDFB004B4C09 /* RxSwift.framework */,
 				F4C6061D1CA5CCFE004B4C09 /* SimulatorStatusMagiciOS.framework */,
+				F418CF0B1CD52F5C00455149 /* Siren.framework */,
 				F4C606021CA5BDFB004B4C09 /* SwiftDate.framework */,
 				F4C606031CA5BDFB004B4C09 /* SwiftyAcknowledgements.framework */,
 			);
@@ -677,6 +685,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftDate.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyAcknowledgements.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Siren.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PushReview.framework",
 			);
 			name = Carthage;
 			outputPaths = (

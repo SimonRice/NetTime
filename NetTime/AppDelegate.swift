@@ -8,6 +8,8 @@
 
 import Fabric
 import Crashlytics
+import PushReview
+import Siren
 import UIKit
 
 @UIApplicationMain
@@ -17,7 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-            Fabric.with([Crashlytics.self])
-            return true
+        Fabric.with([Crashlytics.self])
+
+        let siren = Siren.sharedInstance
+        siren.checkVersion(.Immediately)
+
+        PushReview.configureWithAppId("1095598506", appDelegate: self)
+        PushReview.registerNotificationSettings()
+        PushReview.usesBeforePresenting = 10
+
+        return true
+    }
+
+    func applicationDidBecomeActive(application: UIApplication) {
+        Siren.sharedInstance.checkVersion(.Daily)
     }
 }

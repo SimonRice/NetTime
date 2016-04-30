@@ -10,7 +10,7 @@ import ClockKit
 import SwiftDate
 
 extension CLKComplication {
-    // swiftlint:disable:next fuction_length
+    // swiftlint:disable:next function_length
     func timelineEntryForDate(date: NSDate) -> CLKComplicationTimelineEntry? {
         let beats: Float = date.beats
         let template: CLKComplicationTemplate?

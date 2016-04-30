@@ -8,9 +8,11 @@
 
 import Eureka
 import FontAwesome
+import PushReview
 import UIKit
 
 class AboutViewController: FormViewController {
+    // swiftlint:disable:next function_body_length
     private func addAuthorSection() {
         self.form +++ Section()
             <<< LabelRow() {
@@ -60,6 +62,17 @@ class AboutViewController: FormViewController {
                         let altURL = NSURL(string: "https://www.twitter.com/_SimonRice")!
                         app.openURL(altURL)
                     }
+                })
+            }
+            <<< LabelRow() {
+                $0.title = "Rate NetTime"
+                $0.cell.accessoryView = UIImageView(
+                    image: UIImage.fontAwesomeIconWithName(FontAwesome.Star,
+                        textColor: UIColor(red:1, green:0.59, blue:0, alpha:1),
+                        size: CGSize(width: 30, height: 30))
+                )
+                $0.onCellSelection({ (_, _) in
+                    PushReview.reviewApp()
                 })
         }
     }
