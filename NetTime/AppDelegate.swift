@@ -15,9 +15,14 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    private var isSimulator: Bool {
+        return TARGET_OS_SIMULATOR != 0
+    }
 
     func application(application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+
+        guard !self.isSimulator else { return true }
 
         Fabric.with([Crashlytics.self])
 
@@ -32,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
+        guard !self.isSimulator else { return }
         Siren.sharedInstance.checkVersion(.Daily)
     }
 }

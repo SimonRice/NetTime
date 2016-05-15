@@ -11,9 +11,9 @@ sudo gem install fastlane
 fastlane ios setup
 ```
 Set up development environment
-### ios test
+### ios tests
 ```
-fastlane ios test
+fastlane ios tests
 ```
 Runs all the tests
 ### ios beta
