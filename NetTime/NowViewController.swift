@@ -11,8 +11,8 @@ import SwiftDate
 import UIKit
 
 class NowViewController: UIViewController {
-    @IBOutlet weak var beatsLabel: UILabel!
-    private var subscription: Disposable!
+    @IBOutlet private weak var beatsLabel: UILabel!
+    private var subscription: Disposable?
 
     private var date: NSDate {
         if NSProcessInfo.processInfo().arguments.contains("TEST_MODE") {

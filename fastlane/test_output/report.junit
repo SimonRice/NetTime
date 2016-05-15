@@ -1,17 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<testsuites tests='10' failures='0'>
-  <testsuite name='NetTimeTests.BeatsSpec' tests='8' failures='0'>
-    <testcase classname='NetTimeTests.BeatsSpec' name='11AM_in_London_on_January_1st_2015__should_be__500__beats' time='0.003'/>
+<testsuites tests='7' failures='0'>
+  <testsuite name='NetTimeTests.BeatsSpec' tests='7' failures='0'>
+    <testcase classname='NetTimeTests.BeatsSpec' name='11AM_in_London_on_January_1st_2015__should_be__500__beats' time='0.007'/>
     <testcase classname='NetTimeTests.BeatsSpec' name='11AM_in_London_on_June_1st_2015__should_be__458__beats' time='0.001'/>
-    <testcase classname='NetTimeTests.BeatsSpec' name='10_09AM_in_New_York_on_January_1st_2015__should_be__672__beats' time='0.001'/>
-    <testcase classname='NetTimeTests.BeatsSpec' name='9_41AM_in_California_on_June_13th_2016__should_be__736__beats' time='0.005'/>
-    <testcase classname='NetTimeTests.BeatsSpec' name='9_41AM_in_California_on_June_13th_2016__should_be__736__beats_2' time='0.001'/>
+    <testcase classname='NetTimeTests.BeatsSpec' name='10_09AM_in_New_York_on_January_1st_2015__should_be__672__beats' time='0.003'/>
+    <testcase classname='NetTimeTests.BeatsSpec' name='9_41AM_in_California_on_June_13th_2016__should_be__736__beats' time='0.002'/>
     <testcase classname='NetTimeTests.BeatsSpec' name='4_01PM_in_California_on_June_13th_2016__should_be__000__beats' time='0.001'/>
-    <testcase classname='NetTimeTests.BeatsSpec' name='4_02PM_in_California_on_June_13th_2016__should_be__000__beats' time='0.003'/>
-    <testcase classname='NetTimeTests.BeatsSpec' name='3_59PM_in_California_on_June_13th_2016__should_be__999__beats' time='0.002'/>
-  </testsuite>
-  <testsuite name='NetTimeUITests.NetTimeUITests' tests='2' failures='0'>
-    <testcase classname='NetTimeUITests.NetTimeUITests' name='testTakeSnapshots' time='13.167'/>
-    <testcase classname='NetTimeUITests.NetTimeUITests' name='testValues' time='7.386'/>
+    <testcase classname='NetTimeTests.BeatsSpec' name='4_02PM_in_California_on_June_13th_2016__should_be__000__beats' time='0.001'/>
+    <testcase classname='NetTimeTests.BeatsSpec' name='3_59PM_in_California_on_June_13th_2016__should_be__999__beats' time='0.001'/>
   </testsuite>
 </testsuites>
