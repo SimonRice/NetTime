@@ -6,26 +6,16 @@
 //  Copyright © 2016 Simon Rice. All rights reserved.
 //
 
-import ClockKit
-import RxSwift
 import Foundation
+import RxSwift
 import WatchKit
 
-class InterfaceController: WKInterfaceController {
+class NowInterfaceController: WKInterfaceController {
     @IBOutlet var beatsLabel: WKInterfaceLabel!
     private var subscription: Disposable!
 
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
-    }
-
-    private func refreshComplications() {
-        CLKComplicationServer.sharedInstance().reloadActiveComplications()
-    }
-
     override func willActivate() {
         super.willActivate()
-        self.refreshComplications()
 
 //        // Test Mode only
 //        if let label = self.beatsLabel {
@@ -43,10 +33,7 @@ class InterfaceController: WKInterfaceController {
 
     override func didDeactivate() {
         super.didDeactivate()
-        if let subscription = self.subscription {
-            subscription.dispose()
-        }
-
-        self.refreshComplications()
+        guard let subscription = self.subscription else { return }
+        subscription.dispose()
     }
 }

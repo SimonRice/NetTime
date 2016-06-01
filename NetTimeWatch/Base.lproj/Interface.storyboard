@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oZ8-gE-Efv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
@@ -10,10 +10,10 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Interface Controller-->
+        <!--Now Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="NetTimeWatch" customModuleProvider="target">
+                <controller id="AgC-eL-Hgc" customClass="NowInterfaceController" customModule="NetTimeWatch_Extension">
                     <items>
                         <group width="1" height="1" alignment="center" verticalAlignment="center" layout="vertical" id="XGF-we-jbE">
                             <items>
@@ -32,37 +32,50 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="235" y="347"/>
+            <point key="canvasLocation" x="438" y="1139"/>
         </scene>
-        <!--Glance Interface Controller-->
-        <scene sceneID="BOz-TT-tkC">
+        <!--Main Interface Controller-->
+        <scene sceneID="oCP-l6-6FM">
             <objects>
-                <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController" customModule="NetTimeWatch" customModuleProvider="target">
+                <controller id="oZ8-gE-Efv" customClass="MainInterfaceController" customModule="NetTimeWatch_Extension">
                     <items>
-                        <group alignment="left" id="t8f-Gd-c4y">
-                            <items>
-                                <label alignment="center" verticalAlignment="center" text="NetTime Now" id="kYL-zp-Q9C"/>
-                            </items>
-                        </group>
-                        <group alignment="left" layout="vertical" id="uCw-4Q-Ouw">
-                            <items>
-                                <label width="1" alignment="center" verticalAlignment="center" text="@---" textAlignment="center" minimumScaleFactor="0.5" id="EPL-8Q-pJG">
-                                    <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" type="system" pointSize="48"/>
-                                </label>
-                                <label width="1" alignment="center" verticalAlignment="center" text=".beats" textAlignment="center" id="o9p-A0-95o">
-                                    <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </label>
-                            </items>
-                        </group>
+                        <button width="1" height="0.5" alignment="left" title="Calculate" id="gwU-yu-JcF">
+                            <connections>
+                                <segue destination="Sti-4I-YB5" kind="push" id="s4J-Ks-flP"/>
+                            </connections>
+                        </button>
+                        <button width="1" height="0.5" alignment="left" title="Now" id="Dz3-df-mJU">
+                            <connections>
+                                <segue destination="AgC-eL-Hgc" kind="push" id="qGV-bK-BAD"/>
+                            </connections>
+                        </button>
                     </items>
-                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
-                    <connections>
-                        <outlet property="beatsLabel" destination="EPL-8Q-pJG" id="fZd-1m-uJV"/>
-                    </connections>
-                </glanceController>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="235" y="672"/>
+            <point key="canvasLocation" x="87" y="970"/>
+        </scene>
+        <!--Calculate Interface Controller-->
+        <scene sceneID="mfY-Gd-tzf">
+            <objects>
+                <controller id="Sti-4I-YB5" customClass="CalculateInterfaceController" customModule="NetTimeWatch_Extension">
+                    <items>
+                        <group width="1" height="0.80000000000000004" alignment="left" id="kSk-yG-3ld">
+                            <items>
+                                <picker width="0.33000000000000002" height="1" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="swa-pT-0oq"/>
+                                <picker width="0.34000000000000002" height="1" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="Wz3-4V-59p"/>
+                                <picker width="0.33000000000000002" height="1" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="WaK-Wp-sGQ"/>
+                            </items>
+                        </group>
+                        <label height="0.20000000000000001" alignment="center" verticalAlignment="center" hidden="YES" text="Label" textAlignment="left" id="4io-9p-nJM"/>
+                    </items>
+                    <connections>
+                        <outlet property="afternoonPicker" destination="WaK-Wp-sGQ" id="N3G-9s-Bq4"/>
+                        <outlet property="hourPicker" destination="swa-pT-0oq" id="RnQ-FZ-dGn"/>
+                        <outlet property="minutePicker" destination="Wz3-4V-59p" id="DG1-Yk-X9I"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="438" y="688"/>
         </scene>
     </scenes>
 </document>
