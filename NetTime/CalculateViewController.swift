@@ -68,9 +68,11 @@ class CalculateViewController: FormViewController {
                 $0.options = NSTimeZone.knownTimeZoneNames()
                 $0.value = self.timezoneName.rawValue
                 }.onChange { [weak self] row in
-                    if let strongSelf = self, timezoneName = row.value {
-                        strongSelf.timezoneName = TimeZoneName(rawValue: timezoneName)!
-                    }
+                    guard let timezoneValue = row.value else { return }
+                    guard let timezoneName = TimeZoneName(rawValue: timezoneValue) else { return }
+                    guard let strongSelf = self else { return }
+
+                    strongSelf.timezoneName = timezoneName
         }
 
         self.form +++= LabelRow("beats") {
