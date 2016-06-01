@@ -13,7 +13,6 @@
 		F429584C1CA11B6C003D9CAD /* CLKComplicationServer+Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F429584B1CA11B6C003D9CAD /* CLKComplicationServer+Reload.swift */; };
 		F42979021CA6A3E1000A9470 /* SimulatorStatusMagiciOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C6061D1CA5CCFE004B4C09 /* SimulatorStatusMagiciOS.framework */; };
 		F42979031CA6A3EB000A9470 /* SimulatorStatusMagiciOS.framework in Carthage */ = {isa = PBXBuildFile; fileRef = F4C6061D1CA5CCFE004B4C09 /* SimulatorStatusMagiciOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F43F6AA61CFF43B700DDBFC2 /* MainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43F6AA51CFF43B700DDBFC2 /* MainInterfaceController.swift */; };
 		F43F6AA81CFF448C00DDBFC2 /* CalculateInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43F6AA71CFF448C00DDBFC2 /* CalculateInterfaceController.swift */; };
 		F46AEE5D1CA174F9005E6728 /* NetTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46AEE5C1CA174F9005E6728 /* NetTimeUITests.swift */; };
 		F46AEE651CA176D9005E6728 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46AEE641CA176D9005E6728 /* SnapshotHelper.swift */; };
@@ -170,7 +169,6 @@
 		F418CF0D1CD532CD00455149 /* PushReview.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushReview.framework; path = Carthage/Build/iOS/PushReview.framework; sourceTree = "<group>"; };
 		F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeTabBarItem.swift; sourceTree = "<group>"; };
 		F429584B1CA11B6C003D9CAD /* CLKComplicationServer+Reload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLKComplicationServer+Reload.swift"; sourceTree = "<group>"; };
-		F43F6AA51CFF43B700DDBFC2 /* MainInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainInterfaceController.swift; sourceTree = "<group>"; };
 		F43F6AA71CFF448C00DDBFC2 /* CalculateInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculateInterfaceController.swift; sourceTree = "<group>"; };
 		F46AEE5A1CA174F9005E6728 /* NetTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F46AEE5C1CA174F9005E6728 /* NetTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetTimeUITests.swift; sourceTree = "<group>"; };
@@ -412,7 +410,6 @@
 				F429584B1CA11B6C003D9CAD /* CLKComplicationServer+Reload.swift */,
 				F4DBE8D11C95562F009B8FBC /* ComplicationController.swift */,
 				F4DBE8CB1C95562F009B8FBC /* ExtensionDelegate.swift */,
-				F43F6AA51CFF43B700DDBFC2 /* MainInterfaceController.swift */,
 				F4DBE8C91C95562F009B8FBC /* NowInterfaceController.swift */,
 				F4DBE8D31C95562F009B8FBC /* Assets.xcassets */,
 				F4DBE8D51C95562F009B8FBC /* Info.plist */,
@@ -788,7 +785,6 @@
 				F4DBE8D21C95562F009B8FBC /* ComplicationController.swift in Sources */,
 				F4DBE8CA1C95562F009B8FBC /* NowInterfaceController.swift in Sources */,
 				F429584C1CA11B6C003D9CAD /* CLKComplicationServer+Reload.swift in Sources */,
-				F43F6AA61CFF43B700DDBFC2 /* MainInterfaceController.swift in Sources */,
 				F4DBE8E51C958617009B8FBC /* Int+Beats.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

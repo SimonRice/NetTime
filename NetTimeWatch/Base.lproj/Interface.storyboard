@@ -34,10 +34,10 @@
             </objects>
             <point key="canvasLocation" x="438" y="1139"/>
         </scene>
-        <!--Main Interface Controller-->
+        <!--Interface Controller-->
         <scene sceneID="oCP-l6-6FM">
             <objects>
-                <controller id="oZ8-gE-Efv" customClass="MainInterfaceController" customModule="NetTimeWatch_Extension">
+                <controller id="oZ8-gE-Efv">
                     <items>
                         <button width="1" height="0.5" alignment="left" title="Calculate" id="gwU-yu-JcF">
                             <connections>
@@ -61,15 +61,30 @@
                     <items>
                         <group width="1" height="0.80000000000000004" alignment="left" id="kSk-yG-3ld">
                             <items>
-                                <picker width="0.33000000000000002" height="1" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="swa-pT-0oq"/>
-                                <picker width="0.34000000000000002" height="1" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="Wz3-4V-59p"/>
-                                <picker width="0.33000000000000002" height="1" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="WaK-Wp-sGQ"/>
+                                <picker width="0.33000000000000002" height="1" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="swa-pT-0oq">
+                                    <connections>
+                                        <action selector="hourPickerDidChange:" destination="Sti-4I-YB5" id="hXa-By-Jfu"/>
+                                    </connections>
+                                </picker>
+                                <picker width="0.34000000000000002" height="1" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="Wz3-4V-59p">
+                                    <connections>
+                                        <action selector="minutePickerDidChange:" destination="Sti-4I-YB5" id="wSk-6A-J6V"/>
+                                    </connections>
+                                </picker>
+                                <picker width="0.33000000000000002" height="1" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="WaK-Wp-sGQ">
+                                    <connections>
+                                        <action selector="afternoonPickerDidChange:" destination="Sti-4I-YB5" id="QQg-F1-Q4Y"/>
+                                    </connections>
+                                </picker>
                             </items>
                         </group>
-                        <label height="0.20000000000000001" alignment="center" verticalAlignment="center" hidden="YES" text="Label" textAlignment="left" id="4io-9p-nJM"/>
+                        <label height="0.20000000000000001" alignment="center" verticalAlignment="center" hidden="YES" text="@--- .beats" textAlignment="left" id="4io-9p-nJM">
+                            <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
                     </items>
                     <connections>
                         <outlet property="afternoonPicker" destination="WaK-Wp-sGQ" id="N3G-9s-Bq4"/>
+                        <outlet property="beatsLabel" destination="4io-9p-nJM" id="I0l-4M-tsZ"/>
                         <outlet property="hourPicker" destination="swa-pT-0oq" id="RnQ-FZ-dGn"/>
                         <outlet property="minutePicker" destination="Wz3-4V-59p" id="DG1-Yk-X9I"/>
                     </connections>

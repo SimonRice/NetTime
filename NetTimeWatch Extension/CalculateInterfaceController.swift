@@ -15,6 +15,34 @@ class CalculateInterfaceController: WKInterfaceController {
     @IBOutlet var minutePicker: WKInterfacePicker!
     @IBOutlet var afternoonPicker: WKInterfacePicker!
 
+    @IBOutlet var beatsLabel: WKInterfaceLabel!
+
+    @IBAction func hourPickerDidChange(value: Int) {
+        self.currentHour = value
+        if self.is12h && self.currentAfternoon {
+            self.currentHour += 12
+        }
+
+        self.showTimeInBeats()
+    }
+
+    @IBAction func minutePickerDidChange(value: Int) {
+        self.currentMinue = value
+        self.showTimeInBeats()
+    }
+
+    @IBAction func afternoonPickerDidChange(value: Int) {
+        self.currentAfternoon = Bool(value)
+        if self.currentHour < 12 && self.currentAfternoon {
+            self.currentHour += 12
+        } else if self.currentHour >= 12 && !self.currentAfternoon {
+            self.currentHour -= 12
+        }
+
+        self.showTimeInBeats()
+    }
+
+
     private var currentHour: Int = 0
     private var currentMinue: Int = 0
     private var currentAfternoon: Bool = false
@@ -86,6 +114,12 @@ class CalculateInterfaceController: WKInterfaceController {
         })
 
         self.afternoonPicker.setItems(afternoonItems)
+        self.afternoonPicker.setSelectedItemIndex(Int(self.currentAfternoon))
+    }
+
+    private func showTimeInBeats() {
+        self.beatsLabel.setHidden(false)
+        self.beatsLabel.setText(String(format: "@%03d .beats", self.currentDate.nearestBeat))
     }
 
     override func willActivate() {
@@ -101,5 +135,7 @@ class CalculateInterfaceController: WKInterfaceController {
         } else {
             self.setupFor24h()
         }
+
+        self.showTimeInBeats()
     }
 }
