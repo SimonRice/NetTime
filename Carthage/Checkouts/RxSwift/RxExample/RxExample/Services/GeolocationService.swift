@@ -6,7 +6,6 @@
 //  Copyright © 2016 Krunoslav Zaher. All rights reserved.
 //
 
-import Foundation
 import CoreLocation
 #if !RX_NO_MODULE
     import RxSwift
@@ -16,7 +15,7 @@ import CoreLocation
 class GeolocationService {
     
     static let instance = GeolocationService()
-    private (set) var autorized: Driver<Bool>
+    private (set) var authorized: Driver<Bool>
     private (set) var location: Driver<CLLocationCoordinate2D>
     
     private let locationManager = CLLocationManager()
@@ -26,26 +25,26 @@ class GeolocationService {
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         
-        autorized = Observable.deferred { [weak locationManager] in
+        authorized = Observable.deferred { [weak locationManager] in
                 let status = CLLocationManager.authorizationStatus()
                 guard let locationManager = locationManager else {
                     return Observable.just(status)
                 }
                 return locationManager
-                    .rx_didChangeAuthorizationStatus
+                    .rx.didChangeAuthorizationStatus
                     .startWith(status)
             }
-            .asDriver(onErrorJustReturn: CLAuthorizationStatus.NotDetermined)
+            .asDriver(onErrorJustReturn: CLAuthorizationStatus.notDetermined)
             .map {
                 switch $0 {
-                case .AuthorizedAlways:
+                case .authorizedAlways:
                     return true
                 default:
                     return false
                 }
             }
         
-        location = locationManager.rx_didUpdateLocations
+        location = locationManager.rx.didUpdateLocations
             .asDriver(onErrorJustReturn: [])
             .flatMap {
                 return $0.last.map(Driver.just) ?? Driver.empty()

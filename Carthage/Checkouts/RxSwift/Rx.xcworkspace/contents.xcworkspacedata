@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Rx.playground">
+   </FileRef>
+   <FileRef
       location = "group:Package.swift">
    </FileRef>
    <FileRef
@@ -17,6 +20,9 @@
       location = "container:"
       name = "Podspecs">
       <FileRef
+         location = "group:RxTest.podspec">
+      </FileRef>
+      <FileRef
          location = "group:RxBlocking.podspec">
       </FileRef>
       <FileRef
@@ -25,49 +31,18 @@
       <FileRef
          location = "group:RxSwift.podspec">
       </FileRef>
-      <FileRef
-         location = "group:RxTests.podspec">
-      </FileRef>
    </Group>
    <Group
       location = "group:scripts"
       name = "scripts">
-      <Group
-         location = "group:automation-tests"
-         name = "automation-tests">
-         <FileRef
-            location = "group:01_githubSignUp.js">
-         </FileRef>
-         <FileRef
-            location = "group:02_searchWikipedia.js">
-         </FileRef>
-         <FileRef
-            location = "group:03_masterDetail.js">
-         </FileRef>
-         <FileRef
-            location = "group:04_controlsTests.js">
-         </FileRef>
-         <FileRef
-            location = "group:05_reactivePartialUpdates.js">
-         </FileRef>
-         <FileRef
-            location = "group:common.js">
-         </FileRef>
-         <FileRef
-            location = "group:main.js">
-         </FileRef>
-      </Group>
       <FileRef
-         location = "group:automation-tests.sh">
+         location = "group:all-tests.sh">
       </FileRef>
       <FileRef
          location = "group:common.sh">
       </FileRef>
       <FileRef
          location = "group:/Users/kzaher/Projects/RxSwift/scripts/package-spm.swift">
-      </FileRef>
-      <FileRef
-         location = "group:pre-release-tests.sh">
       </FileRef>
       <FileRef
          location = "group:test-linux.sh">
@@ -89,9 +64,6 @@
       location = "group:Documentation"
       name = "Documentation">
       <FileRef
-         location = "group:API.md">
-      </FileRef>
-      <FileRef
          location = "group:DesignRationale.md">
       </FileRef>
       <FileRef
@@ -102,9 +74,6 @@
       </FileRef>
       <FileRef
          location = "group:HotAndColdObservables.md">
-      </FileRef>
-      <FileRef
-         location = "group:IssueTemplate.md">
       </FileRef>
       <FileRef
          location = "group:Linux.md">
@@ -128,9 +97,6 @@
          location = "group:Warnings.md">
       </FileRef>
    </Group>
-   <FileRef
-      location = "group:Rx.playground">
-   </FileRef>
    <FileRef
       location = "group:Rx.xcodeproj">
    </FileRef>

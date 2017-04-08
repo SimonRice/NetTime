@@ -6,11 +6,30 @@
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-import Foundation
 
 enum Operator {
-    case Addition
-    case Subtraction
-    case Multiplication
-    case Division
+    case addition
+    case subtraction
+    case multiplication
+    case division
+}
+
+extension Operator {
+    var sign: String {
+        switch self {
+        case .addition:         return "+"
+        case .subtraction:      return "-"
+        case .multiplication:   return "×"
+        case .division:         return "/"
+        }
+    }
+    
+    var perform: (Double, Double) -> Double {
+        switch self {
+        case .addition:         return (+)
+        case .subtraction:      return (-)
+        case .multiplication:   return (*)
+        case .division:         return (/)
+        }
+    }
 }

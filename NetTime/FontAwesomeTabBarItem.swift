@@ -14,14 +14,13 @@ class FontAwesomeTabBarItem: UITabBarItem {
         didSet {
             let prefix: String = self.iconName.hasPrefix("fa-") ? "" : "fa-"
 
-            if let fontAwesomeValue = String.fontAwesomeIconWithCode("\(prefix)\(self.iconName)"),
-                fontAwesomeGlyph = FontAwesome(rawValue: fontAwesomeValue) {
-                    self.image = UIImage.fontAwesomeIconWithName(fontAwesomeGlyph,
-                        textColor: UIColor.blackColor(),
-                        size: CGSize(width: 30, height: 30)
-                    )
+            if let fontAwesomeValue = String.fontAwesomeIcon(code: "\(prefix)\(self.iconName)"),
+                let fontAwesomeGlyph = FontAwesome(rawValue: fontAwesomeValue) {
+                let size = CGSize(width: 30, height: 30)
+                self.image = UIImage.fontAwesomeIcon(name: fontAwesomeGlyph,
+                                                     textColor: .black, size: size)
             } else {
-//                Log.warning("Cound not find icon for \(self.iconName)")
+                Log.warning("Cound not find icon for \(self.iconName)")
             }
         }
     }

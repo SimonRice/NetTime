@@ -6,7 +6,6 @@
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-import Foundation
 import UIKit
 #if !RX_NO_MODULE
     import RxSwift
@@ -17,18 +16,19 @@ public class RootViewController : UITableViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         // force load
-        GitHubSearchRepositoriesAPI.sharedAPI.activityIndicator
-        DefaultWikipediaAPI.sharedAPI
-        DefaultImageService.sharedImageService
-        DefaultWireframe.sharedInstance
-        MainScheduler.instance
-        ReachabilityService.sharedReachabilityService
+        _ = GitHubSearchRepositoriesAPI.sharedAPI.activityIndicator
+        _ = DefaultWikipediaAPI.sharedAPI
+        _ = DefaultImageService.sharedImageService
+        _ = DefaultWireframe.sharedInstance
+        _ = MainScheduler.instance
+        _ = Dependencies.sharedDependencies.reachabilityService
+        
         let geoService = GeolocationService.instance
-        geoService.autorized.driveNext { _ in
+        geoService.authorized.drive(onNext: { _ in
 
-        }.dispose()
-        geoService.location.driveNext { _ in
+        }).dispose()
+        geoService.location.drive(onNext: { _ in
 
-        }.dispose()
+        }).dispose()
     }
 }

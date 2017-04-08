@@ -24,6 +24,8 @@
 /* Begin PBXBuildFile section */
 		110F24E719E4610E00012FD7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 110F24E519E4610E00012FD7 /* Localizable.strings */; };
 		448EAEAA1B3B326100A09FBC /* SDStatusBarOverriderPost9_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 448EAEA91B3B326100A09FBC /* SDStatusBarOverriderPost9_0.m */; };
+		449C2C7F1E89BB61002D3846 /* SDStatusBarOverriderPost10_3.m in Sources */ = {isa = PBXBuildFile; fileRef = 449C2C7E1E89BB61002D3846 /* SDStatusBarOverriderPost10_3.m */; };
+		449C2C801E8AB839002D3846 /* SDStatusBarOverriderPost10_3.m in Sources */ = {isa = PBXBuildFile; fileRef = 449C2C7E1E89BB61002D3846 /* SDStatusBarOverriderPost10_3.m */; };
 		44A44BDE1AD7316A003E04A5 /* SDStatusBarOverriderPost8_3.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A44BDD1AD7316A003E04A5 /* SDStatusBarOverriderPost8_3.m */; };
 		44A44BE21AD735E2003E04A5 /* SDStatusBarOverriderPre8_3.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A44BE11AD735E2003E04A5 /* SDStatusBarOverriderPre8_3.m */; };
 		5516356E19E3FF3D001F636D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5516356D19E3FF3D001F636D /* main.m */; };
@@ -45,6 +47,8 @@
 		72ECF74A1BAAC3580071D401 /* SDStatusBarOverriderPre8_3.h in Headers */ = {isa = PBXBuildFile; fileRef = 44A44BE01AD735E2003E04A5 /* SDStatusBarOverriderPre8_3.h */; };
 		72ECF74B1BAAC3580071D401 /* SDStatusBarOverriderPost8_3.h in Headers */ = {isa = PBXBuildFile; fileRef = 44A44BDC1AD7316A003E04A5 /* SDStatusBarOverriderPost8_3.h */; };
 		72ECF74C1BAAC3580071D401 /* SDStatusBarOverriderPost9_0.h in Headers */ = {isa = PBXBuildFile; fileRef = 448EAEA81B3B326100A09FBC /* SDStatusBarOverriderPost9_0.h */; };
+		DB9638021D6E24CB002F122B /* SDStatusBarOverriderPost10_0.m in Sources */ = {isa = PBXBuildFile; fileRef = DB9638011D6E24C9002F122B /* SDStatusBarOverriderPost10_0.m */; };
+		DB9638031D6E24CC002F122B /* SDStatusBarOverriderPost10_0.m in Sources */ = {isa = PBXBuildFile; fileRef = DB9638011D6E24C9002F122B /* SDStatusBarOverriderPost10_0.m */; };
 		DDACF30B19E83F06004FCB30 /* SDStatusBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DDACF30A19E83F06004FCB30 /* SDStatusBarManager.m */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +81,8 @@
 		110F24E619E4610E00012FD7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		448EAEA81B3B326100A09FBC /* SDStatusBarOverriderPost9_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDStatusBarOverriderPost9_0.h; sourceTree = "<group>"; };
 		448EAEA91B3B326100A09FBC /* SDStatusBarOverriderPost9_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDStatusBarOverriderPost9_0.m; sourceTree = "<group>"; };
+		449C2C7D1E89BB61002D3846 /* SDStatusBarOverriderPost10_3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDStatusBarOverriderPost10_3.h; sourceTree = "<group>"; };
+		449C2C7E1E89BB61002D3846 /* SDStatusBarOverriderPost10_3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDStatusBarOverriderPost10_3.m; sourceTree = "<group>"; };
 		44A44BDC1AD7316A003E04A5 /* SDStatusBarOverriderPost8_3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDStatusBarOverriderPost8_3.h; sourceTree = "<group>"; };
 		44A44BDD1AD7316A003E04A5 /* SDStatusBarOverriderPost8_3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDStatusBarOverriderPost8_3.m; sourceTree = "<group>"; };
 		44A44BDF1AD734F0003E04A5 /* SDStatusBarOverrider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDStatusBarOverrider.h; sourceTree = "<group>"; };
@@ -97,6 +103,8 @@
 		72ECF7251BAAC33A0071D401 /* SimulatorStatusMagiciOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimulatorStatusMagiciOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72ECF7281BAAC33A0071D401 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72ECF7291BAAC33A0071D401 /* SimulatorStatusMagiciOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimulatorStatusMagiciOS.h; sourceTree = "<group>"; };
+		DB9638001D6E24C9002F122B /* SDStatusBarOverriderPost10_0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDStatusBarOverriderPost10_0.h; sourceTree = "<group>"; };
+		DB9638011D6E24C9002F122B /* SDStatusBarOverriderPost10_0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDStatusBarOverriderPost10_0.m; sourceTree = "<group>"; };
 		DDACF30919E83F06004FCB30 /* SDStatusBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDStatusBarManager.h; sourceTree = "<group>"; };
 		DDACF30A19E83F06004FCB30 /* SDStatusBarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = SDStatusBarManager.m; sourceTree = "<group>"; tabWidth = 2; };
 /* End PBXFileReference section */
@@ -130,6 +138,7 @@
 			indentWidth = 2;
 			sourceTree = "<group>";
 			tabWidth = 2;
+			usesTabs = 0;
 		};
 		5516356919E3FF3D001F636D /* Products */ = {
 			isa = PBXGroup;
@@ -204,6 +213,10 @@
 				448EAEA91B3B326100A09FBC /* SDStatusBarOverriderPost9_0.m */,
 				552D9BA81CA69D39002B6644 /* SDStatusBarOverriderPost9_3.h */,
 				552D9BA91CA69D39002B6644 /* SDStatusBarOverriderPost9_3.m */,
+				DB9638001D6E24C9002F122B /* SDStatusBarOverriderPost10_0.h */,
+				DB9638011D6E24C9002F122B /* SDStatusBarOverriderPost10_0.m */,
+				449C2C7D1E89BB61002D3846 /* SDStatusBarOverriderPost10_3.h */,
+				449C2C7E1E89BB61002D3846 /* SDStatusBarOverriderPost10_3.m */,
 			);
 			path = SDStatusBarManager;
 			sourceTree = SOURCE_ROOT;
@@ -269,7 +282,7 @@
 		5516356019E3FF3D001F636D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Shiny Development";
 				TargetAttributes = {
 					5516356719E3FF3D001F636D = {
@@ -346,6 +359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				449C2C7F1E89BB61002D3846 /* SDStatusBarOverriderPost10_3.m in Sources */,
 				5516357419E3FF3D001F636D /* ViewController.m in Sources */,
 				44A44BE21AD735E2003E04A5 /* SDStatusBarOverriderPre8_3.m in Sources */,
 				5516357119E3FF3D001F636D /* AppDelegate.m in Sources */,
@@ -354,6 +368,7 @@
 				DDACF30B19E83F06004FCB30 /* SDStatusBarManager.m in Sources */,
 				5516356E19E3FF3D001F636D /* main.m in Sources */,
 				44A44BDE1AD7316A003E04A5 /* SDStatusBarOverriderPost8_3.m in Sources */,
+				DB9638031D6E24CC002F122B /* SDStatusBarOverriderPost10_0.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,10 +377,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				72ECF7441BAAC34E0071D401 /* SDStatusBarManager.m in Sources */,
+				449C2C801E8AB839002D3846 /* SDStatusBarOverriderPost10_3.m in Sources */,
 				72ECF7451BAAC34E0071D401 /* SDStatusBarOverriderPre8_3.m in Sources */,
 				5589CEE91CA69E57004E5908 /* SDStatusBarOverriderPost9_3.m in Sources */,
 				72ECF7461BAAC34E0071D401 /* SDStatusBarOverriderPost8_3.m in Sources */,
 				72ECF7471BAAC34E0071D401 /* SDStatusBarOverriderPost9_0.m in Sources */,
+				DB9638021D6E24CB002F122B /* SDStatusBarOverriderPost10_0.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +421,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -413,8 +431,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -423,6 +443,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -447,6 +468,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -456,8 +478,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -465,6 +489,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -506,6 +531,7 @@
 		72ECF73F1BAAC33A0071D401 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
@@ -532,6 +558,7 @@
 		72ECF7401BAAC33A0071D401 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";

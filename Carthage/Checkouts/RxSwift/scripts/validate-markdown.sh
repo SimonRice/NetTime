@@ -1,2 +1,5 @@
-mdast -u mdast-slug -u mdast-validate-links ./*.md
-mdast -u mdast-slug -u mdast-validate-links ./**/*.md
+ROOT=`pwd`
+pushd `npm root -g`
+remark -u remark-slug -u remark-validate-links "${ROOT}/*.md"
+remark -u remark-slug -u remark-validate-links "${ROOT}/**/*.md"
+popd

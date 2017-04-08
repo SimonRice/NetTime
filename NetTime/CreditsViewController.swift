@@ -6,14 +6,8 @@
 //  Copyright © 2016 Simon Rice. All rights reserved.
 //
 
-import SwiftyAcknowledgements
+import UIKit
 
-class CreditsViewController: AcknowledgementsTableViewController {
+class CreditsViewController: UIViewController {
 
-    @IBOutlet var backgroundView: UIView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.tableView.backgroundColor = self.backgroundView.backgroundColor
-    }
 }

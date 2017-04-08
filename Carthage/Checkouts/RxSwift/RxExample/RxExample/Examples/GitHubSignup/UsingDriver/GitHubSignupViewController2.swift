@@ -6,7 +6,6 @@
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-import Foundation
 import UIKit
 #if !RX_NO_MODULE
 import RxSwift
@@ -31,10 +30,10 @@ class GitHubSignupViewController2 : ViewController {
 
         let viewModel = GithubSignupViewModel2(
             input: (
-                username: usernameOutlet.rx_text.asDriver(),
-                password: passwordOutlet.rx_text.asDriver(),
-                repeatedPassword: repeatedPasswordOutlet.rx_text.asDriver(),
-                loginTaps: signupOutlet.rx_tap.asDriver()
+                username: usernameOutlet.rx.text.orEmpty.asDriver(),
+                password: passwordOutlet.rx.text.orEmpty.asDriver(),
+                repeatedPassword: repeatedPasswordOutlet.rx.text.orEmpty.asDriver(),
+                loginTaps: signupOutlet.rx.tap.asDriver()
             ),
             dependency: (
                 API: GitHubDefaultAPI.sharedAPI,
@@ -45,59 +44,41 @@ class GitHubSignupViewController2 : ViewController {
 
         // bind results to  {
         viewModel.signupEnabled
-            .driveNext { [weak self] valid  in
-                self?.signupOutlet.enabled = valid
+            .drive(onNext: { [weak self] valid  in
+                self?.signupOutlet.isEnabled = valid
                 self?.signupOutlet.alpha = valid ? 1.0 : 0.5
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
 
         viewModel.validatedUsername
-            .drive(usernameValidationOutlet.ex_validationResult)
-            .addDisposableTo(disposeBag)
+            .drive(usernameValidationOutlet.rx.validationResult)
+            .disposed(by: disposeBag)
 
         viewModel.validatedPassword
-            .drive(passwordValidationOutlet.ex_validationResult)
-            .addDisposableTo(disposeBag)
+            .drive(passwordValidationOutlet.rx.validationResult)
+            .disposed(by: disposeBag)
 
         viewModel.validatedPasswordRepeated
-            .drive(repeatedPasswordValidationOutlet.ex_validationResult)
-            .addDisposableTo(disposeBag)
+            .drive(repeatedPasswordValidationOutlet.rx.validationResult)
+            .disposed(by: disposeBag)
 
         viewModel.signingIn
-            .drive(signingUpOulet.rx_animating)
-            .addDisposableTo(disposeBag)
+            .drive(signingUpOulet.rx.isAnimating)
+            .disposed(by: disposeBag)
 
         viewModel.signedIn
-            .driveNext { signedIn in
+            .drive(onNext: { signedIn in
                 print("User signed in \(signedIn)")
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
         //}
 
         let tapBackground = UITapGestureRecognizer()
-        tapBackground.rx_event
-            .subscribeNext { [weak self] _ in
+        tapBackground.rx.event
+            .subscribe(onNext: { [weak self] _ in
                 self?.view.endEditing(true)
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
         view.addGestureRecognizer(tapBackground)
     }
-   
-    // This is one of the reasons why it's a good idea for disposal to be detached from allocations.
-    // If resources weren't disposed before view controller is being deallocated, signup alert view
-    // could be presented on top of the wrong screen or could crash your app if it was being presented 
-    // while navigation stack is popping.
-    
-    // This will work well with UINavigationController, but has an assumption that view controller will
-    // never be added as a child view controller. If we didn't recreate the dispose bag here,
-    // then our resources would never be properly released.
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        if let parent = parent {
-            assert(parent.isKindOfClass(UINavigationController), "Please read comments")
-        }
-        else {
-            self.disposeBag = DisposeBag()
-        }
-    }
-
 }

@@ -12,7 +12,7 @@ import WatchKit
 
 class NowInterfaceController: WKInterfaceController {
     @IBOutlet var beatsLabel: WKInterfaceLabel!
-    private var subscription: Disposable!
+    fileprivate var subscription: Disposable!
 
     override func willActivate() {
         super.willActivate()

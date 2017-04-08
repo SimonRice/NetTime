@@ -1,12 +1,11 @@
 //
 //  SearchResultViewModel.swift
-//  Example
+//  RxExample
 //
 //  Created by Krunoslav Zaher on 4/3/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-import Foundation
 #if !RX_NO_MODULE
 import RxSwift
 import RxCocoa
@@ -16,7 +15,7 @@ class SearchResultViewModel {
     let searchResult: WikipediaSearchResult
 
     var title: Driver<String>
-    var imageURLs: Driver<[NSURL]>
+    var imageURLs: Driver<[URL]>
 
     let API = DefaultWikipediaAPI.sharedAPI
     let $: Dependencies = Dependencies.sharedDependencies
@@ -35,35 +34,36 @@ class SearchResultViewModel {
 
     // private methods
 
-    func configureTitle(imageURLs: Observable<[NSURL]>) -> Observable<String> {
+    func configureTitle(_ imageURLs: Observable<[URL]>) -> Observable<String> {
         let searchResult = self.searchResult
 
-        let loadingValue: [NSURL]? = nil
+        let loadingValue: [URL]? = nil
 
         return imageURLs
             .map(Optional.init)
             .startWith(loadingValue)
             .map { URLs in
                 if let URLs = URLs {
-                    return "\(searchResult.title) (\(URLs.count)) pictures)"
+                    return "\(searchResult.title) (\(URLs.count) pictures)"
                 }
                 else {
-                    return "\(searchResult.title) loading ..."
+                    return "\(searchResult.title) (loading…)"
                 }
             }
-            .retryOnBecomesReachable("⚠️ Service offline ⚠️", reachabilityService: ReachabilityService.sharedReachabilityService)
+            .retryOnBecomesReachable("⚠️ Service offline ⚠️", reachabilityService: $.reachabilityService)
     }
 
-    func configureImageURLs() -> Observable<[NSURL]> {
+    func configureImageURLs() -> Observable<[URL]> {
         let searchResult = self.searchResult
         return API.articleContent(searchResult)
             .observeOn($.backgroundWorkScheduler)
             .map { page in
                 do {
-                    return try parseImageURLsfromHTMLSuitableForDisplay(page.text)
+                    return try parseImageURLsfromHTMLSuitableForDisplay(page.text as NSString)
                 } catch {
                     return []
                 }
             }
+            .shareReplayLatestWhileConnected()
     }
 }

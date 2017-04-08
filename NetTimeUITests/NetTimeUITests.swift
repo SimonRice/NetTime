@@ -41,8 +41,10 @@ class NetTimeUITests: XCTestCase {
         expect(tablesQuery.staticTexts["1/1/16, 10:09 AM"].exists).to(beTrue())
 
         tablesQuery.staticTexts["1/1/16, 10:09 AM"].tap()
-        tablesQuery.pickerWheels["10 o'clock"].adjustToPickerWheelValue("9")
-        tablesQuery.pickerWheels["09 minutes"].adjustToPickerWheelValue("41")
+        tablesQuery.pickerWheels.element(boundBy: 1)
+            .adjust(toPickerWheelValue: "9")
+        tablesQuery.pickerWheels.element(boundBy: 2)
+            .adjust(toPickerWheelValue: "41")
 
         expect(app.staticTexts["@403 .beats"].exists).to(beTrue())
     }
@@ -58,11 +60,13 @@ class NetTimeUITests: XCTestCase {
 
         let tablesQuery = app.tables
         tablesQuery.staticTexts["Europe/Zurich"].tap()
-        tablesQuery.pickerWheels["Europe/Zurich"].adjustToPickerWheelValue("Europe/London")
+        tablesQuery.pickerWheels["Europe/Zurich"].adjust(toPickerWheelValue: "Europe/London")
 
         tablesQuery.staticTexts["1/1/16, 10:09 AM"].tap()
-        tablesQuery.pickerWheels["10 o'clock"].adjustToPickerWheelValue("9")
-        tablesQuery.pickerWheels["09 minutes"].adjustToPickerWheelValue("41")
+        tablesQuery.pickerWheels.element(boundBy: 1)
+            .adjust(toPickerWheelValue: "9")
+        tablesQuery.pickerWheels.element(boundBy: 2)
+            .adjust(toPickerWheelValue: "41")
         tablesQuery.staticTexts["1/1/16, 9:41 AM"].tap()
 
         snapshot("02_Calculate")

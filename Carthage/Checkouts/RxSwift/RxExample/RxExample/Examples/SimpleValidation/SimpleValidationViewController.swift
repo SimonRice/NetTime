@@ -6,7 +6,6 @@
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-import Foundation
 import UIKit
 #if !RX_NO_MODULE
 import RxSwift
@@ -32,11 +31,11 @@ class SimpleValidationViewController : ViewController {
         usernameValidOutlet.text = "Username has to be at least \(minimalUsernameLength) characters"
         passwordValidOutlet.text = "Password has to be at least \(minimalPasswordLength) characters"
 
-        let usernameValid = usernameOutlet.rx_text
+        let usernameValid = usernameOutlet.rx.text.orEmpty
             .map { $0.characters.count >= minimalUsernameLength }
             .shareReplay(1) // without this map would be executed once for each binding, rx is stateless by default
 
-        let passwordValid = passwordOutlet.rx_text
+        let passwordValid = passwordOutlet.rx.text.orEmpty
             .map { $0.characters.count >= minimalPasswordLength }
             .shareReplay(1)
 
@@ -44,24 +43,24 @@ class SimpleValidationViewController : ViewController {
             .shareReplay(1)
 
         usernameValid
-            .bindTo(passwordOutlet.rx_enabled)
-            .addDisposableTo(disposeBag)
+            .bindTo(passwordOutlet.rx.isEnabled)
+            .disposed(by: disposeBag)
 
         usernameValid
-            .bindTo(usernameValidOutlet.rx_hidden)
-            .addDisposableTo(disposeBag)
+            .bindTo(usernameValidOutlet.rx.isHidden)
+            .disposed(by: disposeBag)
 
         passwordValid
-            .bindTo(passwordValidOutlet.rx_hidden)
-            .addDisposableTo(disposeBag)
+            .bindTo(passwordValidOutlet.rx.isHidden)
+            .disposed(by: disposeBag)
 
         everythingValid
-            .bindTo(doSomethingOutlet.rx_enabled)
-            .addDisposableTo(disposeBag)
+            .bindTo(doSomethingOutlet.rx.isEnabled)
+            .disposed(by: disposeBag)
 
-        doSomethingOutlet.rx_tap
-            .subscribeNext { [weak self] in self?.showAlert() }
-            .addDisposableTo(disposeBag)
+        doSomethingOutlet.rx.tap
+            .subscribe(onNext: { [weak self] in self?.showAlert() })
+            .disposed(by: disposeBag)
     }
 
     func showAlert() {

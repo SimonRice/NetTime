@@ -17,7 +17,7 @@ import Quick
 import Nimble
 
 class EdibleSharedExamplesConfiguration: QuickConfiguration {
-  override class func configure(configuration: Configuration) {
+  override class func configure(_ configuration: Configuration) {
     sharedExamples("something edible") { (sharedExampleContext: SharedExampleContext) in
       it("makes dolphins happy") {
         let dolphin = Dolphin(happy: false)
@@ -81,7 +81,7 @@ beforeEach(^{
   mackerel = [[Mackerel alloc] init];
 });
 
-itBehavesLike(@"someting edible", ^{ return @{ @"edible": mackerel }; });
+itBehavesLike(@"something edible", ^{ return @{ @"edible": mackerel }; });
 
 QuickSpecEnd
 
@@ -92,7 +92,7 @@ beforeEach(^{
   cod = [[Cod alloc] init];
 });
 
-itBehavesLike(@"someting edible", ^{ return @{ @"edible": cod }; });
+itBehavesLike(@"something edible", ^{ return @{ @"edible": cod }; });
 
 QuickSpecEnd
 ```
@@ -102,7 +102,7 @@ Shared examples can include any number of `it`, `context`, and
 the same tests against several different kinds of objects.
 
 In some cases, you won't need any additional context. In Swift, you can
-simply use `sharedExampleFor` closures that take no parameters. This
+simply use `sharedExamples` closures that take no parameters. This
 might be useful when testing some sort of global state:
 
 ```swift
@@ -110,7 +110,7 @@ might be useful when testing some sort of global state:
 
 import Quick
 
-sharedExamplesFor("everything under the sea") {
+sharedExamples("everything under the sea") {
   // ...
 }
 

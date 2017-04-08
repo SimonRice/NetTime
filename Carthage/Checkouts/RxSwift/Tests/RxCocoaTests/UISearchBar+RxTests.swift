@@ -1,33 +1,40 @@
 //
 //  UISearchBar+RxTests.swift
-//  Rx
+//  Tests
 //
 //  Created by Krunoslav Zaher on 3/12/16.
 //  Copyright © 2016 Krunoslav Zaher. All rights reserved.
 //
-
-import Foundation
 
 import RxSwift
 import RxCocoa
 import UIKit
 import XCTest
 
-class UISearchBarTests : RxTest {
+final class UISearchBarTests : RxTest {
+}
+
+extension UISearchBarTests {
+
     func testText_completesOnDealloc() {
-        let createView: () -> UISearchBar = { UISearchBar(frame: CGRectMake(0, 0, 1, 1)) }
-        ensurePropertyDeallocated(createView, "a") { (view: UISearchBar) in view.rx_text }
+        let createView: () -> UISearchBar = { self.newSearchBar() }
+        ensurePropertyDeallocated(createView, "a") { (view: UISearchBar) in view.rx.text.orEmpty }
+    }
+
+    func testValue_completesOnDealloc() {
+        let createView: () -> UISearchBar = { self.newSearchBar() }
+        ensurePropertyDeallocated(createView, "a") { (view: UISearchBar) in view.rx.value.orEmpty }
     }
 
     func testText_changeEventWorks() {
-        let searchBar = UISearchBar(frame: CGRectMake(0, 0, 1, 1))
+        let searchBar = self.newSearchBar()
 
         var latestText: String! = nil
 
         // search bar should dispose this itself
-        _ = searchBar.rx_text.subscribeNext { text in
+        _ = searchBar.rx.text.subscribe(onNext: { text in
             latestText = text
-        }
+        })
 
         XCTAssertEqual(latestText, "")
 
@@ -38,27 +45,27 @@ class UISearchBarTests : RxTest {
     }
 
     func testText_binding() {
-        let searchBar = UISearchBar(frame: CGRectMake(0, 0, 1, 1))
+        let searchBar = self.newSearchBar()
 
         XCTAssertNotEqual(searchBar.text, "value")
-        _ = Observable.just("value").bindTo(searchBar.rx_text)
+        _ = Observable.just("value").bindTo(searchBar.rx.text)
         XCTAssertEqual(searchBar.text, "value")
     }
 
     func testSelectedScopeButtonIndex_completesOnDealloc() {
-        let createView: () -> UISearchBar = { UISearchBar(frame: CGRectMake(0, 0, 1, 1)) }
-        ensurePropertyDeallocated(createView, 1) { (view: UISearchBar) in view.rx_selectedScopeButtonIndex }
+        let createView: () -> UISearchBar = { self.newSearchBar() }
+        ensurePropertyDeallocated(createView, 1) { (view: UISearchBar) in view.rx.selectedScopeButtonIndex }
     }
     
     func testSelectedScopeButtonIndex_changeEventWorks() {
-        let searchBar = UISearchBar(frame: CGRectMake(0, 0, 1, 1))
+        let searchBar = self.newSearchBar()
         searchBar.scopeButtonTitles = [ "One", "Two", "Three" ]
         
         var latestSelectedScopeIndex: Int = -1
         
-        _ = searchBar.rx_selectedScopeButtonIndex.subscribeNext { index in
+        _ = searchBar.rx.selectedScopeButtonIndex.subscribe(onNext: { index in
             latestSelectedScopeIndex = index
-        }
+        })
         
         XCTAssertEqual(latestSelectedScopeIndex, 0)
         
@@ -69,23 +76,23 @@ class UISearchBarTests : RxTest {
     }
     
     func testSelectedScopeButtonIndex_binding() {
-        let searchBar = UISearchBar(frame: CGRectMake(0, 0, 1, 1))
+        let searchBar = self.newSearchBar()
         searchBar.scopeButtonTitles = [ "One", "Two", "Three" ]
         
         XCTAssertNotEqual(searchBar.selectedScopeButtonIndex, 1)
-        _ = Observable.just(1).bindTo(searchBar.rx_selectedScopeButtonIndex)
+        _ = Observable.just(1).bindTo(searchBar.rx.selectedScopeButtonIndex)
         XCTAssertEqual(searchBar.selectedScopeButtonIndex, 1)
     }
     
 #if os(iOS)
     func testCancelButtonClicked() {
-        let searchBar = UISearchBar(frame: CGRectMake(0, 0, 1, 1))
+        let searchBar = self.newSearchBar()
         
         var tapped = false
         
-        let _ = searchBar.rx_cancelButtonClicked.subscribeNext { _ in
+        let _ = searchBar.rx.cancelButtonClicked.subscribe(onNext: { _ in
             tapped = true
-        }
+        })
         
         XCTAssertFalse(tapped)
         searchBar.delegate!.searchBarCancelButtonClicked!(searchBar)
@@ -93,19 +100,58 @@ class UISearchBarTests : RxTest {
     }
     
     func testCancelButtonClicked_DelegateEventCompletesOnDealloc() {
-        let createView: () -> UISearchBar = { UISearchBar(frame: CGRectMake(0, 0, 1, 1)) }
-        ensureEventDeallocated(createView) { (view: UISearchBar) in view.rx_cancelButtonClicked }
+        let createView: () -> UISearchBar = { self.newSearchBar() }
+        ensureEventDeallocated(createView) { (view: UISearchBar) in view.rx.cancelButtonClicked }
     }
+	
+	func testBookmarkButtonClicked() {
+		let searchBar = self.newSearchBar()
+		
+		var tapped = false
+		
+		let _ = searchBar.rx.bookmarkButtonClicked.subscribe(onNext: { _ in
+			tapped = true
+		})
+		
+		XCTAssertFalse(tapped)
+		searchBar.delegate!.searchBarBookmarkButtonClicked!(searchBar)
+		XCTAssertTrue(tapped)
+	}
+	
+	func testBookmarkButtonClicked_DelegateEventCompletesOnDealloc() {
+		let createView: () -> UISearchBar = { self.newSearchBar() }
+		ensureEventDeallocated(createView) { (view: UISearchBar) in view.rx.bookmarkButtonClicked }
+	}
+	
+	func testResultsListButtonClicked() {
+		let searchBar = self.newSearchBar()
+		
+		var tapped = false
+		
+		let _ = searchBar.rx.resultsListButtonClicked.subscribe(onNext: { _ in
+			tapped = true
+		})
+		
+		XCTAssertFalse(tapped)
+		searchBar.delegate!.searchBarResultsListButtonClicked!(searchBar)
+		XCTAssertTrue(tapped)
+	}
+	
+	func testResultsListButtonClicked_DelegateEventCompletesOnDealloc() {
+		let createView: () -> UISearchBar = { self.newSearchBar() }
+		ensureEventDeallocated(createView) { (view: UISearchBar) in view.rx.resultsListButtonClicked }
+	}
+	
 #endif
-    
+	
     func testSearchButtonClicked() {
-        let searchBar = UISearchBar(frame: CGRectMake(0, 0, 1, 1))
+        let searchBar = self.newSearchBar()
         
         var tapped = false
         
-        let _ = searchBar.rx_searchButtonClicked.subscribeNext { _ in
+        let _ = searchBar.rx.searchButtonClicked.subscribe(onNext: { _ in
             tapped = true
-        }
+        })
         
         XCTAssertFalse(tapped)
         searchBar.delegate!.searchBarSearchButtonClicked!(searchBar)
@@ -113,7 +159,54 @@ class UISearchBarTests : RxTest {
     }
     
     func testSearchButtonClicked_DelegateEventCompletesOnDealloc() {
-        let createView: () -> UISearchBar = { UISearchBar(frame: CGRectMake(0, 0, 1, 1)) }
-        ensureEventDeallocated(createView) { (view: UISearchBar) in view.rx_searchButtonClicked }
+        let createView: () -> UISearchBar = { self.newSearchBar() }
+        ensureEventDeallocated(createView) { (view: UISearchBar) in view.rx.searchButtonClicked }
+    }
+	
+	func testSearchBarTextDidBeginEditing(){
+		let searchBar = self.newSearchBar()
+
+		var tapped = false
+		let _ = searchBar.rx.textDidBeginEditing.subscribe(onNext: { _ in
+			tapped = true
+		})
+		XCTAssertFalse(tapped)
+		searchBar.delegate!.searchBarTextDidBeginEditing!(searchBar)
+		XCTAssertTrue(tapped)
+	}
+
+	func testSearchBarTextDidBeginEditing_DelegateEventCompletesOnDealloc() {
+		let createView: () -> UISearchBar = { self.newSearchBar() }
+		ensureEventDeallocated(createView) { (view: UISearchBar) in view.rx.textDidBeginEditing }
+	}
+	
+	func testSearchBarTextDidEndEditing(){
+		let searchBar = self.newSearchBar()
+		
+		var tapped = false
+		let _ = searchBar.rx.textDidEndEditing.subscribe(onNext: { _ in
+			tapped = true
+		})
+		XCTAssertFalse(tapped)
+		searchBar.delegate!.searchBarTextDidBeginEditing!(searchBar)
+		XCTAssertFalse(tapped)
+		searchBar.delegate!.searchBarTextDidEndEditing!(searchBar)
+		XCTAssertTrue(tapped)
+	}
+
+	func testSearchBarTextDidEndEditing_DelegateEventCompletesOnDealloc() {
+		let createView: () -> UISearchBar = { self.newSearchBar() }
+		ensureEventDeallocated(createView) { (view: UISearchBar) in view.rx.textDidEndEditing }
+	}
+	
+}
+
+extension UISearchBarTests {
+    func newSearchBar() -> UISearchBar {
+        return autoreleasepool {
+            let vc = UIViewController()
+            let searchController = UISearchController(searchResultsController: vc)
+            return searchController.searchBar
+        }
     }
 }

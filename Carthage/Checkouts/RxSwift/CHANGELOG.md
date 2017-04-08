@@ -3,7 +3,333 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## [2.4](https://github.com/ReactiveX/RxSwift/releases/tag/2.4)
+## [3.3.1](https://github.com/ReactiveX/RxSwift/releases/tag/3.3.1) (Xcode 8 / Swift 3.0 compatible)
+
+#### Anomalies
+
+* Fixes misspelled `Completeable` to `Completable`. #1134 
+
+## [3.3.0](https://github.com/ReactiveX/RxSwift/releases/tag/3.3.0) (Xcode 8 / Swift 3.0 compatible)
+
+* Adds `Single`, `Maybe`, `Completable` units inspired by RxJava (operators):
+    * `create`
+    * `deferred`
+    * `just`
+    * `error`
+    * `never`
+    * `delaySubscription`
+    * `delay`
+    * `do`
+    * `filter`
+    * `map`
+    * `flatMap`
+    * `observeOn`
+    * `subscribeOn`
+    * `catchError`
+    * `retry`
+    * `retryWhen`
+    * `zip`
+* Adds `asSingle()` operator on `ObservableType`.
+* Adds `asMaybe()` operator on `ObservableType`.
+* Adds `asCompletable()` operator on `ObservableType`.
+* Adds variadic `combineLatest` and `zip` overloads without result selector (defaults to tuple).
+* Adds array `combineLatest` and `zip` overloads with result selector (defaults to array of elements)
+* Adds optimized synchronous `merge` operator to observable sequence (variadic, array, collection). #579
+* Adds optimized synchronous `merge` operator to shared sequence (variadic, array, collection).
+* Adds `AsyncSubject` implementation.
+* Adds `XCTAssertEqual` overloads to `RxTest`.
+* Adds `countDownDuration` to `UIDatePicker`.
+* Adds `attributedTitle(for:)` to `UIButton`.
+* Adds `onSubscribed` to `do` operator.
+* Adds `isUserInteractionEnabled` to `UIView`.
+
+#### Anomalies
+* Improves DelegateProxy `responds(to:)` selector logic to only respond to used selectors. #1081, #1087
+* Deprecates `from()` in favor of `from(optional:)` to avoid issues with implicit conversions to optional.
+* Fixes thread sanitizer reporting issues with `merge` operator. #1063
+* Calls `collectionViewLayout.invalidateLayout()` after `reloadData()` as a workaround for iOS 10 bug.
+* Changes `UICollectionView.rx.didUpdateFocusInContextWithAnimationCoordinator` context parameter type to `UICollectionViewFocusUpdateContext`
+
+## [3.2.0](https://github.com/ReactiveX/RxSwift/releases/tag/3.2.0) (Xcode 8 / Swift 3.0 compatible)
+
+* Adds `groupBy` operator
+* Adds `ifEmpty(switchTo:)` operator
+* Adds [`ifEmpty(default:)`]((http://reactivex.io/documentation/operators/defaultifempty.html)) operator
+* Adds `Disposable` extension `disposed(by:)` equivalent to `addDisposableTo` that is meant to replace it in future 4.0 version.
+* Consolidates atomic operations on Linux and Darwin platform.
+* Adds DEBUG mode concurrent asserts for `Variable` and `Observable.create`.
+* Adds DEBUG mode concurrent asserts for `Sink`.
+* Small performance optimizations for subjects.
+* Adaptations for Xcode 8.3 beta.
+* Adds `numberOfPages` to `UIPageControl`.
+* Adds additional resources cleanup unit tests for cases where operators are used without `DisposeBag`s. 
+* Chroes:
+    * Adds `final` keyword wherever applicable.
+    * Remove unnecessary `import Foundation` statements.
+    * Examples cleanup.
+
+#### Anomalies
+
+* Improves behavior of `shareReplayWhileConnected` by making sure that events emitted after disconnect are ignored even in case of fast reconnect.
+* Fixes a couple of operators that were not cleaning up resources on terminal events when used without `DisposeBag`s.
+* Fixes delegate proxy interaction with subclassing of `UISearchController`.
+* Fixes delegate proxy interaction with subclassing of `NSTextStorage`.
+* Fixes delegate proxy interaction with subclassing of `UIWebView`.
+* Fixes delegate proxy interaction with subclassing of `UIPickerView`.
+
+## [3.1.0](https://github.com/ReactiveX/RxSwift/releases/tag/3.1.0) (Xcode 8 / Swift 3.0 compatible)
+
+* Adds `changed` property to `ControlProperty` that returns `ControlEvent` of user generated changes.
+  * `textField.text.changed.map { "User changed text to \($0)" }`
+* Adds optional overloads for `from` operator. `let num: Int? = 3; let sequence = Observable.from(num)`
+* Improves `UIBindingObserver` by tolerating binding from non main dispatch queue. In case binding is attempted
+  from non main dispatch queue it will be automagically dispathed async to main queue.
+* Makes control property naming consistent for `UIDatePicker`, `UISearchBar`, `UISegmentedControl`, `UISwitch`, `UITextField`, `UITextView` (`value` property + value alias name).
+* Adds missing extension to `UIScrollView`. 
+    * `didScroll` 
+    * `didZoom`
+    * `didEndDecelerating`
+    * `didEndDragging`
+    * `didScrollToTop`
+* Renames `refreshing` to `isRefreshing`.
+* adds `UIWebView` extensions:
+    * `didStartLoad`
+    * `didFinishLoad`
+    * `didFailLoad`
+* Adds `UITabBarController` extensions
+    * `willBeginCustomizing`
+    * `willEndCustomizing`
+    * `didEndCustomizing` 
+    * `didSelect`
+* Adds `UIBarButtonItem` extensions
+    * `title`
+* Performance optimizations
+* Improves data source behavior by clearing data source proxy when forwarding delegate is `nil`.
+
+#### Anomalies
+
+* Fixes anomaly caused by `UITableView` invalid state caching of previous data source even after the change.
+  Binding of reactive data source now triggers `layoutIfNeeded` that invalidates that internal cached state.
+* Fixes issue with race in `AnyRecursiveScheduler`. #995
+
+## [3.0.1](https://github.com/ReactiveX/RxSwift/releases/tag/3.0.1) (Xcode 8 / Swift 3.0 compatible)
+
+#### Anomalies
+
+* Fixes RxCocoa problems on macOS (`TextInput` now uses `NSTextInputClient`)
+* Hides accidentally exposed `BagKey` structure.
+* Makes `notification` extension `name` parameter optional.
+
+## [3.0.0](https://github.com/ReactiveX/RxSwift/releases/tag/3.0.0) (Xcode 8 / Swift 3.0 compatible)
+
+* Prefixes boolean properties with `is` and makes `String?` properties consistent.
+    * `rx.hidden` -> `rx.isHidden`
+    * `rx.enabled` -> `rx.isEnabled`
+    ...
+    also ...
+    * since `rx.text` has now type `String?` to be consistent with UIKit, in case `String` is needed
+    there is `rx.text.orEmpty` that has `String` type.   
+* Renames `title(controlState:)` on `UIButton` to `title(for:)`.
+* All data structures are now internal (`Bag`, `Queue`, `PriorityQueue` ...)
+* Improves performance of `Bag`.
+* Polishes RxCocoa `URLSession` extensions
+    * `JSON` -> `json`
+    * return type is `Any` instead of `AnyObject`
+    * replaces response tuple parameters, now it's `(HTTPResponse, Data)`
+    * removes name hiding for `request` parameter
+* Migrates `Driver` and `NSNotification` tests to `Linux`.
+* Removes RxTest from OSX + SPM integration until usable XCTest support on OSX.
+* Renames `ObserverType.map` to `OberverType.mapObserver` because of possible ambigutites with subjects.
+* Improves dispatch queue detection logic and replaces concept of threads in favor of dispatch queues (solves a lot
+  of problems on Linux environment).
+* Replaces `SectionedViewDataSourceType.model(_:)` with `SectionedViewDataSourceType.model(at:)`
+* Renames `OSX` to `macOS` across the project.
+
+#### Anomalies
+
+* Fixes wrong casing in `#import "include/_RXObjCRuntime.h"` (was creating issues for people with
+  case sensitive file system). #949
+* Fixes issues with locking strategy for subjects. #936
+* Fixes code example in comments of RxTableViewExtensions that didn't compile. #947
+* Adds `.swift-version` to help package managers to detect Swift 3 version.
+
+## [3.0.0-rc.1](https://github.com/ReactiveX/RxSwift/releases/tag/3.0.0-beta.1) (Xcode 8 / Swift 3.0 compatible)
+
+* Renames `RxTests` library to `RxTest` because of problems with Swift Package Manager.
+* Adds Swift Package Manager support
+* Adds Linux support
+* Replaces `AnyObserver` with `UIBindingObserver` in public interface.
+* Renames `resourceCount` to `Resources.total`.
+* Makes `rx.text` type consistent with UIKit `String?` type.
+
+```swift
+textField.rx.text          // <- now has type `ControlProperty<String?>`
+textField.rx.text.orEmpty  // <- now has type `ControlProperty<String>`
+```
+
+* Adds optional overloads for `bindTo` and `drive`. Now the following works:
+
+```swift
+let text: Observable<String> = Observable.just("")
+
+// Previously `map { $0 }` was needed because of mismatch betweeen sequence `String` type and `String?` type
+// on binding `rx.text` observer.
+text.bindTo(label.rx.text)  
+   .disposed(by: disposeBag)
+
+...
+
+let text = Driver.just("")
+text.drive(label.rx.text)
+   .disposed(by: disposeBag)
+```
+
+* Adds trim output parameter to `debug` operator. #930
+* Renames `NSDate` to `Date` everywhere.
+* Renames scheduler init param `globalConcurrentQueueQOS` to `qos` and removes custom enum wrapper.
+* Adds setter to `rx` property to enable mutation of base object.
+
+## [3.0.0-beta.2](https://github.com/ReactiveX/RxSwift/releases/tag/3.0.0-beta.1) (Xcode 8 / Swift 3.0 compatible)
+
+* Subscription disposables now only create strong references to sinks until being disposed or sequence terminates. #573
+
+* Introduces `SharedSequence` and makes `Driver` just a specialization of `SharedSequence`.
+  That means `Driver` is now just one specific `SharedSequence` and it is now possible to easily create new concepts
+  that have another compile time guarantees in a couple of lines of code.
+  E.g. choosing a background scheduler on which elements are delivered, or choosing `share` as a sharing strategy instead of `shareReplayLatestWhileConnected`.
+
+* Moves `Reactive` struct and `ReactiveCompatible` from `RxCocoa` to `RxSwift` to enable third party consumers to remove `RxCocoa` dependency.
+
+* Add `rx.` extensions on Types.
+
+* Moves `UIImagePickerViewController` and `CLLocationManager` out of `RxCocoa` to `RxExample` project because of App Store submissions issues
+  on iOS 10.
+
+* Adds `sentMessage` got its equivalent sequence `methodInvoked` that produces elements after method is invoked (vs before method is invoked).
+
+* Deprecates `observe` method on `DelegateProxy` in favor of `sentMessage`.
+* Adds simetric `methodInvoked` method on `DelegateProxy` that enables observing after method is invoked.
+
+* Moves all delegate extensions from using `sentMessage` to using `methodInvoked` (that fixes some problem with editing data sources)
+
+* Fixes problem with `RxTableViewDataSourceProxy` source enabling editing of table view cells (swipe on delete) even if there weren't
+any observers or `forwardToDelegate` wasn't implementing `UITableViewDataSource.tableView(_:commit:forRowAt:)`. #907
+
+* Makes `DelegateProxy` open. #884
+
+* Deprecates extensions that were polluting Swift collection namespaces and moves them to static functions on `Observable`
+    * `Observable.combineLatest`
+    * `Observable.zip`
+    * `Observable.concat`
+    * `Observable.catchError` (sequence version)
+    * `Observable.amb`
+
+* Deprecates extensions that were polluting Swift collection namespaces and moves them to static functions on `Driver`
+    * `Driver.combineLatest`
+    * `Driver.zip`
+    * `Driver.concat`
+    * `Driver.catchError` (sequence version)
+    * `Driver.amb`
+
+* Update Getting Started document, section on creating an observable that performs work to Swift 3.0.
+
+* Removes stale installation instructions.
+
+## [3.0.0-beta.1](https://github.com/ReactiveX/RxSwift/releases/tag/3.0.0-beta.1) (Xcode 8 GM compatible 8A218a)
+
+* Adapts to new Swift 3.0 syntax.
+* Corrects `throttle` operator behavior to be more consistent with other platforms. Adds `latest` flag that controls should latest element
+  be emitted after dueTime.
+* Adds `delay` operator.
+* Adds `UISearchBar` extensions:
+  * `bookmarkButtonClicked`
+  * `resultsListButtonClicked`
+  * `textDidBeginEditing`
+  * `textDidEndEditing`
+* Moves `CLLocationManager` and `UIImagePickerViewController` extensions from RxCocoa to RxExample project. #874
+* Adds matrix CI builds.
+=======
+
+## [3.0.0.alpha.1](https://github.com/ReactiveX/RxSwift/releases/tag/3.0.0.alpha.1) (Xcode 8 beta 6 compatible 8S201h)
+
+#### Features
+
+* Modernizes API to be more consistent with Swift 3.0 API Design Guidelines
+* Replaces `rx_*` prefix with `rx.*` extensions. (Inspired by `.lazy` collections API). We've tried annotate deprecated APIs with `@available(*, deprecated, renamed: "new method")` but trivial replacements aren't annotated.
+	* `rx_text` -> `rx.text`
+	* `rx_tap` -> `rx.tap`
+	* `rx_date` -> `rx.date`
+	* ...
+* Deprecates `subscribeNext`, `subscribeError`, `subscribeCompleted` in favor of `subscribe(onNext:onError:onCompleted:onDisposed)` (The downsides of old extensions were inconsistencies with Swift API guidelines. They also weren't expressing that calling them actually performes additional subscriptions and thus potentially additional work beside just registering observers).
+* Deprecates `doOnNext`, `doOnCompleted`, `doOnError` in favor of `do(onNext:onCompleted:onError:onSubscribe:onDisposed:)`
+* Adds `onSubscribe` and `onDisposed` to `do` operator.
+* Adds namespace for immutable disposables called `Disposables`
+	* Deprecates `AnonymousDisposable` in favor of `Disposables.create(with:)`
+	* Deprecates `NopDisposable` in favor of `Disposables.create()`
+	* Deprecates `BinaryDisposable` in favor of `Disposables.create(_:_:)`
+* Deprecates `toObservable` in favor of `Observable.from()`.
+* Replaces old javascript automation tests with Swift UI Tests.
+* ...
+
+#### Anomalies
+
+* There is a problem using `UISwitch` extensions because it seems that a bug exists in UIKit that causes all `UISwitch` instances to leak. https://github.com/ReactiveX/RxSwift/issues/842
+
+## [2.6.0](https://github.com/ReactiveX/RxSwift/releases/tag/2.6.0)
+
+#### Features
+
+* Adds Swift 2.3 compatibility.
+* Adds `UIViewController.rx_title` extension.
+* Adds `UIScrollView.rx_scrollEnabled` extension.
+* Resolve static analysis issues relating to non-use of an assigned value, and potential null dereferences in RxCocoa's Objective-C classes.
+* Changes `forwardDelegate` property type on `DelegateProxy` from `assign` to `weak`.
+* Simplifies UITable/CollectionView data source generic parameters.
+* Adds simple usage examples to UITable/CollectionView data source extensions.
+* Documents UITable/CollectionView data source extensions memory management and adds unit tests to cover that documentation.
+* Adds `.jazzy.yml`
+* Adds `UITabBar` extensions and delegate proxy wrapper
+    * rx_didSelectItem
+    * rx_willBeginCustomizing
+    * rx_didBeginCustomizing
+    * rx_willEndCustomizing
+    * rx_didEndCustomizing
+* Adds `UIPickerView` delegate proxy and extensions:
+    * rx_itemSelected
+* Adds `UIAlertAction.rx_enabled` extension.
+* Adds `UIButton.rx_title(controlState: UIControlState = .Normal)` extension.
+* Adds `UIPageControl.rx_currentPage` extension.
+* Adds `hasObservers` property to `*Subject`.
+
+#### Anomalies
+
+* Fixes problem with UITable/CollectionView releasing of data sources when result subscription disposable wasn't retained.
+* Fixes all Xcode analyzer warnings
+
+
+## [2.5.0](https://github.com/ReactiveX/RxSwift/releases/tag/2.5.0)
+
+#### Features
+
+* Exposes `installForwardDelegate`.
+* Adds `proxyForObject` as protocol extension and deprecates global function version.
+* Improves `installForwardDelegate` assert messaging.
+* Improves gesture recognizer extensions to use typed gesture recognizers in `rx_event`.
+* Adds `RxTextInput` protocol to enable creating reactive extensions for `UITextInput/NSTextInput`.
+* Adds `rx_willDisplayCell` and `rx_didEndDisplayingCell` extensions to `UITableView`.
+* Improves playgrounds.
+
+
+#### Anomalies
+
+* Fixes in documentation.
+* Turns off Bitcode for `RxTests` CocoaPods integration.
+* Fixes `UITextField.rx_text` and `UITextView.rx_text` integrations to be more robust when used with two way binding.
+* Fixes two way binding example code so it now properly handles IME used in Asian cultures and adds explanations how to properly perform two way bindings. https://github.com/ReactiveX/RxSwift/issues/649
+* Removes `distinctUntilChanged` from control extensions. https://github.com/ReactiveX/RxSwift/issues/626
+
+
+## [2.4.0](https://github.com/ReactiveX/RxSwift/releases/tag/2.4)
 
 #### Features
 
@@ -62,12 +388,12 @@ All notable changes to this project will be documented in this file.
 This is example of those changes:
 
 ```swift
-- public func rx_itemsWithCellFactory<S : SequenceType, O : ObservableType where O.E == S>
+- public func rx_itemsWithCellFactory<S : Sequence, O : ObservableType where O.E == S>
       (source: O)
-      (cellFactory: (UITableView, Int, S.Generator.Element) -> UITableViewCell) -> Disposable
-+ public func rx_itemsWithCellFactory<S : SequenceType, O : ObservableType where O.E == S>
+      (cellFactory: (UITableView, Int, S.Iterator.Element) -> UITableViewCell) -> Disposable
++ public func rx_itemsWithCellFactory<S : Sequence, O : ObservableType where O.E == S>
       (source: O)
-      -> (cellFactory: (UITableView, Int, S.Generator.Element) -> UITableViewCell) -> Disposable
+      -> (cellFactory: (UITableView, Int, S.Iterator.Element) -> UITableViewCell) -> Disposable
 ```
 
 * Fixes anomaly in `CLLocationManager` extensions
@@ -339,7 +665,7 @@ let (
 * `NSURLSession` extensions now return `Observable<(NSData!, NSHTTPURLResponse)>` instead of `Observable<(NSData!, NSURLResponse!)>`.
 * Optimizes consecutive map operators. For example `map(validate1).map(validate2).map(parse)` is now internally optimized to one `map` operator.
 * Adds overloads for `just`, `sequenceOf`, `toObservable` that accept scheduler.
-* Deprecates `asObservable` extension of `SequenceType` in favor of `toObservable`.
+* Deprecates `asObservable` extension of `Sequence` in favor of `toObservable`.
 * Adds `toObservable` extension to `Array`.
 * Improves table view animated data source example.
 * Polishing of `RxDataSourceStarterKit`
@@ -451,7 +777,7 @@ let (
 * Renames `ScopedDispose` to `ScopedDisposable`
 * Deprecates `observeSingleOn` in favor of `observeOn`
 * Adds inline documentation
-* Renames `from` to `asObservable` extension method on `SequenceType`
+* Renames `from` to `asObservable` extension method on `Sequence`
 * Renames `catchErrorResumeNext` in favor of `catchErrorJustReturn`
 * Deprecates `catchErrorToResult`, the preferred way is to use Swift `do/try/catch` mechanism.
 * Deprecates `RxResult`, the preferred way is to use Swift `do/try/catch` mechanism.

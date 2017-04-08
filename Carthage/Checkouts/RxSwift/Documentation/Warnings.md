@@ -5,7 +5,7 @@ Warnings
 
 The following is valid for the `subscribe*`, `bind*` and `drive*` family of functions that return `Disposable`.
 
-Warning is probably presented in a context similar to this one:
+You will receive a warning for doing something such as this:
 
 ```Swift
 let xs: Observable<E> ....
@@ -18,12 +18,12 @@ xs
     ...
   }, onError: {
     ...
-  })  
+  })
 ```
 
-The `subscribe` function returns a subscription `Disposable` that can be used to cancel computation and free resources.
+The `subscribe` function returns a subscription `Disposable` that can be used to cancel computation and free resources.  However, not using it (and thus not disposing it) will result in an error.
 
-The preferred way of terminating these fluent calls is by using a `DisposeBag`, either through chaining a call to `.addDisposableTo(disposeBag)` or by adding the disposable directly to the bag.
+The preferred way of terminating these fluent calls is by using a `DisposeBag`, either through chaining a call to `.disposed(by: disposeBag)` or by adding the disposable directly to the bag.
 
 ```Swift
 let xs: Observable<E> ....
@@ -38,14 +38,14 @@ xs
   }, onError: {
     ...
   })
-  .addDisposableTo(disposeBag) // <--- note `addDisposableTo`
+  .disposed(by: disposeBag) // <--- note `.disposed(by:)`
 ```
 
-When `disposeBag` gets deallocated, the disposables contained in it will be automatically disposed.
+When `disposeBag` gets deallocated, the disposables contained within it will be automatically disposed as well.
 
 In the case where `xs` terminates in a predictable way with either a `Completed` or `Error` message, not handling the subscription `Disposable` won't leak any resources. However, even in this case, using a dispose bag is still the preferred way to handle subscription disposables. It ensures that element computation is always terminated at a predictable moment, and makes your code robust and future proof because resources will be properly disposed even if the implementation of `xs` changes.
 
-Another way to make sure subscriptions and resources are tied with the lifetime of some object is by using the `takeUntil` operator.
+Another way to make sure subscriptions and resources are tied to the lifetime of some object is by using the `takeUntil` operator.
 
 ```Swift
 let xs: Observable<E> ....
@@ -55,7 +55,7 @@ _ = xs
   .filter { ... }
   .map { ... }
   .switchLatest()
-  .takeUntil(someObject.rx_deallocated) // <-- note the `takeUntil` operator
+  .takeUntil(someObject.deallocated) // <-- note the `takeUntil` operator
   .subscribe(onNext: {
     ...
   }, onError: {
@@ -63,7 +63,7 @@ _ = xs
   })
 ```
 
-If ignoring the subscription `Disposable` is desired behavior, this is how to silence the compiler warning.
+If ignoring the subscription `Disposable` is the desired behavior, this is how to silence the compiler warning.
 
 ```Swift
 let xs: Observable<E> ....
@@ -81,7 +81,7 @@ _ = xs // <-- note the underscore
 
 ### <a name="unused-observable"></a>Unused observable sequence (unused-observable)
 
-Warning is probably presented in a context similar to this one:
+You will receive a warning for doing something such as this:
 
 ```Swift
 let xs: Observable<E> ....
@@ -105,7 +105,7 @@ let ys = xs // <--- names definition as `ys`
   .map { ... }
 ```
 
-... or start computation based on that definition  
+... or start computation based on that definition
 
 ```Swift
 let xs: Observable<E> ....
@@ -114,9 +114,9 @@ let disposeBag = DisposeBag()
 xs
   .filter { ... }
   .map { ... }
-  .subscribeNext { nextElement in       // <-- note the `subscribe*` method
+  .subscribe(onNext: { nextElement in  // <-- note the `subscribe*` method
     // use the element
     print(nextElement)
-  }
-  .addDisposableTo(disposeBag)
+  })
+  .disposed(by: disposeBag)
 ```

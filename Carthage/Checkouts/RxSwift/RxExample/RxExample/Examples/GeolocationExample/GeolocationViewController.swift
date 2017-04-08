@@ -13,26 +13,11 @@ import CoreLocation
     import RxCocoa
 #endif
 
-private extension UILabel {
-    var rx_driveCoordinates: AnyObserver<CLLocationCoordinate2D> {
-        return UIBindingObserver(UIElement: self) { label, location in
+private extension Reactive where Base: UILabel {
+    var coordinates: UIBindingObserver<Base, CLLocationCoordinate2D> {
+        return UIBindingObserver(UIElement: base) { label, location in
             label.text = "Lat: \(location.latitude)\nLon: \(location.longitude)"
-        }.asObserver()
-    }
-}
-
-private extension UIView {
-    var rx_driveAuthorization: AnyObserver<Bool> {
-        return UIBindingObserver(UIElement: self) { view, authorized in
-            if authorized {
-                view.hidden = true
-                view.superview?.sendSubviewToBack(view)
-            }
-            else {
-                view.hidden = false
-                view.superview?.bringSubviewToFront(view)
-            }
-        }.asObserver()
+        }
     }
 }
 
@@ -42,36 +27,37 @@ class GeolocationViewController: ViewController {
     @IBOutlet weak private var button: UIButton!
     @IBOutlet weak private var button2: UIButton!
     @IBOutlet weak var label: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let geolocationService = GeolocationService.instance
-
-        geolocationService.autorized
-            .drive(noGeolocationView.rx_driveAuthorization)
-            .addDisposableTo(disposeBag)
-        /*
-        geolocationService.location
-            .drive(label.rx_driveCoordinates)
-            .addDisposableTo(disposeBag)
-
-        button.rx_tap
-            .bindNext { [weak self] in
-                self?.openAppPreferences()
-            }
-            .addDisposableTo(disposeBag)
+        view.addSubview(noGeolocationView)
         
-        button2.rx_tap
+        let geolocationService = GeolocationService.instance
+        
+        geolocationService.authorized
+            .drive(noGeolocationView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        geolocationService.location
+            .drive(label.rx.coordinates)
+            .disposed(by: disposeBag)
+        
+        button.rx.tap
             .bindNext { [weak self] in
                 self?.openAppPreferences()
             }
-            .addDisposableTo(disposeBag)
-        */
+            .disposed(by: disposeBag)
+        
+        button2.rx.tap
+            .bindNext { [weak self] in
+                self?.openAppPreferences()
+            }
+            .disposed(by: disposeBag)
     }
     
     private func openAppPreferences() {
-        UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
+        UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
     }
-
+    
 }

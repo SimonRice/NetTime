@@ -1,327 +1,347 @@
-# Change Log
+<p align="center" >
+  <img src="https://raw.githubusercontent.com/malcommac/SwiftDate/master/logo.png" width=189px height=191 alt="SwiftDate" title="SwiftDate">
+</p>
+
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![CI Status](https://travis-ci.org/malcommac/SwiftDate.svg)](https://travis-ci.org/malcommac/SwiftDate) [![Version](https://img.shields.io/cocoapods/v/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate) [![License](https://img.shields.io/cocoapods/l/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate) [![Platform](https://img.shields.io/cocoapods/p/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate)
+
+## CHANGELOG
+
+* Version **[4.1.1](#411)**
+* Version **[4.1.0](#410)**
+* Version **[4.0.14](#4014)**
+* Version **[4.0.13](#4013)**
+* Version **[4.0.12](#4012)**
+* Version **[4.0.11](#4011)**
+* Version **[4.0.10](#4010)**
+* Version **[4.0.9](#409)**
+* Version **[4.0.8](#408)**
+* Version **[4.0.7](#407)**
+* Version **[4.0.6](#406)**
+* Version **[4.0.5](#405)**
+* Version **[4.0.4](#404)**
+* Version **[4.0.3](#403)**
+* Version **[4.0.2](#402)**
+* Version **[4.0.0](#400)**
+
+<a name="411" />
+
+## SwiftDate 4.1.1
+---
+- **Release Date**: 2017/04/06
+- **Zipped Version**: [Download 4.1.1](https://github.com/malcommac/SwiftDate/releases/tag/4.1.1)
+
+#### New Features
+- [#408](https://github.com/malcommac/SwiftDate/pull/408) `Date` and `DateInRegion` has now two functions to round a date to certain interval (expressed in `seconds` or `minutes`). `DateInRegion` exposes `roundAt()` which directly modify the date itself; `Date`, as immutable object, exposes the same feature in `roundedAt()` function (which return a new `Date` instances).
+- [#]() Added Daylight Saving Time functions: `.isDST` in `DateInRegion` (it returns true if the date uses daylight saving time);  `.DSTOffset` in `DateInRegion` (it returns the value (in seconds)  of the daylight saving time offset of the represented date),  `. nextDSTTransitionDate` in `DateInRegion` (it returns the next daylight saving time transition after currently represented date when expressed); `nextDSTTransitionDate()` func in `Date` (it returns the next dst transition date when receiver is expressed in a particular timezone); `DSTOffset()` func in `Date` (it returns the offset of daylight saving time when receiver is expressed in a particular timezone); `isDST()` func in `Date` (it returns if receiver date uses daylight saving time when expressed in a particular timezone).
+
+#### Fixes
+- [#](https://github.com/malcommac/SwiftDate/pull/) Several fixes while parsing less common `ISO8601` formats (weeks only w/wo implicit year/month/day).
+- [#](https://github.com/malcommac/SwiftDate/pull/) Parsing an `ISO8601` string now results in a `DateInRegion` which contains the correct timezone defined (`Date` instances are now converted automatically to be time-independent).
+- [#]() Updated Unit Tests to become compatible with the new APIs changes. All tests now passes.
+- [#409](https://github.com/malcommac/SwiftDate/pull/409) Fixed an issue converting a difference between two dates when its more than 24 hours, but less than 48 hours (incorrectly the colloquial values returns 'yesterday')
+- [#]() Single framework target in XCode Project (iOS, macOS, tvOS and watchOS)
+
+<a name="410" />
+
+## SwiftDate 4.1.0
+---
+- **Release Date**: 2017/03/31
+- **Zipped Version**: [Download 4.1.0](https://github.com/malcommac/SwiftDate/releases/tag/4.1.0)
+
+#### New Features
+- [#402](https://github.com/malcommac/SwiftDate/pull/402) Added Greek localization (thanks to @dimmdesign)
+- [#399](https://github.com/malcommac/SwiftDate/pull/399) `colloquialSinceNow` also allows to set `unitsStyle` params to specify the type of values you want to print.
+- [#400](https://github.com/malcommac/SwiftDate/pull/400) `DateInRegion` has a class func named `date(formats:fromRegion)` which allows parsing a single string with multiple formats (the first one that succeeds returns the instance of the `DateInRegion`). Also available as `String` extension (with the same name).
+- [#223](https://github.com/malcommac/SwiftDate/pull/223) `ISO8601DateTimeFormatter` now recognize the timezone of an ISO string and create a date with the correct value.
+- [#407](https://github.com/malcommac/SwiftDate/pull/407) SwiftDate now can parse ISO8601 strings without specifyng the ISO format; it evaluates the best format automatically. Also the parser faster than the previous built one. Since now `.iso8601` parsing format is used only as formatter (from date to string, viceversa any given value is ignored. You are encouraged to use `.iso8601Auto` instead).
+
+	The following ISO8601 variants are supported:
+
+```
+YYYYMMDD
+YYYY-MM-DD
+YYYY-MM
+YYYY
+YY //century 
+```
+
+IMPLIED CENTURY: YY is 00-99
+
+```
+YYMMDD
+YY-MM-DD
+-YYMM
+-YY-MM
+-YY
+```
+
+IMPLIED YEAR
+
+```
+--MMDD
+--MM-DD
+--MM
+```
+
+IMPLIED YEAR AND MONTH
+
+```
+---DD
+```
+
+ORDINAL DATES: DDD IS THE NUMBER OF THE DAY IN THE YEAR (1-366)
+
+```
+YYYYDDD
+YYYY-DDD
+YYDDD
+YY-DDD
+-DDD
+```
+
+WEEK-BASED DATES: ww IS THE NUMBER OF THE WEEK, AND d IS THE NUMBER (1-7) OF THE DAY IN THE WEEK
 
-## [3.0.9](https://github.com/malcommac/SwiftDate/tree/3.0.9) (2016-03-21)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.8...3.0.9)
+```
+yyyyWwwd
+yyyy-Www-d
+yyyyWww
+yyyy-Www
+yyWwwd
+yy-Www-d
+yyWww
+yy-Www
+```
 
-**Fixed bugs:**
+YEAR OF THE IMPLIED DECADE
 
-- Bad version in installation docs [\#183](https://github.com/malcommac/SwiftDate/issues/183)
-- 1.years - 2.hours [\#180](https://github.com/malcommac/SwiftDate/issues/180)
+```
+-yWwwd
+-y-Www-d
+-yWww
+-y-Www
+```
 
-**Closed issues:**
+WEEK AND DAY OF IMPLIED YEAR
 
-- toNaturalString & maxUnits = 1 sometimes shows 2 units  [\#174](https://github.com/malcommac/SwiftDate/issues/174)
-- Documents need to update [\#172](https://github.com/malcommac/SwiftDate/issues/172)
+```
+-Wwwd
+-Www-d
+```
 
-## [3.0.8](https://github.com/malcommac/SwiftDate/tree/3.0.8) (2016-03-06)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.7...3.0.8)
+WEEK ONLY OF IMPLIED YEAR
 
-**Fixed bugs:**
+```
+-Www
+```
 
-- endOf and startOf with default region [\#175](https://github.com/malcommac/SwiftDate/issues/175)
+DAY ONLY OF IMPLIED WEEK
 
-## [3.0.7](https://github.com/malcommac/SwiftDate/tree/3.0.7) (2016-02-28)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.6...3.0.7)
+```
+-W-d
+```
 
-**Fixed bugs:**
+#### Fixes
+- [#405](https://github.com/malcommac/SwiftDate/pull/405) Fixed some translation issues in Swedish (thanks to @deville)
+- [#368](https://github.com/malcommac/SwiftDate/pull/368) Deprecated `at(unitsWithValues dict: [Calendar.Component : Int])` in `Date` and `DateInRegion` and replaced with functional `at(values: [Calendar.Component : Int], keep: Set<Calendar.Component>)`
+- [#392](https://github.com/malcommac/SwiftDate/pull/392) Fixed an issue with report negative interval when making operation with dates `a` and `b` where `a - b < 0 iff a < b`.
+- [#397](https://github.com/malcommac/SwiftDate/pull/397) Fixed an issue with `colloquial` func which report wrong difference of `1 day` when two dates are distant < 24h but in two different days.
+
+<a name="4014" />
+
+## SwiftDate 4.0.14
+---
+- **Release Date**: 2017/03/29
+- **Zipped Version**: [Download 4.0.14](https://github.com/malcommac/SwiftDate/releases/tag/4.0.14)
+
+- [#404](https://github.com/malcommac/SwiftDate/pull/404) Compatibility with Swift 3.1
+
+
+<a name="4013" />
+
+## SwiftDate 4.0.13
+---
+- **Release Date**: 2017/02/12
+- **Zipped Version**: [Download 4.0.13](https://github.com/malcommac/SwiftDate/releases/tag/4.0.13)
+
+#### New Features
+- [#384](https://github.com/malcommac/SwiftDate/pull/384) Added Arabic translation (thanks to @abdualrhmanIO)
+- [#356](https://github.com/malcommac/SwiftDate/pull/356) Added a new formatter option called `strict`. Using `strict` instead of `custom` disable heuristics date guessing of the formatter (ie. 1999-02-31 become an invalid date to parse, while with heuristics enabled guessing date 1999-03-03 is returned instead).
+
+<a name="4012" />
+
+## SwiftDate 4.0.12
+---
+- **Release Date**: 2017/01/30
+- **Zipped Version**: [Download 4.0.12](https://github.com/malcommac/SwiftDate/releases/tag/4.0.12)
+
+#### Fixes
+- [#372](https://github.com/malcommac/SwiftDate/issues/372) Fix for `Local.collatorIdentifier` (Returns zh-hans-CN and zh-hant-CN) 
+- [#374](https://github.com/malcommac/SwiftDate/pull/374) `DateZeroBehavior` options are now public outside the library
+
+#### New Features
+- [#379](https://github.com/malcommac/SwiftDate/pull/379) Added Hebrew translation (thanks to @ilandbt)
+- [#376](https://github.com/malcommac/SwiftDate/pull/376) Added Swedish translation (thanks to @traneHead)
+- [#381](https://github.com/malcommac/SwiftDate/pull/381) Replaced `useImminentInterval` in `DateInRegionFormatter` with a configurable value called `imminentInterval`. With a default value of 5 it fallback to `just now` version. If `nil` fallback is disabled.
+- [#380](https://github.com/malcommac/SwiftDate/pull/380) `DateInRegionFormatter` is now able to load custom localization both from `LocaleName` and custom `.strings` files (just set the `formatter.localization = Localization(path: [PATH_TO_YOUR_STRINGS_FILE]`)
+
+<a name="4011" />
+
+## SwiftDate 4.0.11
+---
+- **Release Date**: 2017/01/08
+- **Zipped Version**: [Download 4.0.11](https://github.com/malcommac/SwiftDate/releases/tag/4.0.11)
+
+#### Fixes
+- [#370](https://github.com/malcommac/SwiftDate/issues/370) Cannot format colloquial date when a time component value is zero and `allowedComponents` does not contains lower time components (ie. cannot print "today" when set formatter to accept only `allowedComponents = [.day]` and day difference between dates is zero).
+- [#371](https://github.com/malcommac/SwiftDate/issues/371) `DateInRegionFormatter` crashes with any non-default `.allowedComponents`.
+
+#### New Features
+- [#365](https://github.com/malcommac/SwiftDate/issues/365) Brazilian Portuguese support (thanks to @ipedro)
+
+<a name="4010" />
+
+## SwiftDate 4.0.10
+---
+- **Release Date**: 2016/12/21
+- **Zipped Version**: [Download 4.0.10](https://github.com/malcommac/SwiftDate/releases/tag/4.0.10)
+
+#### Fixes
+- [#364](https://github.com/malcommac/SwiftDate/issues/364) Fixes Japanaese translation
+
+<a name="409" />
 
-- Minimum deployment targets for frameworks [\#169](https://github.com/malcommac/SwiftDate/issues/169)
+## SwiftDate 4.0.9
+---
+- **Release Date**: 2012/12/20
+- **Zipped Version**: [Download 4.0.9](https://github.com/malcommac/SwiftDate/releases/tag/4.0.9)
 
-## [3.0.6](https://github.com/malcommac/SwiftDate/tree/3.0.6) (2016-02-26)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.5...3.0.6)
-
-**Implemented enhancements:**
-
-- Mixing relative and non-relative format for different time components [\#164](https://github.com/malcommac/SwiftDate/issues/164)
-
-**Fixed bugs:**
-
-- Can't use Carthage & Cocoapods anymore \(3.0.5\) [\#167](https://github.com/malcommac/SwiftDate/issues/167)
-- DateInterval string formatting is buggy [\#143](https://github.com/malcommac/SwiftDate/issues/143)
-
-**Closed issues:**
-
-- Fix Travis [\#166](https://github.com/malcommac/SwiftDate/issues/166)
-- ISO8601 Format issue [\#165](https://github.com/malcommac/SwiftDate/issues/165)
-
-## [3.0.5](https://github.com/malcommac/SwiftDate/tree/3.0.5) (2016-02-25)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.4...3.0.5)
-
-**Implemented enhancements:**
-
-- Remove component dictionaries [\#163](https://github.com/malcommac/SwiftDate/issues/163)
-
-## [3.0.4](https://github.com/malcommac/SwiftDate/tree/3.0.4) (2016-02-24)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.3...3.0.4)
-
-**Implemented enhancements:**
-
-- Follow SWIFT style guide [\#131](https://github.com/malcommac/SwiftDate/issues/131)
-
-**Fixed bugs:**
-
-- Translation [\#150](https://github.com/malcommac/SwiftDate/issues/150)
-- weekdayName isn't public [\#147](https://github.com/malcommac/SwiftDate/issues/147)
-
-**Closed issues:**
-
-- NSDate initializer buggy [\#161](https://github.com/malcommac/SwiftDate/issues/161)
-- SwiftDate 在真机环境中使用会返回nil，但模拟器不会什么原因？ [\#158](https://github.com/malcommac/SwiftDate/issues/158)
-
-## [3.0.3](https://github.com/malcommac/SwiftDate/tree/3.0.3) (2016-02-16)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.2...3.0.3)
-
-**Fixed bugs:**
-
-- "toString" format not working properly with 12 hour clock [\#155](https://github.com/malcommac/SwiftDate/issues/155)
-
-## [3.0.2](https://github.com/malcommac/SwiftDate/tree/3.0.2) (2016-02-15)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.1...3.0.2)
-
-**Implemented enhancements:**
-
-- Mac OS X, watchOS, tvOS Support [\#115](https://github.com/malcommac/SwiftDate/issues/115)
-
-**Closed issues:**
-
-- Issue with creating DateInRegion with NSTimeZone [\#154](https://github.com/malcommac/SwiftDate/issues/154)
-- Missing "toISO8601String" methods in NSDate [\#149](https://github.com/malcommac/SwiftDate/issues/149)
-- Carthage fails when building SwiftDate [\#145](https://github.com/malcommac/SwiftDate/issues/145)
-
-**Merged pull requests:**
-
-- Fix for .endOf function from NSDate [\#159](https://github.com/malcommac/SwiftDate/pull/159) ([malcommac](https://github.com/malcommac))
-- Fix typo. [\#152](https://github.com/malcommac/SwiftDate/pull/152) ([ya-s-u](https://github.com/ya-s-u))
-- Fix NSDate.endOf [\#151](https://github.com/malcommac/SwiftDate/pull/151) ([ansinyutin](https://github.com/ansinyutin))
-
-## [3.0.1](https://github.com/malcommac/SwiftDate/tree/3.0.1) (2016-01-28)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.0...3.0.1)
-
-**Merged pull requests:**
-
-- Feature/carthage fix [\#146](https://github.com/malcommac/SwiftDate/pull/146) ([malcommac](https://github.com/malcommac))
-
-## [3.0.0](https://github.com/malcommac/SwiftDate/tree/3.0.0) (2016-01-25)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/v3.0.0...3.0.0)
-
-**Closed issues:**
-
-- Can you update the docs? [\#138](https://github.com/malcommac/SwiftDate/issues/138)
-
-## [v3.0.0](https://github.com/malcommac/SwiftDate/tree/v3.0.0) (2016-01-23)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/2.0.2...v3.0.0)
-
-**Implemented enhancements:**
-
-- Feature request: duration formatting [\#137](https://github.com/malcommac/SwiftDate/issues/137)
-- No love for cocoa relative formatting [\#97](https://github.com/malcommac/SwiftDate/issues/97)
-- Support for relative/pretty date formatting [\#79](https://github.com/malcommac/SwiftDate/issues/79)
-- the result of "toRelativeString" can be returned  in chinese? [\#65](https://github.com/malcommac/SwiftDate/issues/65)
-- Add documentation to XCode project [\#132](https://github.com/malcommac/SwiftDate/issues/132)
-- Generate change log [\#130](https://github.com/malcommac/SwiftDate/issues/130)
-- Generator for locale & timeZone structures [\#129](https://github.com/malcommac/SwiftDate/issues/129)
-- Use full descriptive parameter names for calType & tzName [\#120](https://github.com/malcommac/SwiftDate/issues/120)
-- Use isInToday\(\) as opposed to isToday\(\) [\#118](https://github.com/malcommac/SwiftDate/issues/118)
-- Create tests for DateInRegion comparision functions [\#111](https://github.com/malcommac/SwiftDate/issues/111)
-- Time zone type hierarchy is not region - country - city [\#110](https://github.com/malcommac/SwiftDate/issues/110)
-- Upgrade "Other" time zone types to the main division [\#108](https://github.com/malcommac/SwiftDate/issues/108)
-- Adobt Quick & Nimble for behaviour-driven testing [\#103](https://github.com/malcommac/SwiftDate/issues/103)
-- Create many minimal & separate test cases [\#102](https://github.com/malcommac/SwiftDate/issues/102)
-- Converting a time zone should be done by changing region, not with UTC and time zone funcs [\#99](https://github.com/malcommac/SwiftDate/issues/99)
-- Make the default region the local region in all aspects [\#96](https://github.com/malcommac/SwiftDate/issues/96)
-- Extend NSDate such that it behaves like DateInRegion for the default or local region [\#95](https://github.com/malcommac/SwiftDate/issues/95)
-- UTCDate vs NSDate [\#91](https://github.com/malcommac/SwiftDate/issues/91)
-- disagree with lack of upgrade doc [\#89](https://github.com/malcommac/SwiftDate/issues/89)
-
-**Fixed bugs:**
-
-- toString\(.ISO0861\) formats timezone incorrectly [\#94](https://github.com/malcommac/SwiftDate/issues/94)
-- Release what's currently planned as 2.1 as 3.0 to comply with semver [\#121](https://github.com/malcommac/SwiftDate/issues/121)
-- 1.days - 1.hours results in \(-1.days, -1.hours\) components [\#119](https://github.com/malcommac/SwiftDate/issues/119)
-- Typo in time zone type [\#109](https://github.com/malcommac/SwiftDate/issues/109)
-- localDate is a derivative from the absolute time [\#98](https://github.com/malcommac/SwiftDate/issues/98)
-- license file issue [\#88](https://github.com/malcommac/SwiftDate/issues/88)
-
-**Closed issues:**
-
-- Consider using struct as opposed to class [\#136](https://github.com/malcommac/SwiftDate/issues/136)
-- Docset - missing metadata? [\#87](https://github.com/malcommac/SwiftDate/issues/87)
-- Region has no defaultRegion [\#86](https://github.com/malcommac/SwiftDate/issues/86)
-- Make code for autoUpdate self explanatory [\#85](https://github.com/malcommac/SwiftDate/issues/85)
-- Carthage Bootstrap Error [\#82](https://github.com/malcommac/SwiftDate/issues/82)
-
-**Merged pull requests:**
-
-- Revert "Fix ISO8601Formatter not able to parse +hhmm timezone \(Issue \#94\)" [\#105](https://github.com/malcommac/SwiftDate/pull/105) ([malcommac](https://github.com/malcommac))
-- Use absolute time as opposed to UTC time [\#101](https://github.com/malcommac/SwiftDate/pull/101) ([Hout](https://github.com/Hout))
-- Fix ISO8601Formatter not able to parse +hhmm timezone \(Issue \#94\) [\#100](https://github.com/malcommac/SwiftDate/pull/100) ([NebulaFox](https://github.com/NebulaFox))
-
-## [2.0.2](https://github.com/malcommac/SwiftDate/tree/2.0.2) (2015-12-02)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/2.0.1...2.0.2)
-
-## [2.0.1](https://github.com/malcommac/SwiftDate/tree/2.0.1) (2015-12-01)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/2.0.0...2.0.1)
-
-**Closed issues:**
-
-- 2.0 not pushed to cocoapods [\#83](https://github.com/malcommac/SwiftDate/issues/83)
-- toDate string shortcut support for timezone [\#80](https://github.com/malcommac/SwiftDate/issues/80)
-- dateAtWeekStart returns different dates depending on the language [\#78](https://github.com/malcommac/SwiftDate/issues/78)
-- version number no longer complies with ITC [\#74](https://github.com/malcommac/SwiftDate/issues/74)
-- DateFormatter object from NSDate.cachedObjectInCurrentThread is modified causing different return results from some functions. [\#69](https://github.com/malcommac/SwiftDate/issues/69)
-- Misunderstanding how date components works with timezone and time calculations [\#64](https://github.com/malcommac/SwiftDate/issues/64)
-
-**Merged pull requests:**
-
-- Solved issue with Carthage [\#84](https://github.com/malcommac/SwiftDate/pull/84) ([BernardGatt](https://github.com/BernardGatt))
-
-## [2.0.0](https://github.com/malcommac/SwiftDate/tree/2.0.0) (2015-11-29)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/0.5.1...2.0.0)
-
-**Closed issues:**
-
-- WatchOS 2.0 Support [\#76](https://github.com/malcommac/SwiftDate/issues/76)
-
-**Merged pull requests:**
-
-- Update SwiftDate.podspec [\#77](https://github.com/malcommac/SwiftDate/pull/77) ([caubert](https://github.com/caubert))
-- Add comment slashes  for quick documents of some properties [\#75](https://github.com/malcommac/SwiftDate/pull/75) ([fhisa](https://github.com/fhisa))
-
-## [0.5.1](https://github.com/malcommac/SwiftDate/tree/0.5.1) (2015-11-17)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/1.2...0.5.1)
-
-**Closed issues:**
-
-- create nsdate object is not working? [\#68](https://github.com/malcommac/SwiftDate/issues/68)
-- Not able to archive  [\#67](https://github.com/malcommac/SwiftDate/issues/67)
-- Implement class func date with a convenience init [\#61](https://github.com/malcommac/SwiftDate/issues/61)
--   Hello, I have a question about the" weekOfMonth " [\#60](https://github.com/malcommac/SwiftDate/issues/60)
-- how to parse \[AnyObject\] ? [\#58](https://github.com/malcommac/SwiftDate/issues/58)
-- how to get timestamp and NSDate from timestamp [\#57](https://github.com/malcommac/SwiftDate/issues/57)
-- Not able to get local date using toLocalTime\(\) [\#55](https://github.com/malcommac/SwiftDate/issues/55)
-- problem with pod [\#54](https://github.com/malcommac/SwiftDate/issues/54)
-- Append "th", "st", "nd" or "rd" to day [\#53](https://github.com/malcommac/SwiftDate/issues/53)
-- Command failed due to signal: Segmentation fault: 11 [\#47](https://github.com/malcommac/SwiftDate/issues/47)
-- Set on class [\#46](https://github.com/malcommac/SwiftDate/issues/46)
-- startOf and endOF func [\#45](https://github.com/malcommac/SwiftDate/issues/45)
-- New Release Tag [\#43](https://github.com/malcommac/SwiftDate/issues/43)
-- Parse String using toDate\(formatString: \) is incorrect [\#42](https://github.com/malcommac/SwiftDate/issues/42)
-- could you support for Carthage? [\#32](https://github.com/malcommac/SwiftDate/issues/32)
-- localization like  MatthewYork/DateTools? [\#23](https://github.com/malcommac/SwiftDate/issues/23)
-- Day of Week Manipulations [\#14](https://github.com/malcommac/SwiftDate/issues/14)
-- Date.add example is missing weeks and hours parameters [\#9](https://github.com/malcommac/SwiftDate/issues/9)
-
-**Merged pull requests:**
-
-- Adding Carthage installation steps; [\#70](https://github.com/malcommac/SwiftDate/pull/70) ([jairobjunior](https://github.com/jairobjunior))
-- Bug on toLocalTime\(\) function [\#66](https://github.com/malcommac/SwiftDate/pull/66) ([Fjohn666](https://github.com/Fjohn666))
-- Various speed ups, neatification, included Quick for test driven development, date component operators as opposed to time intervals and more [\#63](https://github.com/malcommac/SwiftDate/pull/63) ([Hout](https://github.com/Hout))
-- Feature/convenience init [\#62](https://github.com/malcommac/SwiftDate/pull/62) ([Hout](https://github.com/Hout))
-- Enable to use optional values to initialize date  [\#59](https://github.com/malcommac/SwiftDate/pull/59) ([knao124](https://github.com/knao124))
-- Time of the interval exists for `isSameYearOf` [\#52](https://github.com/malcommac/SwiftDate/pull/52) ([akuraru](https://github.com/akuraru))
-- add tvOS target [\#51](https://github.com/malcommac/SwiftDate/pull/51) ([jondwillis](https://github.com/jondwillis))
-- should include the era if you want to do `isEqualToDate\(date: NSDate, ignoreTime: Bool\) -\> Bool` [\#49](https://github.com/malcommac/SwiftDate/pull/49) ([akuraru](https://github.com/akuraru))
-- updated unit test [\#48](https://github.com/malcommac/SwiftDate/pull/48) ([abunur](https://github.com/abunur))
-
-## [1.2](https://github.com/malcommac/SwiftDate/tree/1.2) (2015-10-04)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/1.1...1.2)
-
-**Closed issues:**
-
-- NSDate\(\) and NSDate.today\(\) do not return the current time as well, I have to set it manually with componentsDict. Is there a better way? [\#36](https://github.com/malcommac/SwiftDate/issues/36)
-- Option to remove "about" in toRelativeString\(\) [\#33](https://github.com/malcommac/SwiftDate/issues/33)
-
-**Merged pull requests:**
-
-- Fix ISO8601Formatter parsing dates that end in Z [\#44](https://github.com/malcommac/SwiftDate/pull/44) ([jakecraige](https://github.com/jakecraige))
-- daysAfterDate and daysBeforeDate don't take into account daylight savings changes [\#41](https://github.com/malcommac/SwiftDate/pull/41) ([akuraru](https://github.com/akuraru))
-- Added an operator "-" for NSDate and NSDate [\#39](https://github.com/malcommac/SwiftDate/pull/39) ([fhisa](https://github.com/fhisa))
-- Use optional arguments in add and set to get rid of boilerplate nil and 0 parameters [\#38](https://github.com/malcommac/SwiftDate/pull/38) ([Hout](https://github.com/Hout))
-- Pr carthage [\#37](https://github.com/malcommac/SwiftDate/pull/37) ([fhisa](https://github.com/fhisa))
-
-## [1.1](https://github.com/malcommac/SwiftDate/tree/1.1) (2015-09-22)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/1.0.11...1.1)
-
-**Closed issues:**
-
-- merge Swift 2.0 branch [\#34](https://github.com/malcommac/SwiftDate/issues/34)
--  date.toString  format [\#31](https://github.com/malcommac/SwiftDate/issues/31)
-- Wrong display on actual device [\#28](https://github.com/malcommac/SwiftDate/issues/28)
-
-**Merged pull requests:**
-
-- Swift 2.0 [\#35](https://github.com/malcommac/SwiftDate/pull/35) ([malcommac](https://github.com/malcommac))
-
-## [1.0.11](https://github.com/malcommac/SwiftDate/tree/1.0.11) (2015-08-17)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/1.0.10...1.0.11)
-
-**Closed issues:**
-
-- .toDate\(formatString: "YYYY/MM/DD H:m:S"\) alway give 01 for month [\#27](https://github.com/malcommac/SwiftDate/issues/27)
-- Use of unresolved identifier 'DateFormat' [\#21](https://github.com/malcommac/SwiftDate/issues/21)
-- What do I import? [\#20](https://github.com/malcommac/SwiftDate/issues/20)
-- Swift 2.0 support [\#19](https://github.com/malcommac/SwiftDate/issues/19)
-- Xcode 6.3.2 returns nil [\#17](https://github.com/malcommac/SwiftDate/issues/17)
-- toRelativeString error on Phone [\#15](https://github.com/malcommac/SwiftDate/issues/15)
-
-**Merged pull requests:**
-
-- fix documentation about use of set method [\#30](https://github.com/malcommac/SwiftDate/pull/30) ([pettomartino](https://github.com/pettomartino))
-- added isSameMonthOf and isSameYearOf [\#29](https://github.com/malcommac/SwiftDate/pull/29) ([mccannmax](https://github.com/mccannmax))
-- support swift 2.0 [\#25](https://github.com/malcommac/SwiftDate/pull/25) ([chenyangcun](https://github.com/chenyangcun))
-- Added seconds before date and seconds after date [\#22](https://github.com/malcommac/SwiftDate/pull/22) ([mrichtsfeld](https://github.com/mrichtsfeld))
-- fix isYesterday not work bug [\#18](https://github.com/malcommac/SwiftDate/pull/18) ([StormXX](https://github.com/StormXX))
-- Fixed class func date\(\) [\#16](https://github.com/malcommac/SwiftDate/pull/16) ([toriaezunama](https://github.com/toriaezunama))
-- One more .DS\_Store file to remove [\#13](https://github.com/malcommac/SwiftDate/pull/13) ([simonrice](https://github.com/simonrice))
-
-## [1.0.10](https://github.com/malcommac/SwiftDate/tree/1.0.10) (2015-06-09)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/1.0.9...1.0.10)
-
-## [1.0.9](https://github.com/malcommac/SwiftDate/tree/1.0.9) (2015-06-06)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/1.0.8...1.0.9)
-
-**Merged pull requests:**
-
-- But fixes to add\(\) and set\(\) functions [\#12](https://github.com/malcommac/SwiftDate/pull/12) ([toriaezunama](https://github.com/toriaezunama))
-
-## [1.0.8](https://github.com/malcommac/SwiftDate/tree/1.0.8) (2015-05-28)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/1.0.7...1.0.8)
-
-**Closed issues:**
-
-- toString with string format missing [\#11](https://github.com/malcommac/SwiftDate/issues/11)
-- Substract 1 month doesn't work [\#8](https://github.com/malcommac/SwiftDate/issues/8)
-
-**Merged pull requests:**
-
-- Allow using to string methods outside framework [\#10](https://github.com/malcommac/SwiftDate/pull/10) ([bitomule](https://github.com/bitomule))
-
-## [1.0.7](https://github.com/malcommac/SwiftDate/tree/1.0.7) (2015-05-28)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/1.0.5...1.0.7)
-
-**Closed issues:**
-
-- Operators doesn't work [\#6](https://github.com/malcommac/SwiftDate/issues/6)
-- Int extension is not public [\#5](https://github.com/malcommac/SwiftDate/issues/5)
-- toRelativeString fails on ios 8 / swift 1.2 [\#4](https://github.com/malcommac/SwiftDate/issues/4)
-- Thread-safe date formatter [\#3](https://github.com/malcommac/SwiftDate/issues/3)
-
-**Merged pull requests:**
-
-- Make operators public [\#7](https://github.com/malcommac/SwiftDate/pull/7) ([bitomule](https://github.com/bitomule))
-
-## [1.0.5](https://github.com/malcommac/SwiftDate/tree/1.0.5) (2015-05-24)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/1.0.0...1.0.5)
-
-**Closed issues:**
-
-- firstDayOfWeek and lastDayofWeek incorrect results [\#1](https://github.com/malcommac/SwiftDate/issues/1)
-
-**Merged pull requests:**
-
-- ISO8601 formats [\#2](https://github.com/malcommac/SwiftDate/pull/2) ([mrkd](https://github.com/mrkd))
-
-## [1.0.0](https://github.com/malcommac/SwiftDate/tree/1.0.0) (2015-05-07)
-
-
-\* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
+#### New Features
+* [#353](https://github.com/malcommac/SwiftDate/issues/353) Timezone, region and locale are now public accessible from Region (read-only)
+- [#354](https://github.com/malcommac/SwiftDate/issues/354) Added Vietnamese translation (thanks to @solbadguyky)
+- [#355](https://github.com/malcommac/SwiftDate/issues/355) Added Japanese translation (thanks to @bati668)
+- [#360](https://github.com/malcommac/SwiftDate/issues/360) Catalan translation
+
+#### Fixes
+- [#359](https://github.com/malcommac/SwiftDate/issues/359) Wrong colloquial string ("just now") when gap between two dates are expressed in minutes and the left comparing operand is a future date.
+* [#349](https://github.com/malcommac/SwiftDate/issues/349) Fixed an issue with ISO8601Formatter where we need to manually set the locale to "en_US_POSIX" in order to get correct results (ie. in 12/24h cases).
+* [#350](https://github.com/malcommac/SwiftDate/issues/350) Fixed relevant time formatting for Danish translation
+- [#358](https://github.com/malcommac/SwiftDate/issues/358) Missing German translation strings are now added.
+- [#361](https://github.com/malcommac/SwiftDate/issues/361) Minor fixes for unit test reports
+- [#362](https://github.com/malcommac/SwiftDate/issues/362) Added tests for iSO8601 formatter with .internetDateTimeExtended.
+- [#363](https://github.com/malcommac/SwiftDate/issues/363) Fallback to main language code when language code + region code is not available (ie. "fr-BE" fall in "fr-FR").
+
+<a name="408" />
+
+## SwiftDate 4.0.8
+---
+- **Release Date**: 2012/12/01
+- **Zipped Version**: [Download 4.0.8](https://github.com/malcommac/SwiftDate/releases/tag/4.0.8)
+
+#### New Features
+* [#214](https://github.com/malcommac/SwiftDate/issues/214), Added `.next(day:)` both for `Date` and `DateInRegion` to get the next weekday (ie. "next friday from today") after specified date.
+* [#310](https://github.com/malcommac/SwiftDate/issues/310) Added static func `.dates(between:and:increment:)` both for `Date` and `DateInRegion` which allows to enumerate dates between two interval with given increment in term of `DateComponents`.
+* [#337](https://github.com/malcommac/SwiftDate/issues/337) DateComponents now implements `.in()` func you can use to express an interval (like using `TimeInterval`) in terms of other time units (for example `let x = 120.seconds.in(.minute)` will return 2 minutes).
+* [#348](https://github.com/malcommac/SwiftDate/issues/348) `DateComponents` can now be merged using `&&` operator. So if you have `A = 1.hours, 3.minutes, 2.seconds` and `B = 1.year, 40.minutes`, using `let C = A && B` you will get a new `DateComponents` instance with: `C = 1.year, 1.hours, 43.minutes, 2.seconds`.
+* [#340](https://github.com/malcommac/SwiftDate/issues/340), [#320](https://github.com/malcommac/SwiftDate/issues/320) Added Spanish support (thanks to @Sepho and @adrimarti).
+* [#323](https://github.com/malcommac/SwiftDate/issues/323), Added Korean support (thanks to @KisukPark).
+* [#328](https://github.com/malcommac/SwiftDate/issues/328), Added Slovak support (thanks to @beretis).
+* [#329](https://github.com/malcommac/SwiftDate/issues/329), Added Danish support (thanks to @emilpedersen).
+* [#331](https://github.com/malcommac/SwiftDate/issues/331), Added Czech support (thanks to @rbukovansky).
+* [#187](https://github.com/malcommac/SwiftDate/issues/187), Added `.startWeek` (get the first day of the sender's week) and `.endWeek` (get the last day of the sender's week) both for `Date` and `DateInRegion`
+
+#### Fixes:
+* [#344](https://github.com/malcommac/SwiftDate/issues/344) `.inDateDefaultRegion()` is also used as standard value for region in `.add()` function of the `Date` object
+* [#339](https://github.com/malcommac/SwiftDate/issues/339) Fixed an issue with reverse interval fatal error when subtracting two dates
+* [#317](https://github.com/malcommac/SwiftDate/issues/317) Fixed an issue with language transations. Now all translations are specified in term of language+region settings (ie. `en-US` and not only `en`). All translation files were updated to reflect this new behaviour.
+* [#346](https://github.com/malcommac/SwiftDate/issues/346) Workaround to fix a rounding problem when comparing two `Date` or `DateInRegion` in terms of `.nanosecond` granularity. Now the comparision result is correct.
+* [#315](https://github.com/malcommac/SwiftDate/issues/315), Fixed an issue with `Date().add(components:)` and daylight saving dates.
+* [#319](https://github.com/malcommac/SwiftDate/issues/319), Added missing translation for german loc (thanks to @jaweinkauff)
+
+<a name="407" />
+
+## SwiftDate 4.0.7
+---
+**Release Date**: 2012/12/20
+**Zipped Version**: [Download](https://github.com/malcommac/SwiftDate/releases/tag/4.0.7)
+
+
+* [#306](https://github.com/malcommac/SwiftDate/issues/306) Fixed a date ordering issue with time interval
+* [#308](https://github.com/malcommac/SwiftDate/issues/308) Added singular component for `.year,.month,.day,.hour,.minute,.second` time components
+* [#309](https://github.com/malcommac/SwiftDate/issues/309) Added Traditional Chinese support (thanks to @rynecheow)
+* [#314](https://github.com/malcommac/SwiftDate/issues/314) Restored French translation strings
+
+<a name="406" />
+
+## SwiftDate 4.0.6
+---
+- **Release Date**: 2012/10/17
+- **Zipped Version**: [Download 4.0.8](https://github.com/malcommac/SwiftDate/releases/tag/4.0.6)
+
+* [#303](https://github.com/malcommac/SwiftDate/issues/303) `Date.defaultRegion()` is now set to `Region.Local()` as specified in doc (not `Region.GMT()`)
+* [#302](https://github.com/malcommac/SwiftDate/issues/302) Fixed an issue with colloquial dates and future dates; also fixed an issue when reporting colloquial differences expressed in weeks
+* [#301](https://github.com/malcommac/SwiftDate/issues/301) Add `.locale` property in `ISO8601DateTimeFormatter`
+
+<a name="405" />
+
+## SwiftDate 4.0.5
+---
+- **Release Date**: 2012/10/10
+- **Zipped Version**: [Download 4.0.5]
+
+* [#284](https://github.com/malcommac/SwiftDate/issues/284) Fixed a crash with .colloquial() function and # weeks evaluation
+* [#287](https://github.com/malcommac/SwiftDate/issues/287) Added Simplified Chinese translation (thanks to @codingrhythm)
+* [#288](https://github.com/malcommac/SwiftDate/issues/288) Added Indonesian translation (thanks to @suprie)
+* [#286](https://github.com/malcommac/SwiftDate/issues/286) Added French translation (thanks to @pierrolivier)
+* [#293](https://github.com/malcommac/SwiftDate/issues/293) Added .withInternetDateTimeExtended as options of ISO8601DateTimeFormatter
+* [#292](https://github.com/malcommac/SwiftDate/issues/292) .setDefaultRegion and .defaultRegion are now static func/prop of the Date object
+
+
+<a name="404" />
+
+## SwiftDate 4.0.4
+---
+- **Release Date**: 2012/10/04
+- **Zipped Version**: [Download 4.0.4](https://github.com/malcommac/SwiftDate/releases/tag/4.0.4)
+
+* [#277](https://github.com/malcommac/SwiftDate/issues/277): Remove `throws` from Date.add(components:) in Date+Math.swift 
+* [#276](https://github.com/malcommac/SwiftDate/issues/276): Remove Development team from framework 
+
+<a name="403" />
+
+## SwiftDate 4.0.3
+---
+- **Release Date**: 2012/10/03
+- **Zipped Version**: [Download 4.0.3](https://github.com/malcommac/SwiftDate/releases/tag/4.0.3)
+
+Changes:
+* [#271](https://github.com/malcommac/SwiftDate/issues/271): Added fallback to english translation when required translation is not available for colloquial functions
+* [#112](https://github.com/malcommac/SwiftDate/issues/112): Fixed an issue when optimization level is `-fast`
+* [#269](https://github.com/malcommac/SwiftDate/issues/269): Fixed unnecessary strings printed in console when using `.timeComponents()` function
+* [#266](https://github.com/malcommac/SwiftDate/issues/266): Removed unnecessary `Region.copy()` function
+* [#267](https://github.com/malcommac/SwiftDate/issues/267): `.absoluteDate` is now a public property for `DateInRegion`
+* [#268](https://github.com/malcommac/SwiftDate/issues/268): Added new german translation to `SwiftDate.bundle`
+* [#272](https://github.com/malcommac/SwiftDate/issues/272): Failed to calculate a colloquial date when diff in seconds = 0. It throw a `.FailedToCalculate` exception.
+* [#274](https://github.com/malcommac/SwiftDate/issues/274): Fixed a bug with padding in Time Components formatter. Now SwiftDate uses `DateComponentsFormatter` internally; old timeComponents/timeComponentsSinceNow (in Date and DateInRegion) are now deprecated (there are other functions with the same name which takes a `ComponentsFormatterOptions` struct as input). Also `.string()` function in `TimeInterval` is now replaced by a counterpart which take `ComponentsFormatterOptions` struct.
+* [#275](https://github.com/malcommac/SwiftDate/issues/275): `.formatter.useSharedFormatters` in `DateInRegion` is now accessible so, if strictly needed user can user a custom instance of DateTime Formatters per single `DateInRegion`.
+
+<a name="402" />
+
+## SwiftDate 4.0.2
+---
+- **Release Date**: 2012/09/30
+- **Zipped Version**: [Download 4.0.2](https://github.com/malcommac/SwiftDate/releases/tag/4.0.2)
+
+- Minor fix for cocoapods compatibility (SwiftDate.bundle was not copied)
+
+<a name="400" />
+### SwiftDate 4.0.0
+---
+- **Release Date**: 2012/09/29
+- **Zipped Version**: [Download 4.0.0](https://github.com/malcommac/SwiftDate/releases/tag/4.0.0)
+
+- Major rewrite, fully compatible with Swift 3.0
+- Function names and parameter now fully adopt Swift conventions (*we should make a complete list of changes soon*)
+- Various fixes with locale management and timezones
+- Web site and complete documentation
+- Jazzy support
+- Unit tests now compiles under XCode 8 and Swift 3

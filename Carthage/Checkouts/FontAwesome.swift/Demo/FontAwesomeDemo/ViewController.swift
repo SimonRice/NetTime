@@ -1,6 +1,6 @@
 // ViewController.swift
 //
-// Copyright (c) 2014-2015 Thi Doan
+// Copyright (c) 2014-present FontAwesome.swift contributors
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -36,28 +36,28 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         // FontAwesome icon in label
-        label.font = UIFont.fontAwesomeOfSize(100)
-        label.text = String.fontAwesomeIconWithName(FontAwesome.Github)
+        label.font = UIFont.fontAwesome(ofSize: 100)
+        label.text = String.fontAwesomeIcon(name: FontAwesome.github)
 
-        let attributes = [NSFontAttributeName: UIFont.fontAwesomeOfSize(20)] as Dictionary!
+        let attributes = [NSFontAttributeName: UIFont.fontAwesome(ofSize: 20)] as [String: Any]
 
         // FontAwesome icon in button
-        button.titleLabel?.font = UIFont.fontAwesomeOfSize(30)
-        button.setTitle(String.fontAwesomeIconWithName(.Github), forState: .Normal)
+        button.titleLabel?.font = UIFont.fontAwesome(ofSize: 30)
+        button.setTitle(String.fontAwesomeIcon(name: .github), for: .normal)
 
         // FontAwesome icon as navigation bar item
-        barButton.setTitleTextAttributes(attributes, forState: .Normal)
-        barButton.title = String.fontAwesomeIconWithName(.Github)
+        barButton.setTitleTextAttributes(attributes, for: .normal)
+        barButton.title = String.fontAwesomeIcon(name: .github)
 
         // FontAwesome icon as toolbar item
-        toolbarItem.setTitleTextAttributes(attributes, forState: .Normal)
-        toolbarItem.title = String.fontAwesomeIconWithName(.Github)
+        toolbarItem.setTitleTextAttributes(attributes, for: .normal)
+        toolbarItem.title = String.fontAwesomeIcon(name: .github)
 
         // FontAwesome icon as image
-        imageView.image = UIImage.fontAwesomeIconWithName(FontAwesome.Github, textColor: UIColor.blackColor(), size: CGSizeMake(4000, 4000))
+        imageView.image = UIImage.fontAwesomeIcon(name: FontAwesome.github, textColor: UIColor.black, size: CGSize(width: 4000, height: 4000))
 
         // FontAwesome icon as image with background color
-        imageViewColored.image = UIImage.fontAwesomeIconWithName(FontAwesome.Github, textColor: UIColor.blueColor(), size: CGSizeMake(4000, 4000), backgroundColor: UIColor.redColor())
+        imageViewColored.image = UIImage.fontAwesomeIcon(name: FontAwesome.github, textColor: UIColor.blue, size: CGSize(width: 4000, height: 4000), backgroundColor: UIColor.red)
     }
 
 }

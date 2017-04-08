@@ -14,7 +14,7 @@ import RxCocoa
 #endif
 
 extension UILabel {
-    public override var accessibilityValue: String! {
+    open override var accessibilityValue: String! {
         get {
             return self.text
         }
@@ -58,117 +58,116 @@ class APIWrappersViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        datePicker.date = NSDate(timeIntervalSince1970: 0)
+        datePicker.date = Date(timeIntervalSince1970: 0)
 
         // MARK: UIBarButtonItem
 
-        bbitem.rx_tap
-            .subscribeNext { [weak self] x in
+        bbitem.rx.tap
+            .subscribe(onNext: { [weak self] x in
                 self?.debug("UIBarButtonItem Tapped")
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
 
         // MARK: UISegmentedControl
 
         // also test two way binding
         let segmentedValue = Variable(0)
-        segmentedControl.rx_value <-> segmentedValue
+        _ = segmentedControl.rx.value <-> segmentedValue
 
         segmentedValue.asObservable()
-            .subscribeNext { [weak self] x in
+            .subscribe(onNext: { [weak self] x in
                 self?.debug("UISegmentedControl value \(x)")
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
 
 
         // MARK: UISwitch
 
         // also test two way binding
         let switchValue = Variable(true)
-        switcher.rx_value <-> switchValue
+        _ = switcher.rx.value <-> switchValue
 
         switchValue.asObservable()
-            .subscribeNext { [weak self] x in
+            .subscribe(onNext: { [weak self] x in
                 self?.debug("UISwitch value \(x)")
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
 
         // MARK: UIActivityIndicatorView
 
-        switcher.rx_value
-            .bindTo(activityIndicator.rx_animating)
-            .addDisposableTo(disposeBag)
-
+        switcher.rx.value
+            .bindTo(activityIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
 
         // MARK: UIButton
 
-        button.rx_tap
-            .subscribeNext { [weak self] x in
+        button.rx.tap
+            .subscribe(onNext: { [weak self] x in
                 self?.debug("UIButton Tapped")
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
 
 
         // MARK: UISlider
 
         // also test two way binding
         let sliderValue = Variable<Float>(1.0)
-        slider.rx_value <-> sliderValue
+        _ = slider.rx.value <-> sliderValue
 
         sliderValue.asObservable()
-            .subscribeNext { [weak self] x in
+            .subscribe(onNext: { [weak self] x in
                 self?.debug("UISlider value \(x)")
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
 
 
         // MARK: UIDatePicker
 
         // also test two way binding
-        let dateValue = Variable(NSDate(timeIntervalSince1970: 0))
-        datePicker.rx_date <-> dateValue
+        let dateValue = Variable(Date(timeIntervalSince1970: 0))
+        _ = datePicker.rx.date <-> dateValue
 
 
         dateValue.asObservable()
-            .subscribeNext { [weak self] x in
+            .subscribe(onNext: { [weak self] x in
                 self?.debug("UIDatePicker date \(x)")
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
 
 
         // MARK: UITextField
 
         // also test two way binding
         let textValue = Variable("")
-        textField.rx_text <-> textValue
+        _ = textField.rx.textInput <-> textValue
 
         textValue.asObservable()
-            .subscribeNext { [weak self] x in
+            .subscribe(onNext: { [weak self] x in
                 self?.debug("UITextField text \(x)")
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
 
 
         // MARK: UIGestureRecognizer
 
-        mypan.rx_event
-            .subscribeNext { [weak self] x in
+        mypan.rx.event
+            .subscribe(onNext: { [weak self] x in
                 self?.debug("UIGestureRecognizer event \(x.state)")
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
 
 
         // MARK: UITextView
 
         // also test two way binding
         let textViewValue = Variable("")
-        textView.rx_text <-> textViewValue
+        _ = textView.rx.textInput <-> textViewValue
 
         textViewValue.asObservable()
-            .subscribeNext { [weak self] x in
+            .subscribe(onNext: { [weak self] x in
                 self?.debug("UITextView text \(x)")
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
 
         // MARK: CLLocationManager
 
@@ -176,22 +175,22 @@ class APIWrappersViewController: ViewController {
         manager.requestWhenInUseAuthorization()
         #endif
 
-        manager.rx_didUpdateLocations
-            .subscribeNext { x in
-                print("rx_didUpdateLocations \(x)")
-            }
-            .addDisposableTo(disposeBag)
+        manager.rx.didUpdateLocations
+            .subscribe(onNext: { x in
+                print("rx.didUpdateLocations \(x)")
+            })
+            .disposed(by: disposeBag)
 
-        _ = manager.rx_didFailWithError
-            .subscribeNext { x in
-                print("rx_didFailWithError \(x)")
-            }
+        _ = manager.rx.didFailWithError
+            .subscribe(onNext: { x in
+                print("rx.didFailWithError \(x)")
+            })
         
-        manager.rx_didChangeAuthorizationStatus
-            .subscribeNext { status in
+        manager.rx.didChangeAuthorizationStatus
+            .subscribe(onNext: { status in
                 print("Authorization status \(status)")
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
         
         manager.startUpdatingLocation()
 
@@ -199,7 +198,7 @@ class APIWrappersViewController: ViewController {
 
     }
 
-    func debug(string: String) {
+    func debug(_ string: String) {
         print(string)
         debugLabel.text = string
     }

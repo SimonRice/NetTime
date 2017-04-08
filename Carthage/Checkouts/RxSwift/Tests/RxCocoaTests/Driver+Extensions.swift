@@ -6,13 +6,12 @@
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-import Foundation
 import RxCocoa
 
-extension Driver : Equatable {
+extension SharedSequence : Equatable {
 
 }
 
-public func == <T>(lhs: Driver<T>, rhs: Driver<T>) -> Bool {
+public func == <S, T>(lhs: SharedSequence<S, T>, rhs: SharedSequence<S, T>) -> Bool {
     return lhs.asObservable() === rhs.asObservable()
 }

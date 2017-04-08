@@ -1,6 +1,6 @@
 //
 //  WikipediaSearchViewController.swift
-//  Example
+//  RxExample
 //
 //  Created by Krunoslav Zaher on 2/21/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
@@ -13,14 +13,9 @@ import RxCocoa
 #endif
 
 class WikipediaSearchViewController: ViewController {
-    
-    private var resultsTableView: UITableView {
-        return self.searchDisplayController!.searchResultsTableView
-    }
-
-    private var searchBar: UISearchBar {
-        return self.searchDisplayController!.searchBar
-    }
+    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var resultsTableView: UITableView!
+    @IBOutlet var emptyView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +25,9 @@ class WikipediaSearchViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        self.edgesForExtendedLayout = .all
+
         configureTableDataSource()
         configureKeyboardDismissesOnScroll()
         configureNavigateOnRowClick()
@@ -38,54 +35,63 @@ class WikipediaSearchViewController: ViewController {
     }
 
     func configureTableDataSource() {
-        resultsTableView.registerNib(UINib(nibName: "WikipediaSearchCell", bundle: nil), forCellReuseIdentifier: "WikipediaSearchCell")
+        resultsTableView.register(UINib(nibName: "WikipediaSearchCell", bundle: nil), forCellReuseIdentifier: "WikipediaSearchCell")
         
         resultsTableView.rowHeight = 194
+        resultsTableView.hideEmptyCells()
 
+        // This is for clarity only, don't use static dependencies
         let API = DefaultWikipediaAPI.sharedAPI
 
-        searchBar.rx_text
+        let results = searchBar.rx.text.orEmpty
             .asDriver()
             .throttle(0.3)
             .distinctUntilChanged()
             .flatMapLatest { query in
                 API.getSearchResults(query)
                     .retry(3)
-                    .retryOnBecomesReachable([], reachabilityService: ReachabilityService.sharedReachabilityService)
+                    .retryOnBecomesReachable([], reachabilityService: Dependencies.sharedDependencies.reachabilityService)
                     .startWith([]) // clears results on new search term
                     .asDriver(onErrorJustReturn: [])
             }
             .map { results in
                 results.map(SearchResultViewModel.init)
             }
-            .drive(resultsTableView.rx_itemsWithCellIdentifier("WikipediaSearchCell", cellType: WikipediaSearchCell.self)) { (_, viewModel, cell) in
+
+        results
+            .drive(resultsTableView.rx.items(cellIdentifier: "WikipediaSearchCell", cellType: WikipediaSearchCell.self)) { (_, viewModel, cell) in
                 cell.viewModel = viewModel
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
+
+        results
+            .map { $0.count != 0 }
+            .drive(self.emptyView.rx.isHidden)
+            .disposed(by: disposeBag)
     }
 
     func configureKeyboardDismissesOnScroll() {
         let searchBar = self.searchBar
-
-        resultsTableView.rx_contentOffset
+        
+        resultsTableView.rx.contentOffset
             .asDriver()
-            .driveNext { _ in
-                if searchBar.isFirstResponder() {
-                    _ = searchBar.resignFirstResponder()
+            .drive(onNext: { _ in
+                if searchBar?.isFirstResponder ?? false {
+                    _ = searchBar?.resignFirstResponder()
                 }
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
     }
 
     func configureNavigateOnRowClick() {
         let wireframe = DefaultWireframe.sharedInstance
 
-        resultsTableView.rx_modelSelected(SearchResultViewModel.self)
+        resultsTableView.rx.modelSelected(SearchResultViewModel.self)
             .asDriver()
-            .driveNext { searchResult in
-                wireframe.openURL(searchResult.searchResult.URL)
-            }
-            .addDisposableTo(disposeBag)
+            .drive(onNext: { searchResult in
+                wireframe.open(url:searchResult.searchResult.URL)
+            })
+            .disposed(by: disposeBag)
     }
 
     func configureActivityIndicatorsShow() {
@@ -94,7 +100,7 @@ class WikipediaSearchViewController: ViewController {
             DefaultImageService.sharedImageService.loadingImage
         ) { $0 || $1 }
             .distinctUntilChanged()
-            .drive(UIApplication.sharedApplication().rx_networkActivityIndicatorVisible)
-            .addDisposableTo(disposeBag)
+            .drive(UIApplication.shared.rx.isNetworkActivityIndicatorVisible)
+            .disposed(by: disposeBag)
     }
 }

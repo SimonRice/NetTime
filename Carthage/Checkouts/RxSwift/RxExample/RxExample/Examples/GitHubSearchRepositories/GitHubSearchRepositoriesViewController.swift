@@ -12,12 +12,14 @@ import RxSwift
 import RxCocoa
 #endif
 
+extension UIScrollView {
+    func  isNearBottomEdge(edgeOffset: CGFloat = 20.0) -> Bool {
+        return self.contentOffset.y + self.frame.size.height + edgeOffset > self.contentSize.height
+    }
+}
+
 class GitHubSearchRepositoriesViewController: ViewController, UITableViewDelegate {
     static let startLoadingOffset: CGFloat = 20.0
-
-    static func isNearTheBottomEdge(contentOffset: CGPoint, _ tableView: UITableView) -> Bool {
-        return contentOffset.y + tableView.frame.size.height + startLoadingOffset > tableView.contentSize.height
-    }
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -27,30 +29,28 @@ class GitHubSearchRepositoriesViewController: ViewController, UITableViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let tableView = self.tableView
-        let searchBar = self.searchBar
-
         dataSource.configureCell = { (_, tv, ip, repository: Repository) in
-            let cell = tv.dequeueReusableCellWithIdentifier("Cell")!
+            let cell = tv.dequeueReusableCell(withIdentifier: "Cell")!
             cell.textLabel?.text = repository.name
             cell.detailTextLabel?.text = repository.url
             return cell
         }
 
         dataSource.titleForHeaderInSection = { dataSource, sectionIndex in
-            let section = dataSource.sectionAtIndex(sectionIndex)
+            let section = dataSource[sectionIndex]
             return section.items.count > 0 ? "Repositories (\(section.items.count))" : "No repositories found"
         }
 
 
-        let loadNextPageTrigger = tableView.rx_contentOffset
-            .flatMap { offset in
-                GitHubSearchRepositoriesViewController.isNearTheBottomEdge(offset, tableView)
-                    ? Observable.just()
+        let tableView: UITableView = self.tableView
+        let loadNextPageTrigger = self.tableView.rx.contentOffset
+            .flatMap { _ in
+                return tableView.isNearBottomEdge(edgeOffset: 20.0)
+                    ? Observable.just(())
                     : Observable.empty()
             }
 
-        let searchResult = searchBar.rx_text.asDriver()
+        let searchResult = self.searchBar.rx.text.orEmpty.asDriver()
             .throttle(0.3)
             .distinctUntilChanged()
             .flatMapLatest { query -> Driver<RepositoriesState> in
@@ -64,45 +64,45 @@ class GitHubSearchRepositoriesViewController: ViewController, UITableViewDelegat
 
         searchResult
             .map { $0.serviceState }
-            .drive(navigationController!.rx_serviceState)
-            .addDisposableTo(disposeBag)
+            .drive(navigationController!.rx.serviceState)
+            .disposed(by: disposeBag)
 
         searchResult
             .map { [SectionModel(model: "Repositories", items: $0.repositories)] }
-            .drive(tableView.rx_itemsWithDataSource(dataSource))
-            .addDisposableTo(disposeBag)
+            .drive(tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
 
         searchResult
             .filter { $0.limitExceeded }
-            .driveNext { n in
+            .drive(onNext: { n in
                 showAlert("Exceeded limit of 10 non authenticated requests per minute for GitHub API. Please wait a minute. :(\nhttps://developer.github.com/v3/#rate-limiting") 
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
 
-        // dismiss keyboard on scroll
-        tableView.rx_contentOffset
+        let searchBar: UISearchBar = self.searchBar
+        tableView.rx.contentOffset
             .subscribe { _ in
-                if searchBar.isFirstResponder() {
+                if searchBar.isFirstResponder {
                     _ = searchBar.resignFirstResponder()
                 }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         // so normal delegate customization can also be used
-        tableView.rx_setDelegate(self)
-            .addDisposableTo(disposeBag)
+        tableView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
 
         // activity indicator in status bar
         // {
         GitHubSearchRepositoriesAPI.sharedAPI.activityIndicator
-            .drive(UIApplication.sharedApplication().rx_networkActivityIndicatorVisible)
-            .addDisposableTo(disposeBag)
+            .drive(UIApplication.shared.rx.isNetworkActivityIndicatorVisible)
+            .disposed(by: disposeBag)
         // }
     }
 
     // MARK: Table view delegate
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
 

@@ -1,12 +1,11 @@
 //
 //  RxObjCRuntimeState.swift
-//  RxTests
+//  Tests
 //
 //  Created by Krunoslav Zaher on 11/27/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-import Foundation
 import XCTest
 
 struct RxObjCRuntimeChange {
@@ -19,7 +18,7 @@ struct RxObjCRuntimeChange {
     /**
      Takes into account default methods that were swizzled while creating dynamic subclasses.
     */
-    static func changes(dynamicSubclasses dynamicSubclasses: Int = 0, swizzledForwardClasses: Int = 0, interceptedClasses: Int = 0, methodsSwizzled: Int = 0, methodsForwarded: Int = 0) -> RxObjCRuntimeChange {
+    static func changes(dynamicSubclasses: Int = 0, swizzledForwardClasses: Int = 0, interceptedClasses: Int = 0, methodsSwizzled: Int = 0, methodsForwarded: Int = 0) -> RxObjCRuntimeChange {
         return RxObjCRuntimeChange(
             dynamicSublasses: dynamicSubclasses,
             swizzledForwardClasses: swizzledForwardClasses,
@@ -30,7 +29,7 @@ struct RxObjCRuntimeChange {
     }
 }
 
-class RxObjCRuntimeState {
+final class RxObjCRuntimeState {
     // total number of dynamically genertated classes
     let dynamicSublasses: Int
     // total number of classes that have swizzled forwarding mechanism
@@ -58,7 +57,7 @@ class RxObjCRuntimeState {
         #endif
     }
 
-    func assertAfterThisMoment(previous: RxObjCRuntimeState, changed: RxObjCRuntimeChange) {
+    func assertAfterThisMoment(_ previous: RxObjCRuntimeState, changed: RxObjCRuntimeChange) {
         #if TRACE_RESOURCES
         let realChangeOfDynamicSubclasses = dynamicSublasses - previous.dynamicSublasses
         XCTAssertEqual(realChangeOfDynamicSubclasses, changed.dynamicSublasses)

@@ -1,6 +1,6 @@
 // FontAwesomeDemoTests.swift
 //
-// Copyright (c) 2014-2015 Thi Doan
+// Copyright (c) 2014-present FontAwesome.swift contributors
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -43,7 +43,7 @@ class FontAwesomeDemoTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock() {
+        self.measure() {
             // Put the code you want to measure the time of here.
         }
     }

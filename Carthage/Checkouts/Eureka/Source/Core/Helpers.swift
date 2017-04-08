@@ -1,7 +1,7 @@
 //  Helpers.swift
 //  Eureka ( https://github.com/xmartlabs/Eureka )
 //
-//  Copyright (c) 2015 Xmartlabs ( http://xmartlabs.com )
+//  Copyright (c) 2016 Xmartlabs ( http://xmartlabs.com )
 //
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -28,7 +28,7 @@ import UIKit
 extension UIView {
     
     public func findFirstResponder() -> UIView? {
-        if isFirstResponder() { return self }
+        if isFirstResponder { return self }
         for subView in subviews {
             if let firstResponder = subView.findFirstResponder() {
                 return firstResponder
@@ -49,14 +49,14 @@ extension NSPredicate {
     
     var predicateVars: [String] {
         var ret = [String]()
-        if let compoundPredicate = self as? NSCompoundPredicate{
-            for subPredicate in compoundPredicate.subpredicates{
-                ret.appendContentsOf(subPredicate.predicateVars)
+        if let compoundPredicate = self as? NSCompoundPredicate {
+            for subPredicate in compoundPredicate.subpredicates where subPredicate is NSPredicate {
+                ret.append(contentsOf: (subPredicate as! NSPredicate).predicateVars)
             }
         }
-        else if let comparisonPredicate = self as? NSComparisonPredicate{
-            ret.appendContentsOf(comparisonPredicate.leftExpression.expressionVars)
-            ret.appendContentsOf(comparisonPredicate.rightExpression.expressionVars)
+        else if let comparisonPredicate = self as? NSComparisonPredicate {
+            ret.append(contentsOf: comparisonPredicate.leftExpression.expressionVars)
+            ret.append(contentsOf: comparisonPredicate.rightExpression.expressionVars)
         }
         return ret
     }
@@ -66,13 +66,13 @@ extension NSExpression {
     
     var expressionVars: [String] {
         switch expressionType{
-            case .FunctionExpressionType, .VariableExpressionType:
+            case .function, .variable:
                 let str = "\(self)"
-                if let range = str.rangeOfString("."){
-                    return [str.substringWithRange(str.startIndex.advancedBy(1)..<range.startIndex)]
+                if let range = str.range(of: "."){
+                    return [str.substring(with: str.characters.index(str.startIndex, offsetBy: 1)..<range.lowerBound)]
                 }
                 else{
-                    return [str.substringFromIndex(str.startIndex.advancedBy(1))]
+                    return [str.substring(from: str.characters.index(str.startIndex, offsetBy: 1))]
                 }
             default:
                 return []

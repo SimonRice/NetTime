@@ -18,10 +18,19 @@ class BeatsSpec: QuickSpec {
     override func spec() {
         describe("11AM in London on January 1st 2015") {
             it("should be @500 .beats") {
-                let region = Region(timeZoneName: TimeZoneName.EuropeLondon)
-                let currentDate = DateInRegion(year: 2015, month: 1,
-                                               day: 1, hour: 11, minute: 0,
-                                               region: region).absoluteTime
+                var components = DateComponents()
+                components.timeZone = TimeZoneName.europeLondon.timeZone
+                components.calendar = .current
+                components.year = 2015
+                components.month = 1
+                components.day = 1
+                components.hour = 11
+                components.minute = 0
+
+                guard let currentDate = DateInRegion(components: components)?.absoluteDate else {
+                    fail("Unable to create date")
+                    return
+                }
 
                 expect(Int(currentDate.beats)).to(equal(500))
             }
@@ -29,10 +38,19 @@ class BeatsSpec: QuickSpec {
 
         describe("11AM in London on June 1st 2015") {
             it("should be @458 .beats") {
-                let region = Region(timeZoneName: TimeZoneName.EuropeLondon)
-                let currentDate = DateInRegion(year: 2015, month: 6,
-                                               day: 1, hour: 11, minute: 0,
-                                               region: region).absoluteTime
+                var components = DateComponents()
+                components.timeZone = TimeZoneName.europeLondon.timeZone
+                components.calendar = .current
+                components.year = 2015
+                components.month = 6
+                components.day = 1
+                components.hour = 11
+                components.minute = 0
+
+                guard let currentDate = DateInRegion(components: components)?.absoluteDate else {
+                    fail("Unable to create date")
+                    return
+                }
 
                 expect(Int(currentDate.beats)).to(equal(458))
             }
@@ -40,10 +58,19 @@ class BeatsSpec: QuickSpec {
 
         describe("10:09AM in New York on January 1st 2015") {
             it("should be @672 .beats") {
-                let region = Region(timeZoneName: TimeZoneName.AmericaNewYork)
-                let currentDate = DateInRegion(year: 2015, month: 1,
-                                               day: 1, hour: 10, minute: 9,
-                                               region: region).absoluteTime
+                var components = DateComponents()
+                components.timeZone = TimeZoneName.americaNewYork.timeZone
+                components.calendar = .current
+                components.year = 2015
+                components.month = 1
+                components.day = 1
+                components.hour = 10
+                components.minute = 9
+
+                guard let currentDate = DateInRegion(components: components)?.absoluteDate else {
+                    fail("Unable to create date")
+                    return
+                }
 
                 expect(Int(currentDate.beats)).to(equal(672))
             }
@@ -51,10 +78,19 @@ class BeatsSpec: QuickSpec {
 
         describe("9:41AM in California on June 13th 2016") {
             it("should be @736 .beats") {
-                let region = Region(timeZoneName: TimeZoneName.AmericaLosAngeles)
-                let currentDate = DateInRegion(year: 2016, month: 6,
-                                               day: 13, hour: 9, minute: 41,
-                                               region: region).absoluteTime
+                var components = DateComponents()
+                components.timeZone = TimeZoneName.americaLosAngeles.timeZone
+                components.calendar = .current
+                components.year = 2016
+                components.month = 6
+                components.day = 13
+                components.hour = 9
+                components.minute = 41
+
+                guard let currentDate = DateInRegion(components: components)?.absoluteDate else {
+                    fail("Unable to create date")
+                    return
+                }
 
                 expect(Int(currentDate.beats)).to(equal(736))
             }
@@ -62,21 +98,39 @@ class BeatsSpec: QuickSpec {
 
         describe("4:01PM in California on June 13th 2016") {
             it("should be @000 .beats") {
-                let region = Region(timeZoneName: TimeZoneName.AmericaLosAngeles)
-                let currentDate = DateInRegion(year: 2016, month: 6,
-                                               day: 13, hour: 16, minute: 1,
-                                               region: region).absoluteTime
+                var components = DateComponents()
+                components.timeZone = TimeZoneName.americaLosAngeles.timeZone
+                components.calendar = .current
+                components.year = 2016
+                components.month = 6
+                components.day = 13
+                components.hour = 16
+                components.minute = 1
+
+                guard let currentDate = DateInRegion(components: components)?.absoluteDate else {
+                    fail("Unable to create date")
+                    return
+                }
 
                 expect(Int(currentDate.beats)).to(equal(0))
             }
         }
 
         describe("4:02PM in California on June 13th 2016") {
-            it("should be @000 .beats") {
-                let region = Region(timeZoneName: TimeZoneName.AmericaLosAngeles)
-                let currentDate = DateInRegion(year: 2016, month: 6,
-                                               day: 13, hour: 16, minute: 2,
-                                               region: region).absoluteTime
+            it("should be @001 .beats") {
+                var components = DateComponents()
+                components.timeZone = TimeZoneName.americaLosAngeles.timeZone
+                components.calendar = .current
+                components.year = 2016
+                components.month = 6
+                components.day = 13
+                components.hour = 16
+                components.minute = 2
+
+                guard let currentDate = DateInRegion(components: components)?.absoluteDate else {
+                    fail("Unable to create date")
+                    return
+                }
 
                 expect(Int(currentDate.beats)).to(equal(1))
             }
@@ -84,10 +138,19 @@ class BeatsSpec: QuickSpec {
 
         describe("3:59PM in California on June 13th 2016") {
             it("should be @999 .beats") {
-                let region = Region(timeZoneName: TimeZoneName.AmericaLosAngeles)
-                let currentDate = DateInRegion(year: 2016, month: 6,
-                                               day: 13, hour: 15, minute: 59,
-                                               region: region).absoluteTime
+                var components = DateComponents()
+                components.timeZone = TimeZoneName.americaLosAngeles.timeZone
+                components.calendar = .current
+                components.year = 2016
+                components.month = 6
+                components.day = 13
+                components.hour = 15
+                components.minute = 59
+
+                guard let currentDate = DateInRegion(components: components)?.absoluteDate else {
+                    fail("Unable to create date")
+                    return
+                }
 
                 expect(Int(currentDate.beats)).to(equal(999))
             }

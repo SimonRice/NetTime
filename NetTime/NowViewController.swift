@@ -7,21 +7,33 @@
 //
 
 import RxSwift
+import StoreKit
 import SwiftDate
 import UIKit
 
 class NowViewController: UIViewController {
-    @IBOutlet private weak var beatsLabel: UILabel!
-    private var subscription: Disposable?
+    @IBOutlet fileprivate weak var beatsLabel: UILabel!
+    fileprivate var subscription: Disposable?
 
-    private var date: NSDate {
-        if NSProcessInfo.processInfo().arguments.contains("TEST_MODE") {
-            let region = Region(timeZoneName: TimeZoneName.EuropeZurich)
-            return DateInRegion(year: 2016, month: 1, day: 1,
-                                hour: 9, minute: 41, region: region).absoluteTime
+    fileprivate var date: Date {
+        if ProcessInfo.processInfo.arguments.contains("TEST_MODE") {
+            var components = DateComponents()
+            components.timeZone = TimeZoneName.europeZurich.timeZone
+            components.calendar = .current
+            components.year = 2016
+            components.month = 1
+            components.day = 1
+            components.hour = 9
+            components.minute = 41
+
+            guard let date = DateInRegion(components: components)?.absoluteDate else {
+                fatalError("Unable to create date for testing")
+            }
+
+            return date
         }
 
-        return NSDate()
+        return Date()
     }
 
     override func viewDidLoad() {

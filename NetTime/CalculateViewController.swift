@@ -10,43 +10,51 @@ import Eureka
 import SwiftDate
 
 class CalculateViewController: FormViewController {
-    private var date: NSDate = NSDate() {
+    fileprivate var date = Date() {
         didSet {
             self.setBeatsRow()
         }
     }
 
-    private var timezoneName: TimeZoneName = TimeZoneName(
-        rawValue: NSTimeZone.localTimeZone().name)! {
+    fileprivate var timezoneName: TimeZoneName = TimeZoneName(
+        rawValue: NSTimeZone.local.identifier)! {
             didSet {
                 self.setBeatsRow()
             }
     }
 
-    private func setBeatsRow() {
-        if let beatsRow = self.form.rowByTag("beats") as? LabelRow {
-            let region = Region(timeZoneName: self.timezoneName)
-            let midnight = self.date.startOf(.Day, inRegion: region)
-            let localMidnight = self.date.startOf(.Day, inRegion: Region())
-            let date = midnight + Int(self.date.timeIntervalSinceDate(localMidnight)).seconds
+    fileprivate func setBeatsRow() {
+        if let beatsRow = self.form.rowBy(tag: "beats") as? LabelRow {
+            let region = Region(tz: self.timezoneName.timeZone, cal: .current,
+                                loc: .current)
+            let midnight = self.date.inRegion(region: region).startOfDay.absoluteDate
+            let localMidnight = self.date.inRegion().startOfDay.absoluteDate
+            let date = midnight + Int(self.date.timeIntervalSince(localMidnight)).seconds
             beatsRow.title = self.formatBeats(date.beats)
-            beatsRow.cell.textLabel!.textAlignment = .Center
+            beatsRow.cell.textLabel!.textAlignment = .center
             beatsRow.updateCell()
         }
     }
 
-    private func formatBeats(beats: Float) -> String {
+    fileprivate func formatBeats(_ beats: Float) -> String {
         return String(format: "@%03d .beats", Int(beats))
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if NSProcessInfo.processInfo().arguments.contains("TEST_MODE") {
-            self.date = DateInRegion(year: 2016, month: 1, day: 1,
-                                     hour: 10, minute: 09).absoluteTime
+        if ProcessInfo.processInfo.arguments.contains("TEST_MODE") {
+            self.timezoneName = .europeZurich
+            var components = DateComponents()
+            components.year = 2016
+            components.month = 1
+            components.day = 1
+            components.hour = 10
+            components.minute = 9
 
-            self.timezoneName = TimeZoneName.EuropeZurich
+            if let date = DateInRegion(components: components)?.absoluteDate {
+                self.date = date
+            }
         }
 
         if let tableView = self.tableView {
@@ -57,27 +65,28 @@ class CalculateViewController: FormViewController {
         self.form +++ Section()
             <<< DateTimeInlineRow() {
                 $0.title = "Time"
-                $0.value = self.date
+                $0.value = self.date as Date
                 }.onChange { [weak self] row in
-                    if let strongSelf = self, date = row.value {
-                        strongSelf.date = date
-                    }
+                    guard let strongSelf = self, let date = row.value else { return }
+                    strongSelf.date = date
             }
             <<< PickerInlineRow<String>() {
                 $0.title = "Time Zone"
-                $0.options = NSTimeZone.knownTimeZoneNames()
+                $0.options = NSTimeZone.knownTimeZoneNames
                 $0.value = self.timezoneName.rawValue
                 }.onChange { [weak self] row in
-                    guard let timezoneValue = row.value else { return }
-                    guard let timezoneName = TimeZoneName(rawValue: timezoneValue) else { return }
-                    guard let strongSelf = self else { return }
+                    guard let timezoneValue = row.value,
+                        let timezoneName = TimeZoneName(rawValue: timezoneValue),
+                        let strongSelf = self else {
+                            return
+                    }
 
                     strongSelf.timezoneName = timezoneName
         }
 
-        self.form +++= LabelRow("beats") {
+        self.form +++ LabelRow("beats") {
             if let label = $0.cell.textLabel {
-                label.font = UIFont.boldSystemFontOfSize(label.font.pointSize)
+                label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
             }
         }
 

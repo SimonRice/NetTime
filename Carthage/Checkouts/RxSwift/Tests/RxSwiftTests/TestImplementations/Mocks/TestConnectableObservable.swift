@@ -1,15 +1,14 @@
 //
 //  TestConnectableObservable.swift
-//  RxSwift
+//  Tests
 //
 //  Created by Krunoslav Zaher on 4/19/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-import Foundation
 import RxSwift
 
-class TestConnectableObservable<S: SubjectType where S.E == S.SubjectObserverType.E> : ConnectableObservableType {
+final class TestConnectableObservable<S: SubjectType> : ConnectableObservableType where S.E == S.SubjectObserverType.E {
     typealias E = S.E
 
     let _o: ConnectableObservable<S.E>
@@ -22,7 +21,7 @@ class TestConnectableObservable<S: SubjectType where S.E == S.SubjectObserverTyp
         return _o.connect()
     }
     
-    func subscribe<O : ObserverType where O.E == E>(observer: O) -> Disposable {
+    func subscribe<O : ObserverType>(_ observer: O) -> Disposable where O.E == E {
         return _o.subscribe(observer)
     }
 }

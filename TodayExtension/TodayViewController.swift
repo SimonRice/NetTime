@@ -12,14 +12,14 @@ import UIKit
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var beatsLabel: UILabel!
-    private var subscription: Disposable!
+    fileprivate var subscription: Disposable!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.subscription = Observable<Int>.interval(0.01, scheduler: MainScheduler.instance)
             .subscribe { _ in
                 if let label = self.beatsLabel {
-                    label.text = String(format: "@%06.2f beats", NSDate().beats)
+                    label.text = String(format: "@%06.2f beats", Date().beats)
                 }
         }
     }
@@ -29,12 +29,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         self.subscription.dispose()
     }
 
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
-        completionHandler(NCUpdateResult.NewData)
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        completionHandler(NCUpdateResult.newData)
     }
 
     // swiftlint:disable:next line_length
-    func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
-        return UIEdgeInsetsZero
+    func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
     }
 }

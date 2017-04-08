@@ -17,7 +17,7 @@ class CalculateInterfaceController: WKInterfaceController {
 
     @IBOutlet var beatsLabel: WKInterfaceLabel!
 
-    @IBAction func hourPickerDidChange(value: Int) {
+    @IBAction func hourPickerDidChange(_ value: Int) {
         self.currentHour = value
         if self.is12h && self.currentAfternoon {
             self.currentHour += 12
@@ -26,13 +26,13 @@ class CalculateInterfaceController: WKInterfaceController {
         self.showTimeInBeats()
     }
 
-    @IBAction func minutePickerDidChange(value: Int) {
+    @IBAction func minutePickerDidChange(_ value: Int) {
         self.currentMinue = value
         self.showTimeInBeats()
     }
 
-    @IBAction func afternoonPickerDidChange(value: Int) {
-        self.currentAfternoon = Bool(value)
+    @IBAction func afternoonPickerDidChange(_ value: Int) {
+        self.currentAfternoon = value != 0
         if self.currentHour < 12 && self.currentAfternoon {
             self.currentHour += 12
         } else if self.currentHour >= 12 && !self.currentAfternoon {
@@ -43,24 +43,24 @@ class CalculateInterfaceController: WKInterfaceController {
     }
 
 
-    private var currentHour: Int = 0
-    private var currentMinue: Int = 0
-    private var currentAfternoon: Bool = false
+    fileprivate var currentHour: Int = 0
+    fileprivate var currentMinue: Int = 0
+    fileprivate var currentAfternoon: Bool = false
 
-    private var currentDate: NSDate {
-        return (NSDate().inRegion()
-            .startOf(.Day) + self.currentHour.hours + self.currentMinue.minutes)
+    fileprivate var currentDate: Date {
+        return (Date().inRegion()
+            .startOf(component: .day) + self.currentHour.hours + self.currentMinue.minutes)
             .absoluteTime
     }
 
-    private lazy var is12h: Bool = {
-        let formatString: String = NSDateFormatter.dateFormatFromTemplate(
-            "j", options: 0, locale: NSLocale.currentLocale()
+    fileprivate lazy var is12h: Bool = {
+        let formatString: String = DateFormatter.dateFormat(
+            fromTemplate: "j", options: 0, locale: Locale.current
         ) ?? ""
-        return formatString.lowercaseString.containsString("a")
+        return formatString.lowercased().contains("a")
     }()
 
-    private func setupFor24h() {
+    fileprivate func setupFor24h() {
         let hourItems: [WKPickerItem] = (0..<24).map({
             let item = WKPickerItem()
             item.title = String(format: "%02d", $0)
@@ -83,7 +83,7 @@ class CalculateInterfaceController: WKInterfaceController {
         self.minutePicker.setRelativeWidth(0.5, withAdjustment: 0)
     }
 
-    private func setupFor12h() {
+    fileprivate func setupFor12h() {
         let hourItems: [WKPickerItem] = (0..<12).map({
             let item = WKPickerItem()
             let hour: Int = $0 == 0 ? 12 : $0
@@ -105,7 +105,7 @@ class CalculateInterfaceController: WKInterfaceController {
 
         self.hourPicker.setSelectedItemIndex(self.currentHour % 12)
         self.minutePicker.setSelectedItemIndex(self.currentMinue)
-        self.afternoonPicker.setSelectedItemIndex(Int(self.currentAfternoon))
+        self.afternoonPicker.setSelectedItemIndex(self.currentAfternoon ? 1 : 0)
 
         let afternoonItems: [WKPickerItem] = ["AM", "PM"].map({
             let item = WKPickerItem()
@@ -114,10 +114,10 @@ class CalculateInterfaceController: WKInterfaceController {
         })
 
         self.afternoonPicker.setItems(afternoonItems)
-        self.afternoonPicker.setSelectedItemIndex(Int(self.currentAfternoon))
+        self.afternoonPicker.setSelectedItemIndex(self.currentAfternoon ? 1 : 0)
     }
 
-    private func showTimeInBeats() {
+    fileprivate func showTimeInBeats() {
         self.beatsLabel.setHidden(false)
         self.beatsLabel.setText(String(format: "@%03d .beats", self.currentDate.nearestBeat))
     }
@@ -125,8 +125,8 @@ class CalculateInterfaceController: WKInterfaceController {
     override func willActivate() {
         super.willActivate()
 
-        self.currentHour = NSDate().inRegion().hour
-        self.currentMinue = NSDate().inRegion().minute
+        self.currentHour = Date().inRegion().hour
+        self.currentMinue = Date().inRegion().minute
 
         self.afternoonPicker.setHidden(!self.is12h)
         if self.is12h {

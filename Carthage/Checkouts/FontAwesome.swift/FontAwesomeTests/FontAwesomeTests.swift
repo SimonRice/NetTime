@@ -1,6 +1,6 @@
 // FontAwesomeTests.swift
 //
-// Copyright (c) 2014-2015 Thi Doan
+// Copyright (c) 2014-present FontAwesome.swift contributors
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,29 +22,54 @@
 
 import UIKit
 import XCTest
+@testable import FontAwesome
 
 class FontAwesomeTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
+    func testIconFontShouldBeRegisted() {
+        let label = UILabel()
+        label.font = UIFont.fontAwesome(ofSize: 200)
+        XCTAssertNotNil(label.font, "Icon font should not be nil.")
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+
+    func testLabelText() {
+        let label = UILabel()
+        label.font = UIFont.fontAwesome(ofSize: 200)
+        label.text = String.fontAwesomeIcon(name: FontAwesome.github)
+        XCTAssertEqual(label.text, "\u{f09b}")
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+
+    func testLabelTextFromCode() {
+        let label = UILabel()
+        label.font = UIFont.fontAwesome(ofSize: 200)
+        label.text = String.fontAwesomeIcon(code: "fa-github")
+        XCTAssertEqual(label.text, "\u{f09b}")
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
+
+    func testButtonTitle() {
+        let button = UIButton()
+        button.titleLabel?.font = UIFont.fontAwesome(ofSize: 30)
+        button.setTitle(String.fontAwesomeIcon(name: .github), for: UIControlState())
+        XCTAssertEqual(button.titleLabel?.text, "\u{f09b}")
     }
-    
+
+    func testBarItemTitle() {
+        let barItem = UIBarButtonItem()
+        let attributes = [NSFontAttributeName: UIFont.fontAwesome(ofSize: 20)] as Dictionary!
+        barItem.setTitleTextAttributes(attributes, for: UIControlState())
+        barItem.title = String.fontAwesomeIcon(name: .github)
+        XCTAssertEqual(barItem.title, "\u{f09b}")
+    }
+
+    func testIconImage() {
+        let barItem = UIBarButtonItem()
+        barItem.image = UIImage.fontAwesomeIcon(name: FontAwesome.github, textColor: UIColor.blue, size: CGSize(width: 4000, height: 4000), backgroundColor: UIColor.red)
+        XCTAssertNotNil(barItem.image)
+    }
+
+    func testIconImageFromCode() {
+        let barItem = UIBarButtonItem()
+        barItem.image = UIImage.fontAwesomeIcon(code: "fa-github", textColor: UIColor.blue, size: CGSize(width: 4000, height: 4000), backgroundColor: UIColor.red)
+        XCTAssertNotNil(barItem.image)
+    }
 }

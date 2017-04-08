@@ -6,7 +6,6 @@
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-import Foundation
 import UIKit
 #if !RX_NO_MODULE
 import RxSwift
@@ -26,7 +25,7 @@ class PartialUpdatesViewController : ViewController {
     @IBOutlet weak var partialUpdatesTableViewOutlet: UITableView!
     @IBOutlet weak var partialUpdatesCollectionViewOutlet: UICollectionView!
 
-    var timer: NSTimer? = nil
+    var timer: Foundation.Timer? = nil
 
     static let initialValue: [AnimatableSectionModel<String, Int>] = [
         NumberSection(model: "section 1", items: [1, 2, 3]),
@@ -54,14 +53,16 @@ class PartialUpdatesViewController : ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.rightBarButtonItem?.accessibilityLabel = "Randomize"
+
         // For UICollectionView, if another animation starts before previous one is finished, it will sometimes crash :(
         // It's not deterministic (because Randomizer generates deterministic updates), and if you click fast
         // It sometimes will and sometimes wont crash, depending on tapping speed.
         // I guess you can maybe try some tricks with timeout, hard to tell :( That's on Apple side.
 
         if generateCustomSize {
-            let nSections = 10
-            let nItems = 100
+            let nSections = UIApplication.isInUITest ? 10 : 10
+            let nItems = UIApplication.isInUITest ? 20 : 100
 
             var sections = [AnimatableSectionModel<String, Int>]()
 
@@ -85,12 +86,12 @@ class PartialUpdatesViewController : ViewController {
         skinTableViewDataSource(reloadDataSource)
 
         self.sections.asObservable()
-            .bindTo(partialUpdatesTableViewOutlet.rx_itemsAnimatedWithDataSource(tvAnimatedDataSource))
-            .addDisposableTo(disposeBag)
+            .bindTo(partialUpdatesTableViewOutlet.rx.items(dataSource: tvAnimatedDataSource))
+            .disposed(by: disposeBag)
 
         self.sections.asObservable()
-            .bindTo(reloadTableViewOutlet.rx_itemsWithDataSource(reloadDataSource))
-            .addDisposableTo(disposeBag)
+            .bindTo(reloadTableViewOutlet.rx.items(dataSource: reloadDataSource))
+            .disposed(by: disposeBag)
 
         // Collection view logic works, but when clicking fast because of internal bugs
         // collection view will sometimes get confused. I know what you are thinking,
@@ -109,36 +110,36 @@ class PartialUpdatesViewController : ViewController {
             skinCollectionViewDataSource(cvAnimatedDataSource)
 
             updates
-                .bindTo(partialUpdatesCollectionViewOutlet.rx_itemsWithDataSource(cvAnimatedDataSource))
-                .addDisposableTo(disposeBag)
+                .bindTo(partialUpdatesCollectionViewOutlet.rx.itemsWithDataSource(cvAnimatedDataSource))
+                .disposed(by: disposeBag)
         #else
             let cvReloadDataSource = RxCollectionViewSectionedReloadDataSource<NumberSection>()
             skinCollectionViewDataSource(cvReloadDataSource)
             self.sections.asObservable()
-                .bindTo(partialUpdatesCollectionViewOutlet.rx_itemsWithDataSource(cvReloadDataSource))
-                .addDisposableTo(disposeBag)
+                .bindTo(partialUpdatesCollectionViewOutlet.rx.items(dataSource: cvReloadDataSource))
+                .disposed(by: disposeBag)
         #endif
 
         // touches
 
-        partialUpdatesCollectionViewOutlet.rx_itemSelected
-            .subscribeNext { [weak self] i in
+        partialUpdatesCollectionViewOutlet.rx.itemSelected
+            .subscribe(onNext: { [weak self] i in
                 print("Let me guess, it's .... It's \(self?.generator.sections[i.section].items[i.item]), isn't it? Yeah, I've got it.")
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
 
-        Observable.of(partialUpdatesTableViewOutlet.rx_itemSelected, reloadTableViewOutlet.rx_itemSelected)
+        Observable.of(partialUpdatesTableViewOutlet.rx.itemSelected, reloadTableViewOutlet.rx.itemSelected)
             .merge()
-            .subscribeNext { [weak self] i in
+            .subscribe(onNext: { [weak self] i in
                 print("I have a feeling it's .... \(self?.generator.sections[i.section].items[i.item])?")
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
     }
 
-    func skinTableViewDataSource(dataSource: RxTableViewSectionedDataSource<NumberSection>) {
+    func skinTableViewDataSource(_ dataSource: TableViewSectionedDataSource<NumberSection>) {
         dataSource.configureCell = { (_, tv, ip, i) in
-            let cell = tv.dequeueReusableCellWithIdentifier("Cell")
-                ?? UITableViewCell(style:.Default, reuseIdentifier: "Cell")
+            let cell = tv.dequeueReusableCell(withIdentifier: "Cell")
+                ?? UITableViewCell(style:.default, reuseIdentifier: "Cell")
 
             cell.textLabel!.text = "\(i)"
 
@@ -146,13 +147,13 @@ class PartialUpdatesViewController : ViewController {
         }
 
         dataSource.titleForHeaderInSection = { (ds, section: Int) -> String in
-            return dataSource.sectionAtIndex(section).model
+            return dataSource[section].model
         }
     }
 
-    func skinCollectionViewDataSource(dataSource: CollectionViewSectionedDataSource<NumberSection>) {
-        dataSource.cellFactory = { (_, cv, ip, i) in
-            let cell = cv.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: ip) as! NumberCell
+    func skinCollectionViewDataSource(_ dataSource: CollectionViewSectionedDataSource<NumberSection>) {
+        dataSource.configureCell = { (_, cv, ip, i) in
+            let cell = cv.dequeueReusableCell(withReuseIdentifier: "Cell", for: ip) as! NumberCell
 
             cell.value!.text = "\(i)"
 
@@ -160,15 +161,15 @@ class PartialUpdatesViewController : ViewController {
         }
 
         dataSource.supplementaryViewFactory = { (dataSource, cv, kind, ip) in
-            let section = cv.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "Section", forIndexPath: ip) as! NumberSectionView
+            let section = cv.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Section", for: ip) as! NumberSectionView
 
-            section.value!.text = "\(dataSource.sectionAtIndex(ip.section).model)"
+            section.value!.text = "\(dataSource[ip.section].model)"
 
             return section
         }
     }
 
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         self.timer?.invalidate()
     }
 

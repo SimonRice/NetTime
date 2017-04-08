@@ -1,12 +1,11 @@
 //
 //  ImageService.swift
-//  Example
+//  RxExample
 //
 //  Created by Krunoslav Zaher on 3/28/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-import Foundation
 #if !RX_NO_MODULE
 import RxSwift
 import RxCocoa
@@ -14,12 +13,12 @@ import RxCocoa
 
 #if os(iOS)
     import UIKit
-#elseif os(OSX)
+#elseif os(macOS)
     import Cocoa
 #endif 
 
 protocol ImageService {
-    func imageFromURL(URL: NSURL) -> Observable<DownloadableImage>
+    func imageFromURL(_ url: URL, reachabilityService: ReachabilityService) -> Observable<DownloadableImage>
 }
 
 class DefaultImageService: ImageService {
@@ -29,10 +28,10 @@ class DefaultImageService: ImageService {
     let $: Dependencies = Dependencies.sharedDependencies
 
     // 1st level cache
-    private let _imageCache = NSCache()
+    private let _imageCache = NSCache<AnyObject, AnyObject>()
 
     // 2nd level cache
-    private let _imageDataCache = NSCache()
+    private let _imageDataCache = NSCache<AnyObject, AnyObject>()
 
     let loadingImage = ActivityIndicator()
     
@@ -43,7 +42,7 @@ class DefaultImageService: ImageService {
         _imageCache.countLimit = 20
     }
     
-    private func decodeImage(imageData: NSData) -> Observable<Image> {
+    private func decodeImage(_ imageData: Data) -> Observable<Image> {
         return Observable.just(imageData)
             .observeOn($.backgroundWorkScheduler)
             .map { data in
@@ -55,9 +54,9 @@ class DefaultImageService: ImageService {
             }
     }
     
-    private func _imageFromURL(URL: NSURL) -> Observable<Image> {
+    private func _imageFromURL(_ url: URL) -> Observable<Image> {
         return Observable.deferred {
-                let maybeImage = self._imageCache.objectForKey(URL) as? Image
+                let maybeImage = self._imageCache.object(forKey: url as AnyObject) as? Image
 
                 let decodedImage: Observable<Image>
                 
@@ -66,7 +65,7 @@ class DefaultImageService: ImageService {
                     decodedImage = Observable.just(image)
                 }
                 else {
-                    let cachedData = self._imageDataCache.objectForKey(URL) as? NSData
+                    let cachedData = self._imageDataCache.object(forKey: url as AnyObject) as? Data
                     
                     // does image data cache contain anything
                     if let cachedData = cachedData {
@@ -74,18 +73,18 @@ class DefaultImageService: ImageService {
                     }
                     else {
                         // fetch from network
-                        decodedImage = self.$.URLSession.rx_data(NSURLRequest(URL: URL))
-                            .doOnNext { data in
-                                self._imageDataCache.setObject(data, forKey: URL)
-                            }
+                        decodedImage = self.$.URLSession.rx.data(request: URLRequest(url: url))
+                            .do(onNext: { data in
+                                self._imageDataCache.setObject(data as AnyObject, forKey: url as AnyObject)
+                            })
                             .flatMap(self.decodeImage)
                             .trackActivity(self.loadingImage)
                     }
                 }
                 
-                return decodedImage.doOnNext { image in
-                    self._imageCache.setObject(image, forKey: URL)
-                }
+                return decodedImage.do(onNext: { image in
+                    self._imageCache.setObject(image, forKey: url as AnyObject)
+                })
             }
     }
 
@@ -97,10 +96,10 @@ class DefaultImageService: ImageService {
      
     After image is sucessfully downloaded, sequence is completed.
     */
-    func imageFromURL(URL: NSURL) -> Observable<DownloadableImage> {
-        return _imageFromURL(URL)
-                .map { DownloadableImage.Content(image: $0) }
-                .retryOnBecomesReachable(DownloadableImage.OfflinePlaceholder, reachabilityService: ReachabilityService.sharedReachabilityService)
-                .startWith(.Content(image: Image()))
+    func imageFromURL(_ url: URL, reachabilityService: ReachabilityService) -> Observable<DownloadableImage> {
+        return _imageFromURL(url)
+                .map { DownloadableImage.content(image: $0) }
+                .retryOnBecomesReachable(DownloadableImage.offlinePlaceholder, reachabilityService: reachabilityService)
+                .startWith(.content(image: Image()))
     }
 }
