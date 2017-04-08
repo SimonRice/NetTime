@@ -1,5 +1,4 @@
 github "DaveWoodCom/XCGLogger" ~> 4.0
-github "malcommac/SwiftDate" ~> 4.1
 github "ReactiveX/RxSwift" ~> 3.3
 github "Quick/Nimble" ~> 6.0
 github "Quick/Quick" ~> 1.1

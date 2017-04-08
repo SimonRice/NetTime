@@ -7,13 +7,19 @@
 //
 
 import Foundation
-import SwiftDate
 
 extension Date {
     var beats: Float {
-        let midnight = self.inGMTRegion().startOf(component: .day) - 60.minutes
+        var components = Calendar.current
+            .dateComponents([.timeZone, .year, .month, .day, .hour, .minute, .second], from: self)
+        components.timeZone = TimeZone(secondsFromGMT: 60 * 60) // BMT == UTC+1
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
 
-        let seconds = self.timeIntervalSince(midnight.absoluteDate)
+        guard let midnight = Calendar.current.date(from: components) else { return 0 }
+
+        let seconds = self.timeIntervalSince(midnight)
         return fmod(Float((seconds / 86400.0) * 1000.0), 1000.0)
     }
 

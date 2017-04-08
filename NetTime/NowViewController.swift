@@ -8,7 +8,6 @@
 
 import RxSwift
 import StoreKit
-import SwiftDate
 import UIKit
 
 class NowViewController: UIViewController {
@@ -18,7 +17,7 @@ class NowViewController: UIViewController {
     fileprivate var date: Date {
         if ProcessInfo.processInfo.arguments.contains("TEST_MODE") {
             var components = DateComponents()
-            components.timeZone = TimeZoneName.europeZurich.timeZone
+            components.timeZone = TimeZone(identifier: "Europe/Zurich")
             components.calendar = .current
             components.year = 2016
             components.month = 1
@@ -26,7 +25,7 @@ class NowViewController: UIViewController {
             components.hour = 9
             components.minute = 41
 
-            guard let date = DateInRegion(components: components)?.absoluteDate else {
+            guard let date = components.date else {
                 fatalError("Unable to create date for testing")
             }
 

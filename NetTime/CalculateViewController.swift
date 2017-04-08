@@ -7,7 +7,6 @@
 //
 
 import Eureka
-import SwiftDate
 
 class CalculateViewController: FormViewController {
     fileprivate var date = Date() {
@@ -16,20 +15,20 @@ class CalculateViewController: FormViewController {
         }
     }
 
-    fileprivate var timezoneName: TimeZoneName = TimeZoneName(
-        rawValue: NSTimeZone.local.identifier)! {
+    fileprivate var timezone: TimeZone = TimeZone.current {
             didSet {
                 self.setBeatsRow()
             }
     }
 
     fileprivate func setBeatsRow() {
-        if let beatsRow = self.form.rowBy(tag: "beats") as? LabelRow {
-            let region = Region(tz: self.timezoneName.timeZone, cal: .current,
-                                loc: .current)
-            let midnight = self.date.inRegion(region: region).startOfDay.absoluteDate
-            let localMidnight = self.date.inRegion().startOfDay.absoluteDate
-            let date = midnight + Int(self.date.timeIntervalSince(localMidnight)).seconds
+        var components = Calendar.current
+            .dateComponents([.timeZone, .year, .month, .day, .hour, .minute, .second], from: self.date)
+        components.timeZone = self.timezone
+
+        if let beatsRow = self.form.rowBy(tag: "beats") as? LabelRow,
+            let date = Calendar.current.date(from: components) {
+
             beatsRow.title = self.formatBeats(date.beats)
             beatsRow.cell.textLabel!.textAlignment = .center
             beatsRow.updateCell()
@@ -43,8 +42,10 @@ class CalculateViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if ProcessInfo.processInfo.arguments.contains("TEST_MODE") {
-            self.timezoneName = .europeZurich
+        if ProcessInfo.processInfo.arguments.contains("TEST_MODE"),
+            let testTimezone = TimeZone(identifier: "Europe/Zurich") {
+
+            self.timezone = testTimezone
             var components = DateComponents()
             components.year = 2016
             components.month = 1
@@ -52,9 +53,8 @@ class CalculateViewController: FormViewController {
             components.hour = 10
             components.minute = 9
 
-            if let date = DateInRegion(components: components)?.absoluteDate {
-                self.date = date
-            }
+            let testDate = Calendar.current.date(from: components)
+            self.date = testDate ?? self.date
         }
 
         if let tableView = self.tableView {
@@ -73,15 +73,15 @@ class CalculateViewController: FormViewController {
             <<< PickerInlineRow<String>() {
                 $0.title = "Time Zone"
                 $0.options = NSTimeZone.knownTimeZoneNames
-                $0.value = self.timezoneName.rawValue
+                $0.value = self.timezone.identifier
                 }.onChange { [weak self] row in
                     guard let timezoneValue = row.value,
-                        let timezoneName = TimeZoneName(rawValue: timezoneValue),
+                        let timezone = TimeZone(identifier: timezoneValue),
                         let strongSelf = self else {
                             return
                     }
 
-                    strongSelf.timezoneName = timezoneName
+                    strongSelf.timezone = timezone
         }
 
         self.form +++ LabelRow("beats") {
