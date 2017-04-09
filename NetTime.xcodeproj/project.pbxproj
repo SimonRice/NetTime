@@ -18,17 +18,12 @@
 		F4C606051CA5BE01004B4C09 /* FontAwesome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C605FE1CA5BDFB004B4C09 /* FontAwesome.framework */; };
 		F4C606061CA5BE07004B4C09 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C605FF1CA5BDFB004B4C09 /* Nimble.framework */; };
 		F4C606071CA5BE09004B4C09 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C605FF1CA5BDFB004B4C09 /* Nimble.framework */; };
-		F4C606081CA5BE0B004B4C09 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606001CA5BDFB004B4C09 /* Quick.framework */; };
 		F4C606091CA5BE0E004B4C09 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606011CA5BDFB004B4C09 /* RxSwift.framework */; };
-		F4C6060A1CA5BE11004B4C09 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606021CA5BDFB004B4C09 /* SwiftDate.framework */; };
-		F4C6060B1CA5BE12004B4C09 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606021CA5BDFB004B4C09 /* SwiftDate.framework */; };
-		F4C6060C1CA5BE14004B4C09 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606021CA5BDFB004B4C09 /* SwiftDate.framework */; };
 		F4C6060E1CA5BE18004B4C09 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606011CA5BDFB004B4C09 /* RxSwift.framework */; };
 		F4C606151CA5BF54004B4C09 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606141CA5BF54004B4C09 /* Fabric.framework */; };
 		F4C606171CA5BFEF004B4C09 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606161CA5BFEF004B4C09 /* Crashlytics.framework */; };
 		F4C6061A1CA5C555004B4C09 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4C606191CA5C555004B4C09 /* Acknowledgements.plist */; };
 		F4C606231CA5CF85004B4C09 /* Nimble.framework in Carthage */ = {isa = PBXBuildFile; fileRef = F4C605FF1CA5BDFB004B4C09 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F4C606241CA5CF85004B4C09 /* Quick.framework in Carthage */ = {isa = PBXBuildFile; fileRef = F4C606001CA5BDFB004B4C09 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F4C606261CA5CFAD004B4C09 /* Nimble.framework in Carthage */ = {isa = PBXBuildFile; fileRef = F4C605FF1CA5BDFB004B4C09 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F4D611861CA4195700C6C955 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D611851CA4195700C6C955 /* AboutViewController.swift */; };
 		F4D6118C1CA42D8400C6C955 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D6118B1CA42D8400C6C955 /* CreditsViewController.swift */; };
@@ -81,7 +76,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				F4C606231CA5CF85004B4C09 /* Nimble.framework in Carthage */,
-				F4C606241CA5CF85004B4C09 /* Quick.framework in Carthage */,
 			);
 			name = Carthage;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,11 +126,8 @@
 		F4C605FD1CA5BDFB004B4C09 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 		F4C605FE1CA5BDFB004B4C09 /* FontAwesome.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FontAwesome.framework; path = Carthage/Build/iOS/FontAwesome.framework; sourceTree = "<group>"; };
 		F4C605FF1CA5BDFB004B4C09 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
-		F4C606001CA5BDFB004B4C09 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		F4C606011CA5BDFB004B4C09 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		F4C606021CA5BDFB004B4C09 /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
 		F4C606101CA5BE62004B4C09 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/watchOS/RxSwift.framework; sourceTree = "<group>"; };
-		F4C606111CA5BE62004B4C09 /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/watchOS/SwiftDate.framework; sourceTree = "<group>"; };
 		F4C606141CA5BF54004B4C09 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		F4C606161CA5BFEF004B4C09 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		F4C606191CA5C555004B4C09 /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = "<group>"; };
@@ -180,7 +171,6 @@
 			files = (
 				F4C606041CA5BDFF004B4C09 /* Eureka.framework in Frameworks */,
 				F4C606051CA5BE01004B4C09 /* FontAwesome.framework in Frameworks */,
-				F4C6060A1CA5BE11004B4C09 /* SwiftDate.framework in Frameworks */,
 				F44F816D1E98458900D4BC0D /* XCGLogger.framework in Frameworks */,
 				F4C606091CA5BE0E004B4C09 /* RxSwift.framework in Frameworks */,
 				F4C606151CA5BF54004B4C09 /* Fabric.framework in Frameworks */,
@@ -192,8 +182,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4C606081CA5BE0B004B4C09 /* Quick.framework in Frameworks */,
-				F4C6060B1CA5BE12004B4C09 /* SwiftDate.framework in Frameworks */,
 				F4C606061CA5BE07004B4C09 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,7 +190,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4C6060C1CA5BE14004B4C09 /* SwiftDate.framework in Frameworks */,
 				F4DBE8EC1C95BC58009B8FBC /* NotificationCenter.framework in Frameworks */,
 				F4C6060E1CA5BE18004B4C09 /* RxSwift.framework in Frameworks */,
 			);
@@ -239,10 +226,8 @@
 				F4C606141CA5BF54004B4C09 /* Fabric.framework */,
 				F4C605FE1CA5BDFB004B4C09 /* FontAwesome.framework */,
 				F4C605FF1CA5BDFB004B4C09 /* Nimble.framework */,
-				F4C606001CA5BDFB004B4C09 /* Quick.framework */,
 				F4C606011CA5BDFB004B4C09 /* RxSwift.framework */,
 				F4C6061D1CA5CCFE004B4C09 /* SimulatorStatusMagiciOS.framework */,
-				F4C606021CA5BDFB004B4C09 /* SwiftDate.framework */,
 				F44F816C1E98458900D4BC0D /* XCGLogger.framework */,
 			);
 			name = iOS;
@@ -252,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				F4C606101CA5BE62004B4C09 /* RxSwift.framework */,
-				F4C606111CA5BE62004B4C09 /* SwiftDate.framework */,
 			);
 			name = watchOS;
 			sourceTree = "<group>";
@@ -510,7 +494,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Eureka.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/FontAwesome.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftDate.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/XCGLogger.framework",
 			);
 			name = Carthage;

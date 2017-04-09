@@ -6,145 +6,128 @@
 //  Copyright © 2016 Simon Rice. All rights reserved.
 //
 
-import Quick
 import Nimble
+import XCTest
 
 @testable import NetTime
 
-class BeatsSpec: QuickSpec {
-    // swiftlint:disable:next function_body_length
-    override func spec() {
-        describe("11AM in London on January 1st 2015") {
-            it("should be @500 .beats") {
-                var components = DateComponents()
-                components.timeZone = TimeZone(identifier: "Europe/London")
-                components.year = 2015
-                components.month = 1
-                components.day = 1
-                components.hour = 11
-                components.minute = 0
+class BeatsSpec: XCTestCase {
+    func testGMT() {
+        var components = DateComponents()
+        components.timeZone = TimeZone(identifier: "Europe/London")
+        components.year = 2015
+        components.month = 1
+        components.day = 1
+        components.hour = 11
+        components.minute = 0
 
-                guard let currentDate = Calendar.current.date(from: components) else {
-                    fail("Unable to create date")
-                    return
-                }
-
-                expect(Int(currentDate.beats)).to(equal(500))
-            }
+        guard let currentDate = Calendar.current.date(from: components) else {
+            fail("Unable to create date")
+            return
         }
 
-        describe("11AM in London on June 1st 2015") {
-            it("should be @458 .beats") {
-                var components = DateComponents()
-                components.timeZone = TimeZone(identifier: "Europe/London")
-                components.year = 2015
-                components.month = 6
-                components.day = 1
-                components.hour = 11
-                components.minute = 0
+        expect(Int(currentDate.beats)).to(equal(500))
+    }
 
-                guard let currentDate = Calendar.current.date(from: components) else {
-                    fail("Unable to create date")
-                    return
-                }
+    func testBST() {
+        var components = DateComponents()
+        components.timeZone = TimeZone(identifier: "Europe/London")
+        components.year = 2015
+        components.month = 6
+        components.day = 1
+        components.hour = 11
+        components.minute = 0
 
-                expect(Int(currentDate.beats)).to(equal(458))
-            }
+        guard let currentDate = Calendar.current.date(from: components) else {
+            fail("Unable to create date")
+            return
         }
 
-        describe("10:09AM in New York on January 1st 2015") {
-            it("should be @672 .beats") {
-                var components = DateComponents()
-                components.timeZone = TimeZone(identifier: "America/New_York")
-                components.year = 2015
-                components.month = 1
-                components.day = 1
-                components.hour = 10
-                components.minute = 9
+        expect(Int(currentDate.beats)).to(equal(458))
+    }
 
-                guard let currentDate = Calendar.current.date(from: components) else {
-                    fail("Unable to create date")
-                    return
-                }
+    func testNewYork() {
+        var components = DateComponents()
+        components.timeZone = TimeZone(identifier: "America/New_York")
+        components.year = 2015
+        components.month = 1
+        components.day = 1
+        components.hour = 10
+        components.minute = 9
 
-                expect(Int(currentDate.beats)).to(equal(672))
-            }
+        guard let currentDate = Calendar.current.date(from: components) else {
+            fail("Unable to create date")
+            return
         }
 
-        describe("9:41AM in California on June 13th 2016") {
-            it("should be @736 .beats") {
-                var components = DateComponents()
-                components.timeZone = TimeZone(identifier: "America/Los_Angeles")
-                components.year = 2016
-                components.month = 6
-                components.day = 13
-                components.hour = 9
-                components.minute = 41
+        expect(Int(currentDate.beats)).to(equal(672))
+    }
 
-                guard let currentDate = Calendar.current.date(from: components) else {
-                    fail("Unable to create date")
-                    return
-                }
+    func testBigUnveil() {
+        var components = DateComponents()
+        components.timeZone = TimeZone(identifier: "America/Los_Angeles")
+        components.year = 2016
+        components.month = 6
+        components.day = 13
+        components.hour = 9
+        components.minute = 41
 
-                expect(Int(currentDate.beats)).to(equal(736))
-            }
+        guard let currentDate = Calendar.current.date(from: components) else {
+            fail("Unable to create date")
+            return
         }
 
-        describe("4:01PM in California on June 13th 2016") {
-            it("should be @000 .beats") {
-                var components = DateComponents()
-                components.timeZone = TimeZone(identifier: "America/Los_Angeles")
-                components.year = 2016
-                components.month = 6
-                components.day = 13
-                components.hour = 16
-                components.minute = 1
+        expect(Int(currentDate.beats)).to(equal(736))
+    }
 
-                guard let currentDate = Calendar.current.date(from: components) else {
-                    fail("Unable to create date")
-                    return
-                }
+    func testNoBeatsInLA() {
+        var components = DateComponents()
+        components.timeZone = TimeZone(identifier: "America/Los_Angeles")
+        components.year = 2016
+        components.month = 6
+        components.day = 13
+        components.hour = 16
+        components.minute = 1
 
-                expect(Int(currentDate.beats)).to(equal(0))
-            }
+        guard let currentDate = Calendar.current.date(from: components) else {
+            fail("Unable to create date")
+            return
         }
 
-        describe("4:02PM in California on June 13th 2016") {
-            it("should be @001 .beats") {
-                var components = DateComponents()
-                components.timeZone = TimeZone(identifier: "America/Los_Angeles")
-                components.year = 2016
-                components.month = 6
-                components.day = 13
-                components.hour = 16
-                components.minute = 2
+        expect(Int(currentDate.beats)).to(equal(0))
+    }
 
-                guard let currentDate = Calendar.current.date(from: components) else {
-                    fail("Unable to create date")
-                    return
-                }
+    func testOneBeatInLA() {
+        var components = DateComponents()
+        components.timeZone = TimeZone(identifier: "America/Los_Angeles")
+        components.year = 2016
+        components.month = 6
+        components.day = 13
+        components.hour = 16
+        components.minute = 2
 
-                expect(Int(currentDate.beats)).to(equal(1))
-            }
+        guard let currentDate = Calendar.current.date(from: components) else {
+            fail("Unable to create date")
+            return
         }
 
-        describe("3:59PM in California on June 13th 2016") {
-            it("should be @999 .beats") {
-                var components = DateComponents()
-                components.timeZone = TimeZone(identifier: "America/Los_Angeles")
-                components.year = 2016
-                components.month = 6
-                components.day = 13
-                components.hour = 15
-                components.minute = 59
+        expect(Int(currentDate.beats)).to(equal(1))
+    }
 
-                guard let currentDate = Calendar.current.date(from: components) else {
-                    fail("Unable to create date")
-                    return
-                }
+    func testLastBeatInLA() {
+        var components = DateComponents()
+        components.timeZone = TimeZone(identifier: "America/Los_Angeles")
+        components.year = 2016
+        components.month = 6
+        components.day = 13
+        components.hour = 15
+        components.minute = 59
 
-                expect(Int(currentDate.beats)).to(equal(999))
-            }
+        guard let currentDate = Calendar.current.date(from: components) else {
+            fail("Unable to create date")
+            return
         }
+
+        expect(Int(currentDate.beats)).to(equal(999))
     }
 }

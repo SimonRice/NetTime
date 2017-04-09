@@ -1,7 +1,6 @@
 github "DaveWoodCom/XCGLogger" ~> 4.0
 github "ReactiveX/RxSwift" ~> 3.3
 github "Quick/Nimble" ~> 6.0
-github "Quick/Quick" ~> 1.1
 github "radex/SwiftyUserDefaults" ~> 3.0
 github "shinydevelopment/SimulatorStatusMagic" ~> 1.9
 github "thii/FontAwesome.swift" ~> 1.0
