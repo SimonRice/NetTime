@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F423675D1E9A70E30020D673 /* NetTimeWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F423675C1E9A70E30020D673 /* NetTimeWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F423676C1E9A70E30020D673 /* NetTimeWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F42367501E9A70E30020D673 /* NetTimeWatch.app */; };
+		F423677C1E9A71370020D673 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F42367751E9A71370020D673 /* Assets.xcassets */; };
+		F423677E1E9A71370020D673 /* CLKComplicationServer+Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42367771E9A71370020D673 /* CLKComplicationServer+Reload.swift */; };
+		F423677F1E9A71370020D673 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42367781E9A71370020D673 /* ComplicationController.swift */; };
+		F42367801E9A71370020D673 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42367791E9A71370020D673 /* ExtensionDelegate.swift */; };
+		F42367821E9A71370020D673 /* NowInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F423677B1E9A71370020D673 /* NowInterfaceController.swift */; };
+		F42367881E9A71420020D673 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F42367841E9A71420020D673 /* Assets.xcassets */; };
+		F423678C1E9A71890020D673 /* CalculateInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F423678B1E9A71890020D673 /* CalculateInterfaceController.swift */; };
+		F423678D1E9A71F30020D673 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606101CA5BE62004B4C09 /* RxSwift.framework */; };
+		F423678E1E9A720D0020D673 /* Date+Beats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8B21C9549C9009B8FBC /* Date+Beats.swift */; };
+		F423678F1E9A73550020D673 /* Int+Beats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8E31C958613009B8FBC /* Int+Beats.swift */; };
+		F42367901E9A73560020D673 /* Int+Beats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8E31C958613009B8FBC /* Int+Beats.swift */; };
+		F42367931E9A762B0020D673 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F42367851E9A71420020D673 /* Interface.storyboard */; };
+		F42367941E9A770D0020D673 /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4F51C021C97508F003B2853 /* digital-7 (mono).ttf */; };
+		F42367951E9A770E0020D673 /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4F51C021C97508F003B2853 /* digital-7 (mono).ttf */; };
 		F425CAE31C95FE9A000430F8 /* FontAwesomeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */; };
 		F42979021CA6A3E1000A9470 /* SimulatorStatusMagiciOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C6061D1CA5CCFE004B4C09 /* SimulatorStatusMagiciOS.framework */; };
 		F42979031CA6A3EB000A9470 /* SimulatorStatusMagiciOS.framework in Carthage */ = {isa = PBXBuildFile; fileRef = F4C6061D1CA5CCFE004B4C09 /* SimulatorStatusMagiciOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -45,6 +61,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F423675E1E9A70E30020D673 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4DBE8861C9547EA009B8FBC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F423675B1E9A70E30020D673;
+			remoteInfo = "NetTimeWatch Extension";
+		};
+		F423676A1E9A70E30020D673 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4DBE8861C9547EA009B8FBC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F423674F1E9A70E30020D673;
+			remoteInfo = NetTimeWatch;
+		};
 		F46AEE5F1CA174F9005E6728 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F4DBE8861C9547EA009B8FBC /* Project object */;
@@ -69,6 +99,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		F42367721E9A70E30020D673 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F423675D1E9A70E30020D673 /* NetTimeWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4C606221CA5CF72004B4C09 /* Carthage */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -98,6 +139,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
+				F423676C1E9A70E30020D673 /* NetTimeWatch.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,6 +158,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F42367501E9A70E30020D673 /* NetTimeWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetTimeWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F423675C1E9A70E30020D673 /* NetTimeWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "NetTimeWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F42367751E9A71370020D673 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F42367771E9A71370020D673 /* CLKComplicationServer+Reload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLKComplicationServer+Reload.swift"; sourceTree = "<group>"; };
+		F42367781E9A71370020D673 /* ComplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		F42367791E9A71370020D673 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		F423677A1E9A71370020D673 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F423677B1E9A71370020D673 /* NowInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowInterfaceController.swift; sourceTree = "<group>"; };
+		F42367841E9A71420020D673 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F42367861E9A71420020D673 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		F42367871E9A71420020D673 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F423678B1E9A71890020D673 /* CalculateInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculateInterfaceController.swift; sourceTree = "<group>"; };
 		F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeTabBarItem.swift; sourceTree = "<group>"; };
 		F44F816C1E98458900D4BC0D /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
 		F46AEE5A1CA174F9005E6728 /* NetTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +210,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F42367591E9A70E30020D673 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F423678D1E9A71F30020D673 /* RxSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F46AEE571CA174F9005E6728 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -208,6 +270,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F42367741E9A71370020D673 /* NetTimeWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F42367751E9A71370020D673 /* Assets.xcassets */,
+				F423678B1E9A71890020D673 /* CalculateInterfaceController.swift */,
+				F42367771E9A71370020D673 /* CLKComplicationServer+Reload.swift */,
+				F42367781E9A71370020D673 /* ComplicationController.swift */,
+				F42367791E9A71370020D673 /* ExtensionDelegate.swift */,
+				F423677A1E9A71370020D673 /* Info.plist */,
+				F423677B1E9A71370020D673 /* NowInterfaceController.swift */,
+			);
+			path = "NetTimeWatch Extension";
+			sourceTree = "<group>";
+		};
+		F42367831E9A71420020D673 /* NetTimeWatch */ = {
+			isa = PBXGroup;
+			children = (
+				F42367841E9A71420020D673 /* Assets.xcassets */,
+				F42367851E9A71420020D673 /* Interface.storyboard */,
+				F42367871E9A71420020D673 /* Info.plist */,
+			);
+			path = NetTimeWatch;
+			sourceTree = "<group>";
+		};
 		F46AEE5B1CA174F9005E6728 /* NetTimeUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +335,8 @@
 				F4DBE8A51C9547EA009B8FBC /* NetTimeTests */,
 				F46AEE5B1CA174F9005E6728 /* NetTimeUITests */,
 				F4DBE8ED1C95BC58009B8FBC /* TodayExtension */,
+				F42367831E9A71420020D673 /* NetTimeWatch */,
+				F42367741E9A71370020D673 /* NetTimeWatch Extension */,
 				F4DBE88F1C9547EA009B8FBC /* Products */,
 				E6C04CBD0CC4D170AD23B759 /* Frameworks */,
 			);
@@ -261,6 +349,8 @@
 				F4DBE8A21C9547EA009B8FBC /* NetTimeTests.xctest */,
 				F4DBE8EA1C95BC58009B8FBC /* TodayExtension.appex */,
 				F46AEE5A1CA174F9005E6728 /* NetTimeUITests.xctest */,
+				F42367501E9A70E30020D673 /* NetTimeWatch.app */,
+				F423675C1E9A70E30020D673 /* NetTimeWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -316,6 +406,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F423674F1E9A70E30020D673 /* NetTimeWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F42367731E9A70E30020D673 /* Build configuration list for PBXNativeTarget "NetTimeWatch" */;
+			buildPhases = (
+				F423674E1E9A70E30020D673 /* Resources */,
+				F42367721E9A70E30020D673 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F423675F1E9A70E30020D673 /* PBXTargetDependency */,
+			);
+			name = NetTimeWatch;
+			productName = NetTimeWatch;
+			productReference = F42367501E9A70E30020D673 /* NetTimeWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		F423675B1E9A70E30020D673 /* NetTimeWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F42367711E9A70E30020D673 /* Build configuration list for PBXNativeTarget "NetTimeWatch Extension" */;
+			buildPhases = (
+				F42367581E9A70E30020D673 /* Sources */,
+				F42367591E9A70E30020D673 /* Frameworks */,
+				F423675A1E9A70E30020D673 /* Resources */,
+				F42367921E9A75B30020D673 /* Carthage */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NetTimeWatch Extension";
+			productName = "NetTimeWatch Extension";
+			productReference = F423675C1E9A70E30020D673 /* NetTimeWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		F46AEE591CA174F9005E6728 /* NetTimeUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F46AEE631CA174F9005E6728 /* Build configuration list for PBXNativeTarget "NetTimeUITests" */;
@@ -352,6 +477,7 @@
 			);
 			dependencies = (
 				F4DBE8F51C95BC58009B8FBC /* PBXTargetDependency */,
+				F423676B1E9A70E30020D673 /* PBXTargetDependency */,
 			);
 			name = NetTime;
 			productName = NetTime;
@@ -400,10 +526,20 @@
 		F4DBE8861C9547EA009B8FBC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Simon Rice";
 				TargetAttributes = {
+					F423674F1E9A70E30020D673 = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = DDY5VAFADG;
+						ProvisioningStyle = Automatic;
+					};
+					F423675B1E9A70E30020D673 = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = DDY5VAFADG;
+						ProvisioningStyle = Automatic;
+					};
 					F46AEE591CA174F9005E6728 = {
 						CreatedOnToolsVersion = 7.3;
 						LastSwiftMigration = 0820;
@@ -443,11 +579,32 @@
 				F4DBE8A11C9547EA009B8FBC /* NetTimeTests */,
 				F4DBE8E91C95BC58009B8FBC /* TodayExtension */,
 				F46AEE591CA174F9005E6728 /* NetTimeUITests */,
+				F423674F1E9A70E30020D673 /* NetTimeWatch */,
+				F423675B1E9A70E30020D673 /* NetTimeWatch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F423674E1E9A70E30020D673 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F42367941E9A770D0020D673 /* digital-7 (mono).ttf in Resources */,
+				F42367931E9A762B0020D673 /* Interface.storyboard in Resources */,
+				F42367881E9A71420020D673 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F423675A1E9A70E30020D673 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F42367951E9A770E0020D673 /* digital-7 (mono).ttf in Resources */,
+				F423677C1E9A71370020D673 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F46AEE581CA174F9005E6728 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -485,6 +642,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		F42367921E9A75B30020D673 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/watchOS/RxSwift.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
 		F4C6061C1CA5C64D004B4C09 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -534,6 +706,20 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F42367581E9A70E30020D673 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F423677E1E9A71370020D673 /* CLKComplicationServer+Reload.swift in Sources */,
+				F423678E1E9A720D0020D673 /* Date+Beats.swift in Sources */,
+				F42367821E9A71370020D673 /* NowInterfaceController.swift in Sources */,
+				F423678C1E9A71890020D673 /* CalculateInterfaceController.swift in Sources */,
+				F42367801E9A71370020D673 /* ExtensionDelegate.swift in Sources */,
+				F423678F1E9A73550020D673 /* Int+Beats.swift in Sources */,
+				F423677F1E9A71370020D673 /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F46AEE561CA174F9005E6728 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -564,6 +750,7 @@
 			files = (
 				F4DBE8E21C955641009B8FBC /* Date+Beats.swift in Sources */,
 				F4DBE8A71C9547EA009B8FBC /* NetTimeTests.swift in Sources */,
+				F42367901E9A73560020D673 /* Int+Beats.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +766,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F423675F1E9A70E30020D673 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F423675B1E9A70E30020D673 /* NetTimeWatch Extension */;
+			targetProxy = F423675E1E9A70E30020D673 /* PBXContainerItemProxy */;
+		};
+		F423676B1E9A70E30020D673 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F423674F1E9A70E30020D673 /* NetTimeWatch */;
+			targetProxy = F423676A1E9A70E30020D673 /* PBXContainerItemProxy */;
+		};
 		F46AEE601CA174F9005E6728 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F4DBE88D1C9547EA009B8FBC /* NetTime */;
@@ -597,6 +794,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		F42367851E9A71420020D673 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F42367861E9A71420020D673 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		F4DBE8951C9547EA009B8FBC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -624,6 +829,100 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F423676D1E9A70E30020D673 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = DDY5VAFADG;
+				IBSC_MODULE = NetTimeWatch_Extension;
+				INFOPLIST_FILE = NetTimeWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		F423676E1E9A70E30020D673 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				DEVELOPMENT_TEAM = DDY5VAFADG;
+				IBSC_MODULE = NetTimeWatch_Extension;
+				INFOPLIST_FILE = NetTimeWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
+		F423676F1E9A70E30020D673 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = DDY5VAFADG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
+				INFOPLIST_FILE = "NetTimeWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		F42367701E9A70E30020D673 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = DDY5VAFADG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
+				INFOPLIST_FILE = "NetTimeWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
 		F46AEE611CA174F9005E6728 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -873,6 +1172,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F42367711E9A70E30020D673 /* Build configuration list for PBXNativeTarget "NetTimeWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F423676F1E9A70E30020D673 /* Debug */,
+				F42367701E9A70E30020D673 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F42367731E9A70E30020D673 /* Build configuration list for PBXNativeTarget "NetTimeWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F423676D1E9A70E30020D673 /* Debug */,
+				F423676E1E9A70E30020D673 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		F46AEE631CA174F9005E6728 /* Build configuration list for PBXNativeTarget "NetTimeUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

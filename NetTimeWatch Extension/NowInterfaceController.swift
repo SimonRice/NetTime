@@ -26,7 +26,7 @@ class NowInterfaceController: WKInterfaceController {
             .subscribe { _ in
                 if let label = self.beatsLabel {
                     label.setText(String(format: "@%05.1f \n .beats",
-                        floor(NSDate().beats * 10) / 10.0))
+                        floor(Date().beats * 10) / 10.0))
                 }
         }
     }

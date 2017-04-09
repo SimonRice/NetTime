@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftDate
 import WatchKit
 
 class CalculateInterfaceController: WKInterfaceController {
@@ -48,9 +47,9 @@ class CalculateInterfaceController: WKInterfaceController {
     fileprivate var currentAfternoon: Bool = false
 
     fileprivate var currentDate: Date {
-        return (Date().inRegion()
-            .startOf(component: .day) + self.currentHour.hours + self.currentMinue.minutes)
-            .absoluteTime
+        let midnight = Calendar.current.startOfDay(for: Date())
+        return midnight.addingTimeInterval(Double(self.currentHour) * 60 * 60)
+            .addingTimeInterval(Double(self.currentMinue) * 60)
     }
 
     fileprivate lazy var is12h: Bool = {
@@ -61,13 +60,13 @@ class CalculateInterfaceController: WKInterfaceController {
     }()
 
     fileprivate func setupFor24h() {
-        let hourItems: [WKPickerItem] = (0..<24).map({
+        let hourItems: [WKPickerItem] = (0 ..< 24).map({
             let item = WKPickerItem()
             item.title = String(format: "%02d", $0)
             return item
         })
 
-        let minuteItems: [WKPickerItem] = (0..<60).map({
+        let minuteItems: [WKPickerItem] = (0 ..< 60).map({
             let item = WKPickerItem()
             item.title = String(format: "%02d", $0)
             return item
@@ -125,8 +124,11 @@ class CalculateInterfaceController: WKInterfaceController {
     override func willActivate() {
         super.willActivate()
 
-        self.currentHour = Date().inRegion().hour
-        self.currentMinue = Date().inRegion().minute
+        let components = Calendar.current.dateComponents([.hour, .minute, .second],
+                                                         from: Date())
+
+        self.currentHour = components.hour ?? 0
+        self.currentMinue = components.minute ?? 0
 
         self.afternoonPicker.setHidden(!self.is12h)
         if self.is12h {
