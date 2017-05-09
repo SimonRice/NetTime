@@ -49,7 +49,6 @@ class NetTimeUITests: XCTestCase {
         expect(app.staticTexts["@403 .beats"].exists).to(beTrue())
     }
 
-
     func testTakeSnapshots() {
         let app = XCUIApplication()
         let tabBarsQuery = app.tabBars

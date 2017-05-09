@@ -1,13 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oZ8-gE-Efv">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="digital-7 (mono).ttf">
+        <array key="digital-7 (mono).ttf">
             <string>Digital-7Mono</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <scenes>
         <!--Now Interface Controller-->
@@ -18,11 +22,11 @@
                         <group width="1" height="1" alignment="center" verticalAlignment="center" layout="vertical" id="XGF-we-jbE">
                             <items>
                                 <label width="1" alignment="center" verticalAlignment="center" text="@---.-" textAlignment="center" minimumScaleFactor="0.5" id="2jY-nh-FQH">
-                                    <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="font" name="Digital-7Mono" family="Digital-7" pointSize="70"/>
                                 </label>
                                 <label width="1" alignment="center" verticalAlignment="center" text=".beats" textAlignment="center" id="IRB-bi-c3p">
-                                    <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </label>
                             </items>
                         </group>
@@ -33,64 +37,6 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="438" y="1139"/>
-        </scene>
-        <!--Interface Controller-->
-        <scene sceneID="oCP-l6-6FM">
-            <objects>
-                <controller id="oZ8-gE-Efv">
-                    <items>
-                        <button width="1" height="0.5" alignment="left" title="Calculate" id="gwU-yu-JcF">
-                            <connections>
-                                <segue destination="Sti-4I-YB5" kind="push" id="s4J-Ks-flP"/>
-                            </connections>
-                        </button>
-                        <button width="1" height="0.5" alignment="left" title="Now" id="Dz3-df-mJU">
-                            <connections>
-                                <segue destination="AgC-eL-Hgc" kind="push" id="qGV-bK-BAD"/>
-                            </connections>
-                        </button>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="87" y="970"/>
-        </scene>
-        <!--Calculate Interface Controller-->
-        <scene sceneID="mfY-Gd-tzf">
-            <objects>
-                <controller id="Sti-4I-YB5" customClass="CalculateInterfaceController" customModule="NetTimeWatch_Extension">
-                    <items>
-                        <group width="1" height="0.80000000000000004" alignment="left" id="kSk-yG-3ld">
-                            <items>
-                                <picker width="0.33000000000000002" height="1" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="swa-pT-0oq">
-                                    <connections>
-                                        <action selector="hourPickerDidChange:" destination="Sti-4I-YB5" id="hXa-By-Jfu"/>
-                                    </connections>
-                                </picker>
-                                <picker width="0.34000000000000002" height="1" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="Wz3-4V-59p">
-                                    <connections>
-                                        <action selector="minutePickerDidChange:" destination="Sti-4I-YB5" id="wSk-6A-J6V"/>
-                                    </connections>
-                                </picker>
-                                <picker width="0.33000000000000002" height="1" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="WaK-Wp-sGQ">
-                                    <connections>
-                                        <action selector="afternoonPickerDidChange:" destination="Sti-4I-YB5" id="QQg-F1-Q4Y"/>
-                                    </connections>
-                                </picker>
-                            </items>
-                        </group>
-                        <label height="0.20000000000000001" alignment="center" verticalAlignment="center" hidden="YES" text="@--- .beats" textAlignment="left" id="4io-9p-nJM">
-                            <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                        </label>
-                    </items>
-                    <connections>
-                        <outlet property="afternoonPicker" destination="WaK-Wp-sGQ" id="N3G-9s-Bq4"/>
-                        <outlet property="beatsLabel" destination="4io-9p-nJM" id="I0l-4M-tsZ"/>
-                        <outlet property="hourPicker" destination="swa-pT-0oq" id="RnQ-FZ-dGn"/>
-                        <outlet property="minutePicker" destination="Wz3-4V-59p" id="DG1-Yk-X9I"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="438" y="688"/>
         </scene>
     </scenes>
 </document>

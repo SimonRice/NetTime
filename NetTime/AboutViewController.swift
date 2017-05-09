@@ -14,7 +14,7 @@ class AboutViewController: FormViewController {
     // swiftlint:disable:next function_body_length
     fileprivate func addAuthorSection() {
         self.form +++ Section()
-            <<< LabelRow() {
+            <<< LabelRow {
                 let versionString: String
                 if let infoDictionary = Bundle.main.infoDictionary,
                     let bundleVersionString = infoDictionary["CFBundleShortVersionString"] as? String,
@@ -32,7 +32,7 @@ class AboutViewController: FormViewController {
                 $0.cell.accessoryView = UIImageView(image: UIImage(named: "SettingsAppIcon"))
                 $0.cell.height = { return 60.0 }
             }
-            <<< LabelRow() {
+            <<< LabelRow {
                 $0.title = "https://www.simonrice.com/"
                 $0.cell.accessoryView = UIImageView(
                     image: UIImage.fontAwesomeIcon(name: .globe,
@@ -45,7 +45,7 @@ class AboutViewController: FormViewController {
                     )
                 })
             }
-            <<< LabelRow() {
+            <<< LabelRow {
                 $0.title = "@_SimonRice"
                 $0.cell.accessoryView = UIImageView(
                     image: UIImage.fontAwesomeIcon(name: .twitter,
@@ -63,7 +63,7 @@ class AboutViewController: FormViewController {
                     }
                 })
             }
-            <<< LabelRow() {
+            <<< LabelRow {
                 $0.title = "Rate NetTime"
                 $0.cell.accessoryView = UIImageView(
                     image: UIImage.fontAwesomeIcon(name: .star,
@@ -78,7 +78,7 @@ class AboutViewController: FormViewController {
 
     fileprivate func addCreditSection() {
         self.form +++ Section()
-            <<< LabelRow() {
+            <<< LabelRow {
                 $0.cellStyle = .subtitle
                 $0.cell.detailTextLabel!.numberOfLines = 0
                 $0.title = "Disclaimer"
@@ -88,7 +88,7 @@ class AboutViewController: FormViewController {
 
                 $0.cell.height = { return 100.0 }
             }
-            <<< ButtonRow() {
+            <<< ButtonRow {
                 $0.title = "Credits"
                 $0.onCellSelection({ (cell, _) in
                     self.performSegue(withIdentifier: "showCredits", sender: cell)

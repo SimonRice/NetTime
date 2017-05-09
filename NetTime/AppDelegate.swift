@@ -11,6 +11,7 @@ import Crashlytics
 import UIKit
 import XCGLogger
 
+// swiftlint:disable:next identifier_name
 let Log = XCGLogger.default
 
 @UIApplicationMain
@@ -20,12 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return TARGET_OS_SIMULATOR != 0
     }
 
-    func application(_ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    // swiftlint:disable:next line_length
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        guard !self.isSimulator else { return true }
-
-        Fabric.with([Crashlytics.self])
+        if !self.isSimulator {
+            Fabric.with([Crashlytics.self])
+        }
 
         return true
     }

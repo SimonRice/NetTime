@@ -65,9 +65,7 @@ extension CLKComplication {
     }
 }
 
-
 class ComplicationController: NSObject, CLKComplicationDataSource {
-
     fileprivate var earliestDate: Date {
         return Calendar.current.date(byAdding: (-100).beats, to: Date()) ?? Date()
     }

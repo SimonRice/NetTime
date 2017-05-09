@@ -42,8 +42,7 @@ class CalculateViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if ProcessInfo.processInfo.arguments.contains("TEST_MODE"),
-            let testTimezone = TimeZone(identifier: "Europe/Zurich") {
+        if ProcessInfo.isTestMode, let testTimezone = TimeZone(identifier: "Europe/Zurich") {
 
             self.timezone = testTimezone
             var components = DateComponents()
@@ -63,14 +62,14 @@ class CalculateViewController: FormViewController {
         }
 
         self.form +++ Section()
-            <<< DateTimeInlineRow() {
+            <<< DateTimeInlineRow {
                 $0.title = "Time"
                 $0.value = self.date as Date
                 }.onChange { [weak self] row in
                     guard let strongSelf = self, let date = row.value else { return }
                     strongSelf.date = date
             }
-            <<< PickerInlineRow<String>() {
+            <<< PickerInlineRow<String> {
                 $0.title = "Time Zone"
                 $0.options = NSTimeZone.knownTimeZoneNames
                 $0.value = self.timezone.identifier

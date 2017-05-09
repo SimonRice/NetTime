@@ -20,7 +20,12 @@ extension Date {
         guard let midnight = Calendar.current.date(from: components) else { return 0 }
 
         let seconds = self.timeIntervalSince(midnight)
-        return fmod(Float((seconds / 86400.0) * 1000.0), 1000.0)
+
+        var currentBeats = fmod(Float((seconds / 86400.0) * 1000.0), 1000.0)
+        if currentBeats < 0 {
+            currentBeats += 1000.0
+        }
+        return currentBeats
     }
 
     var nearestBeat: Int {
