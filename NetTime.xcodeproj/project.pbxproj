@@ -28,6 +28,8 @@
 		F41328991EC27A6300FB4DD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DBE8981C9547EA009B8FBC /* Assets.xcassets */; };
 		F413289A1EC27A6300FB4DD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DBE8951C9547EA009B8FBC /* Main.storyboard */; };
 		F413289E1EC27A6300FB4DD9 /* TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F4DBE8EA1C95BC58009B8FBC /* TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F41328A71EC27D5400FB4DD9 /* UserDefaults+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41328A61EC27D5400FB4DD9 /* UserDefaults+Properties.swift */; };
+		F41328A81EC27D5400FB4DD9 /* UserDefaults+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41328A61EC27D5400FB4DD9 /* UserDefaults+Properties.swift */; };
 		F423675D1E9A70E30020D673 /* NetTimeWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F423675C1E9A70E30020D673 /* NetTimeWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F423676C1E9A70E30020D673 /* NetTimeWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F42367501E9A70E30020D673 /* NetTimeWatch.app */; };
 		F423677C1E9A71370020D673 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F42367751E9A71370020D673 /* Assets.xcassets */; };
@@ -199,6 +201,7 @@
 /* Begin PBXFileReference section */
 		F41328A41EC27A6300FB4DD9 /* NetTime AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NetTime AppStore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41328A51EC27A6300FB4DD9 /* NetTime copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "NetTime copy-Info.plist"; path = "/Users/simon/Developer/NetTime/NetTime copy-Info.plist"; sourceTree = "<absolute>"; };
+		F41328A61EC27D5400FB4DD9 /* UserDefaults+Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Properties.swift"; sourceTree = "<group>"; };
 		F42367501E9A70E30020D673 /* NetTimeWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetTimeWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F423675C1E9A70E30020D673 /* NetTimeWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "NetTimeWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F42367751E9A71370020D673 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -420,6 +423,7 @@
 				F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */,
 				F4DBE8931C9547EA009B8FBC /* NowViewController.swift */,
 				F4D842AA1EBE9E95008F1415 /* ProcessInfo+TestMode.swift */,
+				F41328A61EC27D5400FB4DD9 /* UserDefaults+Properties.swift */,
 				F4DBE8951C9547EA009B8FBC /* Main.storyboard */,
 				F4DBE8981C9547EA009B8FBC /* Assets.xcassets */,
 				F4DBE89A1C9547EA009B8FBC /* LaunchScreen.storyboard */,
@@ -852,6 +856,7 @@
 				F41328881EC27A6300FB4DD9 /* AboutViewController.swift in Sources */,
 				F41328891EC27A6300FB4DD9 /* Date+Beats.swift in Sources */,
 				F413288A1EC27A6300FB4DD9 /* Int+Beats.swift in Sources */,
+				F41328A81EC27D5400FB4DD9 /* UserDefaults+Properties.swift in Sources */,
 				F413288B1EC27A6300FB4DD9 /* CalculateViewController.swift in Sources */,
 				F413288C1EC27A6300FB4DD9 /* ProcessInfo+TestMode.swift in Sources */,
 			);
@@ -890,6 +895,7 @@
 				F4D611861CA4195700C6C955 /* AboutViewController.swift in Sources */,
 				F4DBE8B31C9549C9009B8FBC /* Date+Beats.swift in Sources */,
 				F4DBE8E41C958613009B8FBC /* Int+Beats.swift in Sources */,
+				F41328A71EC27D5400FB4DD9 /* UserDefaults+Properties.swift in Sources */,
 				F4842F251C9609AA00AB1F38 /* CalculateViewController.swift in Sources */,
 				F4D842AB1EBE9E95008F1415 /* ProcessInfo+TestMode.swift in Sources */,
 			);

@@ -45,6 +45,13 @@ class NowViewController: UIViewController {
         }
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if #available(iOS 10.3, *), UserDefaults.standard.launchCount >= 10 {
+            SKStoreReviewController.requestReview()
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 

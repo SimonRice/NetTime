@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if !self.isSimulator {
             Fabric.with([Crashlytics.self])
+            UserDefaults.standard.launchCount += 1
         }
 
         return true

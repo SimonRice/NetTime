@@ -63,17 +63,17 @@ class AboutViewController: FormViewController {
                     }
                 })
             }
-            <<< LabelRow {
-                $0.title = "Rate NetTime"
-                $0.cell.accessoryView = UIImageView(
-                    image: UIImage.fontAwesomeIcon(name: .star,
-                        textColor: UIColor(red:1, green:0.59, blue:0, alpha:1),
-                        size: CGSize(width: 30, height: 30))
-                )
-                $0.onCellSelection({ (_, _) in
+//            <<< LabelRow {
+//                $0.title = "Rate NetTime"
+//                $0.cell.accessoryView = UIImageView(
+//                    image: UIImage.fontAwesomeIcon(name: .star,
+//                        textColor: UIColor(red:1, green:0.59, blue:0, alpha:1),
+//                        size: CGSize(width: 30, height: 30))
+//                )
+//                $0.onCellSelection({ (_, _) in
 //                    PushReview.reviewApp()
-                })
-        }
+//                })
+//        }
     }
 
     fileprivate func addCreditSection() {
