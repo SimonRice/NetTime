@@ -1,0 +1,12 @@
+language: objective-c
+osx_image: xcode8.2
+
+cache:
+  directories:
+  - Carthage
+
+before_install:
+  - bundle install
+  - brew update
+  - brew outdated carthage || brew upgrade carthage
+  - fastlane tests
