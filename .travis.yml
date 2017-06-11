@@ -1,12 +1,13 @@
 language: objective-c
 osx_image: xcode8.2
-
 cache:
   directories:
   - Carthage
-
 before_install:
-  - bundle install
-  - brew update
-  - brew outdated carthage || brew upgrade carthage
-  - fastlane tests
+- bundle install
+- brew update
+- brew outdated carthage || brew upgrade carthage
+- fastlane tests
+env:
+  global:
+    secure: JYGksgOklAni7v2ZJQK46yWYsIt1cng4Z5zWfV9WziCU8YWrTQpa0tUf5zaCo0PC6G4gj+swtELDqnqjl2u3f2adhinnJsdD5WVfFZJrSOJGs3t6VSocOIozbBmrNr8Uh3vVEnequfmRLSr7WkaYOateG9A2oJ6YqgX4zR3rGSSup1MZf5CbEdDzk+Aitdz4cDJAPN7KwvtLcYZ6EiN7mFpFUMFfX1r7Wp54hwhltJU9dB2NP4cELjjwjF1jZwClTqf+kAFtmUgi8FuRsK+RMGMKKWleBHgwJxIghLs+ijfXFKJmbQAt28iyhaI3w2gZ9f00ygFtXiVfBYp5RY41fZ3zK1etSMT7Psdbt43oTwz1TpX0js2IbPtib3OGgWOocnrdqdAfQevepGotnwjuMtE8SM6w2d8uYvUgopBeHX8Sql8L/6gxU5Efaisu6Kr6o7Ci7ccPSs/coIPY8RkNwVl60O5VUahU04EwCpIugtrlVoGVJbt+7iQ1lDjKA7GhHC1mNHaLanLSzknR0XWIdIynupskxg9IFpz8RP/5/5svc8+yAtIie8tF3wmw7FjfwnKGikYy9XnXDAr4+cMwDCURRHutHXJiTXQAY1lo+g5lVVuyZAryHTl7scNLe9eESVzuOBM5LqyAndIJJyZ7Dp7VFNC/Lzr2VqMIOSgtk4A=
