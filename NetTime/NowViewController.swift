@@ -6,13 +6,14 @@
 //  Copyright © 2016 Simon Rice. All rights reserved.
 //
 
+import RxCocoa
 import RxSwift
 import StoreKit
 import UIKit
 
 class NowViewController: UIViewController {
     @IBOutlet fileprivate weak var beatsLabel: UILabel!
-    fileprivate var subscription: Disposable?
+    fileprivate let bag = DisposeBag()
 
     fileprivate var date: Date {
         if ProcessInfo.processInfo.arguments.contains("TEST_MODE") {
@@ -37,26 +38,17 @@ class NowViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.subscription = Observable<Int>.interval(0.01, scheduler: MainScheduler.instance)
-            .subscribe { _ in
-                if let label = self.beatsLabel {
-                    label.text = String(format: "@%06.2f", self.date.beats)
-                }
-        }
+        let beatsObservable = Observable<Int>.interval(0.01, scheduler: MainScheduler.instance)
+
+        beatsObservable.map({ _ in String(format: "@%06.2f", self.date.beats) })
+            .bind(to: beatsLabel.rx.text)
+            .addDisposableTo(bag)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if #available(iOS 10.3, *), UserDefaults.standard.launchCount >= 10 {
             SKStoreReviewController.requestReview()
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
-        if let subscription = self.subscription {
-            subscription.dispose()
         }
     }
 }

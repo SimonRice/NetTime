@@ -7,26 +7,21 @@
 //
 
 import NotificationCenter
+import RxCocoa
 import RxSwift
 import UIKit
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var beatsLabel: UILabel!
-    fileprivate var subscription: Disposable!
+    private let bag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.subscription = Observable<Int>.interval(0.01, scheduler: MainScheduler.instance)
-            .subscribe { _ in
-                if let label = self.beatsLabel {
-                    label.text = String(format: "@%06.2f beats", Date().beats)
-                }
-        }
-    }
+        let observable = Observable<Int>.interval(0.01, scheduler: MainScheduler.instance)
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        self.subscription.dispose()
+        observable.map({ _ in String(format: "@%06.2f beats", Date().beats) })
+            .bind(to: beatsLabel.rx.text)
+            .addDisposableTo(bag)
     }
 
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -35,6 +30,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
     // swiftlint:disable:next line_length
     func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
-        return UIEdgeInsets.zero
+        return .zero
     }
 }

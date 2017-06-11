@@ -4,27 +4,31 @@ default_platform :ios
 
 platform :ios do
   desc 'Set up development environment'
-  lane :setup do
-    carthage(platform: 'iOS,watchOS')
-    match(force_for_new_devices: true, type: 'development', app_identifier: 'com.simonrice.NetTime')
-    match(force_for_new_devices: true, type: 'development', app_identifier: 'com.simonrice.NetTime.watchkitapp')
-    match(force_for_new_devices: true, type: 'development', app_identifier: 'com.simonrice.NetTime.TodayExtension')
-    match(force_for_new_devices: true, type: 'development', app_identifier: 'com.simonrice.NetTime.watchkitapp.watchkitextension')
+  lane :setup do |options|
+    carthage_platforms = 'iOS,watchOS'
+    carthage_platforms = 'iOS' if options[:skip_watch]
+    carthage(
+      platform: carthage_platforms,
+      cache_builds: true
+    )
+    acknowledgements(
+      settings_bundle: 'NetTime/Settings.bundle',
+      license_path: 'licenses'
+    )
   end
 
   private_lane :production_setup do
     build_no = number_of_commits + 1
-    carthage(platform: 'iOS,watchOS')
+    carthage(platform: 'iOS', cache_builds: true)
     increment_build_number(build_number: build_no)
 
     match(type: 'appstore', app_identifier: 'com.simonrice.NetTime')
-    match(type: 'appstore', app_identifier: 'com.simonrice.NetTime.watchkitapp')
     match(type: 'appstore', app_identifier: 'com.simonrice.NetTime.TodayExtension')
-    match(type: 'appstore', app_identifier: 'com.simonrice.NetTime.watchkitapp.watchkitextension')
   end
 
   desc 'Runs all the tests'
   lane :tests do
+    setup(skip_watch: true)
     scan
   end
 
@@ -35,18 +39,18 @@ platform :ios do
     production_setup
     verify_xcode
     tests
-    gym(scheme: 'NetTime')
+    gym(scheme: 'NetTime AppStore')
     pilot
   end
 
   desc 'Deploy a new version to the App Store'
-  lane :appstore do
+  lane :deploy do
     clean_build_artifacts
     production_setup
     verify_xcode
     tests
     snapshot
-    gym(scheme: 'NetTime')
+    gym(scheme: 'NetTime AppStore')
     deliver(force: true)
   end
 

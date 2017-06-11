@@ -28,7 +28,7 @@ class AboutViewController: FormViewController {
                 $0.cellStyle = .subtitle
                 $0.title = "NetTime \(versionString)"
                 $0.cell.textLabel!.font = UIFont.boldSystemFont(ofSize: 16)
-                $0.value = "by Simon Rice"
+                $0.value = "by Simon Rice & Contributors"
                 $0.cell.accessoryView = UIImageView(image: UIImage(named: "SettingsAppIcon"))
                 $0.cell.height = { return 60.0 }
             }
@@ -41,7 +41,7 @@ class AboutViewController: FormViewController {
                 )
                 $0.onCellSelection({ (_, _) in
                     UIApplication.shared.openURL(
-                        NSURL(string: "https://www.simonrice.com/")! as URL
+                        URL(string: "https://www.simonrice.com/")!
                     )
                 })
             }
@@ -54,29 +54,31 @@ class AboutViewController: FormViewController {
                 )
                 $0.onCellSelection({ (_, _) in
                     let app = UIApplication.shared
-                    let twitterURL = NSURL(string: "twitter:///user?screen_name=_SimonRice")!
-                    if app.canOpenURL(twitterURL as URL) {
-                        app.openURL(twitterURL as URL)
+                    let twitterURL = URL(string: "twitter:///user?screen_name=_SimonRice")
+                    if let twitterURL = twitterURL, app.canOpenURL(twitterURL) {
+                        app.openURL(twitterURL)
                     } else {
-                        let altURL = NSURL(string: "https://www.twitter.com/_SimonRice")!
-                        app.openURL(altURL as URL)
+                        let altURL = URL(string: "https://www.twitter.com/_SimonRice")!
+                        app.openURL(altURL)
                     }
                 })
             }
-//            <<< LabelRow {
-//                $0.title = "Rate NetTime"
-//                $0.cell.accessoryView = UIImageView(
-//                    image: UIImage.fontAwesomeIcon(name: .star,
-//                        textColor: UIColor(red:1, green:0.59, blue:0, alpha:1),
-//                        size: CGSize(width: 30, height: 30))
-//                )
-//                $0.onCellSelection({ (_, _) in
-//                    PushReview.reviewApp()
-//                })
-//        }
+            <<< LabelRow {
+                $0.title = "View Source"
+                $0.cell.accessoryView = UIImageView(
+                    image: UIImage.fontAwesomeIcon(name: .github,
+                                                   textColor: .black,
+                                                   size: CGSize(width: 30, height: 30))
+                )
+                $0.onCellSelection({ (_, _) in
+                    UIApplication.shared.openURL(
+                        URL(string: "https://www.github.com/simonrice/NetTime")!
+                    )
+                })
+        }
     }
 
-    fileprivate func addCreditSection() {
+    fileprivate func addLicenseSection() {
         self.form +++ Section()
             <<< LabelRow {
                 $0.cellStyle = .subtitle
@@ -88,11 +90,14 @@ class AboutViewController: FormViewController {
 
                 $0.cell.height = { return 100.0 }
             }
-            <<< ButtonRow {
-                $0.title = "Credits"
-                $0.onCellSelection({ (cell, _) in
-                    self.performSegue(withIdentifier: "showCredits", sender: cell)
-                })
+            <<< LabelRow {
+                $0.cellStyle = .subtitle
+                $0.cell.detailTextLabel!.numberOfLines = 0
+                $0.title = "License (MIT)"
+
+                // swiftlint:disable:next line_length
+                $0.value = "Copyright 2016-2017 Simon Rice \n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: \n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. \n\nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+                $0.cell.height = { return 435.0 }
         }
     }
 
@@ -104,6 +109,6 @@ class AboutViewController: FormViewController {
         }
 
         self.addAuthorSection()
-        self.addCreditSection()
+        self.addLicenseSection()
     }
 }

@@ -27,6 +27,7 @@ xcode-select --install
 <td width="33%"><code>sudo gem install fastlane -NV</code></td>
 </tr>
 </table>
+
 # Available Actions
 ## iOS
 ### ios setup
@@ -46,9 +47,9 @@ fastlane ios beta
 Submit a new Beta Build to Apple TestFlight
 
 This will also make sure the profile is up to date
-### ios appstore
+### ios deploy
 ```
-fastlane ios appstore
+fastlane ios deploy
 ```
 Deploy a new version to the App Store
 ### ios refresh_dsyms

@@ -10,7 +10,6 @@
 		F41328841EC27A6300FB4DD9 /* NowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8931C9547EA009B8FBC /* NowViewController.swift */; };
 		F41328851EC27A6300FB4DD9 /* FontAwesomeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */; };
 		F41328861EC27A6300FB4DD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8911C9547EA009B8FBC /* AppDelegate.swift */; };
-		F41328871EC27A6300FB4DD9 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D6118B1CA42D8400C6C955 /* CreditsViewController.swift */; };
 		F41328881EC27A6300FB4DD9 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D611851CA4195700C6C955 /* AboutViewController.swift */; };
 		F41328891EC27A6300FB4DD9 /* Date+Beats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8B21C9549C9009B8FBC /* Date+Beats.swift */; };
 		F413288A1EC27A6300FB4DD9 /* Int+Beats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8E31C958613009B8FBC /* Int+Beats.swift */; };
@@ -22,7 +21,6 @@
 		F41328911EC27A6300FB4DD9 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606011CA5BDFB004B4C09 /* RxSwift.framework */; };
 		F41328921EC27A6300FB4DD9 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606141CA5BF54004B4C09 /* Fabric.framework */; };
 		F41328931EC27A6300FB4DD9 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606161CA5BFEF004B4C09 /* Crashlytics.framework */; };
-		F41328961EC27A6300FB4DD9 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4C606191CA5C555004B4C09 /* Acknowledgements.plist */; };
 		F41328971EC27A6300FB4DD9 /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4F51C021C97508F003B2853 /* digital-7 (mono).ttf */; };
 		F41328981EC27A6300FB4DD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DBE89A1C9547EA009B8FBC /* LaunchScreen.storyboard */; };
 		F41328991EC27A6300FB4DD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DBE8981C9547EA009B8FBC /* Assets.xcassets */; };
@@ -48,7 +46,12 @@
 		F425CAE31C95FE9A000430F8 /* FontAwesomeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */; };
 		F42979021CA6A3E1000A9470 /* SimulatorStatusMagiciOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C6061D1CA5CCFE004B4C09 /* SimulatorStatusMagiciOS.framework */; };
 		F42979031CA6A3EB000A9470 /* SimulatorStatusMagiciOS.framework in Carthage */ = {isa = PBXBuildFile; fileRef = F4C6061D1CA5CCFE004B4C09 /* SimulatorStatusMagiciOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F43C5F401EECC14300DB8998 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F43C5F3F1EECC14300DB8998 /* Settings.bundle */; };
+		F43C5F411EECC14300DB8998 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F43C5F3F1EECC14300DB8998 /* Settings.bundle */; };
 		F44F816D1E98458900D4BC0D /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44F816C1E98458900D4BC0D /* XCGLogger.framework */; };
+		F45404471EECCF020071610E /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F45404461EECCF020071610E /* RxCocoa.framework */; };
+		F45404481EECCF020071610E /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F45404461EECCF020071610E /* RxCocoa.framework */; };
+		F45404491EECCF080071610E /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F45404461EECCF020071610E /* RxCocoa.framework */; };
 		F46AEE5D1CA174F9005E6728 /* NetTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46AEE5C1CA174F9005E6728 /* NetTimeUITests.swift */; };
 		F46AEE651CA176D9005E6728 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46AEE641CA176D9005E6728 /* SnapshotHelper.swift */; };
 		F4842F251C9609AA00AB1F38 /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4842F241C9609AA00AB1F38 /* CalculateViewController.swift */; };
@@ -60,11 +63,9 @@
 		F4C6060E1CA5BE18004B4C09 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606011CA5BDFB004B4C09 /* RxSwift.framework */; };
 		F4C606151CA5BF54004B4C09 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606141CA5BF54004B4C09 /* Fabric.framework */; };
 		F4C606171CA5BFEF004B4C09 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606161CA5BFEF004B4C09 /* Crashlytics.framework */; };
-		F4C6061A1CA5C555004B4C09 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4C606191CA5C555004B4C09 /* Acknowledgements.plist */; };
 		F4C606231CA5CF85004B4C09 /* Nimble.framework in Carthage */ = {isa = PBXBuildFile; fileRef = F4C605FF1CA5BDFB004B4C09 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F4C606261CA5CFAD004B4C09 /* Nimble.framework in Carthage */ = {isa = PBXBuildFile; fileRef = F4C605FF1CA5BDFB004B4C09 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F4D611861CA4195700C6C955 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D611851CA4195700C6C955 /* AboutViewController.swift */; };
-		F4D6118C1CA42D8400C6C955 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D6118B1CA42D8400C6C955 /* CreditsViewController.swift */; };
 		F4D842AB1EBE9E95008F1415 /* ProcessInfo+TestMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D842AA1EBE9E95008F1415 /* ProcessInfo+TestMode.swift */; };
 		F4DBE8921C9547EA009B8FBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8911C9547EA009B8FBC /* AppDelegate.swift */; };
 		F4DBE8941C9547EA009B8FBC /* NowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DBE8931C9547EA009B8FBC /* NowViewController.swift */; };
@@ -200,7 +201,6 @@
 
 /* Begin PBXFileReference section */
 		F41328A41EC27A6300FB4DD9 /* NetTime AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NetTime AppStore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F41328A51EC27A6300FB4DD9 /* NetTime copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "NetTime copy-Info.plist"; path = "/Users/simon/Developer/NetTime/NetTime copy-Info.plist"; sourceTree = "<absolute>"; };
 		F41328A61EC27D5400FB4DD9 /* UserDefaults+Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Properties.swift"; sourceTree = "<group>"; };
 		F42367501E9A70E30020D673 /* NetTimeWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetTimeWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F423675C1E9A70E30020D673 /* NetTimeWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "NetTimeWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,7 +214,9 @@
 		F42367861E9A71420020D673 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		F42367871E9A71420020D673 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeTabBarItem.swift; sourceTree = "<group>"; };
+		F43C5F3F1EECC14300DB8998 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		F44F816C1E98458900D4BC0D /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
+		F45404461EECCF020071610E /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		F46AEE5A1CA174F9005E6728 /* NetTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F46AEE5C1CA174F9005E6728 /* NetTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetTimeUITests.swift; sourceTree = "<group>"; };
 		F46AEE5E1CA174F9005E6728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -227,10 +229,8 @@
 		F4C606101CA5BE62004B4C09 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/watchOS/RxSwift.framework; sourceTree = "<group>"; };
 		F4C606141CA5BF54004B4C09 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		F4C606161CA5BFEF004B4C09 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		F4C606191CA5C555004B4C09 /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = "<group>"; };
 		F4C6061D1CA5CCFE004B4C09 /* SimulatorStatusMagiciOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SimulatorStatusMagiciOS.framework; path = Carthage/Build/iOS/SimulatorStatusMagiciOS.framework; sourceTree = "<group>"; };
 		F4D611851CA4195700C6C955 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		F4D6118B1CA42D8400C6C955 /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		F4D842AA1EBE9E95008F1415 /* ProcessInfo+TestMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+TestMode.swift"; sourceTree = "<group>"; };
 		F4DBE88E1C9547EA009B8FBC /* NetTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DBE8911C9547EA009B8FBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -259,6 +259,7 @@
 			files = (
 				F413288E1EC27A6300FB4DD9 /* Eureka.framework in Frameworks */,
 				F413288F1EC27A6300FB4DD9 /* FontAwesome.framework in Frameworks */,
+				F45404481EECCF020071610E /* RxCocoa.framework in Frameworks */,
 				F41328901EC27A6300FB4DD9 /* XCGLogger.framework in Frameworks */,
 				F41328911EC27A6300FB4DD9 /* RxSwift.framework in Frameworks */,
 				F41328921EC27A6300FB4DD9 /* Fabric.framework in Frameworks */,
@@ -289,6 +290,7 @@
 			files = (
 				F4C606041CA5BDFF004B4C09 /* Eureka.framework in Frameworks */,
 				F4C606051CA5BE01004B4C09 /* FontAwesome.framework in Frameworks */,
+				F45404471EECCF020071610E /* RxCocoa.framework in Frameworks */,
 				F44F816D1E98458900D4BC0D /* XCGLogger.framework in Frameworks */,
 				F4C606091CA5BE0E004B4C09 /* RxSwift.framework in Frameworks */,
 				F4C606151CA5BF54004B4C09 /* Fabric.framework in Frameworks */,
@@ -310,6 +312,7 @@
 			files = (
 				F4DBE8EC1C95BC58009B8FBC /* NotificationCenter.framework in Frameworks */,
 				F4C6060E1CA5BE18004B4C09 /* RxSwift.framework in Frameworks */,
+				F45404491EECCF080071610E /* RxCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +370,7 @@
 				F4C606141CA5BF54004B4C09 /* Fabric.framework */,
 				F4C605FE1CA5BDFB004B4C09 /* FontAwesome.framework */,
 				F4C605FF1CA5BDFB004B4C09 /* Nimble.framework */,
+				F45404461EECCF020071610E /* RxCocoa.framework */,
 				F4C606011CA5BDFB004B4C09 /* RxSwift.framework */,
 				F4C6061D1CA5CCFE004B4C09 /* SimulatorStatusMagiciOS.framework */,
 				F44F816C1E98458900D4BC0D /* XCGLogger.framework */,
@@ -394,7 +398,6 @@
 				F42367741E9A71370020D673 /* NetTimeWatch Extension */,
 				F4DBE88F1C9547EA009B8FBC /* Products */,
 				E6C04CBD0CC4D170AD23B759 /* Frameworks */,
-				F41328A51EC27A6300FB4DD9 /* NetTime copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -415,11 +418,9 @@
 		F4DBE8901C9547EA009B8FBC /* NetTime */ = {
 			isa = PBXGroup;
 			children = (
-				F4C606191CA5C555004B4C09 /* Acknowledgements.plist */,
 				F4D611851CA4195700C6C955 /* AboutViewController.swift */,
 				F4DBE8911C9547EA009B8FBC /* AppDelegate.swift */,
 				F4842F241C9609AA00AB1F38 /* CalculateViewController.swift */,
-				F4D6118B1CA42D8400C6C955 /* CreditsViewController.swift */,
 				F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */,
 				F4DBE8931C9547EA009B8FBC /* NowViewController.swift */,
 				F4D842AA1EBE9E95008F1415 /* ProcessInfo+TestMode.swift */,
@@ -428,6 +429,7 @@
 				F4DBE8981C9547EA009B8FBC /* Assets.xcassets */,
 				F4DBE89A1C9547EA009B8FBC /* LaunchScreen.storyboard */,
 				F4DBE89D1C9547EA009B8FBC /* Info.plist */,
+				F43C5F3F1EECC14300DB8998 /* Settings.bundle */,
 			);
 			path = NetTime;
 			sourceTree = "<group>";
@@ -671,9 +673,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F41328961EC27A6300FB4DD9 /* Acknowledgements.plist in Resources */,
 				F41328971EC27A6300FB4DD9 /* digital-7 (mono).ttf in Resources */,
 				F41328981EC27A6300FB4DD9 /* LaunchScreen.storyboard in Resources */,
+				F43C5F411EECC14300DB8998 /* Settings.bundle in Resources */,
 				F41328991EC27A6300FB4DD9 /* Assets.xcassets in Resources */,
 				F413289A1EC27A6300FB4DD9 /* Main.storyboard in Resources */,
 			);
@@ -709,9 +711,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4C6061A1CA5C555004B4C09 /* Acknowledgements.plist in Resources */,
 				F4F51C031C97508F003B2853 /* digital-7 (mono).ttf in Resources */,
 				F4DBE89C1C9547EA009B8FBC /* LaunchScreen.storyboard in Resources */,
+				F43C5F401EECC14300DB8998 /* Settings.bundle in Resources */,
 				F4DBE8991C9547EA009B8FBC /* Assets.xcassets in Resources */,
 				F4DBE8971C9547EA009B8FBC /* Main.storyboard in Resources */,
 			);
@@ -759,6 +761,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/FontAwesome.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/XCGLogger.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -806,6 +809,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/FontAwesome.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/XCGLogger.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -852,7 +856,6 @@
 				F41328841EC27A6300FB4DD9 /* NowViewController.swift in Sources */,
 				F41328851EC27A6300FB4DD9 /* FontAwesomeTabBarItem.swift in Sources */,
 				F41328861EC27A6300FB4DD9 /* AppDelegate.swift in Sources */,
-				F41328871EC27A6300FB4DD9 /* CreditsViewController.swift in Sources */,
 				F41328881EC27A6300FB4DD9 /* AboutViewController.swift in Sources */,
 				F41328891EC27A6300FB4DD9 /* Date+Beats.swift in Sources */,
 				F413288A1EC27A6300FB4DD9 /* Int+Beats.swift in Sources */,
@@ -891,7 +894,6 @@
 				F4DBE8941C9547EA009B8FBC /* NowViewController.swift in Sources */,
 				F425CAE31C95FE9A000430F8 /* FontAwesomeTabBarItem.swift in Sources */,
 				F4DBE8921C9547EA009B8FBC /* AppDelegate.swift in Sources */,
-				F4D6118C1CA42D8400C6C955 /* CreditsViewController.swift in Sources */,
 				F4D611861CA4195700C6C955 /* AboutViewController.swift in Sources */,
 				F4DBE8B31C9549C9009B8FBC /* Date+Beats.swift in Sources */,
 				F4DBE8E41C958613009B8FBC /* Int+Beats.swift in Sources */,
@@ -1003,7 +1005,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "NetTime copy-Info.plist";
+				INFOPLIST_FILE = NetTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime;
@@ -1026,7 +1028,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "NetTime copy-Info.plist";
+				INFOPLIST_FILE = NetTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime;

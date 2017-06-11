@@ -12,7 +12,7 @@ import WatchKit
 
 class NowInterfaceController: WKInterfaceController {
     @IBOutlet var beatsLabel: WKInterfaceLabel!
-    fileprivate var subscription: Disposable!
+    private let bag = DisposeBag()
 
     override func willActivate() {
         super.willActivate()
@@ -22,18 +22,13 @@ class NowInterfaceController: WKInterfaceController {
 //            label.setText("@423 \n .beats")
 //        }
 
-        self.subscription = Observable<Int>.interval(0.1, scheduler: MainScheduler.instance)
-            .subscribe { _ in
-                if let label = self.beatsLabel {
-                    label.setText(String(format: "@%05.1f \n .beats",
-                        floor(Date().beats * 10) / 10.0))
-                }
-        }
-    }
+        let observable = Observable<Int>.interval(0.1, scheduler: MainScheduler.instance)
 
-    override func didDeactivate() {
-        super.didDeactivate()
-        guard let subscription = self.subscription else { return }
-        subscription.dispose()
+        observable.map({ _ in String(format: "@%05.1f \n .beats",
+                                     floor(Date().beats * 10) / 10.0)})
+            .subscribe(onNext: { [weak self] in
+                self?.beatsLabel.setText($0)
+            })
+            .addDisposableTo(bag)
     }
 }
