@@ -1,7 +1,7 @@
 # NetTime - Open Source Edition
 
 [![Build Status](https://api.travis-ci.org/simonrice/NetTime.svg)](https://travis-ci.org/simonrice/NetTime)
-[![Twitter: @_simonrice](https://img.shields.io/badge/contact-@_simonrice-blue.svg?style=flat)](https://twitter.com/_simonrice)
+[![Twitter: @_simonrice](https://img.shields.io/badge/contact-@__simonrice-blue.svg?style=flat)](https://twitter.com/_simonrice)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/simonrice/NetTime/blob/master/LICENSE)
 
 This is the NetTime Open Source Edition.  NetTime is an app that shows the current time in [Swatch Internet Time](https://en.wikipedia.org/wiki/Swatch_Internet_Time) on your iOS device.
