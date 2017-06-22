@@ -23,7 +23,7 @@ All you need to do is:
     * com.simonrice.NetTime**.name**.watchkitapp
     * com.simonrice.NetTime**.name**.watchkitapp.watchkitextension
 1. Connect your iPad or iPhone using USB and select it in Xcode's Product menu > Destination.
-1. Press CMD+R or Product > Run to install Dash.
+1. Press CMD+R or Product > Run to install NetTime.
 1. If you install using a free (non-developer) account, make sure to rebuild NetTime every 7 days, otherwise it will quit at launch when your certificate expires.
 
 ## License
