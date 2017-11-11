@@ -559,7 +559,6 @@
 				F4DBE8E01C95562F009B8FBC /* Embed Watch Content */,
 				F4DBE8FA1C95BC58009B8FBC /* Embed App Extensions */,
 				F4C6061C1CA5C64D004B4C09 /* Carthage */,
-				F4DBE8FD1C95D633009B8FBC /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -834,20 +833,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		F4DBE8FD1C95D633009B8FBC /* Crashlytics */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Crashlytics;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 5f4aee798952d318e32c1d9e93ec424d70f634fe f9e249e1267d0c951408a34232552886b4e1fb9df2072dc7dc90ae36e3386514";
 		};
 		F4F51C061C97514D003B2853 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
