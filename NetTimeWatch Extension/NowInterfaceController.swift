@@ -29,6 +29,6 @@ class NowInterfaceController: WKInterfaceController {
             .subscribe(onNext: { [weak self] in
                 self?.beatsLabel.setText($0)
             })
-            .addDisposableTo(bag)
+            .disposed(by: bag)
     }
 }

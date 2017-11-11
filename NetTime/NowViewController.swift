@@ -42,7 +42,7 @@ class NowViewController: UIViewController {
 
         beatsObservable.map({ _ in String(format: "@%06.2f", self.date.beats) })
             .bind(to: beatsLabel.rx.text)
-            .addDisposableTo(bag)
+            .disposed(by: bag)
     }
 
     override func viewDidAppear(_ animated: Bool) {

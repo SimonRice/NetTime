@@ -21,14 +21,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
         observable.map({ _ in String(format: "@%06.2f beats", Date().beats) })
             .bind(to: beatsLabel.rx.text)
-            .addDisposableTo(bag)
+            .disposed(by: bag)
     }
 
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         completionHandler(NCUpdateResult.newData)
     }
 
-    // swiftlint:disable:next line_length
     func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
         return .zero
     }

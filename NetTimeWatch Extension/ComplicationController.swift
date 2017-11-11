@@ -100,12 +100,10 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         handler([.forward, .backward])
     }
 
-    // swiftlint:disable:next line_length
     func getTimelineStartDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
         handler(self.earliestDate)
     }
 
-    // swiftlint:disable:next line_length
     func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
         handler(self.latestDate)
     }
