@@ -24,10 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // swiftlint:disable:next line_length
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        if !self.isSimulator {
-            Fabric.with([Crashlytics.self])
-            UserDefaults.standard.launchCount += 1
-        }
+        #if APPSTORE
+            if !self.isSimulator {
+                Fabric.with([Crashlytics.self])
+                UserDefaults.standard.launchCount += 1
+            }
+        #endif
 
         return true
     }

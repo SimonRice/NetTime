@@ -1010,6 +1010,7 @@
 				INFOPLIST_FILE = NetTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = APPSTORE;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -1033,6 +1034,7 @@
 				INFOPLIST_FILE = NetTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = APPSTORE;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";

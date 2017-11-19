@@ -47,8 +47,13 @@ class NowViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if #available(iOS 10.3, *), UserDefaults.standard.launchCount >= 10 {
-            SKStoreReviewController.requestReview()
+
+        #if APPSTORE
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(5)) {
+            if #available(iOS 10.3, *), UserDefaults.standard.launchCount >= 10 {
+                SKStoreReviewController.requestReview()
+            }
         }
+        #endif
     }
 }
