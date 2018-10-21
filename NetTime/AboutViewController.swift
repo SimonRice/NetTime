@@ -35,7 +35,7 @@ class AboutViewController: FormViewController {
             <<< LabelRow {
                 $0.title = "https://www.simonrice.com/"
                 $0.cell.accessoryView = UIImageView(
-                    image: UIImage.fontAwesomeIcon(name: .globe,
+                    image: UIImage.fontAwesomeIcon(name: .globe, style: .regular,
                         textColor: UIColor(red: 0, green: 0.6, blue: 0.3, alpha: 1),
                         size: CGSize(width: 30, height: 30))
                 )
@@ -48,7 +48,7 @@ class AboutViewController: FormViewController {
             <<< LabelRow {
                 $0.title = "@_SimonRice"
                 $0.cell.accessoryView = UIImageView(
-                    image: UIImage.fontAwesomeIcon(name: .twitter,
+                    image: UIImage.fontAwesomeIcon(name: .twitter, style: .regular,
                         textColor: UIColor(red: 0.11, green: 0.63, blue: 0.95, alpha: 1),
                         size: CGSize(width: 30, height: 30))
                 )
@@ -67,6 +67,7 @@ class AboutViewController: FormViewController {
                 $0.title = "View Source"
                 $0.cell.accessoryView = UIImageView(
                     image: UIImage.fontAwesomeIcon(name: .github,
+                                                   style: .regular,
                                                    textColor: .black,
                                                    size: CGSize(width: 30, height: 30))
                 )

@@ -18,7 +18,9 @@ class FontAwesomeTabBarItem: UITabBarItem {
                 let fontAwesomeGlyph = FontAwesome(rawValue: fontAwesomeValue) {
                 let size = CGSize(width: 30, height: 30)
                 self.image = UIImage.fontAwesomeIcon(name: fontAwesomeGlyph,
-                                                     textColor: .black, size: size)
+                                                     style: .regular,
+                                                     textColor: .black,
+                                                     size: size)
             } else {
                 Log.warning("Cound not find icon for \(self.iconName)")
             }

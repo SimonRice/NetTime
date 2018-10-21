@@ -23,6 +23,8 @@
 
 /* Begin PBXBuildFile section */
 		110F24E719E4610E00012FD7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 110F24E519E4610E00012FD7 /* Localizable.strings */; };
+		3D3ED70720C7CAD0006BBCC8 /* SDStatusBarOverriderPost12_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3ED70520C7CAD0006BBCC8 /* SDStatusBarOverriderPost12_0.m */; };
+		3D3ED70820C7CAD0006BBCC8 /* SDStatusBarOverriderPost12_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3ED70520C7CAD0006BBCC8 /* SDStatusBarOverriderPost12_0.m */; };
 		441955841F152DF700F1F39B /* SDStatusBarOverriderPost11_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 441955831F152DF700F1F39B /* SDStatusBarOverriderPost11_0.m */; };
 		441955851F15330D00F1F39B /* SDStatusBarOverriderPost11_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 441955831F152DF700F1F39B /* SDStatusBarOverriderPost11_0.m */; };
 		448EAEAA1B3B326100A09FBC /* SDStatusBarOverriderPost9_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 448EAEA91B3B326100A09FBC /* SDStatusBarOverriderPost9_0.m */; };
@@ -80,7 +82,9 @@
 
 /* Begin PBXFileReference section */
 		110F24E319E45FFE00012FD7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
-		110F24E619E4610E00012FD7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		110F24E619E4610E00012FD7 /* de */ = {isa = PBXFileReference; fileEncoding = 2483028224; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3D3ED70420C7CAD0006BBCC8 /* SDStatusBarOverriderPost12_0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDStatusBarOverriderPost12_0.h; sourceTree = "<group>"; };
+		3D3ED70520C7CAD0006BBCC8 /* SDStatusBarOverriderPost12_0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDStatusBarOverriderPost12_0.m; sourceTree = "<group>"; };
 		441955821F152DF600F1F39B /* SDStatusBarOverriderPost11_0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDStatusBarOverriderPost11_0.h; sourceTree = "<group>"; };
 		441955831F152DF700F1F39B /* SDStatusBarOverriderPost11_0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDStatusBarOverriderPost11_0.m; sourceTree = "<group>"; };
 		448EAEA81B3B326100A09FBC /* SDStatusBarOverriderPost9_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDStatusBarOverriderPost9_0.h; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 				449C2C7E1E89BB61002D3846 /* SDStatusBarOverriderPost10_3.m */,
 				441955821F152DF600F1F39B /* SDStatusBarOverriderPost11_0.h */,
 				441955831F152DF700F1F39B /* SDStatusBarOverriderPost11_0.m */,
+				3D3ED70420C7CAD0006BBCC8 /* SDStatusBarOverriderPost12_0.h */,
+				3D3ED70520C7CAD0006BBCC8 /* SDStatusBarOverriderPost12_0.m */,
 			);
 			path = SDStatusBarManager;
 			sourceTree = SOURCE_ROOT;
@@ -288,7 +294,7 @@
 		5516356019E3FF3D001F636D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Shiny Development";
 				TargetAttributes = {
 					5516356719E3FF3D001F636D = {
@@ -376,6 +382,7 @@
 				44A44BDE1AD7316A003E04A5 /* SDStatusBarOverriderPost8_3.m in Sources */,
 				441955841F152DF700F1F39B /* SDStatusBarOverriderPost11_0.m in Sources */,
 				DB9638031D6E24CC002F122B /* SDStatusBarOverriderPost10_0.m in Sources */,
+				3D3ED70720C7CAD0006BBCC8 /* SDStatusBarOverriderPost12_0.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +398,7 @@
 				72ECF7461BAAC34E0071D401 /* SDStatusBarOverriderPost8_3.m in Sources */,
 				72ECF7471BAAC34E0071D401 /* SDStatusBarOverriderPost9_0.m in Sources */,
 				DB9638021D6E24CB002F122B /* SDStatusBarOverriderPost10_0.m in Sources */,
+				3D3ED70820C7CAD0006BBCC8 /* SDStatusBarOverriderPost12_0.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,12 +446,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -470,7 +480,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -491,12 +501,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -516,7 +528,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -529,7 +541,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SimulatorStatusMagic/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shinydevelopment.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -541,7 +552,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SimulatorStatusMagic/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shinydevelopment.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -565,7 +575,6 @@
 				);
 				INFOPLIST_FILE = SimulatorStatusMagiciOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.os.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -589,7 +598,6 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = SimulatorStatusMagiciOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.os.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

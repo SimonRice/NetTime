@@ -26,50 +26,56 @@ import XCTest
 
 class FontAwesomeTests: XCTestCase {
 
-    func testIconFontShouldBeRegisted() {
+    func testIconFontShouldBeRegistered() {
         let label = UILabel()
-        label.font = UIFont.fontAwesome(ofSize: 200)
+        label.font = UIFont.fontAwesome(ofSize: 200, style: .brands)
         XCTAssertNotNil(label.font, "Icon font should not be nil.")
     }
 
     func testLabelText() {
         let label = UILabel()
-        label.font = UIFont.fontAwesome(ofSize: 200)
+        label.font = UIFont.fontAwesome(ofSize: 200, style: .brands)
         label.text = String.fontAwesomeIcon(name: FontAwesome.github)
         XCTAssertEqual(label.text, "\u{f09b}")
     }
 
     func testLabelTextFromCode() {
         let label = UILabel()
-        label.font = UIFont.fontAwesome(ofSize: 200)
+        label.font = UIFont.fontAwesome(ofSize: 200, style: .brands)
         label.text = String.fontAwesomeIcon(code: "fa-github")
         XCTAssertEqual(label.text, "\u{f09b}")
     }
 
     func testButtonTitle() {
         let button = UIButton()
-        button.titleLabel?.font = UIFont.fontAwesome(ofSize: 30)
-        button.setTitle(String.fontAwesomeIcon(name: .github), for: UIControlState())
+        button.titleLabel?.font = UIFont.fontAwesome(ofSize: 30, style: .brands)
+        button.setTitle(String.fontAwesomeIcon(name: .github), for: UIControl.State())
         XCTAssertEqual(button.titleLabel?.text, "\u{f09b}")
     }
 
     func testBarItemTitle() {
         let barItem = UIBarButtonItem()
-        let attributes = [NSAttributedStringKey.font: UIFont.fontAwesome(ofSize: 20)] as Dictionary!
-        barItem.setTitleTextAttributes(attributes, for: UIControlState())
+        let attributes = [NSAttributedString.Key.font: UIFont.fontAwesome(ofSize: 20, style: .brands)]
+        barItem.setTitleTextAttributes(attributes, for: UIControl.State())
         barItem.title = String.fontAwesomeIcon(name: .github)
         XCTAssertEqual(barItem.title, "\u{f09b}")
     }
 
+    func testIconImageZeroSize() {
+        let barItem = UIBarButtonItem()
+        barItem.image = UIImage.fontAwesomeIcon(name: FontAwesome.github, style: .brands, textColor: UIColor.blue, size: CGSize(width: 4000, height: 0), backgroundColor: UIColor.red)
+        XCTAssertNotNil(barItem.image)
+    }
+
     func testIconImage() {
         let barItem = UIBarButtonItem()
-        barItem.image = UIImage.fontAwesomeIcon(name: FontAwesome.github, textColor: UIColor.blue, size: CGSize(width: 4000, height: 4000), backgroundColor: UIColor.red)
+        barItem.image = UIImage.fontAwesomeIcon(name: FontAwesome.github, style: .brands, textColor: UIColor.blue, size: CGSize(width: 4000, height: 4000), backgroundColor: UIColor.red)
         XCTAssertNotNil(barItem.image)
     }
 
     func testIconImageFromCode() {
         let barItem = UIBarButtonItem()
-        barItem.image = UIImage.fontAwesomeIcon(code: "fa-github", textColor: UIColor.blue, size: CGSize(width: 4000, height: 4000), backgroundColor: UIColor.red)
+        barItem.image = UIImage.fontAwesomeIcon(code: "fa-github", style: .brands, textColor: UIColor.blue, size: CGSize(width: 4000, height: 4000), backgroundColor: UIColor.red)
         XCTAssertNotNil(barItem.image)
     }
 }

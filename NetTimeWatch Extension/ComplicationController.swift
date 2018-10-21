@@ -80,8 +80,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         var entries: [CLKComplicationTimelineEntry] = []
         let comp = complication
 
-        for i in 1...100 where entries.count < limit {
-            guard let currentDate = Calendar.current.date(byAdding: i.beats, to: Date()),
+        for index in 1...100 where entries.count < limit {
+            guard let currentDate = Calendar.current.date(byAdding: index.beats, to: Date()),
                 let entry = comp.timelineEntryForDate(currentDate),
                 currentDate.compare(toDate)  == .orderedAscending else {
                     break
