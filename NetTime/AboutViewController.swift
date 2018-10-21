@@ -35,20 +35,21 @@ class AboutViewController: FormViewController {
             <<< LabelRow {
                 $0.title = "https://www.simonrice.com/"
                 $0.cell.accessoryView = UIImageView(
-                    image: UIImage.fontAwesomeIcon(name: .globe, style: .regular,
+                    image: UIImage.fontAwesomeIcon(name: .globe, style: .solid,
                         textColor: UIColor(red: 0, green: 0.6, blue: 0.3, alpha: 1),
                         size: CGSize(width: 30, height: 30))
                 )
                 $0.onCellSelection({ (_, _) in
-                    UIApplication.shared.openURL(
-                        URL(string: "https://www.simonrice.com/")!
-                    )
+                    UIApplication.shared
+                        .open(URL(string: "https://www.simonrice.com/")!,
+                              options: [:],
+                              completionHandler: nil)
                 })
             }
             <<< LabelRow {
                 $0.title = "@_SimonRice"
                 $0.cell.accessoryView = UIImageView(
-                    image: UIImage.fontAwesomeIcon(name: .twitter, style: .regular,
+                    image: UIImage.fontAwesomeIcon(name: .twitter, style: .brands,
                         textColor: UIColor(red: 0.11, green: 0.63, blue: 0.95, alpha: 1),
                         size: CGSize(width: 30, height: 30))
                 )
@@ -56,10 +57,13 @@ class AboutViewController: FormViewController {
                     let app = UIApplication.shared
                     let twitterURL = URL(string: "twitter:///user?screen_name=_SimonRice")
                     if let twitterURL = twitterURL, app.canOpenURL(twitterURL) {
-                        app.openURL(twitterURL)
+                        app.open(twitterURL,
+                                 options: [:],
+                                 completionHandler: nil)
                     } else {
-                        let altURL = URL(string: "https://www.twitter.com/_SimonRice")!
-                        app.openURL(altURL)
+                        app.open(URL(string: "https://www.twitter.com/_SimonRice")!,
+                                 options: [:],
+                                 completionHandler: nil)
                     }
                 })
             }
@@ -67,14 +71,15 @@ class AboutViewController: FormViewController {
                 $0.title = "View Source"
                 $0.cell.accessoryView = UIImageView(
                     image: UIImage.fontAwesomeIcon(name: .github,
-                                                   style: .regular,
+                                                   style: .brands,
                                                    textColor: .black,
                                                    size: CGSize(width: 30, height: 30))
                 )
                 $0.onCellSelection({ (_, _) in
-                    UIApplication.shared.openURL(
-                        URL(string: "https://www.github.com/simonrice/NetTime")!
-                    )
+                    UIApplication.shared
+                        .open(URL(string: "https://www.github.com/simonrice/NetTime")!,
+                              options: [:],
+                              completionHandler: nil)
                 })
         }
     }

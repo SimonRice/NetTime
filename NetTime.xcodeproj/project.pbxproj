@@ -17,7 +17,6 @@
 		F413288C1EC27A6300FB4DD9 /* ProcessInfo+TestMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D842AA1EBE9E95008F1415 /* ProcessInfo+TestMode.swift */; };
 		F413288E1EC27A6300FB4DD9 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C605FD1CA5BDFB004B4C09 /* Eureka.framework */; };
 		F413288F1EC27A6300FB4DD9 /* FontAwesome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C605FE1CA5BDFB004B4C09 /* FontAwesome.framework */; };
-		F41328901EC27A6300FB4DD9 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44F816C1E98458900D4BC0D /* XCGLogger.framework */; };
 		F41328911EC27A6300FB4DD9 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606011CA5BDFB004B4C09 /* RxSwift.framework */; };
 		F41328921EC27A6300FB4DD9 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606141CA5BF54004B4C09 /* Fabric.framework */; };
 		F41328931EC27A6300FB4DD9 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C606161CA5BFEF004B4C09 /* Crashlytics.framework */; };
@@ -48,7 +47,6 @@
 		F42979031CA6A3EB000A9470 /* SimulatorStatusMagiciOS.framework in Carthage */ = {isa = PBXBuildFile; fileRef = F4C6061D1CA5CCFE004B4C09 /* SimulatorStatusMagiciOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F43C5F401EECC14300DB8998 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F43C5F3F1EECC14300DB8998 /* Settings.bundle */; };
 		F43C5F411EECC14300DB8998 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F43C5F3F1EECC14300DB8998 /* Settings.bundle */; };
-		F44F816D1E98458900D4BC0D /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44F816C1E98458900D4BC0D /* XCGLogger.framework */; };
 		F45404471EECCF020071610E /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F45404461EECCF020071610E /* RxCocoa.framework */; };
 		F45404481EECCF020071610E /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F45404461EECCF020071610E /* RxCocoa.framework */; };
 		F45404491EECCF080071610E /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F45404461EECCF020071610E /* RxCocoa.framework */; };
@@ -217,7 +215,6 @@
 		F42367871E9A71420020D673 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F425CAE21C95FE9A000430F8 /* FontAwesomeTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeTabBarItem.swift; sourceTree = "<group>"; };
 		F43C5F3F1EECC14300DB8998 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		F44F816C1E98458900D4BC0D /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
 		F45404461EECCF020071610E /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		F46AEE5A1CA174F9005E6728 /* NetTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F46AEE5C1CA174F9005E6728 /* NetTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetTimeUITests.swift; sourceTree = "<group>"; };
@@ -263,7 +260,6 @@
 				F413288E1EC27A6300FB4DD9 /* Eureka.framework in Frameworks */,
 				F413288F1EC27A6300FB4DD9 /* FontAwesome.framework in Frameworks */,
 				F45404481EECCF020071610E /* RxCocoa.framework in Frameworks */,
-				F41328901EC27A6300FB4DD9 /* XCGLogger.framework in Frameworks */,
 				F4C1777C1FB70AD100A9E2F5 /* ObjcExceptionBridging.framework in Frameworks */,
 				F41328911EC27A6300FB4DD9 /* RxSwift.framework in Frameworks */,
 				F41328921EC27A6300FB4DD9 /* Fabric.framework in Frameworks */,
@@ -295,7 +291,6 @@
 				F4C606041CA5BDFF004B4C09 /* Eureka.framework in Frameworks */,
 				F4C606051CA5BE01004B4C09 /* FontAwesome.framework in Frameworks */,
 				F45404471EECCF020071610E /* RxCocoa.framework in Frameworks */,
-				F44F816D1E98458900D4BC0D /* XCGLogger.framework in Frameworks */,
 				F4C606091CA5BE0E004B4C09 /* RxSwift.framework in Frameworks */,
 				F4C606151CA5BF54004B4C09 /* Fabric.framework in Frameworks */,
 				F4C1777B1FB70AC700A9E2F5 /* ObjcExceptionBridging.framework in Frameworks */,
@@ -379,7 +374,6 @@
 				F45404461EECCF020071610E /* RxCocoa.framework */,
 				F4C606011CA5BDFB004B4C09 /* RxSwift.framework */,
 				F4C6061D1CA5CCFE004B4C09 /* SimulatorStatusMagiciOS.framework */,
-				F44F816C1E98458900D4BC0D /* XCGLogger.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -767,16 +761,14 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Eureka.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/FontAwesome.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/XCGLogger.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ObjcExceptionBridging.framework",
 			);
 			name = Carthage;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		F41328A01EC27A6300FB4DD9 /* Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -790,7 +782,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 5f4aee798952d318e32c1d9e93ec424d70f634fe f9e249e1267d0c951408a34232552886b4e1fb9df2072dc7dc90ae36e3386514";
+			shellScript = "./Fabric.framework/run 5f4aee798952d318e32c1d9e93ec424d70f634fe f9e249e1267d0c951408a34232552886b4e1fb9df2072dc7dc90ae36e3386514\n";
 		};
 		F42367921E9A75B30020D673 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -817,9 +809,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Eureka.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/FontAwesome.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/XCGLogger.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ObjcExceptionBridging.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -832,7 +822,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		F4F51C061C97514D003B2853 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1008,7 +998,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = NetTime/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = APPSTORE;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime;
@@ -1032,7 +1022,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = NetTime/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = APPSTORE;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime;
@@ -1221,7 +1211,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "$(sigh_com.simonrice.NetTime_development)";
@@ -1271,7 +1261,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "$(sigh_com.simonrice.NetTime_appstore)";
 				SDKROOT = iphoneos;
@@ -1294,7 +1284,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = NetTime/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1317,7 +1307,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = NetTime/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1368,6 +1358,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = TodayExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1387,6 +1378,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = TodayExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simonrice.NetTime.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";

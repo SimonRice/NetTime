@@ -9,10 +9,6 @@
 import Fabric
 import Crashlytics
 import UIKit
-import XCGLogger
-
-// swiftlint:disable:next identifier_name
-let Log = XCGLogger.default
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

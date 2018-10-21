@@ -7,6 +7,7 @@
 //
 
 import FontAwesome
+import os
 import UIKit
 
 class FontAwesomeTabBarItem: UITabBarItem {
@@ -18,11 +19,12 @@ class FontAwesomeTabBarItem: UITabBarItem {
                 let fontAwesomeGlyph = FontAwesome(rawValue: fontAwesomeValue) {
                 let size = CGSize(width: 30, height: 30)
                 self.image = UIImage.fontAwesomeIcon(name: fontAwesomeGlyph,
-                                                     style: .regular,
+                                                     style: .solid,
                                                      textColor: .black,
                                                      size: size)
             } else {
-                Log.warning("Cound not find icon for \(self.iconName)")
+                os_log("%@", type: .error,
+                       "Cound not find icon for \(self.iconName)")
             }
         }
     }
