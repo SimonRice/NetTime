@@ -38,7 +38,7 @@ class NowViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let beatsObservable = Observable<Int>.interval(0.01, scheduler: MainScheduler.instance)
+        let beatsObservable = Observable<Int>.interval(0.002, scheduler: MainScheduler.instance)
 
         beatsObservable.map({ _ in String(format: "@%06.2f", self.date.beats) })
             .bind(to: beatsLabel.rx.text)
